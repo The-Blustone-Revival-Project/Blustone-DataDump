@@ -69,6 +69,15 @@ def main():
  if (ROOT/extra).exists():curated += [t for t in tables(extra) if 'jewel set' in t['section'].lower()]
  latest='findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md'
  curated += [t for t in tables(latest) if t['section'].startswith(('1.4 ','1.5 ','2.2 '))]
+ def indexed_tables(rows):
+  result=[];seen={}
+  for row in rows:
+   key=row['source']+'::'+row['section']+'::'+row['markdown'].splitlines()[0]
+   seen[key]=seen.get(key,0)+1
+   result.append({'id':key+'::'+str(seen[key]),**row})
+  return result
+ changes.update(compare({'curated_source_tables':indexed_tables(curated)},
+   {'datasets':{'curated_source_tables':indexed_tables(previous.get('curated_source_tables',[]))}} if previous else None))
  sources=[{'path':path,'sha256':digest((ROOT/path).read_bytes()),'records':len(datasets[name])} for name,path in DATASETS.items()]
  for path in sorted(set(t['source'] for t in curated)):
   sources.append({'path':path,'sha256':digest((ROOT/path).read_bytes())})

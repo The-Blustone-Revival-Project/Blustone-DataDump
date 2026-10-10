@@ -27,3 +27,5 @@ For another publication that day, add `--revision 2`. When a previous snapshot e
 The GitHub `Publish dated snapshot` workflow chooses today's next available date revision, validates datasets, downloads the previous public JSON for comparison, generates assets and creates a regular Latest release. Run it only after the intended data changes are reviewed and pushed.
 
 For local preparation, snapshots under `releases/<version>/` can be committed with the reviewed source. The first snapshot is committed there. Publication must point to the exact source commit and must never include `local/`, private captures, raw telemetry or account data.
+
+Incremental change counts cover both normalized dataset records and the curated screenshot/equipment tables, including changed provenance/context. A new research table or corrected equipment reading must not disappear behind unchanged normalized-record totals.
