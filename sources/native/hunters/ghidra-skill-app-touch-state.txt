@@ -1,0 +1,154 @@
+===== 010bef2c HandleTouch @ 010bef2c =====
+
+/* CRMApp::HandleTouch(CRMPoint const&, unsigned char, unsigned int) */
+
+void __thiscall CRMApp::HandleTouch(CRMApp *this,CRMPoint *param_1,uchar param_2,uint param_3)
+
+{
+  CRMApp *pCVar1;
+  int iVar2;
+  int iVar3;
+  undefined4 uVar4;
+  ImplicitProducer *this_00;
+  Block *pBVar5;
+  int *piVar6;
+  uint uVar7;
+  CRMApp *pCVar8;
+  uint uVar9;
+  uint uVar10;
+  CRMRenderer4 *this_01;
+  uint uVar11;
+  CRMApp *pCVar12;
+  undefined4 uVar13;
+  uint *local_34;
+
+  if (*(undefined4 **)(this + 4) != (undefined4 *)0x0) {
+    if (param_2 == '\0') {
+      this_01 = (CRMRenderer4 *)**(undefined4 **)(this + 4);
+      if (this_01 == (CRMRenderer4 *)0x0) {
+        _RMAssert('\0',(char *)(DAT_010bf124 + 0x10bef60),(char *)(DAT_010bf128 + 0x10bef62),0x4b,
+                  DAT_010bf12c + 0x10bef64);
+      }
+      iVar2 = CRMRenderer4::GetKeyCodeFromScreen(this_01,param_1);
+      if (iVar2 != 0) {
+        std::__ndk1::mutex::lock((mutex *)(this + 0x214));
+        iVar3 = *(int *)(this + 0x200);
+        uVar11 = 0;
+        if (*(int *)(this + 0x204) - iVar3 != 0) {
+          uVar11 = (*(int *)(this + 0x204) - iVar3) * 0x400 - 1;
+        }
+        uVar7 = *(int *)(this + 0x210) + *(int *)(this + 0x20c);
+        if (uVar11 == uVar7) {
+          std::__ndk1::deque<char,std::__ndk1::allocator<char>>::__add_back_capacity
+                    ((deque<char,std::__ndk1::allocator<char>> *)(this + 0x1fc));
+          iVar3 = *(int *)(this + 0x200);
+          uVar7 = *(int *)(this + 0x20c) + *(int *)(this + 0x210);
+        }
+        *(char *)(*(int *)(iVar3 + (uVar7 >> 0xc) * 4) + (uVar7 & 0xfff)) = (char)iVar2;
+        iVar2 = *(int *)(this + 0x210);
+        uVar11 = iVar2 + 1;
+        *(uint *)(this + 0x210) = uVar11;
+        if (0x20 < uVar11) {
+          iVar3 = *(int *)(this + 0x20c);
+          *(uint *)(this + 0x20c) = iVar3 + 1U;
+          *(int *)(this + 0x210) = iVar2;
+          if (0x1fff < iVar3 + 1U) {
+            operator_delete((void *)**(undefined4 **)(this + 0x200));
+            *(int *)(this + 0x200) = *(int *)(this + 0x200) + 4;
+            *(int *)(this + 0x20c) = *(int *)(this + 0x20c) + -0x1000;
+          }
+        }
+        std::__ndk1::mutex::unlock((mutex *)(this + 0x214));
+      }
+    }
+    uVar4 = RMGetInternalTime();
+    iVar2 = *(int *)param_1;
+    pCVar12 = *(CRMApp **)(param_1 + 4);
+    if (param_2 == '\x01') {
+      pCVar8 = this + param_3 * 0x14;
+      if (*(int *)(pCVar8 + 0x134) - 1U < 2) {
+        pCVar1 = pCVar8 + 300;
+        if (*(int *)pCVar1 == iVar2) {
+          pCVar8 = *(CRMApp **)(pCVar8 + 0x130);
+        }
+        if (*(int *)pCVar1 == iVar2 && pCVar8 == pCVar12) {
+          return;
+        }
+        uVar13 = 2;
+      }
+      else {
+        uVar13 = 1;
+      }
+    }
+    else {
+      uVar13 = 0;
+    }
+    *(uint *)(this + param_3 * 0x14 + 0x13c) = param_3;
+    *(undefined4 *)(this + param_3 * 0x14 + 0x138) = uVar4;
+    *(int *)(this + param_3 * 0x14 + 300) = iVar2;
+    *(CRMApp **)(this + param_3 * 0x14 + 0x130) = pCVar12;
+    *(undefined4 *)(this + param_3 * 0x14 + 0x134) = uVar13;
+    this_00 = (ImplicitProducer *)
+              moodycamel::ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+              get_or_add_implicit_producer
+                        (*(ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits> **
+                          )(this + 0x1f8));
+    if (this_00 != (ImplicitProducer *)0x0) {
+      uVar11 = *(uint *)(this_00 + 0x10);
+      uVar7 = uVar11 & 0x1f;
+      if (uVar7 == 0) {
+        if ((*(int *)(this_00 + 0x14) - uVar11) - 0x20 < 0x80000001) {
+          return;
+        }
+        piVar6 = *(int **)(this_00 + 0x30);
+        uVar9 = piVar6[1] + 1U & *piVar6 - 1U;
+        local_34 = *(uint **)(piVar6[3] + uVar9 * 4);
+        uVar10 = 1;
+        if (*local_34 != 1) {
+          uVar10 = local_34[1];
+        }
+        if (*local_34 != 1 && uVar10 != 0) {
+          iVar3 = moodycamel::ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>
+                  ::ImplicitProducer::new_block_index(this_00);
+          if (iVar3 == 0) {
+            return;
+          }
+          piVar6 = *(int **)(this_00 + 0x30);
+          uVar9 = piVar6[1] + 1U & *piVar6 - 1U;
+          local_34 = *(uint **)(piVar6[3] + uVar9 * 4);
+          *local_34 = uVar11;
+        }
+        else {
+          *local_34 = uVar11;
+        }
+        DataMemoryBarrier(0x1b);
+        piVar6[1] = uVar9;
+        pBVar5 = moodycamel::ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>
+                 ::
+                 requisition_block<(moodycamel::ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>::AllocationMode)0>
+                           (*(ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>
+                              **)(this_00 + 0x28));
+        if (pBVar5 == (Block *)0x0) {
+          piVar6 = *(int **)(this_00 + 0x30);
+          piVar6[1] = piVar6[1] - 1U & *piVar6 - 1U;
+          local_34[1] = 0;
+          return;
+        }
+        *(undefined4 *)(pBVar5 + 0x284) = 0;
+        local_34[1] = (uint)pBVar5;
+        *(Block **)(this_00 + 0x20) = pBVar5;
+      }
+      else {
+        pBVar5 = *(Block **)(this_00 + 0x20);
+      }
+      *(int *)(pBVar5 + uVar7 * 0x14) = iVar2;
+      *(uint *)(pBVar5 + uVar7 * 0x14 + 0x10) = param_3;
+      *(undefined4 *)(pBVar5 + uVar7 * 0x14 + 0xc) = uVar4;
+      *(CRMApp **)(pBVar5 + uVar7 * 0x14 + 4) = pCVar12;
+      *(undefined4 *)(pBVar5 + uVar7 * 0x14 + 8) = uVar13;
+      DataMemoryBarrier(0x1b);
+      *(uint *)(this_00 + 0x10) = uVar11 + 1;
+    }
+  }
+  return;
+}

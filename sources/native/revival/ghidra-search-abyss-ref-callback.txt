@@ -1,0 +1,28 @@
+===== 0xf84dc0 ReqAbyssCB @ 00f84dc0 =====
+
+/* CSRSyncRef::ReqAbyssCB(std::__ndk1::shared_ptr<CPVHTTPRequest> const&,
+   std::__ndk1::shared_ptr<CPVHTTPResponse> const&, nlohmann::basic_json<std::__ndk1::map,
+   std::__ndk1::vector, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, bool, long long, unsigned long long, double,
+   std::__ndk1::allocator, nlohmann::adl_serializer, std::__ndk1::vector<unsigned char,
+   std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall
+CSRSyncRef::ReqAbyssCB(CSRSyncRef *this,shared_ptr *param_1,shared_ptr *param_2,basic_json *param_3)
+
+{
+  int iVar1;
+  CSRDataMgr *this_00;
+  CSRRefData *this_01;
+  
+  if ((*(CPVHTTPResponse **)param_2 != (CPVHTTPResponse *)0x0) &&
+     (iVar1 = CPVHTTPResponse::GetResultCode(*(CPVHTTPResponse **)param_2), iVar1 != 1)) {
+    return;
+  }
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  this_01 = (CSRRefData *)CSRDataMgr::GetReferenceData(this_00);
+  CSRRefData::SetAbyss(this_01,param_3);
+  return;
+}
+
+

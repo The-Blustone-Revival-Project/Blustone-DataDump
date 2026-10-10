@@ -1,0 +1,15 @@
+===== 9dc562 OnPause @ 009dc562 =====
+
+/* CSRGameBase::OnPause() */
+
+void __thiscall CSRGameBase::OnPause(CSRGameBase *this)
+
+{
+  if (((byte)this[0x140] & 1) != 0) {
+    return;
+  }
+                    /* WARNING: Could not recover jumptable at 0x009dc570. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (**(code **)(*(int *)this + 0x70))();
+  return;
+}

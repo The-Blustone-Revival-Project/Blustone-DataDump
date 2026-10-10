@@ -1,0 +1,58 @@
+===== 0x87f5a0 destroy @ 0087f544 =====
+
+/* std::__ndk1::__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   std::__ndk1::shared_ptr<CSRCardInfo> >,
+   std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, std::__ndk1::__value_type<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   std::__ndk1::shared_ptr<CSRCardInfo> >, std::__ndk1::less<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > >, true>,
+   std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   std::__ndk1::shared_ptr<CSRCardInfo> > >
+   >::destroy(std::__ndk1::__tree_node<std::__ndk1::__value_type<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   std::__ndk1::shared_ptr<CSRCardInfo> >, void*>*) */
+
+void __thiscall
+std::__ndk1::
+__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>>>
+::destroy(__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>>>
+          *this,__tree_node *param_1)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  __shared_weak_count *this_00;
+  
+  if (param_1 == (__tree_node *)0x0) {
+    return;
+  }
+  destroy(this,*(__tree_node **)param_1);
+  destroy(this,*(__tree_node **)(param_1 + 4));
+  this_00 = *(__shared_weak_count **)(param_1 + 0x20);
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var2 = this_00 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar3 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      __shared_weak_count::__release_weak(this_00);
+    }
+  }
+  if (((byte)param_1[0x10] & 1) != 0) {
+    operator_delete(*(void **)(param_1 + 0x18));
+  }
+  operator_delete(param_1);
+  return;
+}
+
+

@@ -1,0 +1,196 @@
+===== 006e7008 make_shared<> @ 006e7008 =====
+
+/* std::__ndk1::shared_ptr<CMSpineNode> std::__ndk1::shared_ptr<CMSpineNode>::make_shared<>() */
+
+void __thiscall std::__ndk1::shared_ptr<CMSpineNode>::make_shared<>(shared_ptr<CMSpineNode> *this)
+
+{
+  __shared_weak_count *p_Var1;
+  __shared_weak_count *p_Var2;
+  bool bVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  __shared_weak_count *this_00;
+  int *piVar7;
+  int iVar8;
+  __shared_weak_count *this_01;
+  __shared_weak_count *p_Var9;
+  CMDrawable *this_02;
+
+  this_00 = operator_new(0x8b0);
+  piVar7 = (int *)(DAT_006e7138 + 0x6e7028);
+  p_Var1 = this_00 + 8;
+  *(undefined4 *)p_Var1 = 0;
+  iVar8 = *piVar7;
+  p_Var2 = this_00 + 4;
+  *(undefined4 *)p_Var2 = 0;
+  this_02 = (CMDrawable *)(this_00 + 0x10);
+  *(int *)this_00 = iVar8 + 8;
+  __aeabi_memclr8(this_02,0x8a0);
+  CMDrawable::CMDrawable(this_02);
+  iVar8 = DAT_006e713c;
+  uVar4 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uVar5 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar6 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  p_Var9 = this_00 + 0x8a4;
+  *(undefined2 *)(this_00 + 0x834) = 0;
+  *(__shared_weak_count **)(this_00 + 0x8a8) = p_Var9;
+  *(undefined4 *)(this_00 + 0x8ac) = 0;
+  *(undefined4 *)(this_00 + 0x838) = 0;
+  *(undefined4 *)(this_00 + 0x83c) = uVar4;
+  *(undefined4 *)(this_00 + 0x840) = uVar5;
+  *(undefined4 *)(this_00 + 0x844) = uVar6;
+  *(undefined4 *)(this_00 + 0x848) = 0;
+  *(undefined4 *)(this_00 + 0x84c) = uVar4;
+  *(undefined4 *)(this_00 + 0x850) = uVar5;
+  *(undefined4 *)(this_00 + 0x854) = uVar6;
+  *(undefined4 *)(this_00 + 0x858) = 0;
+  *(undefined4 *)(this_00 + 0x85c) = uVar4;
+  *(undefined4 *)(this_00 + 0x860) = uVar5;
+  *(undefined4 *)(this_00 + 0x864) = uVar6;
+  iVar8 = *(int *)(iVar8 + 0x6e7068);
+  *(undefined4 *)(this_00 + 0x868) = 0;
+  *(undefined4 *)(this_00 + 0x86c) = uVar4;
+  *(undefined4 *)(this_00 + 0x870) = uVar5;
+  *(undefined4 *)(this_00 + 0x874) = uVar6;
+  *(undefined4 *)(this_00 + 0x878) = 0;
+  *(undefined4 *)(this_00 + 0x87c) = uVar4;
+  *(undefined4 *)(this_00 + 0x880) = uVar5;
+  *(undefined4 *)(this_00 + 0x884) = uVar6;
+  *(undefined4 *)(this_00 + 0x888) = 0;
+  *(__shared_weak_count **)(this_00 + 0x88c) = this_00 + 0x890;
+  *(undefined4 *)(this_00 + 0x890) = 0;
+  *(undefined4 *)(this_00 + 0x894) = 0;
+  *(__shared_weak_count **)(this_00 + 0x898) = this_00 + 0x898;
+  *(__shared_weak_count **)(this_00 + 0x89c) = this_00 + 0x898;
+  *(undefined4 *)(this_00 + 0x8a0) = 0;
+  *(__shared_weak_count **)(this_00 + 0x8a4) = p_Var9;
+  *(int *)(this_00 + 0x10) = iVar8 + 8;
+  this_01 = *(__shared_weak_count **)(this_00 + 0x18);
+  *(CMDrawable **)this = this_02;
+  *(__shared_weak_count **)(this + 4) = this_00;
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var9 = *(__shared_weak_count **)(this_01 + 4);
+  }
+  if (this_01 == (__shared_weak_count *)0x0 || p_Var9 == (__shared_weak_count *)0xffffffff) {
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar3 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar3);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    *(CMDrawable **)(this_00 + 0x14) = this_02;
+    *(__shared_weak_count **)(this_00 + 0x18) = this_00;
+    if (this_01 != (__shared_weak_count *)0x0) {
+      __shared_weak_count::__release_weak(this_01);
+    }
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar8 = *(int *)p_Var2;
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      __shared_weak_count::__release_weak(this_00);
+      return;
+    }
+  }
+  return;
+}
+
+
+
+===== 006e7194 __on_zero_shared @ 006e7194 =====
+
+/* std::__ndk1::__shared_ptr_emplace<CMSpineNode, std::__ndk1::allocator<CMSpineNode>
+   >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::__shared_ptr_emplace<CMSpineNode,std::__ndk1::allocator<CMSpineNode>>::__on_zero_shared
+          (__shared_ptr_emplace<CMSpineNode,std::__ndk1::allocator<CMSpineNode>> *this)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x006e719a. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (*(code *)**(undefined4 **)(this + 0x10))(this + 0x10);
+  return;
+}
+
+
+
+===== 00789a58 FUN_00789a58 @ 00789a58 =====
+
+void FUN_00789a58(int *param_1,int *param_2,int param_3)
+
+{
+  bool bVar1;
+  __shared_weak_count *this;
+  __shared_weak_count *p_Var2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  int *piVar5;
+
+  if ((__shared_weak_count *)param_2[1] != (__shared_weak_count *)0x0) {
+    iVar4 = *param_2;
+    this = (__shared_weak_count *)
+           std::__ndk1::__shared_weak_count::lock((__shared_weak_count *)param_2[1]);
+    if (this != (__shared_weak_count *)0x0) {
+      if (*(int *)(param_3 + 0x10) == *(int *)(iVar4 + 0x268) &&
+          *(int *)(param_3 + 0x14) == *(int *)(iVar4 + 0x26c)) {
+        *param_1 = iVar4;
+        param_1[1] = (int)this;
+      }
+      else {
+        std::__ndk1::recursive_mutex::lock((recursive_mutex *)(param_2 + 0x10));
+        for (piVar5 = (int *)param_2[0x12]; param_2 + 0x11 != piVar5; piVar5 = (int *)piVar5[1]) {
+          FUN_00789a58(param_1,piVar5[2] + 4,param_3);
+          if (*param_1 != 0) goto LAB_00789af4;
+          p_Var3 = (__shared_weak_count *)param_1[1];
+          if (p_Var3 != (__shared_weak_count *)0x0) {
+            p_Var2 = p_Var3 + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var2);
+              iVar4 = *(int *)p_Var2;
+              bVar1 = (bool)hasExclusiveAccess(p_Var2);
+            } while (!bVar1);
+            *(int *)p_Var2 = iVar4 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar4 == 0) {
+              (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+              std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+            }
+          }
+        }
+        *param_1 = 0;
+        param_1[1] = 0;
+LAB_00789af4:
+        std::__ndk1::recursive_mutex::unlock((recursive_mutex *)(param_2 + 0x10));
+        p_Var3 = this + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar4 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 == 0) {
+          (**(code **)(*(int *)this + 8))(this);
+          std::__ndk1::__shared_weak_count::__release_weak(this);
+        }
+      }
+      return;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  FUN_006e9a4c();
+}

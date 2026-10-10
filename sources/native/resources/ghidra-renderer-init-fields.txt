@@ -1,0 +1,33 @@
+===== 010dd1c4 Init @ 010dd1c4 =====
+
+/* CRMRenderer4::Init(CRMRect const&, RM_SCREEN_FIT) */
+
+undefined4 __thiscall CRMRenderer4::Init(CRMRenderer4 *this,undefined4 param_1,undefined4 param_3)
+
+{
+  int iVar1;
+  int iVar2;
+
+  iVar2 = **(int **)(DAT_010dd25c + 0x10dd1da);
+  iVar1 = DAT_010dd260 + 0x10dd1e2;
+  if (iVar2 == 0) {
+    _RMAssert('\0',(char *)(DAT_010dd264 + 0x10dd1ee),(char *)(DAT_010dd268 + 0x10dd1f2),0x4b,iVar1)
+    ;
+  }
+  iVar2 = *(int *)(iVar2 + 4);
+  if (iVar2 == 0) {
+    _RMAssert('\0',(char *)(DAT_010dd26c + 0x10dd204),(char *)(DAT_010dd270 + 0x10dd208),0x4b,iVar1)
+    ;
+  }
+  *(undefined4 *)(this + 0xf8) = *(undefined4 *)(iVar2 + 4);
+  (**(code **)(*(int *)this + 0x38))(this,0xff000000);
+  (**(code **)(*(int *)this + 0x3c))(this);
+  *(undefined4 *)(this + 0xd8) = 0;
+  *(undefined4 *)(this + 0xdc) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 0xe0) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0xe4) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  CRMTransfStack::PushIdentity((CRMTransfStack *)(this + 0xbc));
+  SetScreenArea(this,param_1,param_3);
+  CRMVertexPool::Init((CRMVertexPool *)(*(int *)(DAT_010dd274 + 0x10dd24c) + 0x18),0x1000);
+  return 1;
+}

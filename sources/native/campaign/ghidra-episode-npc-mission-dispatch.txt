@@ -1,0 +1,731 @@
+===== ec6ff4 OnButtonClick @ 00ec6ff4 =====
+
+/* CSRSceneNPCDlg::OnButtonClick(CMUIView*, CMUIBase*) */
+
+void CSRSceneNPCDlg::OnButtonClick(CMUIView *param_1,CMUIBase *param_2)
+
+{
+  bool bVar1;
+  int *piVar2;
+  uint uVar3;
+  uint *puVar4;
+  int *piVar5;
+  CSRUIModalHandler *pCVar6;
+  __shared_weak_count *p_Var7;
+  code *pcVar8;
+  __shared_weak_count *p_Var9;
+  int iVar10;
+  int in_r2;
+  uint uVar11;
+  undefined4 in_r3;
+  undefined4 extraout_r3;
+  undefined4 extraout_r3_00;
+  uint *puVar12;
+  basic_string *pbVar13;
+  mutex *pmVar14;
+  int *piVar15;
+  char *in_stack_ffffffa0;
+  int *local_58;
+  __shared_weak_count *local_54;
+  int *local_50;
+  __shared_weak_count *local_4c;
+  int *local_48;
+  __shared_weak_count *local_44;
+  uint local_40;
+  CMUIView *pCStack_3c;
+  void *local_38;
+  uint local_34;
+  uint *local_30;
+  void *local_2c;
+  int local_24;
+  
+  piVar15 = *(int **)(DAT_00ec736c + 0xec700a);
+  local_24 = *piVar15;
+  uVar3 = CMHashID::Crc32((CMHashID *)&DAT_00000007,CONCAT44(in_r3,DAT_00ec7370 + 0xec701a),
+                          in_stack_ffffffa0);
+  if (*(int *)(in_r2 + 0x26c) == 0 && (uVar3 ^ *(uint *)(in_r2 + 0x268)) == 0xffffffff) {
+    std::__ndk1::shared_ptr<CSRPopUpShopFuel>::make_shared<>
+              ((shared_ptr<CSRPopUpShopFuel> *)&local_48);
+    (**(code **)(*local_48 + 8))(local_48,0);
+    piVar2 = local_48;
+    local_40 = DAT_00ec7374 + 0xec704c;
+    pmVar14 = (mutex *)(local_48 + 0x27);
+    pCStack_3c = param_1;
+    local_30 = &local_40;
+    std::__ndk1::mutex::lock(pmVar14);
+    puVar12 = (uint *)piVar2[0x29];
+    if (puVar12 < (uint *)piVar2[0x2a]) {
+      puVar4 = *(uint **)(DAT_00ec7378 + 0xec7066);
+      uVar3 = *puVar4 + 1;
+      uVar11 = puVar4[1] + (uint)(0xfffffffe < *puVar4);
+      *puVar4 = uVar3;
+      puVar4[1] = uVar11;
+      *puVar12 = uVar3;
+      puVar12[1] = uVar11;
+      if (local_30 == (uint *)0x0) {
+        uVar3 = 0;
+LAB_00ec71f6:
+        puVar12[6] = uVar3;
+      }
+      else {
+        if (&local_40 != local_30) {
+          uVar3 = (**(code **)(*local_30 + 8))();
+          goto LAB_00ec71f6;
+        }
+        puVar12[6] = (uint)(puVar12 + 2);
+        (**(code **)(*local_30 + 0xc))();
+      }
+      piVar2[0x29] = (int)(puVar12 + 8);
+    }
+    else {
+      std::__ndk1::vector<CMEventSet<>,std::__ndk1::allocator<CMEventSet<>>>::
+      __emplace_back_slow_path<std::__ndk1::function<void()>const&>
+                ((vector<CMEventSet<>,std::__ndk1::allocator<CMEventSet<>>> *)(piVar2 + 0x28),
+                 (function *)&local_40);
+    }
+    std::__ndk1::mutex::unlock(pmVar14);
+    if (&local_40 == local_30) {
+      pcVar8 = *(code **)(*local_30 + 0x10);
+LAB_00ec722a:
+      (*pcVar8)();
+    }
+    else if (local_30 != (uint *)0x0) {
+      pcVar8 = *(code **)(*local_30 + 0x14);
+      goto LAB_00ec722a;
+    }
+    pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+    local_50 = local_48;
+    local_4c = local_44;
+    if (local_44 != (__shared_weak_count *)0x0) {
+      p_Var9 = local_44 + 4;
+      do {
+        ExclusiveAccess(p_Var9);
+        bVar1 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar1);
+      *(int *)p_Var9 = *(int *)p_Var9 + 1;
+    }
+    CSRUIModalHandler::Push(pCVar6,&local_50,0);
+    p_Var9 = local_4c;
+    if (local_4c != (__shared_weak_count *)0x0) {
+      p_Var7 = local_4c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var7);
+        iVar10 = *(int *)p_Var7;
+        bVar1 = (bool)hasExclusiveAccess(p_Var7);
+      } while (!bVar1);
+      *(int *)p_Var7 = iVar10 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar10 == 0) {
+        (**(code **)(*(int *)local_4c + 8))(local_4c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+      }
+    }
+    if (local_44 == (__shared_weak_count *)0x0) goto LAB_00ec7356;
+    p_Var9 = local_44 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar10 = *(int *)p_Var9;
+      bVar1 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar1);
+    *(int *)p_Var9 = iVar10 + -1;
+    p_Var9 = local_44;
+  }
+  else {
+    uVar3 = CMHashID::Crc32((CMHashID *)&DAT_00000007,CONCAT44(extraout_r3,DAT_00ec737c + 0xec7098),
+                            in_stack_ffffffa0);
+    if (*(int *)(in_r2 + 0x26c) == 0 && (uVar3 ^ *(uint *)(in_r2 + 0x268)) == 0xffffffff) {
+      std::__ndk1::shared_ptr<CSRPopUpShopGold>::make_shared<>
+                ((shared_ptr<CSRPopUpShopGold> *)&local_48);
+      (**(code **)(*local_48 + 8))(local_48,0);
+      piVar2 = local_48;
+      local_40 = DAT_00ec7380 + 0xec70ca;
+      pmVar14 = (mutex *)(local_48 + 0x1d);
+      pCStack_3c = param_1;
+      local_30 = &local_40;
+      std::__ndk1::mutex::lock(pmVar14);
+      piVar5 = operator_new(0x20);
+      *piVar5 = 0;
+      if (local_30 == (uint *)0x0) {
+        piVar5[6] = 0;
+      }
+      else if (&local_40 == local_30) {
+        piVar5[6] = (int)(piVar5 + 2);
+        (**(code **)(*local_30 + 0xc))();
+      }
+      else {
+        iVar10 = (**(code **)(*local_30 + 8))();
+        piVar5[6] = iVar10;
+      }
+      piVar5[1] = (int)(piVar2 + 0x21);
+      iVar10 = piVar2[0x21];
+      *piVar5 = iVar10;
+      *(int **)(iVar10 + 4) = piVar5;
+      piVar2[0x21] = (int)piVar5;
+      piVar2[0x23] = piVar2[0x23] + 1;
+      std::__ndk1::mutex::unlock(pmVar14);
+      if (&local_40 == local_30) {
+        pcVar8 = *(code **)(*local_30 + 0x10);
+LAB_00ec72d6:
+        (*pcVar8)();
+      }
+      else if (local_30 != (uint *)0x0) {
+        pcVar8 = *(code **)(*local_30 + 0x14);
+        goto LAB_00ec72d6;
+      }
+      pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+      local_58 = local_48;
+      local_54 = local_44;
+      if (local_44 != (__shared_weak_count *)0x0) {
+        p_Var9 = local_44 + 4;
+        do {
+          ExclusiveAccess(p_Var9);
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = *(int *)p_Var9 + 1;
+      }
+      CSRUIModalHandler::Push(pCVar6,&local_58,0);
+      p_Var9 = local_54;
+      if (local_54 != (__shared_weak_count *)0x0) {
+        p_Var7 = local_54 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var7);
+          iVar10 = *(int *)p_Var7;
+          bVar1 = (bool)hasExclusiveAccess(p_Var7);
+        } while (!bVar1);
+        *(int *)p_Var7 = iVar10 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar10 == 0) {
+          (**(code **)(*(int *)local_54 + 8))(local_54);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      if (local_44 == (__shared_weak_count *)0x0) goto LAB_00ec7356;
+      p_Var9 = local_44 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var9);
+        iVar10 = *(int *)p_Var9;
+        bVar1 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar1);
+      *(int *)p_Var9 = iVar10 + -1;
+      p_Var9 = local_44;
+    }
+    else {
+      uVar3 = CMHashID::Crc32((CMHashID *)&DAT_00000007,
+                              CONCAT44(extraout_r3_00,DAT_00ec7384 + 0xec7108),in_stack_ffffffa0);
+      if (*(int *)(in_r2 + 0x26c) != 0 || (uVar3 ^ *(uint *)(in_r2 + 0x268)) != 0xffffffff)
+      goto LAB_00ec7356;
+      std::__ndk1::shared_ptr<CSRPopUpItemDetail>::make_shared<>
+                ((shared_ptr<CSRPopUpItemDetail> *)&local_48);
+      pCStack_3c = *(CMUIView **)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+      local_38 = *(void **)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+      local_34 = *(uint *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+      local_30 = (uint *)0x0;
+      pbVar13 = *(basic_string **)(DAT_00ec7388 + 0xec712e);
+      local_40 = 0;
+      local_2c = (void *)0x0;
+      iVar10 = std::__ndk1::
+               basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+               basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                             *)&local_40,pbVar13);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )(iVar10 + 0xc),pbVar13);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00ec738c + 0xec714c),3);
+      (**(code **)(*local_48 + 8))(local_48,&local_40);
+      pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+      p_Var9 = local_44;
+      if (local_44 != (__shared_weak_count *)0x0) {
+        p_Var7 = local_44 + 4;
+        do {
+          ExclusiveAccess(p_Var7);
+          bVar1 = (bool)hasExclusiveAccess(p_Var7);
+        } while (!bVar1);
+        *(int *)p_Var7 = *(int *)p_Var7 + 1;
+      }
+      CSRUIModalHandler::Push(pCVar6,&stack0xffffffa0,0);
+      if (p_Var9 != (__shared_weak_count *)0x0) {
+        p_Var7 = p_Var9 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var7);
+          iVar10 = *(int *)p_Var7;
+          bVar1 = (bool)hasExclusiveAccess(p_Var7);
+        } while (!bVar1);
+        *(int *)p_Var7 = iVar10 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar10 == 0) {
+          (**(code **)(*(int *)p_Var9 + 8))(p_Var9);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      if ((local_34 & 1) != 0) {
+        operator_delete(local_2c);
+      }
+      if ((local_40 & 1) != 0) {
+        operator_delete(local_38);
+      }
+      if (local_44 == (__shared_weak_count *)0x0) goto LAB_00ec7356;
+      p_Var9 = local_44 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var9);
+        iVar10 = *(int *)p_Var9;
+        bVar1 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar1);
+      *(int *)p_Var9 = iVar10 + -1;
+      p_Var9 = local_44;
+    }
+  }
+  DataMemoryBarrier(0x1b);
+  if (iVar10 == 0) {
+    (**(code **)(*(int *)p_Var9 + 8))(p_Var9);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+  }
+LAB_00ec7356:
+  if (*piVar15 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== ec5e94 Init @ 00ec5e94 =====
+
+/* CSRSceneNPCDlg::Init(void*) */
+
+void __thiscall CSRSceneNPCDlg::Init(CSRSceneNPCDlg *this,void *param_1)
+
+{
+  uint uVar1;
+  CSRDataMgr *this_00;
+  __shared_weak_count *p_Var2;
+  undefined4 uVar3;
+  CSRSceneNPCDlg *pCVar4;
+  int iVar5;
+  __tree_node_base *p_Var6;
+  void *pvVar7;
+  CSRSceneNPCDlg *pCVar8;
+  __shared_weak_count *p_Var9;
+  __tree_node_base *p_Var10;
+  int *piVar11;
+  CSRSceneNPCDlg *pCVar12;
+  CSRSceneNPCDlg *pCVar13;
+  CSRSceneNPCDlg *pCVar14;
+  CSRSceneNPCDlg *pCVar15;
+  int *piVar16;
+  bool bVar17;
+  uint local_44;
+  __shared_weak_count *local_40;
+  void *local_3c;
+  undefined4 local_38;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34 [4];
+  uint local_30;
+  void *local_2c;
+  int local_28;
+  
+  piVar16 = *(int **)(DAT_00ec61c4 + 0xec5ea8);
+  local_28 = *piVar16;
+  if (param_1 == (void *)0x0) {
+    _RMAssert('\0',(char *)(DAT_00ec61cc + 0xec5ec0),(char *)(DAT_00ec61d0 + 0xec5ec4),0x31,
+              DAT_00ec61c8 + 0xec5ebc,DAT_00ec61d4 + 0xec5ec6,DAT_00ec61d8 + 0xec5ec8);
+  }
+  this[0x6f6] = (CSRSceneNPCDlg)0x1;
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  CSRDataMgr::GetStaticData(this_00);
+  CSRStaticData::SetNotiBadgeJson();
+  local_38 = *(undefined4 *)param_1;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string(local_34,(basic_string *)((int)param_1 + 4));
+  iVar5 = DAT_00ec61dc;
+  *(undefined4 *)(this + 0x658) = local_38;
+  CMUIView::LoadView((CMUIView *)&local_44,(char *)(iVar5 + 0xec5f02),(Listener *)(this + 0x654));
+  p_Var2 = local_40;
+  uVar1 = local_44;
+  local_44 = 0;
+  local_40 = (__shared_weak_count *)0x0;
+  p_Var9 = *(__shared_weak_count **)(this + 0x6e4);
+  *(uint *)(this + 0x6e0) = uVar1;
+  *(__shared_weak_count **)(this + 0x6e4) = p_Var2;
+  if (p_Var9 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var9 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar5 = *(int *)p_Var2;
+      bVar17 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar17);
+    *(int *)p_Var2 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Var9 + 8))(p_Var9);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+    }
+  }
+  p_Var2 = local_40;
+  if (local_40 != (__shared_weak_count *)0x0) {
+    p_Var9 = local_40 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar5 = *(int *)p_Var9;
+      bVar17 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar17);
+    *(int *)p_Var9 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_40 + 8))(local_40);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+    }
+  }
+  uVar3 = CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec61e0 + 0xec5f80));
+  pCVar15 = this + 0x6ec;
+  pCVar12 = *(CSRSceneNPCDlg **)(this + 0x6ec);
+  pCVar8 = pCVar15;
+  while (pCVar13 = pCVar8, pCVar12 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar13 = pCVar12, (int)*(uint *)(pCVar13 + 0x10) < 1) {
+      if (*(uint *)(pCVar13 + 0x10) < 0x80000000) goto LAB_00ec5fba;
+      pCVar8 = pCVar13 + 4;
+      pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      if (*(CSRSceneNPCDlg **)pCVar8 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec5fba;
+    }
+    pCVar8 = pCVar13;
+    pCVar12 = *(CSRSceneNPCDlg **)pCVar13;
+  }
+LAB_00ec5fba:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 0;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar13;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  *(undefined4 *)(p_Var10 + 0x14) = uVar3;
+  uVar3 = CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec61e4 + 0xec6006));
+  pCVar8 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar12 = pCVar15;
+  while (pCVar13 = pCVar12, pCVar8 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar12 = pCVar8, iVar5 = *(int *)(pCVar12 + 0x10), iVar5 < 2) {
+      pCVar8 = (CSRSceneNPCDlg *)0x1;
+      if (iVar5 != 1) {
+        pCVar13 = pCVar12 + 4;
+        pCVar8 = *(CSRSceneNPCDlg **)pCVar13;
+      }
+      if (iVar5 == 1 || pCVar8 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec603c;
+    }
+    pCVar8 = *(CSRSceneNPCDlg **)pCVar12;
+  }
+LAB_00ec603c:
+  p_Var10 = *(__tree_node_base **)pCVar13;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 1;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar12;
+    *(__tree_node_base **)pCVar13 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar13;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  *(undefined4 *)(p_Var10 + 0x14) = uVar3;
+  uVar3 = CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec61e8 + 0xec608a));
+  pCVar12 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar8 = pCVar15;
+  while (pCVar13 = pCVar8, pCVar12 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar13 = pCVar12, pCVar12 = *(CSRSceneNPCDlg **)(pCVar13 + 0x10), (int)pCVar12 < 3) {
+      bVar17 = pCVar12 != (CSRSceneNPCDlg *)0x2;
+      if (bVar17) {
+        pCVar8 = pCVar13 + 4;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      }
+      if (!bVar17 || pCVar12 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec60c0;
+    }
+    pCVar8 = pCVar13;
+    pCVar12 = *(CSRSceneNPCDlg **)pCVar13;
+  }
+LAB_00ec60c0:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 2;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar13;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  *(undefined4 *)(p_Var10 + 0x14) = uVar3;
+  uVar3 = CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec61ec + 0xec610e));
+  pCVar12 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar8 = pCVar15;
+  while (pCVar13 = pCVar8, pCVar12 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar13 = pCVar12, pCVar12 = *(CSRSceneNPCDlg **)(pCVar13 + 0x10), (int)pCVar12 < 4) {
+      bVar17 = pCVar12 != (CSRSceneNPCDlg *)0x3;
+      if (bVar17) {
+        pCVar8 = pCVar13 + 4;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      }
+      if (!bVar17 || pCVar12 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec6144;
+    }
+    pCVar8 = pCVar13;
+    pCVar12 = *(CSRSceneNPCDlg **)pCVar13;
+  }
+LAB_00ec6144:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 3;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar13;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  *(undefined4 *)(p_Var10 + 0x14) = uVar3;
+  uVar3 = CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec64d8 + 0xec6192));
+  pCVar12 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar8 = pCVar15;
+  while (pCVar13 = pCVar8, pCVar12 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar13 = pCVar12, pCVar12 = *(CSRSceneNPCDlg **)(pCVar13 + 0x10), (int)pCVar12 < 5) {
+      bVar17 = pCVar12 != (CSRSceneNPCDlg *)&DAT_00000004;
+      if (bVar17) {
+        pCVar8 = pCVar13 + 4;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      }
+      if (!bVar17 || pCVar12 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec61f4;
+    }
+    pCVar8 = pCVar13;
+    pCVar12 = *(CSRSceneNPCDlg **)pCVar13;
+  }
+LAB_00ec61f4:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 4;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar13;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  *(undefined4 *)(p_Var10 + 0x14) = uVar3;
+  uVar3 = CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec64dc + 0xec6242));
+  pCVar12 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar8 = pCVar15;
+  while (pCVar13 = pCVar8, pCVar12 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar13 = pCVar12, pCVar12 = *(CSRSceneNPCDlg **)(pCVar13 + 0x10), (int)pCVar12 < 6) {
+      bVar17 = pCVar12 != (CSRSceneNPCDlg *)&DAT_00000005;
+      if (bVar17) {
+        pCVar8 = pCVar13 + 4;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      }
+      if (!bVar17 || pCVar12 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec6278;
+    }
+    pCVar8 = pCVar13;
+    pCVar12 = *(CSRSceneNPCDlg **)pCVar13;
+  }
+LAB_00ec6278:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 5;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar13;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  *(undefined4 *)(p_Var10 + 0x14) = uVar3;
+  pCVar12 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar8 = pCVar15;
+  while (pCVar13 = pCVar8, pCVar12 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar13 = pCVar12, pCVar12 = *(CSRSceneNPCDlg **)(pCVar13 + 0x10), (int)pCVar12 < 6) {
+      bVar17 = pCVar12 != (CSRSceneNPCDlg *)&DAT_00000005;
+      if (bVar17) {
+        pCVar8 = pCVar13 + 4;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      }
+      if (!bVar17 || pCVar12 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec62ee;
+    }
+    pCVar8 = pCVar13;
+    pCVar12 = *(CSRSceneNPCDlg **)pCVar13;
+  }
+LAB_00ec62ee:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 5;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar13;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  CMUpdatable::SetVisible(*(CMUpdatable **)(p_Var10 + 0x14),'\0');
+  pCVar4 = (CSRSceneNPCDlg *)
+           CMUIView::GetPanelPtr(*(CMUIView **)(this + 0x6e0),(char *)(DAT_00ec64e0 + 0xec6340));
+  pCVar12 = pCVar4;
+  pCVar8 = pCVar15;
+  pCVar13 = *(CSRSceneNPCDlg **)pCVar15;
+  pCVar14 = pCVar15;
+  if (*(CSRSceneNPCDlg **)pCVar15 != (CSRSceneNPCDlg *)0x0) {
+    do {
+      while (pCVar14 = pCVar13, pCVar12 = *(CSRSceneNPCDlg **)(pCVar14 + 0x10), 6 < (int)pCVar12) {
+        pCVar8 = pCVar14;
+        pCVar13 = *(CSRSceneNPCDlg **)pCVar14;
+        if (*(CSRSceneNPCDlg **)pCVar14 == (CSRSceneNPCDlg *)0x0) {
+          pCVar12 = (CSRSceneNPCDlg *)0x0;
+          goto LAB_00ec6376;
+        }
+      }
+      bVar17 = pCVar12 != (CSRSceneNPCDlg *)&DAT_00000006;
+      if (bVar17) {
+        pCVar8 = pCVar14 + 4;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      }
+      pCVar13 = pCVar12;
+    } while (bVar17 && pCVar12 != (CSRSceneNPCDlg *)0x0);
+  }
+LAB_00ec6376:
+  p_Var10 = *(__tree_node_base **)pCVar8;
+  if (p_Var10 == (__tree_node_base *)0x0) {
+    p_Var10 = operator_new(0x18);
+    *(undefined4 *)(p_Var10 + 0x10) = 6;
+    *(undefined4 *)(p_Var10 + 0x14) = 0;
+    *(undefined4 *)p_Var10 = 0;
+    *(undefined4 *)(p_Var10 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var10 + 8) = pCVar14;
+    *(__tree_node_base **)pCVar8 = p_Var10;
+    p_Var6 = p_Var10;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var6 = *(__tree_node_base **)pCVar8;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var6);
+    pCVar12 = (CSRSceneNPCDlg *)(*(int *)(this + 0x6f0) + 1);
+    *(CSRSceneNPCDlg **)(this + 0x6f0) = pCVar12;
+  }
+  *(CSRSceneNPCDlg **)(p_Var10 + 0x14) = pCVar4;
+  pCVar8 = *(CSRSceneNPCDlg **)(this + 0x6e8);
+  while (pCVar8 != pCVar15) {
+    CMUpdatable::SetVisible(*(CMUpdatable **)(pCVar8 + 0x14),'\0');
+    pCVar12 = *(CSRSceneNPCDlg **)(pCVar8 + 4);
+    if (*(CSRSceneNPCDlg **)(pCVar8 + 4) == (CSRSceneNPCDlg *)0x0) {
+      pCVar12 = pCVar8 + 8;
+      bVar17 = *(CSRSceneNPCDlg **)*(CSRSceneNPCDlg **)pCVar12 != pCVar8;
+      pCVar8 = *(CSRSceneNPCDlg **)pCVar12;
+      if (bVar17) {
+        do {
+          iVar5 = *(int *)pCVar12;
+          pCVar12 = (CSRSceneNPCDlg *)(iVar5 + 8);
+          pCVar8 = *(CSRSceneNPCDlg **)pCVar12;
+        } while (*(int *)pCVar8 != iVar5);
+      }
+    }
+    else {
+      do {
+        pCVar8 = pCVar12;
+        pCVar12 = *(CSRSceneNPCDlg **)pCVar8;
+      } while (pCVar12 != (CSRSceneNPCDlg *)0x0);
+      pCVar12 = (CSRSceneNPCDlg *)0x0;
+    }
+  }
+  PlayBGM(pCVar12,*(undefined4 *)(this + 0x658));
+  CSRDlgContainer::Init((CSRDlgContainer *)(this + 0x668));
+  piVar11 = *(int **)(this + 0x6d8);
+  iVar5 = std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_44,(char *)(DAT_00ec64e4 + 0xec6410));
+  pvVar7 = local_3c;
+  if ((local_44 & 1) == 0) {
+    pvVar7 = (void *)(iVar5 + 1);
+  }
+  (**(code **)(*piVar11 + 8))(piVar11,pvVar7);
+  if ((local_44 & 1) != 0) {
+    operator_delete(local_3c);
+  }
+  this[0x6f6] = (CSRSceneNPCDlg)0x1;
+  if (((byte)local_34[0] & 1) == 0) {
+    local_30 = (uint)((byte)local_34[0] >> 1);
+  }
+  if (local_30 != 0) {
+    Load(this,(basic_string *)local_34);
+  }
+  if (((byte)local_34[0] & 1) != 0) {
+    operator_delete(local_2c);
+  }
+  if (*piVar16 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

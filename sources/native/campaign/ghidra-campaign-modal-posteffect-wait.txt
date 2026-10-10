@@ -1,0 +1,17 @@
+===== ed3772 IsWaiting @ 00ed3772 =====
+
+/* CSRScenePostEffect::IsWaiting() const */
+
+bool __thiscall CSRScenePostEffect::IsWaiting(CSRScenePostEffect *this)
+
+{
+  CPVHTTPManager *this_00;
+  longlong lVar1;
+
+  this_00 = (CPVHTTPManager *)CPVHTTPManager::get();
+  lVar1 = CPVHTTPManager::GetProgSize(this_00);
+  if (lVar1 == 0) {
+    return *(int *)(this + 0x6bc) != 0;
+  }
+  return true;
+}

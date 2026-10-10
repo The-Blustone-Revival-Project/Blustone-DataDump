@@ -1,0 +1,221 @@
+===== 010ad34c SRGetResRunID @ 010ad34c =====
+
+/* SRGetResRunID(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, unsigned char) */
+
+void SRGetResRunID(basic_string *param_1,uchar param_2)
+
+{
+  int in_r2;
+  int iVar1;
+  
+  iVar1 = DAT_010ad36c + 0x10ad35c;
+  if (in_r2 != 0) {
+    iVar1 = DAT_010ad368 + 0x10ad35a;
+  }
+  FUN_006daa2c(param_1,param_2,iVar1);
+  return;
+}
+
+
+===== 010ad528 SRGetResHit @ 010ad528 =====
+
+/* SRGetResHit(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, unsigned int) */
+
+void SRGetResHit(basic_string *param_1,uint param_2)
+
+{
+  undefined8 *puVar1;
+  char *pcVar2;
+  uint in_r2;
+  int *piVar3;
+  undefined8 uVar4;
+  __ndk1 local_34;
+  char acStack_33 [3];
+  uint local_30;
+  char *local_2c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_28 [8];
+  void *local_20;
+  int local_1c;
+  
+  piVar3 = *(int **)(DAT_010ad5e0 + 0x10ad53c);
+  local_1c = *piVar3;
+  FUN_006daa2c(local_28,param_2,DAT_010ad5e4 + 0x10ad54c);
+  std::__ndk1::to_string(&local_34,in_r2);
+  pcVar2 = local_2c;
+  if (((byte)local_34 & 1) == 0) {
+    pcVar2 = acStack_33;
+    local_30 = (uint)((byte)local_34 >> 1);
+  }
+  puVar1 = (undefined8 *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                     (local_28,pcVar2,local_30);
+  uVar4 = *puVar1;
+  *(undefined4 *)(param_1 + 8) = *(undefined4 *)(puVar1 + 1);
+  *(undefined8 *)param_1 = uVar4;
+  *(undefined4 *)puVar1 = 0;
+  *(undefined4 *)((int)puVar1 + 4) = 0;
+  *(undefined4 *)(puVar1 + 1) = 0;
+  if (((byte)local_34 & 1) != 0) {
+    operator_delete(local_2c);
+  }
+  if (((byte)local_28[0] & 1) != 0) {
+    operator_delete(local_20);
+  }
+  if (*piVar3 != local_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 010b28c0 SRIsSpineSDChar @ 010b28c0 =====
+
+/* SRIsSpineSDChar(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void SRIsSpineSDChar(basic_string *param_1)
+
+{
+  char *pcVar1;
+  int iVar2;
+  int iVar3;
+  CRMResMap *this;
+  int *piVar4;
+  byte local_30;
+  char acStack_2f [7];
+  char *local_28;
+  int local_24;
+  
+  piVar4 = *(int **)(DAT_010b2998 + 0x10b28d8);
+  local_24 = *piVar4;
+  FUN_006daa2c(&local_30,param_1,DAT_010b299c + 0x10b28e8);
+  iVar3 = **(int **)(DAT_010b29a0 + 0x10b28f0);
+  iVar2 = DAT_010b29a4 + 0x10b28f8;
+  if (iVar3 == 0) {
+    _RMAssert('\0',(char *)(DAT_010b29a8 + 0x10b2900),(char *)(DAT_010b29ac + 0x10b2902),0x4b,iVar2)
+    ;
+  }
+  iVar3 = *(int *)(iVar3 + 4);
+  if (iVar3 == 0) {
+    _RMAssert('\0',(char *)(DAT_010b29b0 + 0x10b2916),(char *)(DAT_010b29b4 + 0x10b2918),0x4b,iVar2)
+    ;
+  }
+  this = *(CRMResMap **)(iVar3 + 4);
+  if (this == (CRMResMap *)0x0) {
+    _RMAssert('\0',(char *)(DAT_010b29b8 + 0x10b292c),(char *)(DAT_010b29bc + 0x10b292e),0x4b,iVar2)
+    ;
+  }
+  pcVar1 = local_28;
+  if ((local_30 & 1) == 0) {
+    pcVar1 = acStack_2f;
+  }
+  iVar2 = CRMResMap::IsExistingRes(this,pcVar1);
+  if (iVar2 != 1) {
+    _SRIsSpineSDCharacter(param_1);
+  }
+  if ((local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+  iVar2 = *piVar4 - local_24;
+  if (iVar2 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar2);
+}
+
+
+===== 010b26f8 _SRIsSpineSDCharacter @ 010b26f8 =====
+
+/* _SRIsSpineSDCharacter(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void _SRIsSpineSDCharacter(basic_string *param_1)
+
+{
+  int iVar1;
+  basic_string *pbVar2;
+  char *pcVar3;
+  int *piVar4;
+  int iVar5;
+  CRMResMap *pCVar6;
+  int *piVar7;
+  byte local_3c;
+  char acStack_3b [7];
+  char *local_34;
+  byte local_30;
+  char acStack_2f [7];
+  char *local_28;
+  int local_24;
+  
+  piVar7 = *(int **)(DAT_010b287c + 0x10b270a);
+  local_24 = *piVar7;
+  pbVar2 = *(basic_string **)(param_1 + 8);
+  if (((byte)*param_1 & 1) == 0) {
+    pbVar2 = param_1 + 1;
+  }
+  if (*pbVar2 == (basic_string)0x4d || *pbVar2 == (basic_string)0x43) {
+    FUN_006daa2c(&local_30,param_1,DAT_010b2880 + 0x10b2732);
+    FUN_006daa2c(&local_3c,param_1,DAT_010b2884 + 0x10b273c);
+    piVar4 = *(int **)(DAT_010b2888 + 0x10b274c);
+    iVar5 = *piVar4;
+    iVar1 = DAT_010b288c + 0x10b2754;
+    if (iVar5 == 0) {
+      _RMAssert('\0',(char *)(DAT_010b2890 + 0x10b275e),(char *)(DAT_010b2894 + 0x10b2760),0x4b,
+                iVar1);
+    }
+    iVar5 = *(int *)(iVar5 + 4);
+    if (iVar5 == 0) {
+      _RMAssert('\0',(char *)(DAT_010b2898 + 0x10b2776),(char *)(DAT_010b289c + 0x10b2778),0x4b,
+                iVar1);
+    }
+    pCVar6 = *(CRMResMap **)(iVar5 + 4);
+    if (pCVar6 == (CRMResMap *)0x0) {
+      _RMAssert('\0',(char *)(DAT_010b28a0 + 0x10b278e),(char *)(DAT_010b28a4 + 0x10b2790),0x4b,
+                iVar1);
+    }
+    pcVar3 = local_28;
+    if ((local_30 & 1) == 0) {
+      pcVar3 = acStack_2f;
+    }
+    CRMResMap::IsExistingRes(pCVar6,pcVar3);
+    iVar5 = *piVar4;
+    if (iVar5 == 0) {
+      _RMAssert('\0',(char *)(DAT_010b28a8 + 0x10b27ba),(char *)(DAT_010b28ac + 0x10b27bc),0x4b,
+                iVar1);
+    }
+    iVar5 = *(int *)(iVar5 + 4);
+    if (iVar5 == 0) {
+      _RMAssert('\0',(char *)(DAT_010b28b0 + 0x10b27d2),(char *)(DAT_010b28b4 + 0x10b27d4),0x4b,
+                iVar1);
+    }
+    pCVar6 = *(CRMResMap **)(iVar5 + 4);
+    if (pCVar6 == (CRMResMap *)0x0) {
+      _RMAssert('\0',(char *)(DAT_010b28b8 + 0x10b27ea),(char *)(DAT_010b28bc + 0x10b27ec),0x4b,
+                iVar1);
+    }
+    pcVar3 = local_34;
+    if ((local_3c & 1) == 0) {
+      pcVar3 = acStack_3b;
+    }
+    CRMResMap::IsExistingRes(pCVar6,pcVar3);
+    if ((local_3c & 1) != 0) {
+      operator_delete(local_34);
+    }
+    if ((local_30 & 1) != 0) {
+      operator_delete(local_28);
+    }
+  }
+  iVar1 = *piVar7 - local_24;
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar1);
+  }
+  return;
+}
+
+

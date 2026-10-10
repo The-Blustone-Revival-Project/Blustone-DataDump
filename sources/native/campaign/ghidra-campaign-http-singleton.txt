@@ -1,0 +1,129 @@
+===== 7e8234 get<CPVHTTPManager,CMSingleton::DefaultAlloc<CPVHTTPManager>,CMSpinLock> @ 007e8234 =====
+
+/* std::__ndk1::shared_ptr<CPVHTTPManager> CMSingleton::get<CPVHTTPManager,
+   CMSingleton::DefaultAlloc<CPVHTTPManager>, CMSpinLock>() */
+
+void __thiscall
+CMSingleton::get<CPVHTTPManager,CMSingleton::DefaultAlloc<CPVHTTPManager>,CMSpinLock>
+          (CMSingleton *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  undefined4 *puVar6;
+  int iVar7;
+  undefined4 *extraout_r1;
+  int *piVar8;
+  byte *pbVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  int *piVar12;
+  undefined8 uVar13;
+  int *local_2c;
+  __shared_weak_count *local_28;
+
+  puVar6 = (undefined4 *)(DAT_007e8394 + 0x7e824a);
+  piVar12 = *(int **)(DAT_007e8390 + 0x7e8248);
+  pbVar9 = (byte *)*puVar6;
+  iVar2 = *piVar12;
+  DataMemoryBarrier(0x1b);
+  puVar10 = (undefined4 *)(DAT_007e8398 + 0x7e8260);
+  if ((*pbVar9 & 1) == 0) {
+    uVar13 = __cxa_guard_acquire(pbVar9);
+    puVar6 = (undefined4 *)((ulonglong)uVar13 >> 0x20);
+    if ((int)uVar13 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_007e839c + 0x7e8380),*puVar10,DAT_007e83a0 + 0x7e8384);
+      __cxa_guard_release(pbVar9);
+      puVar6 = extraout_r1;
+    }
+  }
+  piVar11 = (int *)*puVar10;
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    puVar6 = *(undefined4 **)(p_Var3 + 4);
+  }
+  if (p_Var3 != (__shared_weak_count *)0x0 && puVar6 != (undefined4 *)0xffffffff) {
+LAB_007e82d8:
+    p_Var3 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(p_Var3);
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      iVar4 = *piVar11;
+      p_Var5 = p_Var3 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+      if (iVar4 != 0) goto LAB_007e8324;
+    }
+  }
+  else {
+    CMPoolMgr::
+    get<CMSingleton::Holder<CPVHTTPManager,CMSingleton::DefaultAlloc<CPVHTTPManager>>,CMSpinLock>();
+    CMPool<CMSingleton::Holder<CPVHTTPManager,CMSingleton::DefaultAlloc<CPVHTTPManager>>,CMSpinLock>
+    ::Alloc();
+    iVar4 = *local_2c;
+    iVar7 = local_2c[1];
+    if (iVar7 != 0) {
+      piVar8 = (int *)(iVar7 + 8);
+      do {
+        ExclusiveAccess(piVar8);
+        bVar1 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar1);
+      *piVar8 = *piVar8 + 1;
+    }
+    *piVar11 = iVar4;
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    piVar11[1] = iVar7;
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+    if (local_28 != (__shared_weak_count *)0x0) {
+      p_Var3 = local_28 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar4 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_28 + 8))(local_28);
+        std::__ndk1::__shared_weak_count::__release_weak(local_28);
+      }
+    }
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    if (p_Var3 != (__shared_weak_count *)0x0) goto LAB_007e82d8;
+  }
+  _RMAssert('\0',(char *)(DAT_007e83a8 + 0x7e8312),(char *)(DAT_007e83ac + 0x7e8316),0xf4,
+            DAT_007e83a4 + 0x7e830e,DAT_007e83b0 + 0x7e8318,DAT_007e83b4 + 0x7e831a);
+LAB_007e8324:
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = 0;
+  if (p_Var3 == (__shared_weak_count *)0x0) {
+    *(undefined4 *)(this + 4) = 0;
+  }
+  else {
+    iVar4 = std::__ndk1::__shared_weak_count::lock(p_Var3);
+    *(int *)(this + 4) = iVar4;
+    if (iVar4 != 0) {
+      *(int *)this = *piVar11;
+    }
+  }
+  if (*piVar12 != iVar2) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

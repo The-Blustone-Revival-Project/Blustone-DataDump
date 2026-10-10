@@ -1,0 +1,1245 @@
+===== dba178 SetTutorialTraining @ 00dba178 =====
+
+/* CSRPopUpVillage::SetTutorialTraining() */
+
+void __thiscall CSRPopUpVillage::SetTutorialTraining(CSRPopUpVillage *this)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  __shared_weak_count *p_Var3;
+  code *pcVar4;
+  int iVar5;
+  __shared_weak_count *this_00;
+  int *piVar6;
+  int local_38;
+  CSRPopUpVillage *local_34;
+  int *local_28;
+  int local_1c;
+  
+  piVar6 = *(int **)(DAT_00dba264 + 0xdba18e);
+  local_1c = *piVar6;
+  SetNameTagVisible(this,8,1);
+  uVar2 = *(undefined4 *)(*(int *)(this + 0x928) + 0xc4);
+  this_00 = *(__shared_weak_count **)(*(int *)(this + 0x928) + 200);
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var3 = this_00 + 4;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+  }
+  local_38 = DAT_00dba268 + 0xdba1c8;
+  local_34 = this;
+  local_28 = &local_38;
+  CSRUIFocusDraw::AppearAfterFade(uVar2,&local_38);
+  if (&local_38 == local_28) {
+    pcVar4 = *(code **)(*local_28 + 0x10);
+  }
+  else {
+    if (local_28 == (int *)0x0) goto LAB_00dba1de;
+    pcVar4 = *(code **)(*local_28 + 0x14);
+  }
+  (*pcVar4)();
+LAB_00dba1de:
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var3 = this_00 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      std::__ndk1::__shared_weak_count::__release_weak(this_00);
+    }
+  }
+  if (*piVar6 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== eec680 TutorialTraining @ 00eec680 =====
+
+/* CSRSceneTutorialLevelUpCardSel::TutorialTraining() */
+
+void __thiscall
+CSRSceneTutorialLevelUpCardSel::TutorialTraining(CSRSceneTutorialLevelUpCardSel *this)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  __shared_weak_count *p_Var3;
+  code *pcVar4;
+  int iVar5;
+  __shared_weak_count *this_00;
+  int *piVar6;
+  int local_38;
+  CSRSceneTutorialLevelUpCardSel *local_34;
+  int *local_28;
+  int local_1c;
+  
+  piVar6 = *(int **)(DAT_00eec768 + 0xeec692);
+  local_1c = *piVar6;
+  TutorialBegin(this);
+  uVar2 = *(undefined4 *)(*(int *)(this + 0x7e4) + 0xc4);
+  this_00 = *(__shared_weak_count **)(*(int *)(this + 0x7e4) + 200);
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var3 = this_00 + 4;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+  }
+  local_38 = DAT_00eec76c + 0xeec6cc;
+  local_34 = this;
+  local_28 = &local_38;
+  CSRUIFocusDraw::AppearAfterFade(uVar2,&local_38);
+  if (&local_38 == local_28) {
+    pcVar4 = *(code **)(*local_28 + 0x10);
+  }
+  else {
+    if (local_28 == (int *)0x0) goto LAB_00eec6e2;
+    pcVar4 = *(code **)(*local_28 + 0x14);
+  }
+  (*pcVar4)();
+LAB_00eec6e2:
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var3 = this_00 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      std::__ndk1::__shared_weak_count::__release_weak(this_00);
+    }
+  }
+  if (*piVar6 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== da0408 ResumeTutorials @ 00da0408 =====
+
+/* CSRPopUpVillage::ResumeTutorials() */
+
+void __thiscall CSRPopUpVillage::ResumeTutorials(CSRPopUpVillage *this)
+
+{
+  bool bVar1;
+  CSRDataMgr *pCVar2;
+  CSRPlayData *pCVar3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  undefined1 *puVar6;
+  __shared_weak_count *p_Var7;
+  undefined4 extraout_r0;
+  undefined4 extraout_r0_00;
+  byte *pbVar8;
+  undefined4 extraout_r0_01;
+  undefined4 extraout_r0_02;
+  undefined4 extraout_r0_03;
+  undefined4 extraout_r1;
+  undefined4 extraout_r1_00;
+  undefined4 extraout_r1_01;
+  undefined4 extraout_r1_02;
+  undefined4 extraout_r1_03;
+  uint uVar9;
+  int *piVar10;
+  double dVar11;
+  uint local_40;
+  __shared_weak_count *p_Stack_3c;
+  undefined1 *local_38;
+  undefined4 local_34;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_30 [8];
+  void *local_28;
+  int local_24;
+  
+  piVar10 = *(int **)(DAT_00da0764 + 0xda041a);
+  local_24 = *piVar10;
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x30);
+  if (iVar4 != 0) goto LAB_00da0432;
+  CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+            ((CMSingleton *)&local_40);
+  p_Var7 = p_Stack_3c;
+  uVar9 = local_40;
+  if (p_Stack_3c != (__shared_weak_count *)0x0) {
+    p_Var5 = p_Stack_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar4 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+  iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),1,0);
+  if (1 < iVar4) {
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_40);
+    p_Var7 = p_Stack_3c;
+    uVar9 = local_40;
+    if (p_Stack_3c != (__shared_weak_count *)0x0) {
+      p_Var5 = p_Stack_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar4 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+      }
+    }
+    iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),1,3);
+    if (1 < iVar4) {
+      pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+      pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+      iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,10);
+      if (iVar4 != 0) goto LAB_00da04e2;
+    }
+    SwitchSide(this,0,1);
+    ShowFingerIndicator(this,5,0x83);
+    goto LAB_00da0432;
+  }
+LAB_00da04e2:
+  CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+            ((CMSingleton *)&local_40);
+  p_Var7 = p_Stack_3c;
+  uVar9 = local_40;
+  if (p_Stack_3c != (__shared_weak_count *)0x0) {
+    p_Var5 = p_Stack_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar4 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+  iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),1,3);
+  if (iVar4 < 2) {
+LAB_00da05e2:
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_40);
+    p_Var7 = p_Stack_3c;
+    uVar9 = local_40;
+    if (p_Stack_3c != (__shared_weak_count *)0x0) {
+      p_Var5 = p_Stack_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar4 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+      }
+    }
+    iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),2,1);
+    if (iVar4 < 2) {
+LAB_00da06e2:
+      CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                ((CMSingleton *)&local_40);
+      p_Var7 = p_Stack_3c;
+      uVar9 = local_40;
+      if (p_Stack_3c != (__shared_weak_count *)0x0) {
+        p_Var5 = p_Stack_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar4 = *(int *)p_Var5;
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 == 0) {
+          (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+        }
+      }
+      iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),8,0);
+      if (1 < iVar4) {
+LAB_00da0784:
+        CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                  ((CMSingleton *)&local_40);
+        p_Var7 = p_Stack_3c;
+        uVar9 = local_40;
+        if (p_Stack_3c != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Stack_3c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar4 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar4 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar4 == 0) {
+            (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+          }
+        }
+        iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),8,0);
+        if (1 < iVar4) {
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x10);
+          if (iVar4 == 0) goto LAB_00da082c;
+          CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                    ((CMSingleton *)&local_40);
+          p_Var7 = p_Stack_3c;
+          uVar9 = local_40;
+          if (p_Stack_3c != (__shared_weak_count *)0x0) {
+            p_Var5 = p_Stack_3c + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var5);
+              iVar4 = *(int *)p_Var5;
+              bVar1 = (bool)hasExclusiveAccess(p_Var5);
+            } while (!bVar1);
+            *(int *)p_Var5 = iVar4 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar4 == 0) {
+              (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+              std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+            }
+          }
+          iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),8,1);
+          if (1 < iVar4) goto LAB_00da082c;
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x2c);
+          if (iVar4 != 0) goto LAB_00da082c;
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_40,(char *)(DAT_00da0cbc + 0xda0ad0));
+          puVar6 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+          switch(*puVar6) {
+          case 3:
+            pbVar8 = *(byte **)(puVar6 + 8);
+            if ((*pbVar8 & 1) == 0) {
+              pbVar8 = pbVar8 + 1;
+            }
+            else {
+              pbVar8 = *(byte **)(pbVar8 + 8);
+            }
+            strtod((char *)pbVar8,(char **)0x0);
+            dVar11 = (double)CONCAT44(extraout_r1_03,extraout_r0_03);
+            goto LAB_00da0bfa;
+          case 4:
+            uVar9 = (uint)(byte)puVar6[8];
+            break;
+          case 5:
+          case 6:
+            uVar9 = *(uint *)(puVar6 + 8);
+            break;
+          case 7:
+            dVar11 = *(double *)(puVar6 + 8);
+LAB_00da0bfa:
+            uVar9 = (uint)(longlong)dVar11;
+            break;
+          default:
+            uVar9 = 0;
+          }
+          if ((local_40 & 1) != 0) {
+            operator_delete(local_38);
+          }
+          if (uVar9 != 0) goto LAB_00da0432;
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>(local_30,(char *)(DAT_00da0cc0 + 0xda0c28));
+          local_34 = 0;
+          local_38 = &DAT_00000006;
+          local_40 = CONCAT31(local_40._1_3_,5);
+          CSRPlayData::SetMarker(pCVar3,(basic_string *)local_30,(basic_json *)&local_40);
+          goto LAB_00da0c46;
+        }
+LAB_00da082c:
+        CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                  ((CMSingleton *)&local_40);
+        p_Var7 = p_Stack_3c;
+        uVar9 = local_40;
+        if (p_Stack_3c != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Stack_3c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar4 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar4 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar4 == 0) {
+            (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+          }
+        }
+        iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),0x25,0);
+        if (1 < iVar4) {
+LAB_00da0880:
+          CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                    ((CMSingleton *)&local_40);
+          p_Var7 = p_Stack_3c;
+          uVar9 = local_40;
+          if (p_Stack_3c != (__shared_weak_count *)0x0) {
+            p_Var5 = p_Stack_3c + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var5);
+              iVar4 = *(int *)p_Var5;
+              bVar1 = (bool)hasExclusiveAccess(p_Var5);
+            } while (!bVar1);
+            *(int *)p_Var5 = iVar4 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar4 == 0) {
+              (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+              std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+            }
+          }
+          iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),0x25,0);
+          if (1 < iVar4) {
+            CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                      ((CMSingleton *)&local_40);
+            p_Var7 = p_Stack_3c;
+            uVar9 = local_40;
+            if (p_Stack_3c != (__shared_weak_count *)0x0) {
+              p_Var5 = p_Stack_3c + 4;
+              DataMemoryBarrier(0x1b);
+              do {
+                ExclusiveAccess(p_Var5);
+                iVar4 = *(int *)p_Var5;
+                bVar1 = (bool)hasExclusiveAccess(p_Var5);
+              } while (!bVar1);
+              *(int *)p_Var5 = iVar4 + -1;
+              DataMemoryBarrier(0x1b);
+              if (iVar4 == 0) {
+                (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+                std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+              }
+            }
+            iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),0x25,1);
+            if (iVar4 < 2) goto LAB_00da0904;
+          }
+          CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                    ((CMSingleton *)&local_40);
+          uVar9 = local_40;
+          if (p_Stack_3c != (__shared_weak_count *)0x0) {
+            p_Var7 = p_Stack_3c + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var7);
+              iVar4 = *(int *)p_Var7;
+              bVar1 = (bool)hasExclusiveAccess(p_Var7);
+            } while (!bVar1);
+            *(int *)p_Var7 = iVar4 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar4 == 0) {
+              (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+              std::__ndk1::__shared_weak_count::__release_weak(p_Stack_3c);
+            }
+          }
+          iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),3,1);
+          if (1 < iVar4) goto LAB_00da0432;
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0xb);
+          if (iVar4 == 0) goto LAB_00da0432;
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>(local_30,(char *)(DAT_00da0cc8 + 0xda09b8));
+          local_34 = 0;
+          local_38 = (undefined1 *)0x1;
+          local_40 = CONCAT31(local_40._1_3_,5);
+          CSRPlayData::SetMarker(pCVar3,(basic_string *)local_30,(basic_json *)&local_40);
+          goto LAB_00da0c46;
+        }
+        pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+        pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+        iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x2f);
+        if (iVar4 == 0) goto LAB_00da0880;
+LAB_00da0904:
+        pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+        pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>
+                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_40,(char *)(DAT_00da0c90 + 0xda0918));
+        puVar6 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+        switch(*puVar6) {
+        case 3:
+          pbVar8 = *(byte **)(puVar6 + 8);
+          if ((*pbVar8 & 1) == 0) {
+            pbVar8 = pbVar8 + 1;
+          }
+          else {
+            pbVar8 = *(byte **)(pbVar8 + 8);
+          }
+          strtod((char *)pbVar8,(char **)0x0);
+          dVar11 = (double)CONCAT44(extraout_r1,extraout_r0);
+          goto LAB_00da09fc;
+        case 4:
+          uVar9 = (uint)(byte)puVar6[8];
+          break;
+        case 5:
+        case 6:
+          uVar9 = *(uint *)(puVar6 + 8);
+          break;
+        case 7:
+          dVar11 = *(double *)(puVar6 + 8);
+LAB_00da09fc:
+          uVar9 = (uint)(longlong)dVar11;
+          break;
+        default:
+          uVar9 = 0;
+        }
+        if ((local_40 & 1) != 0) {
+          operator_delete(local_38);
+        }
+        if (uVar9 != 0) goto LAB_00da0432;
+        pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+        pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>(local_30,(char *)(DAT_00da0cc4 + 0xda0a2a));
+        local_34 = 0;
+        local_38 = (undefined1 *)0x2;
+        local_40 = CONCAT31(local_40._1_3_,5);
+        CSRPlayData::SetMarker(pCVar3,(basic_string *)local_30,(basic_json *)&local_40);
+        goto LAB_00da0c46;
+      }
+      pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+      pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+      iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x10);
+      if (iVar4 == 0) goto LAB_00da0784;
+      pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+      pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>
+                ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_40,(char *)(DAT_00da077c + 0xda0748));
+      puVar6 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+      switch(*puVar6) {
+      case 3:
+        pbVar8 = *(byte **)(puVar6 + 8);
+        if ((*pbVar8 & 1) == 0) {
+          pbVar8 = pbVar8 + 1;
+        }
+        else {
+          pbVar8 = *(byte **)(pbVar8 + 8);
+        }
+        strtod((char *)pbVar8,(char **)0x0);
+        dVar11 = (double)CONCAT44(extraout_r1_00,extraout_r0_00);
+        goto LAB_00da0a6e;
+      case 4:
+        uVar9 = (uint)(byte)puVar6[8];
+        break;
+      case 5:
+      case 6:
+        uVar9 = *(uint *)(puVar6 + 8);
+        break;
+      case 7:
+        dVar11 = *(double *)(puVar6 + 8);
+LAB_00da0a6e:
+        uVar9 = (uint)(longlong)dVar11;
+        break;
+      default:
+        uVar9 = 0;
+      }
+      if ((local_40 & 1) != 0) {
+        operator_delete(local_38);
+      }
+      if (uVar9 != 0) goto LAB_00da0432;
+      pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+      pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>(local_30,(char *)(DAT_00da0cb8 + 0xda0a9c));
+      local_34 = 0;
+      local_38 = (undefined1 *)0x1;
+      local_40 = CONCAT31(local_40._1_3_,5);
+      CSRPlayData::SetMarker(pCVar3,(basic_string *)local_30,(basic_json *)&local_40);
+      goto LAB_00da0c46;
+    }
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_40);
+    p_Var7 = p_Stack_3c;
+    uVar9 = local_40;
+    if (p_Stack_3c != (__shared_weak_count *)0x0) {
+      p_Var5 = p_Stack_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar4 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+      }
+    }
+    iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),2,2);
+    if (1 < iVar4) goto LAB_00da06e2;
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_40);
+    p_Var7 = p_Stack_3c;
+    uVar9 = local_40;
+    if (p_Stack_3c != (__shared_weak_count *)0x0) {
+      p_Var5 = p_Stack_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar4 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+      }
+    }
+    iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),8,0);
+    if (1 < iVar4) goto LAB_00da06e2;
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>
+              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_40,(char *)(DAT_00da0778 + 0xda06bc));
+    puVar6 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+    switch(*puVar6) {
+    case 3:
+      pbVar8 = *(byte **)(puVar6 + 8);
+      if ((*pbVar8 & 1) == 0) {
+        pbVar8 = pbVar8 + 1;
+      }
+      else {
+        pbVar8 = *(byte **)(pbVar8 + 8);
+      }
+      strtod((char *)pbVar8,(char **)0x0);
+      dVar11 = (double)CONCAT44(extraout_r1_02,extraout_r0_02);
+      goto LAB_00da0b88;
+    case 4:
+      uVar9 = (uint)(byte)puVar6[8];
+      break;
+    case 5:
+    case 6:
+      uVar9 = *(uint *)(puVar6 + 8);
+      break;
+    case 7:
+      dVar11 = *(double *)(puVar6 + 8);
+LAB_00da0b88:
+      uVar9 = (uint)(longlong)dVar11;
+      break;
+    default:
+      uVar9 = 0;
+    }
+    if ((local_40 & 1) != 0) {
+      operator_delete(local_38);
+    }
+    if (uVar9 != 0) goto LAB_00da0432;
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(local_30,(char *)(DAT_00da0cb4 + 0xda0bb6));
+    local_34 = 0;
+    local_38 = &DAT_00000004;
+    local_40 = CONCAT31(local_40._1_3_,5);
+    CSRPlayData::SetMarker(pCVar3,(basic_string *)local_30,(basic_json *)&local_40);
+    goto LAB_00da0c46;
+  }
+  CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+            ((CMSingleton *)&local_40);
+  p_Var7 = p_Stack_3c;
+  uVar9 = local_40;
+  if (p_Stack_3c != (__shared_weak_count *)0x0) {
+    p_Var5 = p_Stack_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar4 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+  iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),2,1);
+  if (1 < iVar4) goto LAB_00da05e2;
+  CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+            ((CMSingleton *)&local_40);
+  p_Var7 = p_Stack_3c;
+  uVar9 = local_40;
+  if (p_Stack_3c != (__shared_weak_count *)0x0) {
+    p_Var5 = p_Stack_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar4 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+  iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar9 + 0x24),8,0);
+  if (1 < iVar4) goto LAB_00da05e2;
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da0774 + 0xda05bc));
+  puVar6 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  switch(*puVar6) {
+  case 3:
+    pbVar8 = *(byte **)(puVar6 + 8);
+    if ((*pbVar8 & 1) == 0) {
+      pbVar8 = pbVar8 + 1;
+    }
+    else {
+      pbVar8 = *(byte **)(pbVar8 + 8);
+    }
+    strtod((char *)pbVar8,(char **)0x0);
+    dVar11 = (double)CONCAT44(extraout_r1_01,extraout_r0_01);
+    goto LAB_00da0b16;
+  case 4:
+    uVar9 = (uint)(byte)puVar6[8];
+    break;
+  case 5:
+  case 6:
+    uVar9 = *(uint *)(puVar6 + 8);
+    break;
+  case 7:
+    dVar11 = *(double *)(puVar6 + 8);
+LAB_00da0b16:
+    uVar9 = (uint)(longlong)dVar11;
+    break;
+  default:
+    uVar9 = 0;
+  }
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  if (uVar9 == 0) {
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(local_30,(char *)(DAT_00da0cb0 + 0xda0b44));
+    local_34 = 0;
+    local_38 = (undefined1 *)0x1;
+    local_40 = CONCAT31(local_40._1_3_,5);
+    CSRPlayData::SetMarker(pCVar3,(basic_string *)local_30,(basic_json *)&local_40);
+LAB_00da0c46:
+    nlohmann::
+    basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+    ::json_value::destroy((json_value *)&local_38,local_40 & 0xff);
+    if (((byte)local_30[0] & 1) != 0) {
+      operator_delete(local_28);
+    }
+  }
+LAB_00da0432:
+  if (*piVar10 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== da0ccc SetTutorials @ 00da0ccc =====
+
+/* CSRPopUpVillage::SetTutorials() */
+
+void __thiscall CSRPopUpVillage::SetTutorials(CSRPopUpVillage *this)
+
+{
+  bool bVar1;
+  CSRPopUpVillage *this_00;
+  CSRDataMgr *pCVar2;
+  CSRPlayData *pCVar3;
+  undefined1 *puVar4;
+  byte *pbVar5;
+  undefined4 extraout_r0;
+  undefined4 extraout_r0_00;
+  uint uVar6;
+  undefined4 extraout_r0_01;
+  char *pcVar7;
+  char *pcVar8;
+  char *pcVar9;
+  char *pcVar10;
+  char *pcVar11;
+  char *pcVar12;
+  CMTaskStream *pCVar13;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar14;
+  __shared_weak_count *p_Var15;
+  undefined4 extraout_r1;
+  undefined4 extraout_r1_00;
+  undefined4 extraout_r1_01;
+  undefined4 uVar16;
+  int iVar17;
+  undefined4 uVar18;
+  int *piVar19;
+  uint uVar20;
+  uint uVar21;
+  float extraout_s0;
+  float extraout_s0_00;
+  float extraout_s0_01;
+  float extraout_s0_02;
+  float extraout_s0_03;
+  double dVar22;
+  int local_58;
+  CSRPopUpVillage *local_54;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *local_48;
+  uint local_40;
+  CSRPopUpVillage *local_3c;
+  void *local_38;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *local_30;
+  int local_28;
+  
+  piVar19 = *(int **)(DAT_00da105c + 0xda0cde);
+  local_28 = *piVar19;
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1060 + 0xda0cf8));
+  puVar4 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  switch(*puVar4) {
+  case 3:
+    pbVar5 = *(byte **)(puVar4 + 8);
+    if ((*pbVar5 & 1) == 0) {
+      pbVar5 = pbVar5 + 1;
+    }
+    else {
+      pbVar5 = *(byte **)(pbVar5 + 8);
+    }
+    strtod((char *)pbVar5,(char **)0x0);
+    dVar22 = (double)CONCAT44(extraout_r1,extraout_r0);
+    goto LAB_00da0d38;
+  case 4:
+    uVar20 = (uint)(byte)puVar4[8];
+    break;
+  case 5:
+  case 6:
+    uVar20 = *(uint *)(puVar4 + 8);
+    break;
+  case 7:
+    dVar22 = *(double *)(puVar4 + 8);
+LAB_00da0d38:
+    uVar20 = (uint)(longlong)dVar22;
+    break;
+  default:
+    uVar20 = 0;
+  }
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1064 + 0xda0d6c));
+  puVar4 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  switch(*puVar4) {
+  case 3:
+    pbVar5 = *(byte **)(puVar4 + 8);
+    if ((*pbVar5 & 1) == 0) {
+      pbVar5 = pbVar5 + 1;
+    }
+    else {
+      pbVar5 = *(byte **)(pbVar5 + 8);
+    }
+    strtod((char *)pbVar5,(char **)0x0);
+    dVar22 = (double)CONCAT44(extraout_r1_00,extraout_r0_00);
+    goto LAB_00da0daa;
+  case 4:
+    uVar6 = (uint)(byte)puVar4[8];
+    break;
+  case 5:
+  case 6:
+    uVar6 = *(uint *)(puVar4 + 8);
+    break;
+  case 7:
+    dVar22 = *(double *)(puVar4 + 8);
+LAB_00da0daa:
+    uVar6 = (uint)(longlong)dVar22;
+    break;
+  default:
+    uVar6 = 0;
+  }
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1068 + 0xda0ddc));
+  puVar4 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  switch(*puVar4) {
+  case 3:
+    pbVar5 = *(byte **)(puVar4 + 8);
+    if ((*pbVar5 & 1) == 0) {
+      pbVar5 = pbVar5 + 1;
+    }
+    else {
+      pbVar5 = *(byte **)(pbVar5 + 8);
+    }
+    strtod((char *)pbVar5,(char **)0x0);
+    dVar22 = (double)CONCAT44(extraout_r1_01,extraout_r0_01);
+    goto LAB_00da0e1c;
+  case 4:
+    uVar21 = (uint)(byte)puVar4[8];
+    break;
+  case 5:
+  case 6:
+    uVar21 = *(uint *)(puVar4 + 8);
+    break;
+  case 7:
+    dVar22 = *(double *)(puVar4 + 8);
+LAB_00da0e1c:
+    uVar21 = (uint)(longlong)dVar22;
+    break;
+  default:
+    uVar21 = 0;
+  }
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da106c + 0xda0e50));
+  pcVar7 = (char *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1070 + 0xda0e7e));
+  pcVar8 = (char *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1074 + 0xda0eac));
+  pcVar9 = (char *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1078 + 0xda0eda));
+  pcVar10 = (char *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da107c + 0xda0f0a));
+  pcVar11 = (char *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00da1080 + 0xda0f3c));
+  pcVar12 = (char *)CSRPlayData::GetMarker(pCVar3,(basic_string *)&local_40);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  if (uVar20 == 4) {
+    TutorialBegin(this);
+    CMFramework::get();
+    pCVar13 = (CMTaskStream *)CMTaskStream::get();
+    local_40 = DAT_00da1088 + 0xda0fb0;
+    local_3c = this;
+    local_30 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_40;
+    CMTaskStream::OnceImpl(pCVar13,(function *)&local_40,extraout_s0_00);
+LAB_00da0fba:
+    pbVar14 = local_30;
+    if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)&local_40
+        == local_30) {
+LAB_00da1010:
+      (**(code **)(*(int *)pbVar14 + 0x10))();
+      goto LAB_00da110a;
+    }
+  }
+  else {
+    if (uVar20 == 1) {
+      TutorialBegin(this);
+      CMFramework::get();
+      pCVar13 = (CMTaskStream *)CMTaskStream::get();
+      local_40 = DAT_00da1084 + 0xda0f84;
+      local_3c = this;
+      local_30 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_40;
+      CMTaskStream::OnceImpl(pCVar13,(function *)&local_40,extraout_s0);
+      goto LAB_00da0fba;
+    }
+    if (uVar6 != 1) {
+      if (uVar6 == 9) {
+        pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+        pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>
+                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_40,(char *)(DAT_00da1364 + 0xda102a));
+        CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+        if ((local_40 & 1) != 0) {
+          operator_delete(local_38);
+        }
+        SwitchSide(this,0,1);
+        uVar16 = 5;
+        uVar18 = 0x83;
+        goto LAB_00da1106;
+      }
+      if (uVar6 == 6) goto LAB_00da0fde;
+      if (uVar21 == 2) {
+        TutorialBegin(this);
+        CMFramework::get();
+        pCVar13 = (CMTaskStream *)CMTaskStream::get();
+        local_40 = DAT_00da1368 + 0xda10b2;
+        local_3c = this;
+        local_30 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_40;
+        CMTaskStream::OnceImpl(pCVar13,(function *)&local_40,extraout_s0_02);
+        goto LAB_00da100a;
+      }
+      if (*pcVar7 == '\0') {
+        if (*pcVar8 != '\0') {
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_40,(char *)(DAT_00da1370 + 0xda1136));
+          CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+          goto joined_r0x00da114a;
+        }
+        if (*pcVar9 != '\0') {
+          CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                    ((CMSingleton *)&local_40);
+          this_00 = local_3c;
+          uVar20 = local_40;
+          if (local_3c != (CSRPopUpVillage *)0x0) {
+            p_Var15 = (__shared_weak_count *)(local_3c + 4);
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var15);
+              iVar17 = *(int *)p_Var15;
+              bVar1 = (bool)hasExclusiveAccess(p_Var15);
+            } while (!bVar1);
+            *(int *)p_Var15 = iVar17 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar17 == 0) {
+              (**(code **)(*(int *)local_3c + 8))(local_3c);
+              std::__ndk1::__shared_weak_count::__release_weak((__shared_weak_count *)this_00);
+            }
+          }
+          iVar17 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar20 + 0x24),3,0);
+          if (1 < iVar17) goto LAB_00da110a;
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_40,(char *)(DAT_00da1374 + 0xda11ac));
+          CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+          if ((local_40 & 1) != 0) {
+            operator_delete(local_38);
+          }
+          SwitchSide(this,0,1);
+          uVar16 = CSRUIModalHandler::get();
+          uVar18 = (**(code **)(**(int **)(this + 0x790) + 0x90))();
+          local_58 = DAT_00da1378 + 0xda11fc;
+          local_54 = this;
+          local_48 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_58;
+          CSRUIModalHandler::ShowFingerIndicator
+                    (uVar16,uVar18,
+                     (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_58);
+          pbVar14 = local_48;
+          if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              &local_58 == local_48) goto LAB_00da1010;
+          goto LAB_00da0fc2;
+        }
+        if (*pcVar11 == '\0') {
+          if (*pcVar10 == '\0') {
+            if (*pcVar12 == '\0') goto LAB_00da110a;
+            pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+            pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+            basic_string<decltype(nullptr)>
+                      ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)&local_40,(char *)(DAT_00da1384 + 0xda12b6));
+            CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+            if ((local_40 & 1) != 0) {
+              operator_delete(local_38);
+            }
+            TutorialBegin(this);
+            CMFramework::get();
+            pCVar13 = (CMTaskStream *)CMTaskStream::get();
+            local_40 = DAT_00da1388 + 0xda12f0;
+            local_3c = this;
+            local_30 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)&local_40;
+            CMTaskStream::OnceImpl(pCVar13,(function *)&local_40,extraout_s0_03);
+            goto LAB_00da100a;
+          }
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_40,(char *)(DAT_00da1380 + 0xda1268));
+          CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+          if ((local_40 & 1) != 0) {
+            operator_delete(local_38);
+          }
+          SwitchSide(this,0,1);
+          uVar16 = 5;
+          uVar18 = 0x49;
+        }
+        else {
+          pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+          pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_40,(char *)(DAT_00da137c + 0xda1220));
+          CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+          if ((local_40 & 1) != 0) {
+            operator_delete(local_38);
+          }
+          SwitchSide(this,1,1);
+          uVar16 = 6;
+          uVar18 = 0x94;
+        }
+      }
+      else {
+        pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+        pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>
+                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_40,(char *)(DAT_00da136c + 0xda10d8));
+        CSRPlayData::RemoveMarker(pCVar3,(basic_string *)&local_40);
+joined_r0x00da114a:
+        if ((local_40 & 1) != 0) {
+          operator_delete(local_38);
+        }
+        SwitchSide(this,0,1);
+        uVar16 = 3;
+        uVar18 = 0xb9;
+      }
+LAB_00da1106:
+      ShowFingerIndicator(this,uVar16,uVar18);
+      goto LAB_00da110a;
+    }
+LAB_00da0fde:
+    TutorialBegin(this);
+    CMFramework::get();
+    pCVar13 = (CMTaskStream *)CMTaskStream::get();
+    local_40 = DAT_00da1360 + 0xda0ffe;
+    local_3c = this;
+    local_30 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_40;
+    CMTaskStream::OnceImpl(pCVar13,(function *)&local_40,extraout_s0_01);
+LAB_00da100a:
+    pbVar14 = local_30;
+    if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)&local_40
+        == local_30) goto LAB_00da1010;
+  }
+LAB_00da0fc2:
+  if (pbVar14 !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)0x0) {
+    (**(code **)(*(int *)pbVar14 + 0x14))();
+  }
+LAB_00da110a:
+  if (*piVar19 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

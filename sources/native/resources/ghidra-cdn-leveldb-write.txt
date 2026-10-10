@@ -1,0 +1,220 @@
+===== 1b7305c Write @ 01b7305c =====
+
+/* WARNING: Removing unreachable block (ram,0x01b73220) */
+/* leveldb::DBImpl::Write(leveldb::WriteOptions const&, leveldb::WriteBatch*) */
+
+void leveldb::DBImpl::Write(WriteOptions *param_1,WriteBatch *param_2)
+
+{
+  bool bVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  Writer *pWVar4;
+  WriteBatch *this;
+  char *pcVar5;
+  WriteBatch *pWVar6;
+  char *pcVar7;
+  int iVar8;
+  char *in_r2;
+  int iVar9;
+  int in_r3;
+  uint uVar10;
+  int *piVar11;
+  uint uVar12;
+  Writer *pWVar13;
+  Mutex *this_00;
+  WriteBatch *local_50;
+  uint local_4c;
+  char *local_48;
+  Writer *local_44;
+  char *local_40;
+  char *local_3c [2];
+  char local_34;
+  char local_33;
+  CondVar aCStack_30 [8];
+  int local_28;
+
+  this_00 = (Mutex *)(param_2 + 100);
+  piVar11 = *(int **)(DAT_01b733ac + 0x1b7307a);
+  local_28 = *piVar11;
+  local_3c[0] = (char *)0x0;
+  port::CondVar::CondVar(aCStack_30,this_00);
+  local_34 = *in_r2;
+  local_33 = '\0';
+  port::Mutex::Lock(this_00);
+  iVar8 = *(int *)(param_2 + 0x9c);
+  uVar2 = *(uint *)(param_2 + 0xa8);
+  iVar9 = *(int *)(param_2 + 0xac);
+  uVar12 = 0;
+  if (*(int *)(param_2 + 0xa0) - iVar8 != 0) {
+    uVar12 = (*(int *)(param_2 + 0xa0) - iVar8) * 0x100 - 1;
+  }
+  uVar10 = iVar9 + uVar2;
+  if (uVar12 == uVar10) {
+    std::__ndk1::deque<leveldb::DBImpl::Writer*,std::__ndk1::allocator<leveldb::DBImpl::Writer*>>::
+    __add_back_capacity((deque<leveldb::DBImpl::Writer*,std::__ndk1::allocator<leveldb::DBImpl::Writer*>>
+                         *)(param_2 + 0x98));
+    iVar8 = *(int *)(param_2 + 0x9c);
+    uVar2 = *(uint *)(param_2 + 0xa8);
+    iVar9 = *(int *)(param_2 + 0xac);
+    uVar10 = uVar2 + iVar9;
+  }
+  *(Writer **)(*(int *)(iVar8 + (uVar10 >> 10) * 4) + (uVar10 & 0x3ff) * 4) = (Writer *)local_3c;
+  *(int *)(param_2 + 0xac) = iVar9 + 1;
+  if (local_33 == '\0') {
+    pWVar4 = *(Writer **)
+              (*(int *)(*(int *)(param_2 + 0x9c) + (uVar2 >> 10) * 4) + (uVar2 & 0x3ff) * 4);
+    while ((Writer *)local_3c != pWVar4) {
+      port::CondVar::Wait(aCStack_30);
+      if (local_33 != '\0') goto LAB_01b730f4;
+      pWVar4 = *(Writer **)
+                (*(int *)(*(int *)(param_2 + 0x9c) + (*(uint *)(param_2 + 0xa8) >> 10) * 4) +
+                (*(uint *)(param_2 + 0xa8) & 0x3ff) * 4);
+    }
+    MakeRoomForWrite((bool)((char)&stack0x00000004 + -0x44));
+    uVar12 = *(uint *)(*(int *)(param_2 + 0xec) + 0x30);
+    iVar8 = *(int *)(*(int *)(param_2 + 0xec) + 0x34);
+    local_44 = (Writer *)local_3c;
+    pWVar4 = (Writer *)local_3c;
+    pcVar5 = local_40;
+    if ((in_r3 != 0) && (local_40 == (char *)0x0)) {
+      this = (WriteBatch *)BuildBatchGroup((DBImpl *)param_2,&local_44);
+      WriteBatchInternal::SetSequence(this,CONCAT44(iVar8 + (uint)(0xfffffffe < uVar12),uVar12 + 1))
+      ;
+      uVar2 = WriteBatchInternal::Count(this);
+      port::Mutex::Unlock(this_00);
+      local_4c = *(uint *)(this + 4);
+      local_50 = *(WriteBatch **)(this + 8);
+      if (((byte)*this & 1) == 0) {
+        local_50 = this + 1;
+        local_4c = (uint)((byte)*this >> 1);
+      }
+      log::Writer::AddRecord((Slice *)&local_48);
+      if (local_48 == (char *)0x0) {
+        pcVar5 = (char *)0x0;
+      }
+      else {
+        pcVar5 = (char *)Status::CopyState(local_48);
+        local_40 = pcVar5;
+        if (local_48 != (char *)0x0) {
+          operator_delete__(local_48);
+        }
+      }
+      bVar1 = false;
+      if ((*in_r2 != '\0') && (pcVar5 == (char *)0x0)) {
+        (**(code **)(**(int **)(param_2 + 0x80) + 0x14))(&local_50);
+        if (local_50 == (WriteBatch *)0x0) {
+          pWVar6 = (WriteBatch *)0x0;
+        }
+        else if (local_50 == (WriteBatch *)0x0) {
+          pWVar6 = (WriteBatch *)0x0;
+          pcVar5 = (char *)0x0;
+          local_40 = pcVar5;
+        }
+        else {
+          pcVar5 = (char *)Status::CopyState((char *)local_50);
+          pWVar6 = local_50;
+          local_40 = pcVar5;
+        }
+        if (pWVar6 != (WriteBatch *)0x0) {
+          operator_delete__(pWVar6);
+        }
+        bVar1 = false;
+        if (pcVar5 != (char *)0x0) {
+          bVar1 = true;
+        }
+      }
+      if (pcVar5 == (char *)0x0) {
+        WriteBatchInternal::InsertInto((WriteBatch *)&local_50,(MemTable *)this);
+        if (local_50 == (WriteBatch *)0x0) {
+          pcVar5 = (char *)0x0;
+        }
+        else {
+          pcVar5 = (char *)Status::CopyState((char *)local_50);
+          local_40 = pcVar5;
+          if (local_50 != (WriteBatch *)0x0) {
+            operator_delete__(local_50);
+          }
+        }
+      }
+      port::Mutex::Lock(this_00);
+      if ((bVar1) && (*(int *)(param_2 + 0xf0) == 0)) {
+        if (pcVar5 != (char *)0x0) {
+          uVar3 = Status::CopyState(pcVar5);
+          *(undefined4 *)(param_2 + 0xf0) = uVar3;
+        }
+        port::CondVar::SignalAll((CondVar *)(param_2 + 0x6c));
+      }
+      if (this == *(WriteBatch **)(param_2 + 0xb0)) {
+        WriteBatch::Clear(this);
+      }
+      iVar9 = *(int *)(param_2 + 0xec);
+      *(uint *)(iVar9 + 0x30) = uVar12 + uVar2;
+      *(uint *)(iVar9 + 0x34) = iVar8 + ((int)uVar2 >> 0x1f) + (uint)CARRY4(uVar12,uVar2);
+      pWVar4 = local_44;
+    }
+    do {
+      uVar12 = *(uint *)(param_2 + 0xa8);
+      pWVar13 = *(Writer **)
+                 ((*(undefined4 **)(param_2 + 0x9c))[uVar12 >> 10] + (uVar12 & 0x3ff) * 4);
+      *(uint *)(param_2 + 0xa8) = uVar12 + 1;
+      *(int *)(param_2 + 0xac) = *(int *)(param_2 + 0xac) + -1;
+      if (0x7ff < uVar12 + 1) {
+        operator_delete((void *)**(undefined4 **)(param_2 + 0x9c));
+        *(int *)(param_2 + 0x9c) = *(int *)(param_2 + 0x9c) + 4;
+        *(int *)(param_2 + 0xa8) = *(int *)(param_2 + 0xa8) + -0x400;
+      }
+      if (pWVar13 != (Writer *)local_3c) {
+        pcVar7 = *(char **)pWVar13;
+        if (pcVar7 != pcVar5) {
+          if (pcVar7 != (char *)0x0) {
+            operator_delete__(pcVar7);
+          }
+          if (pcVar5 == (char *)0x0) {
+            pcVar7 = (char *)0x0;
+          }
+          else {
+            pcVar7 = (char *)Status::CopyState(pcVar5);
+          }
+          *(char **)pWVar13 = pcVar7;
+        }
+        pWVar13[9] = (Writer)0x1;
+        port::CondVar::Signal((CondVar *)(pWVar13 + 0xc));
+      }
+    } while (pWVar13 != pWVar4);
+    if (*(int *)(param_2 + 0xac) != 0) {
+      port::CondVar::Signal
+                ((CondVar *)
+                 (*(int *)(*(int *)(*(int *)(param_2 + 0x9c) + (*(uint *)(param_2 + 0xa8) >> 10) * 4
+                                   ) + (*(uint *)(param_2 + 0xa8) & 0x3ff) * 4) + 0xc));
+    }
+    if (pcVar5 == (char *)0x0) {
+      uVar3 = 0;
+    }
+    else {
+      uVar3 = Status::CopyState(pcVar5);
+      operator_delete__(pcVar5);
+    }
+    *(undefined4 *)param_1 = uVar3;
+  }
+  else {
+LAB_01b730f4:
+    if (local_3c[0] == (char *)0x0) {
+      uVar3 = 0;
+    }
+    else {
+      uVar3 = Status::CopyState(local_3c[0]);
+    }
+    *(undefined4 *)param_1 = uVar3;
+  }
+  port::Mutex::Unlock(this_00);
+  port::CondVar::~CondVar(aCStack_30);
+  if (local_3c[0] != (char *)0x0) {
+    operator_delete__(local_3c[0]);
+  }
+  if (*piVar11 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

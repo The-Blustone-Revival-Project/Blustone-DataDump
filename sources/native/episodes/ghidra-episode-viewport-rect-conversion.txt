@@ -1,0 +1,37 @@
+===== 00753c16 CMVec4Rect @ 00753c16 =====
+
+/* CMVec4Rect::CMVec4Rect(CRMRect const&) */
+
+void __thiscall CMVec4Rect::CMVec4Rect(CMVec4Rect *this,CRMRect *param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  uint in_fpscr;
+  float fVar3;
+  float fVar4;
+  float fVar5;
+  float fVar6;
+
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 8) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0xc) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  iVar1 = *(int *)(param_1 + 0x10) - *(int *)(param_1 + 8);
+  if (iVar1 < 0) {
+    iVar1 = -iVar1;
+  }
+  iVar2 = *(int *)(param_1 + 0xc) - *(int *)(param_1 + 4);
+  fVar4 = (float)VectorUnsignedToFloat(iVar1,(byte)(in_fpscr >> 0x16) & 3);
+  fVar3 = (float)VectorSignedToFloat(*(int *)(param_1 + 8),(byte)(in_fpscr >> 0x16) & 3);
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
+  }
+  fVar5 = (float)VectorUnsignedToFloat(iVar2,(byte)(in_fpscr >> 0x16) & 3);
+  fVar6 = (float)VectorSignedToFloat(*(int *)(param_1 + 4),(byte)(in_fpscr >> 0x16) & 3);
+  *(float *)(this + 0xc) = fVar3 + fVar4;
+  *(float *)this = fVar6;
+  *(float *)(this + 4) = fVar3;
+  *(float *)(this + 8) = fVar6 + fVar5;
+  return;
+}

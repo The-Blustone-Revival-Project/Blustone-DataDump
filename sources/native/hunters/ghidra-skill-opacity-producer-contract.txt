@@ -1,0 +1,51 @@
+===== 0078a258 SetOpacityf @ 0078a258 =====
+
+/* CMUpdatable::SetOpacityf(float) */
+
+void __thiscall CMUpdatable::SetOpacityf(CMUpdatable *this,float param_1)
+
+{
+  bool bVar1;
+  CMUpdatable *this_00;
+  float in_r1;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  __shared_weak_count *this_01;
+  CMUpdatable *pCVar4;
+
+  if ((in_r1 < *(float *)(this + 0xbc) + DAT_0078a330) ||
+     (*(float *)(this + 0xbc) + DAT_0078a334 < in_r1)) {
+    *(float *)(this + 0xbc) = in_r1;
+    (**(code **)(*(int *)this + 100))(this,0x20);
+    for (pCVar4 = *(CMUpdatable **)(this + 0x4c); this + 0x48 != pCVar4;
+        pCVar4 = *(CMUpdatable **)(pCVar4 + 4)) {
+      this_00 = *(CMUpdatable **)(pCVar4 + 8);
+      this_01 = *(__shared_weak_count **)(pCVar4 + 0xc);
+      if (this_01 != (__shared_weak_count *)0x0) {
+        p_Var2 = this_01 + 4;
+        do {
+          ExclusiveAccess(p_Var2);
+          bVar1 = (bool)hasExclusiveAccess(p_Var2);
+        } while (!bVar1);
+        *(int *)p_Var2 = *(int *)p_Var2 + 1;
+      }
+      SetFlagTransformDirtyHierarchy(this_00,0xa0);
+      if (this_01 != (__shared_weak_count *)0x0) {
+        p_Var2 = this_01 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var2);
+          iVar3 = *(int *)p_Var2;
+          bVar1 = (bool)hasExclusiveAccess(p_Var2);
+        } while (!bVar1);
+        *(int *)p_Var2 = iVar3 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar3 == 0) {
+          (**(code **)(*(int *)this_01 + 8))(this_01);
+          std::__ndk1::__shared_weak_count::__release_weak(this_01);
+        }
+      }
+    }
+  }
+  return;
+}

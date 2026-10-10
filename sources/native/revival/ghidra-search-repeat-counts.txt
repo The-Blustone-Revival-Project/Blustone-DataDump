@@ -1,0 +1,332 @@
+===== 90bc18 GetPlayCnt @ 0090bc18 =====
+
+/* CSRFindShardStage::GetPlayCnt(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRFindShardStage::GetPlayCnt(CSRFindShardStage *this,basic_string *param_1)
+
+{
+  byte bVar1;
+  bool bVar2;
+  void *pvVar3;
+  int *piVar4;
+  int iVar5;
+  int *piVar6;
+  __shared_weak_count *p_Var7;
+  uint uVar8;
+  char *pcVar9;
+  size_t sVar10;
+  char *pcVar11;
+  undefined4 *puVar12;
+  basic_string *pbVar13;
+  undefined4 *puVar14;
+  basic_string *pbVar15;
+  __shared_weak_count *this_00;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_4c;
+  char local_4b [3];
+  uint local_48;
+  char *local_44;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_40;
+  char local_3f [3];
+  uint local_3c;
+  char *local_38;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34;
+  char local_33 [3];
+  size_t local_30;
+  void *local_2c;
+  int local_28;
+
+  piVar6 = *(int **)(DAT_0090be38 + 0x90bc2a);
+  local_28 = *piVar6;
+  puVar12 = *(undefined4 **)(this + 0x3c);
+  puVar14 = *(undefined4 **)(this + 0x40);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string(&local_40,param_1);
+  for (; puVar14 != puVar12; puVar12 = puVar12 + 2) {
+    piVar4 = (int *)*puVar12;
+    this_00 = (__shared_weak_count *)puVar12[1];
+    if (this_00 != (__shared_weak_count *)0x0) {
+      p_Var7 = this_00 + 4;
+      do {
+        ExclusiveAccess(p_Var7);
+        bVar2 = (bool)hasExclusiveAccess(p_Var7);
+      } while (!bVar2);
+      *(int *)p_Var7 = *(int *)p_Var7 + 1;
+    }
+    iVar5 = *piVar4;
+    bVar1 = *(byte *)(iVar5 + 8);
+    sVar10 = *(size_t *)(iVar5 + 0xc);
+    uVar8 = local_3c;
+    if (((byte)local_40 & 1) == 0) {
+      uVar8 = (uint)((byte)local_40 >> 1);
+    }
+    if ((bVar1 & 1) == 0) {
+      sVar10 = (size_t)(bVar1 >> 1);
+    }
+    if (sVar10 == uVar8) {
+      pcVar11 = (char *)(iVar5 + 9);
+      pcVar9 = local_38;
+      if (((byte)local_40 & 1) == 0) {
+        pcVar9 = local_3f;
+      }
+      if ((bVar1 & 1) == 0) {
+        if (sVar10 != 0) {
+          uVar8 = (uint)(bVar1 >> 1);
+          do {
+            if (*pcVar11 != *pcVar9) break;
+            pcVar9 = pcVar9 + 1;
+            pcVar11 = pcVar11 + 1;
+            uVar8 = uVar8 - 1;
+          } while (uVar8 != 0);
+        }
+      }
+      else if (sVar10 != 0) {
+        memcmp(*(void **)(iVar5 + 0x10),pcVar9,sVar10);
+      }
+    }
+    if (this_00 != (__shared_weak_count *)0x0) {
+      p_Var7 = this_00 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var7);
+        iVar5 = *(int *)p_Var7;
+        bVar2 = (bool)hasExclusiveAccess(p_Var7);
+      } while (!bVar2);
+      *(int *)p_Var7 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)this_00 + 8))(this_00);
+        std::__ndk1::__shared_weak_count::__release_weak(this_00);
+      }
+    }
+  }
+  pbVar13 = *(basic_string **)(this + 0x84);
+  pbVar15 = *(basic_string **)(this + 0x88);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string(&local_4c,param_1);
+  if (pbVar13 != pbVar15) {
+    do {
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string(&local_34,pbVar13);
+      pvVar3 = local_2c;
+      sVar10 = local_30;
+      if (((byte)local_34 & 1) == 0) {
+        sVar10 = (size_t)((byte)local_34 >> 1);
+      }
+      uVar8 = local_48;
+      if (((byte)local_4c & 1) == 0) {
+        uVar8 = (uint)((byte)local_4c >> 1);
+      }
+      if (sVar10 == uVar8) {
+        pcVar9 = local_44;
+        if (((byte)local_4c & 1) == 0) {
+          pcVar9 = local_4b;
+        }
+        if (((byte)local_34 & 1) == 0) {
+          if (sVar10 != 0) {
+            uVar8 = (uint)((byte)local_34 >> 1);
+            pcVar11 = local_33;
+            do {
+              if (*pcVar11 != *pcVar9) break;
+              pcVar9 = pcVar9 + 1;
+              pcVar11 = pcVar11 + 1;
+              uVar8 = uVar8 - 1;
+            } while (uVar8 != 0);
+            goto LAB_0090bdac;
+          }
+        }
+        else if (sVar10 == 0) {
+          operator_delete(local_2c);
+        }
+        else {
+          memcmp(local_2c,pcVar9,sVar10);
+          operator_delete(pvVar3);
+        }
+      }
+      else {
+LAB_0090bdac:
+        if (((byte)local_34 & 1) != 0) {
+          operator_delete(local_2c);
+        }
+      }
+      pbVar13 = pbVar13 + 0xc;
+    } while (pbVar13 != pbVar15);
+  }
+  if (((byte)local_4c & 1) != 0) {
+    operator_delete(local_44);
+  }
+  if (((byte)local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  iVar5 = *piVar6 - local_28;
+  if (iVar5 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar5);
+}
+
+
+===== 90ba88 GetRetryCnt @ 0090ba88 =====
+
+/* CSRFindShardStage::GetRetryCnt(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRFindShardStage::GetRetryCnt(CSRFindShardStage *this,basic_string *param_1)
+
+{
+  void *pvVar1;
+  int iVar2;
+  uint uVar3;
+  char *__s2;
+  int *piVar4;
+  size_t __n;
+  char *pcVar5;
+  basic_string *pbVar6;
+  basic_string *pbVar7;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_40;
+  char local_3f [3];
+  uint local_3c;
+  char *local_38;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34;
+  char local_33 [3];
+  size_t local_30;
+  void *local_2c;
+  int local_28;
+
+  piVar4 = *(int **)(DAT_0090bb90 + 0x90ba98);
+  local_28 = *piVar4;
+  pbVar6 = *(basic_string **)(this + 0x84);
+  pbVar7 = *(basic_string **)(this + 0x88);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string(&local_40,param_1);
+  if (pbVar6 != pbVar7) {
+    do {
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string(&local_34,pbVar6);
+      pvVar1 = local_2c;
+      __n = local_30;
+      if (((byte)local_34 & 1) == 0) {
+        __n = (size_t)((byte)local_34 >> 1);
+      }
+      uVar3 = local_3c;
+      if (((byte)local_40 & 1) == 0) {
+        uVar3 = (uint)((byte)local_40 >> 1);
+      }
+      if (__n == uVar3) {
+        __s2 = local_38;
+        if (((byte)local_40 & 1) == 0) {
+          __s2 = local_3f;
+        }
+        if (((byte)local_34 & 1) == 0) {
+          if (__n != 0) {
+            uVar3 = (uint)((byte)local_34 >> 1);
+            pcVar5 = local_33;
+            do {
+              if (*pcVar5 != *__s2) break;
+              __s2 = __s2 + 1;
+              pcVar5 = pcVar5 + 1;
+              uVar3 = uVar3 - 1;
+            } while (uVar3 != 0);
+            goto LAB_0090bb26;
+          }
+        }
+        else if (__n == 0) {
+          operator_delete(local_2c);
+        }
+        else {
+          memcmp(local_2c,__s2,__n);
+          operator_delete(pvVar1);
+        }
+      }
+      else {
+LAB_0090bb26:
+        if (((byte)local_34 & 1) != 0) {
+          operator_delete(local_2c);
+        }
+      }
+      pbVar6 = pbVar6 + 0xc;
+    } while (pbVar6 != pbVar7);
+  }
+  if (((byte)local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  iVar2 = *piVar4 - local_28;
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar2);
+  }
+  return;
+}
+
+
+===== 90b940 ResetTarget @ 0090b940 =====
+
+/* CSRFindShardStage::ResetTarget() */
+
+void __thiscall CSRFindShardStage::ResetTarget(CSRFindShardStage *this)
+
+{
+  bool bVar1;
+  int *piVar2;
+  int iVar3;
+  int *piVar4;
+
+  piVar4 = *(int **)(this + 0x94);
+  *(undefined4 *)(this + 0x90) = 0;
+  *(undefined4 *)(this + 0x94) = 0;
+  if (piVar4 == (int *)0x0) {
+    return;
+  }
+  piVar2 = piVar4 + 1;
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(piVar2);
+    iVar3 = *piVar2;
+    bVar1 = (bool)hasExclusiveAccess(piVar2);
+  } while (!bVar1);
+  *piVar2 = iVar3 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar3 != 0) {
+    return;
+  }
+  (**(code **)(*piVar4 + 8))(piVar4);
+  (*(code *)((int)&DAT_00a16624 + DAT_00a16624))(piVar4);
+  return;
+}
+
+
+===== 90b968 ResetTarget @ 0090b940 =====
+
+/* CSRFindShardStage::ResetTarget() */
+
+void __thiscall CSRFindShardStage::ResetTarget(CSRFindShardStage *this)
+
+{
+  bool bVar1;
+  int *piVar2;
+  int iVar3;
+  int *piVar4;
+
+  piVar4 = *(int **)(this + 0x94);
+  *(undefined4 *)(this + 0x90) = 0;
+  *(undefined4 *)(this + 0x94) = 0;
+  if (piVar4 == (int *)0x0) {
+    return;
+  }
+  piVar2 = piVar4 + 1;
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(piVar2);
+    iVar3 = *piVar2;
+    bVar1 = (bool)hasExclusiveAccess(piVar2);
+  } while (!bVar1);
+  *piVar2 = iVar3 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar3 != 0) {
+    return;
+  }
+  (**(code **)(*piVar4 + 8))(piVar4);
+  (*(code *)((int)&DAT_00a16624 + DAT_00a16624))(piVar4);
+  return;
+}

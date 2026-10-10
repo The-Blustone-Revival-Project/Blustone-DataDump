@@ -1,0 +1,456 @@
+===== 00af109c GetItemData @ 00af109c =====
+
+/* CSRItemInfo::GetItemData(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+void __thiscall CSRItemInfo::GetItemData(CSRItemInfo *this,basic_string *param_1)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int iVar5;
+  CSRItemInfo *pCVar6;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_00;
+  ulonglong *puVar7;
+  CSRItemInfo *pCVar8;
+  int iVar9;
+  int iVar10;
+  undefined4 uVar11;
+  void *pvVar12;
+  basic_string *pbVar13;
+  int iVar14;
+  int *piVar15;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_3c [8];
+  void *local_34;
+  undefined8 local_30;
+  void *local_28;
+  int local_24;
+
+  piVar15 = *(int **)(DAT_00af1214 + 0xaf10b0);
+  local_24 = *piVar15;
+  pCVar6 = (CSRItemInfo *)
+           std::__ndk1::
+           __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>>>
+           ::
+           find<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                     ((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>>>
+                       *)this,param_1);
+  if (this + 4 == pCVar6) {
+    this_00 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              std::__ndk1::
+              basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+              basic_string<decltype(nullptr)>(local_3c,(char *)(DAT_00af1218 + 0xaf10d4));
+    puVar7 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (this_00,(char *)(DAT_00af121c + 0xaf10dc),0x17);
+    local_30 = *puVar7;
+    local_28 = *(void **)(puVar7 + 1);
+    *(undefined4 *)puVar7 = 0;
+    *(undefined4 *)((int)puVar7 + 4) = 0;
+    *(undefined4 *)(puVar7 + 1) = 0;
+    pbVar13 = *(basic_string **)(param_1 + 8);
+    pvVar12 = local_28;
+    if ((local_30 & 1) == 0) {
+      pvVar12 = (void *)((int)&local_30 + 1);
+    }
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar13 = param_1 + 1;
+    }
+    RMTrace(2,pvVar12,DAT_00af1220 + 0xaf1112,pbVar13);
+    if ((local_30 & 1) != 0) {
+      operator_delete(local_28);
+    }
+    if (((byte)local_3c[0] & 1) != 0) {
+      operator_delete(local_34);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>
+              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_30,(char *)(DAT_00af1224 + 0xaf113e));
+    pCVar8 = (CSRItemInfo *)
+             std::__ndk1::
+             __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>>>
+             ::
+             find<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                       ((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>>>
+                         *)this,(basic_string *)&local_30);
+    if ((local_30 & 1) != 0) {
+      operator_delete(local_28);
+    }
+    if ((pCVar6 == pCVar8) &&
+       (DataMemoryBarrier(0x1b), (*(byte *)(DAT_00af1228 + 0xaf116a) & 1) == 0)) {
+      iVar10 = __cxa_guard_acquire(DAT_00af1230 + 0xaf1194);
+      iVar5 = DAT_00af123c;
+      iVar4 = DAT_00af1238;
+      iVar9 = DAT_00af1234;
+      iVar14 = DAT_00af1234 + 0xaf119e;
+      if (iVar10 != 0) {
+        uVar1 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+        uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+        uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+        *(undefined4 *)(&UNK_00af11de + DAT_00af1234) = 0;
+        *(undefined4 *)(&UNK_00af11e2 + iVar9) = uVar1;
+        *(undefined4 *)(&UNK_00af11e6 + iVar9) = uVar2;
+        *(undefined4 *)(&UNK_00af11ea + iVar9) = uVar3;
+        *(undefined4 *)(iVar9 + 0xaf11d2) = 0;
+        *(undefined4 *)(iVar9 + 0xaf11d6) = uVar1;
+        *(undefined4 *)(iVar9 + 0xaf11da) = uVar2;
+        *(undefined4 *)(&UNK_00af11de + iVar9) = uVar3;
+        *(undefined4 *)(iVar9 + 0xaf11c2) = 0;
+        *(undefined4 *)(iVar9 + 0xaf11c6) = uVar1;
+        *(undefined4 *)(iVar9 + 0xaf11ca) = uVar2;
+        *(undefined4 *)(iVar9 + 0xaf11ce) = uVar3;
+        uVar11 = *(undefined4 *)(iVar4 + 0xaf11b6);
+        *(undefined4 *)(iVar9 + 0xaf11b2) = 0;
+        *(undefined4 *)(iVar9 + 0xaf11b6) = uVar1;
+        *(undefined4 *)(iVar9 + 0xaf11ba) = uVar2;
+        *(undefined4 *)(iVar9 + 0xaf11be) = uVar3;
+        __cxa_atexit(uVar11,iVar14,iVar5 + 0xaf11b8);
+        __cxa_guard_release(DAT_00af1240 + 0xaf11d8);
+      }
+    }
+  }
+  iVar9 = *piVar15 - local_24;
+  if (iVar9 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar9);
+}
+
+
+===== 00af1088 IsItemData @ 00af1088 =====
+
+/* CSRItemInfo::IsItemData(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+bool __thiscall CSRItemInfo::IsItemData(CSRItemInfo *this,basic_string *param_1)
+
+{
+  CSRItemInfo *pCVar1;
+
+  pCVar1 = (CSRItemInfo *)
+           std::__ndk1::
+           __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>>>
+           ::
+           find<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                     ((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRItemInfo::INFO>>>
+                       *)this,param_1);
+  return this + 4 != pCVar1;
+}
+
+
+===== 00afa420 AddThumbList @ 00afa420 =====
+
+/* CSRItemThumb::AddThumbList(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, unsigned int,
+   std::__ndk1::list<std::__ndk1::shared_ptr<CSRItemThumb>,
+   std::__ndk1::allocator<std::__ndk1::shared_ptr<CSRItemThumb> > >&) */
+
+void CSRItemThumb::AddThumbList(basic_string *param_1,uint param_2,list *param_3)
+
+{
+  bool bVar1;
+  basic_string *pbVar2;
+  int *piVar3;
+  __shared_weak_count *p_Var4;
+  int iVar5;
+  uint uVar6;
+  int *piVar7;
+  undefined4 uVar8;
+  undefined4 uVar9;
+  void *pvVar10;
+  undefined4 uVar11;
+  uint local_50;
+  undefined4 uStack_4c;
+  void *local_48;
+  undefined4 local_44;
+  undefined4 uStack_40;
+  void *pvStack_3c;
+  undefined4 uStack_38;
+  CSRItemThumb *local_34;
+  __shared_weak_count *local_30;
+  int local_2c;
+
+  piVar7 = *(int **)(DAT_00afa57c + 0xafa438);
+  local_2c = *piVar7;
+  if (param_2 != 0) {
+    std::__ndk1::shared_ptr<CSRItemThumb>::make_shared<>((shared_ptr<CSRItemThumb> *)&local_34);
+    uVar8 = 0;
+    uVar9 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    pvVar10 = *(void **)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    uVar11 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    local_50 = 0;
+    local_44 = 0;
+    uStack_4c = uVar9;
+    local_48 = pvVar10;
+    uStack_40 = uVar9;
+    pvStack_3c = pvVar10;
+    uStack_38 = uVar11;
+    pbVar2 = (basic_string *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+             basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                           *)&local_50,*(basic_string **)(DAT_00afa580 + 0xafa458));
+    *(undefined4 *)(pbVar2 + 0xc) = uVar8;
+    *(undefined4 *)(pbVar2 + 0x10) = uVar9;
+    *(void **)(pbVar2 + 0x14) = pvVar10;
+    *(undefined4 *)(pbVar2 + 0x18) = uVar11;
+    if (pbVar2 != param_1) {
+      uVar6 = *(uint *)(param_1 + 4);
+      pbVar2 = *(basic_string **)(param_1 + 8);
+      if (((byte)*param_1 & 1) == 0) {
+        pbVar2 = param_1 + 1;
+        uVar6 = (uint)((byte)*param_1 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_50,(char *)pbVar2,uVar6);
+    }
+    Init(local_34,(CREATE_INFO *)&local_50);
+    SetContents(local_34,0x11);
+    *(uint *)(local_34 + 0x850) = param_2;
+    local_34[0x866] = (CSRItemThumb)0x0;
+    SetCountTextOwned(local_34,'\0');
+    piVar3 = operator_new(0x10);
+    *piVar3 = 0;
+    piVar3[2] = (int)local_34;
+    piVar3[3] = (int)local_30;
+    if (local_30 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_30 + 4;
+      do {
+        ExclusiveAccess(p_Var4);
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = *(int *)p_Var4 + 1;
+    }
+    iVar5 = *(int *)param_3;
+    *piVar3 = iVar5;
+    piVar3[1] = (int)param_3;
+    *(int **)(iVar5 + 4) = piVar3;
+    *(int **)param_3 = piVar3;
+    *(int *)(param_3 + 8) = *(int *)(param_3 + 8) + 1;
+    if ((local_50 & 1) != 0) {
+      operator_delete(local_48);
+    }
+    if (local_30 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_30 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar5 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)local_30 + 8))(local_30);
+        std::__ndk1::__shared_weak_count::__release_weak(local_30);
+      }
+    }
+  }
+  if (*piVar7 == local_2c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 00afa584 GetItemThumbList @ 00afa584 =====
+
+/* CSRItemThumb::GetItemThumbList(SRREWARD_INFO const&) */
+
+void __thiscall CSRItemThumb::GetItemThumbList(CSRItemThumb *this,SRREWARD_INFO *param_1)
+
+{
+  bool bVar1;
+  int *piVar2;
+  CSRItemInfo *this_00;
+  int iVar3;
+  CSRCardInfoContainer *this_01;
+  basic_string *pbVar4;
+  int *piVar5;
+  __shared_weak_count *p_Var6;
+  char *pcVar7;
+  basic_string *pbVar8;
+  __shared_weak_count *p_Var9;
+  uint uVar10;
+  basic_string *pbVar11;
+  basic_string *pbVar12;
+  basic_string *pbVar13;
+  uint uVar14;
+  undefined4 uVar15;
+  void *pvVar16;
+  undefined4 uVar17;
+  uint local_60;
+  undefined4 uStack_5c;
+  void *local_58;
+  uint local_54;
+  undefined4 uStack_50;
+  void *pvStack_4c;
+  undefined4 uStack_48;
+  CSRItemThumb *local_44;
+  __shared_weak_count *local_40;
+  int local_3c;
+
+  pcVar7 = (char *)(DAT_00afa8e0 + 0xafa5a2);
+  piVar2 = *(int **)(DAT_00afa8dc + 0xafa5a0);
+  local_3c = *piVar2;
+  *(CSRItemThumb **)this = this;
+  *(CSRItemThumb **)(this + 4) = this;
+  *(undefined4 *)(this + 8) = 0;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar7);
+  AddThumbList((basic_string *)&local_60,*(uint *)(param_1 + 8),(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,(char *)(DAT_00afa8e4 + 0xafa5d6));
+  AddThumbList((basic_string *)&local_60,*(uint *)param_1,(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,(char *)(DAT_00afa8e8 + 0xafa5f8));
+  AddThumbList((basic_string *)&local_60,*(uint *)(param_1 + 0xc),(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,(char *)(DAT_00afa8ec + 0xafa61a));
+  AddThumbList((basic_string *)&local_60,*(uint *)(param_1 + 0x10),(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,(char *)(DAT_00afa8f0 + 0xafa63c));
+  AddThumbList((basic_string *)&local_60,*(uint *)(param_1 + 0x14),(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,(char *)(DAT_00afa8f4 + 0xafa65e));
+  AddThumbList((basic_string *)&local_60,*(uint *)(param_1 + 0x18),(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,(char *)(DAT_00afa8f8 + 0xafa680));
+  AddThumbList((basic_string *)&local_60,*(uint *)(param_1 + 0x1c),(list *)this);
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  pbVar12 = *(basic_string **)(param_1 + 0x24);
+  for (pbVar11 = *(basic_string **)(param_1 + 0x20); pbVar11 != pbVar12; pbVar11 = pbVar11 + 0x10) {
+    this_00 = (CSRItemInfo *)CSRItemInfo::get();
+    iVar3 = CSRItemInfo::GetItemData(this_00,pbVar11);
+    AddThumbList((basic_string *)(iVar3 + 0x14),*(uint *)(pbVar11 + 0xc),(list *)this);
+  }
+  pbVar11 = *(basic_string **)(param_1 + 0x2c);
+  pbVar12 = *(basic_string **)(param_1 + 0x30);
+  if (pbVar11 != pbVar12) {
+    uVar14 = 0;
+    uVar15 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    pvVar16 = *(void **)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    uVar17 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    pbVar13 = *(basic_string **)(DAT_00afa8fc + 0xafa6de);
+    do {
+      this_01 = (CSRCardInfoContainer *)CSRCardInfoContainer::get();
+      pbVar4 = (basic_string *)CSRCardInfoContainer::GetCardData(this_01,pbVar11);
+      std::__ndk1::shared_ptr<CSRItemThumb>::make_shared<>((shared_ptr<CSRItemThumb> *)&local_44);
+      *(undefined2 *)(local_44 + 0x865) = 1;
+      local_60 = uVar14;
+      uStack_5c = uVar15;
+      local_58 = pvVar16;
+      local_54 = uVar14;
+      uStack_50 = uVar15;
+      pvStack_4c = pvVar16;
+      uStack_48 = uVar17;
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_60,pbVar13);
+      local_54 = uVar14;
+      uStack_50 = uVar15;
+      pvStack_4c = pvVar16;
+      uStack_48 = uVar17;
+      if ((basic_string *)&local_60 != pbVar4) {
+        uVar10 = *(uint *)(pbVar4 + 4);
+        pbVar8 = *(basic_string **)(pbVar4 + 8);
+        if (((byte)*pbVar4 & 1) == 0) {
+          pbVar8 = pbVar4 + 1;
+          uVar10 = (uint)((byte)*pbVar4 >> 1);
+        }
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_60,(char *)pbVar8,uVar10);
+      }
+      Init(local_44,(CREATE_INFO *)&local_60);
+      SetContents(local_44,0x11);
+      *(undefined4 *)(local_44 + 0x854) = 1;
+      local_44[0x866] = (CSRItemThumb)0x0;
+      SetCountText(local_44);
+      piVar5 = operator_new(0x10);
+      *piVar5 = 0;
+      piVar5[2] = (int)local_44;
+      piVar5[3] = (int)local_40;
+      if (local_40 != (__shared_weak_count *)0x0) {
+        p_Var9 = local_40 + 4;
+        do {
+          ExclusiveAccess(p_Var9);
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = *(int *)p_Var9 + 1;
+      }
+      iVar3 = *(int *)this;
+      *piVar5 = iVar3;
+      piVar5[1] = (int)this;
+      *(int **)(iVar3 + 4) = piVar5;
+      *(int **)this = piVar5;
+      *(int *)(this + 8) = *(int *)(this + 8) + 1;
+      if ((local_60 & 1) != 0) {
+        operator_delete(local_58);
+      }
+      p_Var9 = local_40;
+      if (local_40 != (__shared_weak_count *)0x0) {
+        p_Var6 = local_40 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var6);
+          iVar3 = *(int *)p_Var6;
+          bVar1 = (bool)hasExclusiveAccess(p_Var6);
+        } while (!bVar1);
+        *(int *)p_Var6 = iVar3 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar3 == 0) {
+          (**(code **)(*(int *)local_40 + 8))(local_40);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      pbVar11 = pbVar11 + 0x10;
+    } while (pbVar11 != pbVar12);
+  }
+  if (*piVar2 == local_3c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

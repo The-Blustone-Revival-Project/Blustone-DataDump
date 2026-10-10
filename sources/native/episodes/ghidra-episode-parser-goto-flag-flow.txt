@@ -1,0 +1,211 @@
+===== 8cea30 Parse @ 008cea30 =====
+
+/* WARNING: Removing unreachable block (ram,0x008ceaee) */
+/* CSRDlgParser::Parse(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRDlgParser::Parse(CSRDlgParser *this,basic_string *param_1)
+
+{
+  byte *pbVar1;
+  byte bVar2;
+  basic_string *pbVar3;
+  int *piVar4;
+  CMSoundMgr *this_00;
+  byte *pbVar5;
+  int iVar6;
+  char *pcVar7;
+  ulonglong *puVar8;
+  byte *pbVar9;
+  uint uVar10;
+  int iVar11;
+  void *pvVar12;
+  int *piVar13;
+  basic_string *pbVar14;
+  int iVar15;
+  int *piVar16;
+  basic_string *pbVar17;
+  int iVar18;
+  int iVar19;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_4c [8];
+  void *local_44;
+  undefined8 local_40;
+  void *local_38;
+  basic_string *local_34;
+  basic_string *local_30;
+  int local_28;
+  
+  piVar4 = *(int **)(DAT_008cecb0 + 0x8cea48);
+  local_28 = *piVar4;
+  *(undefined4 *)(this + 0x28) = 0xffffffff;
+  *(undefined4 *)(this + 0x2c) = 0xffffffff;
+  *(undefined4 *)(this + 0x30) = 0;
+  this[0xc] = (CSRDlgParser)0x0;
+  this_00 = (CMSoundMgr *)CMSoundMgr::get();
+  CMSoundMgr::StopVoice(this_00);
+  piVar16 = *(int **)this;
+  piVar13 = *(int **)(this + 4);
+  while (piVar13 != piVar16) {
+    piVar13 = piVar13 + -1;
+    if ((int *)*piVar13 != (int *)0x0) {
+      (**(code **)(*(int *)*piVar13 + 4))();
+    }
+  }
+  this[0xe] = (CSRDlgParser)0x0;
+  *(int **)(this + 4) = piVar16;
+  split((basic_string *)&local_34,(char)param_1);
+  pbVar3 = local_30;
+  if (local_34 != local_30) {
+    pbVar17 = local_34;
+    do {
+      pbVar5 = (byte *)trim(pbVar17);
+      bVar2 = *pbVar5;
+      uVar10 = *(uint *)(pbVar5 + 4);
+      if ((bVar2 & 1) == 0) {
+        uVar10 = (uint)(bVar2 >> 1);
+      }
+      if (uVar10 != 0) {
+        pbVar9 = *(byte **)(pbVar5 + 8);
+        if ((bVar2 & 1) == 0) {
+          pbVar9 = pbVar5 + 1;
+        }
+        if (*pbVar9 != 0x23) {
+          if (9 < uVar10) {
+            uVar10 = 10;
+          }
+          if (9 < (int)uVar10) {
+            iVar18 = uVar10 - 9;
+            pbVar5 = pbVar9 + 8;
+            iVar11 = 10;
+            iVar19 = -9;
+            do {
+              iVar11 = iVar11 + -1;
+              if (pbVar9[iVar11] == 0x65) {
+                iVar15 = 0;
+                do {
+                  if (iVar15 == -9) {
+                    if ((iVar19 == -9) && (iVar18 != -9)) {
+                      piVar16 = *(int **)this;
+                      piVar13 = *(int **)(this + 4);
+                      while (piVar13 != piVar16) {
+                        piVar13 = piVar13 + -1;
+                        if ((int *)*piVar13 != (int *)0x0) {
+                          (**(code **)(*(int *)*piVar13 + 4))();
+                        }
+                      }
+                      *(int **)(this + 4) = piVar16;
+                    }
+                    goto LAB_008ceb4a;
+                  }
+                  pbVar1 = pbVar5 + iVar15;
+                  iVar6 = DAT_008cecb4 + iVar15;
+                  iVar15 = iVar15 + -1;
+                } while (*pbVar1 == *(byte *)(iVar6 + 0x8ceb1e));
+              }
+              pbVar5 = pbVar5 + -1;
+              iVar19 = iVar19 + 1;
+              iVar18 = iVar18 + 1;
+            } while (iVar11 != 9);
+          }
+LAB_008ceb4a:
+          if (((byte)*pbVar17 & 1) == 0) {
+            pbVar14 = pbVar17 + 1;
+          }
+          else {
+            pbVar14 = *(basic_string **)(pbVar17 + 8);
+          }
+          pcVar7 = (char *)strlen((char *)pbVar14);
+          iVar11 = peg::parser::parse_n(*(char **)(DAT_008cecb8 + 0x8ceb62),(uint)pbVar14,pcVar7);
+          if (iVar11 == 0) {
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+            basic_string<decltype(nullptr)>(local_4c,(char *)(DAT_008cecbc + 0x8ceb78));
+            puVar8 = (ulonglong *)
+                     std::__ndk1::
+                     basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                     ::append(local_4c,(char *)(DAT_008cecc0 + 0x8ceb82),0x13);
+            local_40 = *puVar8;
+            local_38 = *(void **)(puVar8 + 1);
+            *(undefined4 *)puVar8 = 0;
+            *(undefined4 *)((int)puVar8 + 4) = 0;
+            *(undefined4 *)(puVar8 + 1) = 0;
+            pbVar14 = *(basic_string **)(param_1 + 8);
+            if (((byte)*param_1 & 1) == 0) {
+              pbVar14 = param_1 + 1;
+            }
+            pvVar12 = local_38;
+            if ((local_40 & 1) == 0) {
+              pvVar12 = (void *)((int)&local_40 + 1);
+            }
+            _RMAssert('\0',(char *)(DAT_008ceccc + 0x8cebb4),(char *)(DAT_008cecd0 + 0x8cebbc),0x4aa
+                      ,DAT_008cecc8 + 0x8cebb2,pvVar12,DAT_008cecc4 + 0x8cebb0,pbVar14);
+            if ((local_40 & 1) != 0) {
+              operator_delete(local_38);
+            }
+            operator_delete(local_44);
+          }
+        }
+      }
+      pbVar17 = pbVar17 + 0xc;
+    } while (pbVar17 != pbVar3);
+  }
+  pbVar3 = local_34;
+  if (local_34 != (basic_string *)0x0) {
+    while (pbVar17 = local_30, pbVar17 != pbVar3) {
+      local_30 = pbVar17 + -0xc;
+      if (((byte)*local_30 & 1) != 0) {
+        operator_delete(*(void **)(pbVar17 + -4));
+      }
+    }
+    local_30 = pbVar3;
+    operator_delete(local_34);
+  }
+  if (*piVar4 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 8c74c8 CSRDlgParser @ 008c74c8 =====
+
+/* CSRDlgParser::CSRDlgParser() */
+
+CSRDlgParser * __thiscall CSRDlgParser::CSRDlgParser(CSRDlgParser *this)
+
+{
+  *(undefined4 *)(this + 0x20) = 0;
+  *(undefined4 *)(this + 0x24) = 0;
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = 0;
+  *(undefined4 *)(this + 0xb) = 0;
+  *(undefined4 *)(this + 7) = 0;
+  this[0xf] = (CSRDlgParser)0x1;
+  *(undefined4 *)(this + 0x14) = 0;
+  *(undefined4 *)(this + 0x18) = 0;
+  *(undefined4 *)(this + 0x10) = 0;
+  BuildParser(this);
+  return this;
+}
+
+
+===== 8cd768 InsertIgnoreGoto @ 008cd768 =====
+
+/* CSRDlgParser::InsertIgnoreGoto(std::__ndk1::vector<std::__ndk1::pair<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >, std::__ndk1::vector<type::any,
+   std::__ndk1::allocator<type::any> > >,
+   std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >, std::__ndk1::vector<type::any,
+   std::__ndk1::allocator<type::any> > > > > const&) */
+
+void CSRDlgParser::InsertIgnoreGoto(vector *param_1)
+
+{
+  if (param_1[0xd] != (vector)0x0) {
+    param_1[0xe] = (vector)0x1;
+  }
+  return;
+}
+
+

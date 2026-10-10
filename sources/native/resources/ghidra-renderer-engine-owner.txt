@@ -1,0 +1,146 @@
+===== 010c7d04 CRMEngine @ 010c7d04 =====
+
+/* CRMEngine::CRMEngine() */
+
+void __thiscall CRMEngine::CRMEngine(CRMEngine *this)
+
+{
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 8) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0xc) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  return;
+}
+
+
+===== 010c7dbc Init @ 010c7dbc =====
+
+/* CRMEngine::Init(CRMRect const&, RM_SCREEN_FIT) */
+
+void __thiscall CRMEngine::Init(CRMEngine *this,int param_1,undefined4 param_3)
+
+{
+  int *piVar1;
+  CRMFontSystemTF *this_00;
+  CRMResourceMgr4 *this_01;
+  int iVar2;
+  int iVar3;
+  uint uVar4;
+  int iVar5;
+  CRMRendererOES2 *this_02;
+  CRMMediaMgr *this_03;
+  void *pvVar6;
+  int iVar7;
+  int local_50;
+  undefined8 local_4c;
+  undefined8 uStack_44;
+  int local_3c;
+  undefined8 local_38;
+  undefined8 local_30;
+  int local_28;
+
+  piVar1 = *(int **)(DAT_010c7ff4 + 0x10c7dd2);
+  local_28 = *piVar1;
+  RMTrace(1,DAT_010c7ff8 + 0x10c7de0);
+  this_00 = operator_new(0x2c);
+  CRMFontSystemTF::CRMFontSystemTF(this_00);
+  *(CRMFontSystemTF **)(this + 8) = this_00;
+  CRMFontSystemTF::Init(this_00,this);
+  RMTrace(1,DAT_010c7ffc + 0x10c7e00);
+  this_01 = operator_new(0x74);
+  CRMResourceMgr4::CRMResourceMgr4(this_01);
+  *(CRMResourceMgr4 **)(this + 4) = this_01;
+  iVar2 = CRMResourceMgr4::Init(this_01);
+  if (iVar2 == 0) {
+    RMTrace(2,DAT_010c8000 + 0x10c7f06);
+    if (*(int **)(this + 8) != (int *)0x0) {
+      (**(code **)(**(int **)(this + 8) + 4))();
+    }
+    *(undefined4 *)(this + 8) = 0;
+    if (*(int **)this != (int *)0x0) {
+      (**(code **)(**(int **)this + 4))();
+    }
+    *(undefined4 *)this = 0;
+    if (*(CRMResourceMgr4 **)(this + 4) != (CRMResourceMgr4 *)0x0) {
+      pvVar6 = (void *)CRMResourceMgr4::~CRMResourceMgr4(*(CRMResourceMgr4 **)(this + 4));
+      operator_delete(pvVar6);
+    }
+    *(undefined4 *)(this + 4) = 0;
+    if (*(int **)(this + 0xc) != (int *)0x0) {
+      (**(code **)(**(int **)(this + 0xc) + 4))();
+    }
+    iVar2 = DAT_010c8004;
+    *(undefined4 *)(this + 0xc) = 0;
+    RMTrace(1,iVar2 + 0x10c7f4c);
+    goto LAB_010c7fa6;
+  }
+  RMTrace(1,DAT_010c8008 + 0x10c7e22);
+  iVar7 = *(int *)(DAT_010c800c + 0x10c7e30) + 8;
+  local_38 = *(undefined8 *)(param_1 + 4);
+  local_30 = *(undefined8 *)(param_1 + 0xc);
+  iVar2 = (int)local_30 - (int)local_38 >> 0x1f;
+  local_3c = iVar7;
+  if (((int)local_30 - (int)local_38) + iVar2 == iVar2) {
+LAB_010c7e62:
+    uVar4 = RMGetScreenWidth();
+    iVar2 = RMGetScreenHeight();
+    iVar3 = RMGetStatusBarHeight();
+    iVar5 = RMGetNaviBarHeight();
+    local_50 = iVar7;
+    CRMRect::SetRect((CRMRect *)&local_50,0,0,uVar4,(iVar2 - iVar3) - iVar5);
+    local_38 = local_4c;
+    local_30 = uStack_44;
+    CRMRect::~CRMRect((CRMRect *)&local_50);
+  }
+  else {
+    local_38._4_4_ = (int)((ulonglong)local_38 >> 0x20);
+    local_30._4_4_ = (int)((ulonglong)local_30 >> 0x20);
+    iVar3 = local_30._4_4_ - local_38._4_4_;
+    iVar2 = iVar3 >> 0x1f;
+    if (iVar3 + iVar2 == iVar2) goto LAB_010c7e62;
+  }
+  this_02 = operator_new(0x1e4);
+  CRMRendererOES2::CRMRendererOES2(this_02);
+  *(CRMRendererOES2 **)this = this_02;
+  iVar2 = (**(code **)(*(int *)this_02 + 8))(this_02,&local_3c,param_3);
+  if (iVar2 == 0) {
+    RMTrace(2,DAT_010c8010 + 0x10c7f56);
+    if (*(int **)(this + 8) != (int *)0x0) {
+      (**(code **)(**(int **)(this + 8) + 4))();
+    }
+    *(undefined4 *)(this + 8) = 0;
+    if (*(int **)this != (int *)0x0) {
+      (**(code **)(**(int **)this + 4))();
+    }
+    *(undefined4 *)this = 0;
+    if (*(CRMResourceMgr4 **)(this + 4) != (CRMResourceMgr4 *)0x0) {
+      pvVar6 = (void *)CRMResourceMgr4::~CRMResourceMgr4(*(CRMResourceMgr4 **)(this + 4));
+      operator_delete(pvVar6);
+    }
+    *(undefined4 *)(this + 4) = 0;
+    if (*(int **)(this + 0xc) != (int *)0x0) {
+      (**(code **)(**(int **)(this + 0xc) + 4))();
+    }
+    iVar2 = DAT_010c8014;
+    *(undefined4 *)(this + 0xc) = 0;
+    RMTrace(1,iVar2 + 0x10c7f9c);
+  }
+  else {
+    RMTrace(1,DAT_010c8018 + 0x10c7ec6);
+    CRMRenderer4::ReportState(*(CRMRenderer4 **)this);
+    this_03 = operator_new(0x38);
+    CRMMediaMgr::CRMMediaMgr(this_03);
+    *(CRMMediaMgr **)(this + 0xc) = this_03;
+    CRMMediaMgr::Init(this_03,this);
+    RMTrace(1,DAT_010c801c + 0x10c7eec);
+    RMTrace(1,DAT_010c8020 + 0x10c7ef8);
+  }
+  CRMRect::~CRMRect((CRMRect *)&local_3c);
+LAB_010c7fa6:
+  iVar2 = *piVar1 - local_28;
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar2);
+  }
+  return;
+}

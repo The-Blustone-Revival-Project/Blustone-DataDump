@@ -1,0 +1,2344 @@
+===== 00e912ac _ZN17CSRSceneMStageMap6OnInitEv =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void _ZN17CSRSceneMStageMap6OnInitEv(int *param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  uint uVar3;
+  undefined1 *puVar4;
+  int *piVar5;
+  undefined4 uVar6;
+  undefined4 *puVar7;
+  int *piVar8;
+  int iVar9;
+  int *piVar10;
+  int *piVar11;
+  int *piVar12;
+  byte bStack_4c;
+  undefined1 auStack_4b [3];
+  uint uStack_48;
+  undefined1 *puStack_44;
+  undefined4 uStack_40;
+  int *piStack_3c;
+  int iStack_38;
+  int iStack_28;
+  
+  uVar6 = 0;
+  piVar1 = *(int **)(_DAT_00e91630 + 0xe912c2);
+  iStack_28 = *piVar1;
+  _ZN8CSRScene4InitEPv(param_1,0);
+  iVar2 = *(int *)(**(int **)(_DAT_00e91634 + 0xe912d4) + 8);
+  if (*(int *)(iVar2 + 0x4c) != 0) {
+    uVar6 = *(undefined4 *)(*(int *)(iVar2 + 0x44) + 8);
+  }
+  _ZN8CSRScene11SetCurSceneENS_4TYPEE(param_1,uVar6);
+  uVar6 = _ZN10CMSoundMgr3getEv();
+  _ZN8CMHashIDC2EPKc(&uStack_40,_DAT_00e91680 + 0xe912f8);
+  _ZN10CMSoundMgr4StopERK8CMHashID(uVar6,&uStack_40);
+  if (((uint)uStack_40 & 1) != 0) {
+    _ZdlPv(iStack_38);
+  }
+  iVar2 = _ZNK8CSRScene11GetCurSceneEv(param_1);
+  uVar6 = _ZN10CMSoundMgr3getEv();
+  if (iVar2 == 0x11) {
+    _ZN8CMHashIDC2EPKc(&uStack_40,_DAT_00e91684 + 0xe9132c);
+    _ZN10CMSoundMgr7PlayBGMERK8CMHashIDf(uVar6,&uStack_40,0x3f800000);
+    if (((uint)uStack_40 & 1) != 0) {
+      _ZdlPv(iStack_38);
+    }
+    _ZN10CSRDataMgr3getEv();
+    uVar6 = _ZN10CSRDataMgr14GetUserLocalDBEv();
+    _ZN9CSRUserDB19GetCurExploreAreaIDEv(&uStack_40,uVar6);
+    if (param_1 + 0x1fe != &uStack_40) {
+      piVar5 = piStack_3c;
+      iVar2 = iStack_38;
+      if (((uint)uStack_40 & 1) == 0) {
+        iVar2 = (int)&uStack_40 + 1;
+        piVar5 = (int *)((uint)uStack_40 >> 1 & 0x7f);
+      }
+      _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcj
+                (param_1 + 0x1fe,iVar2,piVar5);
+    }
+  }
+  else {
+    _ZN8CMHashIDC2EPKc(&uStack_40,_DAT_00e91688 + 0xe91382);
+    _ZN10CMSoundMgr7PlayBGMERK8CMHashIDf(uVar6,&uStack_40,0x3f800000);
+    if (((uint)uStack_40 & 1) != 0) {
+      _ZdlPv(iStack_38);
+    }
+    uVar6 = _ZN10CMSoundMgr3getEv();
+    _ZN8CMHashIDC2EPKc(&uStack_40,_DAT_00e9168c + 0xe913ae);
+    _ZN10CMSoundMgr11PlayAmbientERK8CMHashIDf(uVar6,&uStack_40,0x3f800000);
+    if (((uint)uStack_40 & 1) != 0) {
+      _ZdlPv(iStack_38);
+    }
+    _ZN10CSRDataMgr3getEv();
+    uVar6 = _ZN10CSRDataMgr14GetUserLocalDBEv();
+    _ZN9CSRUserDB12GetCurAreaIDEv(&uStack_40,uVar6);
+    if (param_1 + 0x1fe != &uStack_40) {
+      piVar5 = piStack_3c;
+      iVar2 = iStack_38;
+      if (((uint)uStack_40 & 1) == 0) {
+        iVar2 = (int)&uStack_40 + 1;
+        piVar5 = (int *)((uint)uStack_40 >> 1 & 0x7f);
+      }
+      _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcj
+                (param_1 + 0x1fe,iVar2,piVar5);
+    }
+  }
+  puVar7 = &uStack_40;
+  if (((uint)uStack_40 & 1) != 0) {
+    _ZdlPv(iStack_38);
+  }
+  piVar5 = param_1 + 0x1fe;
+  if ((*(byte *)(param_1 + 0x1fe) & 1) == 0) {
+    uVar3 = (uint)(*(byte *)(param_1 + 0x1fe) >> 1);
+  }
+  else {
+    uVar3 = param_1[0x1ff];
+  }
+  if (uVar3 == 0) {
+    _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcj
+              (piVar5,_DAT_00e91690 + 0xe91426,4);
+  }
+  uVar6 = _ZN12CSRGameStage3getEv();
+  uVar6 = _ZNK12CSRGameStage11GetAreaDataERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                    (uVar6,piVar5);
+  _ZN12CSRGameStage9AREA_INFOaSERKS0_(param_1 + 0x211,uVar6);
+  if ((*(byte *)(param_1 + 0x214) & 1) == 0) {
+    iVar2 = (int)param_1 + 0x851;
+  }
+  else {
+    iVar2 = param_1[0x216];
+  }
+  _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc(&bStack_4c,iVar2);
+  if ((byte *)(param_1 + 0x2d) != &bStack_4c) {
+    puVar7 = (undefined4 *)(bStack_4c & 1);
+    puVar4 = puStack_44;
+    if ((bStack_4c & 1) == 0) {
+      puVar4 = auStack_4b;
+      uStack_48 = (uint)(bStack_4c >> 1);
+    }
+    _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcj
+              (param_1 + 0x2d,puVar4,uStack_48);
+  }
+  iVar2 = param_1[0x28];
+  if (iVar2 != 0) {
+    puVar7 = *(undefined4 **)(iVar2 + 0x864);
+  }
+  if (iVar2 != 0 && puVar7 != (undefined4 *)0x0) {
+    puVar4 = puStack_44;
+    if ((bStack_4c & 1) == 0) {
+      puVar4 = auStack_4b;
+    }
+    _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc(&uStack_40,puVar4);
+    _ZN12CSRUITextbox7SetTextERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+              (puVar7,&uStack_40,0);
+    if (((uint)uStack_40 & 1) != 0) {
+      _ZdlPv(iStack_38);
+    }
+  }
+  if ((bStack_4c & 1) != 0) {
+    _ZdlPv(puStack_44);
+  }
+  uVar6 = _ZN12CSRGameStage3getEv();
+  iVar2 = _ZNK12CSRGameStage11GetStageCntERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                    (uVar6,piVar5);
+  param_1[0x1db] = iVar2;
+  param_1[0x1dc] = 0;
+  uVar6 = _ZN12CSRGameStage3getEv();
+  _ZNK12CSRGameStage13GetStageLinksERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+            (&uStack_40,uVar6,piVar5);
+  piVar5 = piStack_3c;
+  if (uStack_40 != piStack_3c) {
+    piVar8 = uStack_40;
+    do {
+      _ZN10CSRDataMgr3getEv();
+      uVar6 = _ZN10CSRDataMgr11GetPlayDataEv();
+      iVar2 = _ZNK11CSRPlayData18GetStageAchieveCntERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                        (uVar6,piVar8 + 4);
+      piVar10 = (int *)param_1[0x1f9];
+      param_1[0x1dc] = param_1[0x1dc] + iVar2;
+      iVar9 = *piVar8;
+      piVar11 = param_1 + 0x1f9;
+      while (piVar12 = piVar11, piVar10 != (int *)0x0) {
+        while (piVar11 = piVar10, piVar11[4] <= iVar9) {
+          if (iVar9 <= piVar11[4]) goto LAB_00e9154e;
+          piVar12 = piVar11 + 1;
+          piVar10 = (int *)*piVar12;
+          if ((int *)*piVar12 == (int *)0x0) goto LAB_00e9154e;
+        }
+        piVar10 = (int *)*piVar11;
+      }
+LAB_00e9154e:
+      if (*piVar12 == 0) {
+        puVar7 = (undefined4 *)_Znwj(0x18);
+        puVar7[4] = iVar9;
+        puVar7[5] = iVar2;
+        *puVar7 = 0;
+        puVar7[1] = 0;
+        puVar7[2] = piVar11;
+        *piVar12 = (int)puVar7;
+        if (*(int *)param_1[0x1f8] != 0) {
+          param_1[0x1f8] = *(int *)param_1[0x1f8];
+          puVar7 = (undefined4 *)*piVar12;
+        }
+        _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+                  (param_1[0x1f9],puVar7);
+        param_1[0x1fa] = param_1[0x1fa] + 1;
+      }
+      piVar8 = piVar8 + 7;
+    } while (piVar8 != piVar5);
+  }
+  (**(code **)(*param_1 + 0x78))(param_1);
+  piVar5 = uStack_40;
+  if (uStack_40 != (int *)0x0) {
+    while (piVar8 = piStack_3c, piVar8 != piVar5) {
+      if ((*(byte *)(piVar8 + -3) & 1) != 0) {
+        _ZdlPv(piVar8[-1]);
+      }
+      piStack_3c = piVar8 + -7;
+      if ((*(byte *)(piVar8 + -6) & 1) != 0) {
+        _ZdlPv(piVar8[-4]);
+      }
+    }
+    piStack_3c = piVar5;
+    _ZdlPv(uStack_40);
+  }
+  if (*piVar1 == iStack_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 00e91694 _ZN17CSRSceneMStageMap8LoadViewEv =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void _ZN17CSRSceneMStageMap8LoadViewEv(int param_1)
+
+{
+  uint uVar1;
+  int *piVar2;
+  int *piVar3;
+  undefined4 uVar4;
+  int iVar5;
+  undefined4 *puVar6;
+  int *piVar7;
+  int *piVar8;
+  undefined4 *puVar9;
+  int *piVar10;
+  int *piVar11;
+  int iVar12;
+  bool bVar13;
+  uint uStack_48;
+  int *piStack_44;
+  undefined4 uStack_40;
+  undefined4 uStack_30;
+  int *piStack_2c;
+  int iStack_28;
+  
+  iVar12 = param_1 + 0x654;
+  piVar3 = *(int **)(_DAT_00e91970 + 0xe916aa);
+  iStack_28 = *piVar3;
+  _ZN8CMUIView8LoadViewEPKcPN8CMUIBase8ListenerE(&uStack_48,_DAT_00e91974 + 0xe916ba,iVar12);
+  piVar2 = piStack_44;
+  uVar1 = uStack_48;
+  uStack_48 = 0;
+  piStack_44 = (int *)0x0;
+  piVar11 = (int *)(param_1 + 0x678);
+  piVar7 = *(int **)(param_1 + 0x678);
+  piVar8 = piVar11;
+  while (piVar10 = piVar8, piVar7 != (int *)0x0) {
+    while (piVar8 = piVar7, piVar8[4] < 1) {
+      if ((uint)piVar8[4] < 0x80000000) goto LAB_00e916fc;
+      piVar10 = piVar8 + 1;
+      piVar7 = (int *)*piVar10;
+      if ((int *)*piVar10 == (int *)0x0) goto LAB_00e916fc;
+    }
+    piVar7 = (int *)*piVar8;
+  }
+LAB_00e916fc:
+  if (*piVar10 == 0) {
+    puVar9 = (undefined4 *)_Znwj(0x1c);
+    puVar9[4] = 0;
+    puVar9[5] = uVar1;
+    puVar9[6] = piVar2;
+    *puVar9 = 0;
+    puVar9[1] = 0;
+    puVar9[2] = piVar8;
+    *piVar10 = (int)puVar9;
+    if (**(int **)(param_1 + 0x674) != 0) {
+      *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+      puVar9 = (undefined4 *)*piVar10;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x678),puVar9);
+    *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+  }
+  else if (piVar2 != (int *)0x0) {
+    piVar8 = piVar2 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar5 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piVar2 + 8))(piVar2);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar2);
+    }
+  }
+  piVar8 = piStack_44;
+  if (piStack_44 != (int *)0x0) {
+    piVar7 = piStack_44 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar5 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_44 + 8))(piStack_44);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  _ZN8CMUIView8LoadViewEPKcPN8CMUIBase8ListenerE(&uStack_48,_DAT_00e91978 + 0xe9179c,iVar12);
+  piVar2 = piStack_44;
+  uVar1 = uStack_48;
+  uStack_48 = 0;
+  piStack_44 = (int *)0x0;
+  piVar8 = (int *)*piVar11;
+  piVar7 = piVar11;
+  while (piVar10 = piVar7, piVar8 != (int *)0x0) {
+    while (piVar7 = piVar8, piVar8 = (int *)piVar7[4], (int)piVar8 < 5) {
+      bVar13 = piVar8 != (int *)0x4;
+      if (bVar13) {
+        piVar10 = piVar7 + 1;
+        piVar8 = (int *)*piVar10;
+      }
+      if (!bVar13 || piVar8 == (int *)0x0) goto LAB_00e917da;
+    }
+    piVar8 = (int *)*piVar7;
+  }
+LAB_00e917da:
+  if (*piVar10 == 0) {
+    puVar9 = (undefined4 *)_Znwj(0x1c);
+    puVar9[4] = 4;
+    puVar9[5] = uVar1;
+    puVar9[6] = piVar2;
+    *puVar9 = 0;
+    puVar9[1] = 0;
+    puVar9[2] = piVar7;
+    *piVar10 = (int)puVar9;
+    if (**(int **)(param_1 + 0x674) != 0) {
+      *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+      puVar9 = (undefined4 *)*piVar10;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x678),puVar9);
+    *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+  }
+  else if (piVar2 != (int *)0x0) {
+    piVar8 = piVar2 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar5 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piVar2 + 8))(piVar2);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar2);
+    }
+  }
+  piVar8 = piStack_44;
+  if (piStack_44 != (int *)0x0) {
+    piVar7 = piStack_44 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar5 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_44 + 8))(piStack_44);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  _ZN8CMUIView8LoadViewEPKcPN8CMUIBase8ListenerE(&uStack_48,_DAT_00e9197c + 0xe9187c,iVar12);
+  piVar2 = piStack_44;
+  uVar1 = uStack_48;
+  uStack_48 = 0;
+  piStack_44 = (int *)0x0;
+  piVar8 = (int *)*piVar11;
+  piVar7 = piVar11;
+  while (piVar10 = piVar7, piVar8 != (int *)0x0) {
+    while (piVar7 = piVar8, piVar8 = (int *)piVar7[4], (int)piVar8 < 4) {
+      bVar13 = piVar8 != (int *)0x3;
+      if (bVar13) {
+        piVar10 = piVar7 + 1;
+        piVar8 = (int *)*piVar10;
+      }
+      if (!bVar13 || piVar8 == (int *)0x0) goto LAB_00e918ba;
+    }
+    piVar8 = (int *)*piVar7;
+  }
+LAB_00e918ba:
+  if (*piVar10 == 0) {
+    puVar9 = (undefined4 *)_Znwj(0x1c);
+    puVar9[4] = 3;
+    puVar9[5] = uVar1;
+    puVar9[6] = piVar2;
+    *puVar9 = 0;
+    puVar9[1] = 0;
+    puVar9[2] = piVar7;
+    *piVar10 = (int)puVar9;
+    if (**(int **)(param_1 + 0x674) != 0) {
+      *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+      puVar9 = (undefined4 *)*piVar10;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x678),puVar9);
+    *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+  }
+  else if (piVar2 != (int *)0x0) {
+    piVar8 = piVar2 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar2 + 8))(piVar2);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar2);
+    }
+  }
+  piVar8 = piStack_44;
+  if (piStack_44 != (int *)0x0) {
+    piVar7 = piStack_44 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_44 + 8))(piStack_44);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  piVar8 = (int *)*piVar11;
+  while (piVar7 = piVar11, piVar8 != (int *)0x0) {
+    while (piVar11 = piVar8, piVar8 = (int *)piVar11[4], (int)piVar8 < 5) {
+      bVar13 = piVar8 != (int *)0x4;
+      if (bVar13) {
+        piVar7 = piVar11 + 1;
+        piVar8 = (int *)*piVar7;
+      }
+      if (!bVar13 || piVar8 == (int *)0x0) goto LAB_00e9198e;
+    }
+    piVar8 = (int *)*piVar11;
+  }
+LAB_00e9198e:
+  puVar9 = (undefined4 *)*piVar7;
+  if (puVar9 == (undefined4 *)0x0) {
+    puVar9 = (undefined4 *)_Znwj(0x1c);
+    puVar9[4] = 4;
+    puVar9[5] = 0;
+    puVar9[6] = 0;
+    *puVar9 = 0;
+    puVar9[1] = 0;
+    puVar9[2] = piVar11;
+    *piVar7 = (int)puVar9;
+    puVar6 = puVar9;
+    if (**(int **)(param_1 + 0x674) != 0) {
+      *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+      puVar6 = (undefined4 *)*piVar7;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x678),puVar6);
+    *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+  }
+  _ZN8CMUIView9GetButtonEPKc(&uStack_48,puVar9[5],_DAT_00e919fc + 0xe919e0);
+  piVar8 = piStack_44;
+  uVar1 = uStack_48;
+  uStack_48 = 0;
+  piStack_44 = (int *)0x0;
+  piVar7 = *(int **)(param_1 + 0x684);
+  *(uint *)(param_1 + 0x680) = uVar1;
+  *(int **)(param_1 + 0x684) = piVar8;
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar7);
+    }
+  }
+  piVar8 = piStack_44;
+  if (piStack_44 != (int *)0x0) {
+    piVar7 = piStack_44 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_44 + 8))(piStack_44);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  iVar12 = *(int *)(param_1 + 0x680);
+  _ZN8CMHashIDC2EPKc(&uStack_48,_DAT_00e91d88 + 0xe91a62);
+  _ZN6CMNodeI11CMUpdatableE8FindCastI14CSRUIImageNodeZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&uStack_30,iVar12 + 4,&uStack_48);
+  piVar8 = piStack_2c;
+  uVar4 = uStack_30;
+  uStack_30 = 0;
+  piStack_2c = (int *)0x0;
+  piVar7 = *(int **)(param_1 + 0x68c);
+  *(undefined4 *)(param_1 + 0x688) = uVar4;
+  *(int **)(param_1 + 0x68c) = piVar8;
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar7);
+    }
+  }
+  piVar8 = piStack_2c;
+  if (piStack_2c != (int *)0x0) {
+    piVar7 = piStack_2c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_2c + 8))(piStack_2c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  if ((uStack_48 & 1) != 0) {
+    _ZdlPv(uStack_40);
+  }
+  iVar12 = *(int *)(param_1 + 0x680);
+  _ZN8CMHashIDC2EPKc(&uStack_48,_DAT_00e91d8c + 0xe91af6);
+  _ZN6CMNodeI11CMUpdatableE8FindCastI8CMUIBaseZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&uStack_30,iVar12 + 4,&uStack_48);
+  piVar8 = piStack_2c;
+  uVar4 = uStack_30;
+  uStack_30 = 0;
+  piStack_2c = (int *)0x0;
+  piVar7 = *(int **)(param_1 + 0x6bc);
+  *(undefined4 *)(param_1 + 0x6b8) = uVar4;
+  *(int **)(param_1 + 0x6bc) = piVar8;
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar7);
+    }
+  }
+  piVar8 = piStack_2c;
+  if (piStack_2c != (int *)0x0) {
+    piVar7 = piStack_2c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_2c + 8))(piStack_2c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  if ((uStack_48 & 1) != 0) {
+    _ZdlPv(uStack_40);
+  }
+  iVar12 = *(int *)(param_1 + 0x6b8);
+  _ZN8CMHashIDC2EPKc(&uStack_48,_DAT_00e91d90 + 0xe91b8a);
+  _ZN6CMNodeI11CMUpdatableE8FindCastI12CSRUITextboxZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&uStack_30,iVar12 + 4,&uStack_48);
+  piVar8 = piStack_2c;
+  uVar4 = uStack_30;
+  uStack_30 = 0;
+  piStack_2c = (int *)0x0;
+  piVar7 = *(int **)(param_1 + 0x6c4);
+  *(undefined4 *)(param_1 + 0x6c0) = uVar4;
+  *(int **)(param_1 + 0x6c4) = piVar8;
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar7);
+    }
+  }
+  piVar8 = piStack_2c;
+  if (piStack_2c != (int *)0x0) {
+    piVar7 = piStack_2c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_2c + 8))(piStack_2c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  if ((uStack_48 & 1) != 0) {
+    _ZdlPv(uStack_40);
+  }
+  iVar12 = *(int *)(param_1 + 0x680);
+  _ZN8CMHashIDC2EPKc(&uStack_48,_DAT_00e91f04 + 0xe91c1e);
+  _ZN6CMNodeI11CMUpdatableE8FindCastI8CMUIBaseZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&uStack_30,iVar12 + 4,&uStack_48);
+  piVar8 = piStack_2c;
+  uVar4 = uStack_30;
+  uStack_30 = 0;
+  piStack_2c = (int *)0x0;
+  piVar7 = *(int **)(param_1 + 0x6cc);
+  *(undefined4 *)(param_1 + 0x6c8) = uVar4;
+  *(int **)(param_1 + 0x6cc) = piVar8;
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar7);
+    }
+  }
+  piVar8 = piStack_2c;
+  if (piStack_2c != (int *)0x0) {
+    piVar7 = piStack_2c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_2c + 8))(piStack_2c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  if ((uStack_48 & 1) != 0) {
+    _ZdlPv(uStack_40);
+  }
+  iVar12 = *(int *)(param_1 + 0x6c8);
+  _ZN8CMHashIDC2EPKc(&uStack_48,_DAT_00e91f08 + 0xe91cb2);
+  _ZN6CMNodeI11CMUpdatableE8FindCastI12CSRUITextboxZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&uStack_30,iVar12 + 4,&uStack_48);
+  piVar8 = piStack_2c;
+  uVar4 = uStack_30;
+  uStack_30 = 0;
+  piStack_2c = (int *)0x0;
+  piVar7 = *(int **)(param_1 + 0x6d4);
+  *(undefined4 *)(param_1 + 0x6d0) = uVar4;
+  *(int **)(param_1 + 0x6d4) = piVar8;
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar12 = *piVar8;
+      bVar13 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar13);
+    *piVar8 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar7);
+    }
+  }
+  piVar8 = piStack_2c;
+  if (piStack_2c != (int *)0x0) {
+    piVar7 = piStack_2c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar7);
+      iVar12 = *piVar7;
+      bVar13 = (bool)hasExclusiveAccess(piVar7);
+    } while (!bVar13);
+    *piVar7 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*piStack_2c + 8))(piStack_2c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  if ((uStack_48 & 1) != 0) {
+    _ZdlPv(uStack_40);
+  }
+  _ZN11CMUpdatable10SetVisibleEh(*(undefined4 *)(param_1 + 0x680),0);
+  _ZN17CSRSceneMStageMap10CreateAreaEv(param_1);
+  switch(*(undefined4 *)(param_1 + 0x888)) {
+  case 1:
+    _ZN17CSRSceneMStageMap22SetVisibleUpDownButtonEh(param_1,1);
+  case 2:
+    _ZN17CSRSceneMStageMap15SetAutoProgressEv(param_1);
+    _ZN17CSRSceneMStageMap10ShowRewardEv(param_1);
+    _ZN17CSRSceneMStageMap18SetStarVideoActionEv(param_1);
+    break;
+  case 3:
+    _ZN11CMUpdatable10SetVisibleEh(*(undefined4 *)(param_1 + 0x680),1);
+    _ZN17CSRSceneMStageMap11ResetTryCntEv(param_1);
+    goto switchD_00e91d52_default;
+  case 4:
+    _ZN17CSRSceneMStageMap22SetVisibleUpDownButtonEh(param_1,1);
+    break;
+  default:
+    goto switchD_00e91d52_default;
+  }
+  _ZN11CMUpdatable10SetVisibleEh(*(undefined4 *)(param_1 + 0x680),0);
+switchD_00e91d52_default:
+  _ZN10CSRDataMgr3getEv();
+  _ZN10CSRDataMgr11GetPlayDataEv();
+  uVar4 = _ZNK11CSRPlayData11CalcTotalAPEv();
+  _ZN10CSRDataMgr3getEv();
+  iVar12 = _ZN10CSRDataMgr11GetPlayDataEv();
+  _ZN17CSRSceneMStageMap5SetAPEjj(param_1,uVar4,*(undefined4 *)(iVar12 + 0x13c));
+  _ZN17CSRSceneMStageMap12SetVisibleAPEh(param_1,1);
+  if (*piVar3 != iStack_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 00e91f0c _ZN17CSRSceneMStageMap10CreateAreaEv =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void _ZN17CSRSceneMStageMap10CreateAreaEv(int param_1)
+
+{
+  byte bVar1;
+  bool bVar2;
+  undefined1 auVar3 [4];
+  undefined1 uVar4;
+  int iVar5;
+  int *piVar6;
+  uint uVar7;
+  int *piVar8;
+  int iVar9;
+  undefined4 *puVar10;
+  undefined1 *puVar11;
+  byte *pbVar12;
+  int *piVar13;
+  int iVar14;
+  undefined4 *puVar15;
+  int *piVar16;
+  int *piVar17;
+  undefined4 *puVar18;
+  undefined4 *puVar19;
+  undefined4 uVar20;
+  undefined4 *puVar21;
+  undefined4 *puVar22;
+  int *piVar23;
+  int iVar24;
+  int *piVar25;
+  int *piVar26;
+  int *piVar27;
+  bool bVar28;
+  double dVar29;
+  int *piStack_10c;
+  int *piStack_104;
+  int iStack_f4;
+  int iStack_ec;
+  undefined1 auStack_dc [4];
+  int *piStack_d8;
+  undefined1 auStack_d4 [4];
+  int *piStack_d0;
+  undefined1 auStack_cc [4];
+  int *piStack_c8;
+  int *piStack_c4;
+  int *piStack_c0;
+  undefined4 uStack_bc;
+  int *piStack_b8;
+  int iStack_b4;
+  undefined4 uStack_b0;
+  int *piStack_ac;
+  undefined1 auStack_a8 [4];
+  int *piStack_a4;
+  undefined1 auStack_a0 [4];
+  int *piStack_9c;
+  int *piStack_98;
+  int *piStack_94;
+  undefined1 auStack_90 [4];
+  int *piStack_8c;
+  int *piStack_88;
+  int *piStack_84;
+  int *piStack_80;
+  int *piStack_7c;
+  int *piStack_78;
+  int *piStack_74;
+  undefined1 auStack_70 [4];
+  int *piStack_6c;
+  undefined4 uStack_68;
+  int *piStack_64;
+  undefined1 auStack_60 [4];
+  int *piStack_5c;
+  undefined4 uStack_58;
+  int *piStack_54;
+  int *piStack_50;
+  int *piStack_4c;
+  int iStack_48;
+  int *piStack_44;
+  undefined1 auStack_40 [4];
+  int *piStack_3c;
+  int *piStack_38;
+  int iStack_34;
+  int *piStack_30;
+  int iStack_2c;
+  int iStack_28;
+  
+  piVar25 = *(int **)(_DAT_00e92180 + 0xe91f1c);
+  iStack_28 = *piVar25;
+  iVar24 = *(int *)(param_1 + 0x880);
+  iVar5 = *(int *)(param_1 + 0x888);
+  if (iVar5 == 4) {
+    puVar19 = (undefined4 *)(param_1 + 0x678);
+    puVar18 = *(undefined4 **)(param_1 + 0x678);
+    puVar21 = puVar19;
+    while (puVar18 != (undefined4 *)0x0) {
+      while (puVar21 = puVar18, 0 < (int)puVar21[4]) {
+        puVar19 = puVar21;
+        puVar18 = (undefined4 *)*puVar21;
+        if ((undefined4 *)*puVar21 == (undefined4 *)0x0) goto LAB_00e92086;
+      }
+      if ((uint)puVar21[4] < 0x80000000) break;
+      puVar19 = puVar21 + 1;
+      puVar18 = (undefined4 *)*puVar19;
+    }
+LAB_00e92086:
+    puVar18 = (undefined4 *)*puVar19;
+    if (puVar18 == (undefined4 *)0x0) {
+      puVar18 = (undefined4 *)_Znwj(0x1c);
+      puVar18[4] = 0;
+      puVar18[5] = 0;
+      puVar18[6] = 0;
+      *puVar18 = 0;
+      puVar18[1] = 0;
+      puVar18[2] = puVar21;
+      *puVar19 = puVar18;
+      puVar21 = puVar18;
+      if (**(int **)(param_1 + 0x674) != 0) {
+        *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+        puVar21 = (undefined4 *)*puVar19;
+      }
+      _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+                (*(undefined4 *)(param_1 + 0x678),puVar21);
+      *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+    }
+    uVar20 = puVar18[5];
+    _Z8CMFormatPKcz(auStack_40,_DAT_00e92188 + 0xe920d0,iVar24);
+    piVar16 = piStack_38;
+    if (((uint)auStack_40 & 1) == 0) {
+      piVar16 = (int *)(auStack_40 + 1);
+    }
+    _ZN8CMUIView8GetPanelEPKc(&uStack_bc,uVar20,piVar16);
+  }
+  else if (iVar5 == 3) {
+    puVar19 = (undefined4 *)(param_1 + 0x678);
+    puVar18 = *(undefined4 **)(param_1 + 0x678);
+    puVar21 = puVar19;
+    while (puVar18 != (undefined4 *)0x0) {
+      while (puVar21 = puVar18, 0 < (int)puVar21[4]) {
+        puVar19 = puVar21;
+        puVar18 = (undefined4 *)*puVar21;
+        if ((undefined4 *)*puVar21 == (undefined4 *)0x0) goto LAB_00e9201a;
+      }
+      if ((uint)puVar21[4] < 0x80000000) break;
+      puVar19 = puVar21 + 1;
+      puVar18 = (undefined4 *)*puVar19;
+    }
+LAB_00e9201a:
+    puVar18 = (undefined4 *)*puVar19;
+    if (puVar18 == (undefined4 *)0x0) {
+      puVar18 = (undefined4 *)_Znwj(0x1c);
+      puVar18[4] = 0;
+      puVar18[5] = 0;
+      puVar18[6] = 0;
+      *puVar18 = 0;
+      puVar18[1] = 0;
+      puVar18[2] = puVar21;
+      *puVar19 = puVar18;
+      puVar21 = puVar18;
+      if (**(int **)(param_1 + 0x674) != 0) {
+        *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+        puVar21 = (undefined4 *)*puVar19;
+      }
+      _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+                (*(undefined4 *)(param_1 + 0x678),puVar21);
+      *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+    }
+    uVar20 = puVar18[5];
+    _Z8CMFormatPKcz(auStack_40,_DAT_00e92184 + 0xe92064,iVar24);
+    piVar16 = piStack_38;
+    if (((uint)auStack_40 & 1) == 0) {
+      piVar16 = (int *)(auStack_40 + 1);
+    }
+    _ZN8CMUIView8GetPanelEPKc(&uStack_bc,uVar20,piVar16);
+  }
+  else {
+    if (iVar5 != 2) {
+      puVar19 = (undefined4 *)(param_1 + 0x678);
+      puVar18 = *(undefined4 **)(param_1 + 0x678);
+      puVar21 = puVar19;
+      while (puVar18 != (undefined4 *)0x0) {
+        while (puVar21 = puVar18, 0 < (int)puVar21[4]) {
+          puVar19 = puVar21;
+          puVar18 = (undefined4 *)*puVar21;
+          if ((undefined4 *)*puVar21 == (undefined4 *)0x0) goto LAB_00e92192;
+        }
+        if ((uint)puVar21[4] < 0x80000000) break;
+        puVar19 = puVar21 + 1;
+        puVar18 = (undefined4 *)*puVar19;
+      }
+LAB_00e92192:
+      puVar18 = (undefined4 *)*puVar19;
+      if (puVar18 == (undefined4 *)0x0) {
+        puVar18 = (undefined4 *)_Znwj(0x1c);
+        puVar18[4] = 0;
+        puVar18[5] = 0;
+        puVar18[6] = 0;
+        *puVar18 = 0;
+        puVar18[1] = 0;
+        puVar18[2] = puVar21;
+        *puVar19 = puVar18;
+        puVar21 = puVar18;
+        if (**(int **)(param_1 + 0x674) != 0) {
+          *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+          puVar21 = (undefined4 *)*puVar19;
+        }
+        _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+                  (*(undefined4 *)(param_1 + 0x678),puVar21);
+        *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+      }
+      uVar20 = puVar18[5];
+      _Z8CMFormatPKcz(auStack_40,_DAT_00e9230c + 0xe921dc,iVar24);
+      piVar16 = piStack_38;
+      if (((uint)auStack_40 & 1) == 0) {
+        piVar16 = (int *)(auStack_40 + 1);
+      }
+      _ZN8CMUIView8GetPanelEPKc(&uStack_bc,uVar20,piVar16);
+      piVar16 = piStack_b8;
+      iStack_f4 = iVar24 * 10 + -10;
+      iStack_ec = (int)uStack_bc;
+      uStack_bc = (int *)0x0;
+      piStack_b8 = (int *)0x0;
+      if (((uint)auStack_40 & 1) != 0) {
+        _ZdlPv(piStack_38);
+      }
+      goto LAB_00e92224;
+    }
+    puVar19 = (undefined4 *)(param_1 + 0x678);
+    puVar18 = *(undefined4 **)(param_1 + 0x678);
+    puVar21 = puVar19;
+    while (puVar18 != (undefined4 *)0x0) {
+      while (puVar21 = puVar18, 0 < (int)puVar21[4]) {
+        puVar18 = (undefined4 *)*puVar21;
+        puVar19 = puVar21;
+        if ((undefined4 *)*puVar21 == (undefined4 *)0x0) goto LAB_00e920f2;
+      }
+      if ((uint)puVar21[4] < 0x80000000) break;
+      puVar19 = puVar21 + 1;
+      puVar18 = (undefined4 *)*puVar19;
+    }
+LAB_00e920f2:
+    puVar18 = (undefined4 *)*puVar19;
+    if (puVar18 == (undefined4 *)0x0) {
+      puVar18 = (undefined4 *)_Znwj(0x1c);
+      puVar18[4] = 0;
+      puVar18[5] = 0;
+      puVar18[6] = 0;
+      *puVar18 = 0;
+      puVar18[1] = 0;
+      puVar18[2] = puVar21;
+      *puVar19 = puVar18;
+      puVar21 = puVar18;
+      if (**(int **)(param_1 + 0x674) != 0) {
+        *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+        puVar21 = (undefined4 *)*puVar19;
+      }
+      _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+                (*(undefined4 *)(param_1 + 0x678),puVar21);
+      *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+    }
+    uVar20 = puVar18[5];
+    _Z8CMFormatPKcz(auStack_40,_DAT_00e9218c + 0xe9213c,iVar24);
+    piVar16 = piStack_38;
+    if (((uint)auStack_40 & 1) == 0) {
+      piVar16 = (int *)(auStack_40 + 1);
+    }
+    _ZN8CMUIView8GetPanelEPKc(&uStack_bc,uVar20,piVar16);
+  }
+  piVar16 = piStack_b8;
+  iStack_ec = (int)uStack_bc;
+  piStack_b8 = (int *)0x0;
+  iStack_f4 = 0;
+  uStack_bc = (int *)0x0;
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+    iStack_f4 = 0;
+  }
+LAB_00e92224:
+  _ZN11CMUpdatable10SetVisibleEh(iStack_ec,1);
+  _ZN8CMHashIDC2EPKc(auStack_40,_DAT_00e92310 + 0xe92232);
+  _ZN11CMUpdatable10FindByNameERK8CMHashID(&iStack_48,iStack_ec,auStack_40);
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  _ZN6CMNodeI11CMUpdatableE10ClearChildEv(iStack_48 + 4);
+  _ZNSt6__ndk110shared_ptrI14CSRUIImageNodeE11make_sharedIJEEES2_DpOT_(&piStack_50);
+  uStack_58 = 0;
+  piStack_54 = (int *)0x0;
+  (**(code **)(*piStack_50 + 0xa0))(piStack_50,&uStack_58);
+  piVar8 = piStack_54;
+  if (piStack_54 != (int *)0x0) {
+    piVar6 = piStack_54 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar6);
+      iVar5 = *piVar6;
+      bVar2 = (bool)hasExclusiveAccess(piVar6);
+    } while (!bVar2);
+    *piVar6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_54 + 8))(piStack_54);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  _ZN11CMUpdatable8SetAlignE10RM_ALIGN_X10RM_ALIGN_Y(piStack_50,2,1);
+  piVar8 = piStack_50;
+  if ((*(byte *)(param_1 + 0x874) & 1) == 0) {
+    iVar5 = param_1 + 0x875;
+  }
+  else {
+    iVar5 = *(int *)(param_1 + 0x87c);
+  }
+  piVar6 = (int *)_ZN8CMHashIDC2EPKc(auStack_40,iVar5);
+  if (piVar8 + 0x96 != piVar6) {
+    piVar17 = piStack_3c;
+    piVar13 = piStack_38;
+    if (((uint)auStack_40 & 1) == 0) {
+      piVar13 = (int *)((int)piVar6 + 1);
+      piVar17 = (int *)((uint)auStack_40 >> 1 & 0x7f);
+    }
+    _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcj
+              (piVar8 + 0x96,piVar13,piVar17);
+  }
+  piVar8[0x9a] = (int)piStack_30;
+  piVar8[0x9b] = iStack_2c;
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  piVar8 = piStack_50;
+  if ((*(byte *)(param_1 + 0x874) & 1) == 0) {
+    iVar5 = param_1 + 0x875;
+  }
+  else {
+    iVar5 = *(int *)(param_1 + 0x87c);
+  }
+  _ZN8CMHashIDC2EPKc(auStack_40,iVar5);
+  _ZN14CSRUIImageNode8LoadAnimERK8CMHashID(piVar8,auStack_40);
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  _ZN11CMUpdatable18FindComponentForceI23CSRUIComponentFrameCtrlEENSt6__ndk110shared_ptrIT_EEv
+            (auStack_40,piStack_50);
+  _ZN19CMComponentPlayable7SetLoopEh(auStack_40,1);
+  piVar8 = piStack_3c;
+  if (piStack_3c != (int *)0x0) {
+    piVar6 = piStack_3c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar6);
+      iVar5 = *piVar6;
+      bVar2 = (bool)hasExclusiveAccess(piVar6);
+    } while (!bVar2);
+    *piVar6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_3c + 8))(piStack_3c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  _ZN11CMUpdatable18FindComponentForceI23CSRUIComponentFrameCtrlEENSt6__ndk110shared_ptrIT_EEv
+            (auStack_40,piStack_50);
+  _ZN19CMComponentPlayable4PlayEv(auStack_40);
+  if (piStack_3c != (int *)0x0) {
+    piVar8 = piStack_3c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar5 = *piVar8;
+      bVar2 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar2);
+    *piVar8 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_3c + 8))(piStack_3c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_3c);
+    }
+  }
+  auStack_40 = (undefined1  [4])piStack_50;
+  piStack_3c = piStack_4c;
+  if (piStack_4c != (int *)0x0) {
+    piVar8 = piStack_4c + 1;
+    do {
+      ExclusiveAccess(piVar8);
+      bVar2 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar2);
+    *piVar8 = *piVar8 + 1;
+  }
+  _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+            (auStack_60,iStack_48 + 4,auStack_40);
+  if (piStack_5c != (int *)0x0) {
+    piVar8 = piStack_5c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar5 = *piVar8;
+      bVar2 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar2);
+    *piVar8 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_5c + 8))(piStack_5c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_5c);
+    }
+  }
+  piVar8 = piStack_3c;
+  if (piStack_3c != (int *)0x0) {
+    piVar6 = piStack_3c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar6);
+      iVar5 = *piVar6;
+      bVar2 = (bool)hasExclusiveAccess(piVar6);
+    } while (!bVar2);
+    *piVar6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*piStack_3c + 8))(piStack_3c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+    }
+  }
+  uVar7 = _Z14RMGetTickCountv();
+  if ((uVar7 & 1) == 0) {
+    _ZNSt6__ndk110shared_ptrI14CSRUIImageNodeE11make_sharedIJEEES2_DpOT_(&uStack_bc);
+    uStack_68 = 0;
+    piStack_64 = (int *)0x0;
+    (**(code **)(*uStack_bc + 0xa0))(uStack_bc,&uStack_68);
+    piVar8 = piStack_64;
+    if (piStack_64 != (int *)0x0) {
+      piVar6 = piStack_64 + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar6);
+        iVar5 = *piVar6;
+        bVar2 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar2);
+      *piVar6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*piStack_64 + 8))(piStack_64);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+      }
+    }
+    _ZN11CMUpdatable8SetAlignE10RM_ALIGN_X10RM_ALIGN_Y(uStack_bc,2,1);
+    piVar8 = uStack_bc;
+    piVar6 = (int *)_ZN8CMHashIDC2EPKc(auStack_40,_DAT_00e927fc + 0xe92496);
+    if (piVar8 + 0x96 != piVar6) {
+      piVar17 = piStack_3c;
+      piVar13 = piStack_38;
+      if (((uint)auStack_40 & 1) == 0) {
+        piVar13 = (int *)((int)piVar6 + 1);
+        piVar17 = (int *)((uint)auStack_40 >> 1 & 0x7f);
+      }
+      _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6assignEPKcj
+                (piVar8 + 0x96,piVar13,piVar17);
+    }
+    piVar8[0x9a] = (int)piStack_30;
+    piVar8[0x9b] = iStack_2c;
+    if (((uint)auStack_40 & 1) != 0) {
+      _ZdlPv(piStack_38);
+    }
+    piVar8 = uStack_bc;
+    _ZN8CMHashIDC2EPKc(auStack_40,_DAT_00e92800 + 0xe924d8);
+    _ZN14CSRUIImageNode8LoadAnimERK8CMHashID(piVar8,auStack_40);
+    if (((uint)auStack_40 & 1) != 0) {
+      _ZdlPv(piStack_38);
+    }
+    _ZN11CMUpdatable18FindComponentForceI23CSRUIComponentFrameCtrlEENSt6__ndk110shared_ptrIT_EEv
+              (auStack_40,uStack_bc);
+    _ZN19CMComponentPlayable7SetLoopEh(auStack_40,1);
+    piVar8 = piStack_3c;
+    if (piStack_3c != (int *)0x0) {
+      piVar6 = piStack_3c + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar6);
+        iVar5 = *piVar6;
+        bVar2 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar2);
+      *piVar6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*piStack_3c + 8))(piStack_3c);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+      }
+    }
+    _ZN11CMUpdatable18FindComponentForceI23CSRUIComponentFrameCtrlEENSt6__ndk110shared_ptrIT_EEv
+              (auStack_40,uStack_bc);
+    _ZN19CMComponentPlayable4PlayEv(auStack_40);
+    piVar8 = piStack_3c;
+    if (piStack_3c != (int *)0x0) {
+      piVar6 = piStack_3c + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar6);
+        iVar5 = *piVar6;
+        bVar2 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar2);
+      *piVar6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*piStack_3c + 8))(piStack_3c);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+      }
+    }
+    auStack_40 = (undefined1  [4])uStack_bc;
+    piStack_3c = piStack_b8;
+    if (piStack_b8 != (int *)0x0) {
+      piVar8 = piStack_b8 + 1;
+      do {
+        ExclusiveAccess(piVar8);
+        bVar2 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar2);
+      *piVar8 = *piVar8 + 1;
+    }
+    _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+              (auStack_70,piStack_50 + 1,auStack_40);
+    if (piStack_6c != (int *)0x0) {
+      piVar8 = piStack_6c + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar8);
+        iVar5 = *piVar8;
+        bVar2 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar2);
+      *piVar8 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*piStack_6c + 8))(piStack_6c);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_6c);
+      }
+    }
+    piVar8 = piStack_3c;
+    if (piStack_3c != (int *)0x0) {
+      piVar6 = piStack_3c + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar6);
+        iVar5 = *piVar6;
+        bVar2 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar2);
+      *piVar6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*piStack_3c + 8))(piStack_3c);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+      }
+    }
+    piVar8 = piStack_b8;
+    if (piStack_b8 != (int *)0x0) {
+      piVar6 = piStack_b8 + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar6);
+        iVar5 = *piVar6;
+        bVar2 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar2);
+      *piVar6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*piStack_b8 + 8))(piStack_b8);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+      }
+    }
+  }
+  puVar19 = (undefined4 *)(param_1 + 0x678);
+  puVar21 = *(undefined4 **)(param_1 + 0x678);
+  puVar18 = puVar19;
+  while (puVar21 != (undefined4 *)0x0) {
+    while (puVar18 = puVar21, 0 < (int)puVar18[4]) {
+      puVar21 = (undefined4 *)*puVar18;
+      puVar19 = puVar18;
+      if ((undefined4 *)*puVar18 == (undefined4 *)0x0) goto LAB_00e9264c;
+    }
+    if ((uint)puVar18[4] < 0x80000000) break;
+    puVar19 = puVar18 + 1;
+    puVar21 = (undefined4 *)*puVar19;
+  }
+LAB_00e9264c:
+  puVar21 = (undefined4 *)*puVar19;
+  if (puVar21 == (undefined4 *)0x0) {
+    puVar21 = (undefined4 *)_Znwj(0x1c);
+    puVar21[4] = 0;
+    puVar21[5] = 0;
+    puVar21[6] = 0;
+    *puVar21 = 0;
+    puVar21[1] = 0;
+    puVar21[2] = puVar18;
+    *puVar19 = puVar21;
+    puVar18 = puVar21;
+    if (**(int **)(param_1 + 0x674) != 0) {
+      *(int *)(param_1 + 0x674) = **(int **)(param_1 + 0x674);
+      puVar18 = (undefined4 *)*puVar19;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x678),puVar18);
+    *(int *)(param_1 + 0x67c) = *(int *)(param_1 + 0x67c) + 1;
+  }
+  _ZN8CMUIView8GetPanelEPKc(&piStack_78,puVar21[5],_DAT_00e92804 + 0xe92694);
+  _ZN8CMHashIDC2EPKc(auStack_40,_DAT_00e92808 + 0xe9269e);
+  iVar5 = iStack_ec + 4;
+  _ZN6CMNodeI11CMUpdatableE8FindCastI8CMUIBaseZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&piStack_80,iVar5,auStack_40);
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  _ZN8CMHashIDC2EPKc(auStack_40,_DAT_00e9280c + 0xe926c4);
+  _ZN6CMNodeI11CMUpdatableE8FindCastI8CMUIBaseZNS0_14FindCastByNameIS3_EENSt6__ndk110shared_ptrIT_EERK8CMHashIDEUlRKNS6_IS0_EEE_EES8_T0_
+            (&piStack_88,iVar5,auStack_40);
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  piVar8 = (int *)0x0;
+  if (piStack_78 != (int *)0x0) {
+    piVar8 = piStack_80;
+  }
+  if (piStack_78 != (int *)0x0 && piVar8 != (int *)0x0) {
+    iVar24 = 0;
+    if (piStack_88 != (int *)0x0) {
+      iVar24 = iStack_48;
+    }
+    if (piStack_88 != (int *)0x0 && iVar24 != 0) {
+      _ZN11CMUpdatable10SetVisibleEh(piVar8,1);
+      _ZN11CMUpdatable10SetVisibleEh(piStack_88,1);
+      _ZN11CMUpdatable18FindComponentForceI23CSRUIComponentFrameCtrlEENSt6__ndk110shared_ptrIT_EEv
+                (auStack_40,piStack_80);
+      _ZN19CMComponentPlayable4PlayEv(auStack_40);
+      _ZN11CMUpdatable18FindComponentForceI23CSRUIComponentFrameCtrlEENSt6__ndk110shared_ptrIT_EEv
+                (&uStack_bc,piStack_88);
+      _ZN19CMComponentPlayable4PlayEv(uStack_bc);
+      piStack_98 = piStack_80;
+      piStack_94 = piStack_7c;
+      if (piStack_7c != (int *)0x0) {
+        piVar8 = piStack_7c + 1;
+        do {
+          ExclusiveAccess(piVar8);
+          bVar2 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar2);
+        *piVar8 = *piVar8 + 1;
+      }
+      _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+                (auStack_90,piStack_78 + 1,&piStack_98);
+      if (piStack_8c != (int *)0x0) {
+        piVar8 = piStack_8c + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar8);
+          iVar24 = *piVar8;
+          bVar2 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar2);
+        *piVar8 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_8c + 8))(piStack_8c);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_8c);
+        }
+      }
+      piVar8 = piStack_94;
+      if (piStack_94 != (int *)0x0) {
+        piVar6 = piStack_94 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar6);
+          iVar24 = *piVar6;
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_94 + 8))(piStack_94);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+        }
+      }
+      piStack_98 = piStack_88;
+      piStack_94 = piStack_84;
+      if (piStack_84 != (int *)0x0) {
+        piVar8 = piStack_84 + 1;
+        do {
+          ExclusiveAccess(piVar8);
+          bVar2 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar2);
+        *piVar8 = *piVar8 + 1;
+      }
+      _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+                (auStack_a0,piStack_78 + 1,&piStack_98);
+      if (piStack_9c != (int *)0x0) {
+        piVar8 = piStack_9c + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar8);
+          iVar24 = *piVar8;
+          bVar2 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar2);
+        *piVar8 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_9c + 8))(piStack_9c);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_9c);
+        }
+      }
+      piVar8 = piStack_94;
+      if (piStack_94 != (int *)0x0) {
+        piVar6 = piStack_94 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar6);
+          iVar24 = *piVar6;
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_94 + 8))(piStack_94);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+        }
+      }
+      piStack_98 = piStack_78;
+      piStack_94 = piStack_74;
+      if (piStack_74 != (int *)0x0) {
+        piVar8 = piStack_74 + 1;
+        do {
+          ExclusiveAccess(piVar8);
+          bVar2 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar2);
+        *piVar8 = *piVar8 + 1;
+      }
+      _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+                (auStack_a8,iStack_48 + 4,&piStack_98);
+      if (piStack_a4 != (int *)0x0) {
+        piVar8 = piStack_a4 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar8);
+          iVar24 = *piVar8;
+          bVar2 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar2);
+        *piVar8 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_a4 + 8))(piStack_a4);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_a4);
+        }
+      }
+      piVar8 = piStack_94;
+      if (piStack_94 != (int *)0x0) {
+        piVar6 = piStack_94 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar6);
+          iVar24 = *piVar6;
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_94 + 8))(piStack_94);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+        }
+      }
+      piVar8 = piStack_b8;
+      if (piStack_b8 != (int *)0x0) {
+        piVar6 = piStack_b8 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar6);
+          iVar24 = *piVar6;
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_b8 + 8))(piStack_b8);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+        }
+      }
+      piVar8 = piStack_3c;
+      if (piStack_3c != (int *)0x0) {
+        piVar6 = piStack_3c + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar6);
+          iVar24 = *piVar6;
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piStack_3c + 8))(piStack_3c);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+        }
+      }
+    }
+  }
+  _ZN17CSRSceneMStageMap21SetUpDownButtonActionERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+            (param_1);
+  if (*(int *)(param_1 + 0x28) != 0) {
+    iVar24 = *(int *)(param_1 + 0x24);
+    piVar8 = (int *)_ZNSt6__ndk119__shared_weak_count4lockEv();
+    if (piVar8 != (int *)0x0) {
+      if ((iVar24 == 0) ||
+         (piStack_10c = (int *)__dynamic_cast(iVar24,*(undefined4 *)(_DAT_00e92810 + 0xe9272c),
+                                              *(undefined4 *)(_DAT_00e92814 + 0xe9272e),0),
+         piStack_10c == (int *)0x0)) {
+        bVar2 = true;
+        piStack_10c = (int *)0x0;
+        piStack_104 = (int *)0x0;
+      }
+      else {
+        piVar6 = piVar8 + 1;
+        do {
+          ExclusiveAccess(piVar6);
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = *piVar6 + 1;
+        piVar13 = piVar8 + 2;
+        do {
+          ExclusiveAccess(piVar13);
+          bVar2 = (bool)hasExclusiveAccess(piVar13);
+        } while (!bVar2);
+        *piVar13 = *piVar13 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar6);
+          iVar24 = *piVar6;
+          bVar2 = (bool)hasExclusiveAccess(piVar6);
+        } while (!bVar2);
+        *piVar6 = iVar24 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar24 == 0) {
+          (**(code **)(*piVar8 + 8))(piVar8);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+        }
+        bVar2 = false;
+        piStack_104 = piVar8;
+      }
+      piVar6 = piVar8 + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar6);
+        iVar24 = *piVar6;
+        bVar28 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar28);
+      *piVar6 = iVar24 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar24 == 0) {
+        (**(code **)(*piVar8 + 8))(piVar8);
+        _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar8);
+      }
+      if (*(int *)(param_1 + 0x76c) < 1) {
+LAB_00e93098:
+        if (!bVar2) {
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_104);
+        }
+        if (piStack_84 != (int *)0x0) {
+          piVar8 = piStack_84 + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(piVar8);
+            iVar5 = *piVar8;
+            bVar2 = (bool)hasExclusiveAccess(piVar8);
+          } while (!bVar2);
+          *piVar8 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*piStack_84 + 8))(piStack_84);
+            _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_84);
+          }
+        }
+        if (piStack_7c != (int *)0x0) {
+          piVar8 = piStack_7c + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(piVar8);
+            iVar5 = *piVar8;
+            bVar2 = (bool)hasExclusiveAccess(piVar8);
+          } while (!bVar2);
+          *piVar8 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*piStack_7c + 8))(piStack_7c);
+            _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_7c);
+          }
+        }
+        if (piStack_74 != (int *)0x0) {
+          piVar8 = piStack_74 + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(piVar8);
+            iVar5 = *piVar8;
+            bVar2 = (bool)hasExclusiveAccess(piVar8);
+          } while (!bVar2);
+          *piVar8 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*piStack_74 + 8))(piStack_74);
+            _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_74);
+          }
+        }
+        if (piStack_4c != (int *)0x0) {
+          piVar8 = piStack_4c + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(piVar8);
+            iVar5 = *piVar8;
+            bVar2 = (bool)hasExclusiveAccess(piVar8);
+          } while (!bVar2);
+          *piVar8 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*piStack_4c + 8))(piStack_4c);
+            _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_4c);
+          }
+        }
+        if (piStack_44 != (int *)0x0) {
+          piVar8 = piStack_44 + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(piVar8);
+            iVar5 = *piVar8;
+            bVar2 = (bool)hasExclusiveAccess(piVar8);
+          } while (!bVar2);
+          *piVar8 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*piStack_44 + 8))(piStack_44);
+            _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piStack_44);
+          }
+        }
+        if (piVar16 != (int *)0x0) {
+          piVar8 = piVar16 + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(piVar8);
+            iVar5 = *piVar8;
+            bVar2 = (bool)hasExclusiveAccess(piVar8);
+          } while (!bVar2);
+          *piVar8 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*piVar16 + 8))(piVar16);
+            _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar16);
+          }
+        }
+        if (*piVar25 != iStack_28) {
+                    /* WARNING: Subroutine does not return */
+          __stack_chk_fail();
+        }
+        return;
+      }
+      piVar6 = piStack_104 + 2;
+      puVar19 = (undefined4 *)(param_1 + 0x8c4);
+      puVar21 = (undefined4 *)(param_1 + 0x7e4);
+      piVar8 = (int *)(param_1 + 0x660);
+      uVar4 = 0;
+      iVar24 = 1;
+LAB_00e92828:
+      uVar20 = _ZN12CSRGameStage3getEv();
+      iVar9 = _ZNK12CSRGameStage12GetStageDataERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEj
+                        (uVar20,param_1 + 0x7f8,iVar24);
+      _ZNSt6__ndk110shared_ptrI14CSRStageMarkerE11make_sharedIJEEES2_DpOT_(&piStack_98);
+      piVar17 = piStack_94;
+      piVar13 = piStack_98;
+      if (piStack_94 != (int *)0x0) {
+        piVar23 = piStack_94 + 1;
+        do {
+          ExclusiveAccess(piVar23);
+          bVar28 = (bool)hasExclusiveAccess(piVar23);
+        } while (!bVar28);
+        *piVar23 = *piVar23 + 1;
+      }
+      piVar26 = (int *)*piVar8;
+      piVar23 = piVar8;
+      piVar27 = piVar8;
+      while (piVar26 != (int *)0x0) {
+        while (piVar27 = piVar26, iVar24 < piVar27[4]) {
+          piVar23 = piVar27;
+          piVar26 = (int *)*piVar27;
+          if ((int *)*piVar27 == (int *)0x0) goto LAB_00e92888;
+        }
+        if (iVar24 <= piVar27[4]) break;
+        piVar23 = piVar27 + 1;
+        piVar26 = (int *)*piVar23;
+      }
+LAB_00e92888:
+      if (*piVar23 == 0) {
+        puVar18 = (undefined4 *)_Znwj(0x1c);
+        puVar18[4] = iVar24;
+        puVar18[5] = piVar13;
+        puVar18[6] = piVar17;
+        *puVar18 = 0;
+        puVar18[1] = 0;
+        puVar18[2] = piVar27;
+        *piVar23 = (int)puVar18;
+        if (**(int **)(param_1 + 0x65c) != 0) {
+          *(int *)(param_1 + 0x65c) = **(int **)(param_1 + 0x65c);
+          puVar18 = (undefined4 *)*piVar23;
+        }
+        _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+                  (*(undefined4 *)(param_1 + 0x660),puVar18);
+        *(int *)(param_1 + 0x664) = *(int *)(param_1 + 0x664) + 1;
+      }
+      else if (piStack_94 != (int *)0x0) {
+        piVar13 = piStack_94 + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar13);
+          iVar14 = *piVar13;
+          bVar28 = (bool)hasExclusiveAccess(piVar13);
+        } while (!bVar28);
+        *piVar13 = iVar14 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar14 == 0) {
+          (**(code **)(*piStack_94 + 8))(piStack_94);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar17);
+        }
+      }
+      uStack_b0 = 0;
+      piStack_ac = (int *)0x0;
+      (**(code **)(*piStack_98 + 0xa0))(piStack_98,&uStack_b0);
+      piVar13 = piStack_ac;
+      if (piStack_ac != (int *)0x0) {
+        piVar17 = piStack_ac + 1;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar17);
+          iVar14 = *piVar17;
+          bVar28 = (bool)hasExclusiveAccess(piVar17);
+        } while (!bVar28);
+        *piVar17 = iVar14 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar14 == 0) {
+          (**(code **)(*piStack_ac + 8))(piStack_ac);
+          _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+        }
+      }
+      puVar18 = puVar21;
+      puVar15 = puVar21;
+      if (iVar24 != 1) {
+        puVar22 = (undefined4 *)*puVar21;
+        if (puVar22 != (undefined4 *)0x0) {
+          puVar10 = puVar22;
+          do {
+            if ((int)puVar10[4] < iVar24) {
+              if (iVar24 + -1 <= (int)puVar10[4]) goto LAB_00e9297a;
+              puVar10 = (undefined4 *)puVar10[1];
+            }
+            else {
+              puVar10 = (undefined4 *)*puVar10;
+            }
+            if (puVar10 == (undefined4 *)0x0) break;
+          } while( true );
+        }
+        goto LAB_00e933e8;
+      }
+      puVar22 = (undefined4 *)*puVar21;
+      goto joined_r0x00e92930;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  FUN_006e9a4c();
+LAB_00e9297a:
+  if (puVar10 == (undefined4 *)0x0) {
+LAB_00e933e8:
+                    /* WARNING: Subroutine does not return */
+    FUN_006d8570(_DAT_00e9372c + 0xe933ee);
+  }
+  if ((int)puVar10[5] < 1) {
+LAB_00e929f4:
+    if (iVar24 != 1) {
+      piVar13 = (int *)*puVar21;
+      if (piVar13 != (int *)0x0) {
+        do {
+          if (piVar13[4] < iVar24) {
+            if (iVar24 + -1 <= piVar13[4]) goto LAB_00e92a2a;
+            piVar13 = (int *)piVar13[1];
+          }
+          else {
+            piVar13 = (int *)*piVar13;
+          }
+          if (piVar13 == (int *)0x0) break;
+        } while( true );
+      }
+LAB_00e933f0:
+                    /* WARNING: Subroutine does not return */
+      FUN_006d8570(_DAT_00e93730 + 0xe933f6);
+    }
+    goto LAB_00e92a38;
+  }
+joined_r0x00e92930:
+  while (puVar22 != (undefined4 *)0x0) {
+    while (puVar15 = puVar22, iVar24 < (int)puVar15[4]) {
+      puVar22 = (undefined4 *)*puVar15;
+      puVar18 = puVar15;
+      if ((undefined4 *)*puVar15 == (undefined4 *)0x0) goto LAB_00e929ae;
+    }
+    if (iVar24 <= (int)puVar15[4]) break;
+    puVar22 = (undefined4 *)puVar15[1];
+    puVar18 = puVar15 + 1;
+  }
+LAB_00e929ae:
+  puVar22 = (undefined4 *)*puVar18;
+  if (puVar22 == (undefined4 *)0x0) {
+    puVar22 = (undefined4 *)_Znwj(0x18);
+    puVar22[4] = iVar24;
+    puVar22[5] = 0;
+    *puVar22 = 0;
+    puVar22[1] = 0;
+    puVar22[2] = puVar15;
+    *puVar18 = puVar22;
+    puVar15 = puVar22;
+    if (**(int **)(param_1 + 0x7e0) != 0) {
+      *(int *)(param_1 + 0x7e0) = **(int **)(param_1 + 0x7e0);
+      puVar15 = (undefined4 *)*puVar18;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x7e4),puVar15);
+    *(int *)(param_1 + 0x7e8) = *(int *)(param_1 + 0x7e8) + 1;
+  }
+  if (puVar22[5] != 0) goto LAB_00e929f4;
+  _ZN14CSRStageMarker8SetStateENS_5STATEE(piStack_98,2);
+  _ZN10CSRDataMgr3getEv();
+  uVar20 = _ZN10CSRDataMgr11GetPlayDataEv();
+  _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc
+            (auStack_40,_DAT_00e92d00 + 0xe92a58);
+  _ZNSt6__ndk112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2IDnEEPKc
+            (&uStack_bc,_DAT_00e92d04 + 0xe92a62);
+  puVar11 = (undefined1 *)
+            _ZN11CSRPlayData9GetMarkerERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEES8_
+                      (uVar20,auStack_40,&uStack_bc);
+  switch(*puVar11) {
+  case 3:
+    pbVar12 = *(byte **)(puVar11 + 8);
+    if ((*pbVar12 & 1) == 0) {
+      pbVar12 = pbVar12 + 1;
+    }
+    else {
+      pbVar12 = *(byte **)(pbVar12 + 8);
+    }
+    dVar29 = (double)strtod(pbVar12,0);
+    goto LAB_00e92b9e;
+  case 4:
+  case 5:
+  case 6:
+    uVar7 = (uint)(byte)puVar11[8];
+    break;
+  case 7:
+    dVar29 = *(double *)(puVar11 + 8);
+LAB_00e92b9e:
+    uVar7 = (uint)(0.0 < dVar29) * (int)(longlong)dVar29;
+    break;
+  default:
+    uVar7 = 0;
+  }
+  if (((uint)uStack_bc & 1) != 0) {
+    _ZdlPv(iStack_b4);
+  }
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  if ((uVar7 & 0xff) == 1) {
+    if (*(int *)(param_1 + 0x888) == 1) {
+      _ZN14CSRStageMarker17SetNewStageEffectEv(piStack_98);
+      goto LAB_00e92bdc;
+    }
+LAB_00e92c02:
+    bVar28 = false;
+  }
+  else {
+LAB_00e92bdc:
+    if (*(int *)(param_1 + 0x888) != 1) goto LAB_00e92c02;
+    bVar28 = (uint)(iVar24 * -0x33333333) < 0x33333334;
+  }
+  _ZN14CSRStageMarker9SetDangerEh(piStack_98,bVar28);
+  if (iVar24 == *(int *)(param_1 + 0x76c)) {
+    _ZN10CSRDataMgr3getEv();
+    uVar20 = _ZN10CSRDataMgr13GetStaticDataEv();
+    _ZN13CSRStaticData36GetTutorialStageThumbnailDescriptionERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+              (auStack_40,uVar20,iVar9 + 0x1c);
+    piVar13 = piStack_3c;
+    if (((uint)auStack_40 & 1) == 0) {
+      piVar13 = (int *)((uint)auStack_40 >> 1 & 0x7f);
+    }
+    if (piVar13 != (int *)0x0) {
+      _ZN14CSRStageMarker7SetDescERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                (piStack_98,auStack_40,uVar4);
+    }
+    uVar4 = _ZN14CSRStageMarker12SetCharacterERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                      (piStack_98,iVar9 + 0x34,uVar4);
+    if (((uint)auStack_40 & 1) != 0) {
+      _ZdlPv(piStack_38);
+    }
+  }
+  else {
+    bVar1 = *(byte *)(iVar9 + 0x34);
+    uVar7 = *(uint *)(iVar9 + 0x38);
+    if ((bVar1 & 1) == 0) {
+      uVar7 = (uint)(bVar1 >> 1);
+    }
+    if (uVar7 != 0) {
+      _ZN10CSRDataMgr3getEv();
+      uVar20 = _ZN10CSRDataMgr13GetStaticDataEv();
+      iVar14 = _ZN13CSRStaticData15IsTutorialStageERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                         (uVar20,iVar9 + 0x1c);
+      piVar13 = piStack_98;
+      if (iVar14 == 1) {
+        _ZN10CSRDataMgr3getEv();
+        uVar20 = _ZN10CSRDataMgr13GetStaticDataEv();
+        _ZN13CSRStaticData36GetTutorialStageThumbnailDescriptionERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                  (auStack_40,uVar20,iVar9 + 0x1c);
+        _ZN14CSRStageMarker7SetDescERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                  (piVar13,auStack_40,uVar4);
+        if (((uint)auStack_40 & 1) != 0) {
+          _ZdlPv(piStack_38);
+        }
+        uVar4 = _ZN14CSRStageMarker12SetCharacterERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                          (piStack_98,(byte *)(iVar9 + 0x34),uVar4);
+      }
+      else {
+        uVar4 = _ZN14CSRStageMarker11SetHasStoryEhh(piStack_98,1,uVar4);
+      }
+    }
+  }
+  _ZN14CSRStageMarker10PlayBounceEv(piStack_98);
+LAB_00e92cd8:
+  puVar22 = (undefined4 *)*puVar19;
+  puVar18 = puVar19;
+  puVar15 = puVar19;
+  while (puVar22 != (undefined4 *)0x0) {
+    while (puVar15 = puVar22, iVar24 < (int)puVar15[4]) {
+      puVar22 = (undefined4 *)*puVar15;
+      puVar18 = puVar15;
+      if ((undefined4 *)*puVar15 == (undefined4 *)0x0) goto LAB_00e92d0a;
+    }
+    if (iVar24 <= (int)puVar15[4]) break;
+    puVar18 = puVar15 + 1;
+    puVar22 = (undefined4 *)*puVar18;
+  }
+LAB_00e92d0a:
+  puVar22 = (undefined4 *)*puVar18;
+  if (puVar22 == (undefined4 *)0x0) {
+    puVar22 = (undefined4 *)_Znwj(0x18);
+    *(undefined1 *)(puVar22 + 5) = 0;
+    puVar22[4] = iVar24;
+    *puVar22 = 0;
+    puVar22[1] = 0;
+    puVar22[2] = puVar15;
+    *puVar18 = puVar22;
+    puVar15 = puVar22;
+    if (**(int **)(param_1 + 0x8c0) != 0) {
+      *(int *)(param_1 + 0x8c0) = **(int **)(param_1 + 0x8c0);
+      puVar15 = (undefined4 *)*puVar18;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x8c4),puVar15);
+    *(int *)(param_1 + 0x8c8) = *(int *)(param_1 + 0x8c8) + 1;
+  }
+  *(undefined1 *)(puVar22 + 5) = uVar4;
+  _ZN11CMSingleton3getI14CSRDataSyncMgrNS_12DefaultAllocIS1_EE10CMSpinLockEENSt6__ndk110shared_ptrIT_EEv
+            (auStack_40);
+  piVar13 = piStack_3c;
+  auVar3 = auStack_40;
+  if (piStack_3c != (int *)0x0) {
+    piVar17 = piStack_3c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_3c + 8))(piStack_3c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  iVar9 = _ZN15CSRSyncTutorial8GetStateE7TU_TYPE7TU_STEP(*(int *)((int)auVar3 + 0x24),1,3);
+  if (((iVar9 < 2) && (iVar14 = _ZN14CSRStageMarker8GetStateEv(piStack_98), iVar14 != 2)) &&
+     (iVar24 != *(int *)(param_1 + 0x76c))) {
+    _ZN11CMEventPoolIJEE5ClearEv(piStack_98 + 0x209);
+  }
+  else {
+    if (!bVar2) {
+      do {
+        ExclusiveAccess(piVar6);
+        bVar28 = (bool)hasExclusiveAccess(piVar6);
+      } while (!bVar28);
+      *piVar6 = *piVar6 + 1;
+    }
+    auStack_40 = (undefined1  [4])(_DAT_00e93090 + 0xe92dce);
+    piStack_38 = piStack_104;
+    piStack_3c = piStack_10c;
+    iStack_34 = iVar24;
+    piStack_30 = (int *)auStack_40;
+    _ZN11CMEventPoolIJEEpLERKNSt6__ndk18functionIFvvEEE(piStack_98 + 0x209,auStack_40);
+    if ((int *)auStack_40 == piStack_30) {
+      (**(code **)(*piStack_30 + 0x10))();
+    }
+    else if (piStack_30 != (int *)0x0) {
+      (**(code **)(*piStack_30 + 0x14))();
+    }
+  }
+  iVar14 = iVar24;
+  if (1 < iVar9) {
+    iVar14 = iVar24 + iStack_f4;
+  }
+  _ZN14CSRStageMarker9SetNumberEj(piStack_98,iVar14);
+  piVar13 = piStack_98;
+  puVar22 = (undefined4 *)*puVar21;
+  puVar18 = puVar21;
+  puVar15 = puVar21;
+  while (puVar22 != (undefined4 *)0x0) {
+    while (puVar15 = puVar22, iVar24 < (int)puVar15[4]) {
+      puVar22 = (undefined4 *)*puVar15;
+      puVar18 = puVar15;
+      if ((undefined4 *)*puVar15 == (undefined4 *)0x0) goto LAB_00e92e3c;
+    }
+    if (iVar24 <= (int)puVar15[4]) break;
+    puVar18 = puVar15 + 1;
+    puVar22 = (undefined4 *)*puVar18;
+  }
+LAB_00e92e3c:
+  puVar22 = (undefined4 *)*puVar18;
+  if (puVar22 == (undefined4 *)0x0) {
+    puVar22 = (undefined4 *)_Znwj(0x18);
+    puVar22[4] = iVar24;
+    puVar22[5] = 0;
+    *puVar22 = 0;
+    puVar22[1] = 0;
+    puVar22[2] = puVar15;
+    *puVar18 = puVar22;
+    puVar15 = puVar22;
+    if (**(int **)(param_1 + 0x7e0) != 0) {
+      *(int *)(param_1 + 0x7e0) = **(int **)(param_1 + 0x7e0);
+      puVar15 = (undefined4 *)*puVar18;
+    }
+    _ZNSt6__ndk127__tree_balance_after_insertIPNS_16__tree_node_baseIPvEEEEvT_S5_
+              (*(undefined4 *)(param_1 + 0x7e4),puVar15);
+    *(int *)(param_1 + 0x7e8) = *(int *)(param_1 + 0x7e8) + 1;
+  }
+  _ZN14CSRStageMarker10SetStarCntEj(piVar13,puVar22[5]);
+  _ZNSt6__ndk19to_stringEi(&uStack_bc,iVar24 + -1);
+  iVar9 = iStack_b4;
+  if (((uint)uStack_bc & 1) == 0) {
+    iVar9 = (int)&uStack_bc + 1;
+  }
+  _Z8CMFormatPKcz(auStack_40,_DAT_00e93094 + 0xe92ea4,iVar9);
+  piVar13 = piStack_38;
+  if (((uint)auStack_40 & 1) == 0) {
+    piVar13 = (int *)(auStack_40 + 1);
+  }
+  _ZN15CSRUIScrollView7GetRectEPKc(&piStack_c4,iStack_ec,piVar13);
+  if (((uint)auStack_40 & 1) != 0) {
+    _ZdlPv(piStack_38);
+  }
+  if (((uint)uStack_bc & 1) != 0) {
+    _ZdlPv(iStack_b4);
+  }
+  auStack_40 = (undefined1  [4])piStack_98;
+  piStack_3c = piStack_94;
+  if (piStack_94 != (int *)0x0) {
+    piVar13 = piStack_94 + 1;
+    do {
+      ExclusiveAccess(piVar13);
+      bVar28 = (bool)hasExclusiveAccess(piVar13);
+    } while (!bVar28);
+    *piVar13 = *piVar13 + 1;
+  }
+  _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+            (auStack_cc,piStack_c4 + 1,auStack_40);
+  piVar13 = piStack_c8;
+  if (piStack_c8 != (int *)0x0) {
+    piVar17 = piStack_c8 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_c8 + 8))(piStack_c8);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  piVar13 = piStack_3c;
+  if (piStack_3c != (int *)0x0) {
+    piVar17 = piStack_3c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_3c + 8))(piStack_3c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  _ZN6CMNodeI11CMUpdatableE12DetachParentEv(auStack_d4,piStack_c4 + 1);
+  piVar13 = piStack_d0;
+  if (piStack_d0 != (int *)0x0) {
+    piVar17 = piStack_d0 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_d0 + 8))(piStack_d0);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  auStack_40 = (undefined1  [4])piStack_c4;
+  piStack_3c = piStack_c0;
+  if (piStack_c0 != (int *)0x0) {
+    piVar13 = piStack_c0 + 1;
+    do {
+      ExclusiveAccess(piVar13);
+      bVar28 = (bool)hasExclusiveAccess(piVar13);
+    } while (!bVar28);
+    *piVar13 = *piVar13 + 1;
+  }
+  _ZN6CMNodeI11CMUpdatableE11AttachChildERKNSt6__ndk110shared_ptrIS0_EEy
+            (auStack_dc,iVar5,auStack_40);
+  piVar13 = piStack_d8;
+  if (piStack_d8 != (int *)0x0) {
+    piVar17 = piStack_d8 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_d8 + 8))(piStack_d8);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  piVar13 = piStack_3c;
+  if (piStack_3c != (int *)0x0) {
+    piVar17 = piStack_3c + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_3c + 8))(piStack_3c);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  piVar13 = piStack_c0;
+  if (piStack_c0 != (int *)0x0) {
+    piVar17 = piStack_c0 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_c0 + 8))(piStack_c0);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  piVar13 = piStack_94;
+  if (piStack_94 != (int *)0x0) {
+    piVar17 = piStack_94 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar17);
+      iVar9 = *piVar17;
+      bVar28 = (bool)hasExclusiveAccess(piVar17);
+    } while (!bVar28);
+    *piVar17 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*piStack_94 + 8))(piStack_94);
+      _ZNSt6__ndk119__shared_weak_count14__release_weakEv(piVar13);
+    }
+  }
+  bVar28 = *(int *)(param_1 + 0x76c) <= iVar24;
+  iVar24 = iVar24 + 1;
+  if (bVar28) goto LAB_00e93098;
+  goto LAB_00e92828;
+LAB_00e92a2a:
+  if (piVar13 == (int *)0x0) goto LAB_00e933f0;
+  if (piVar13[5] < 1) {
+    _ZN14CSRStageMarker8SetStateENS_5STATEE(piStack_98,1);
+    _ZN14CSRStageMarker9SetDangerEh
+              (piStack_98,
+               *(int *)(param_1 + 0x888) == 1 && (uint)(iVar24 * -0x33333333) < 0x33333334);
+    if (iVar24 == *(int *)(param_1 + 0x76c)) {
+      _ZN10CSRDataMgr3getEv();
+      uVar20 = _ZN10CSRDataMgr13GetStaticDataEv();
+      _ZN13CSRStaticData36GetTutorialStageThumbnailDescriptionERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                (auStack_40,uVar20,iVar9 + 0x1c);
+      piVar13 = piStack_3c;
+      if (((uint)auStack_40 & 1) == 0) {
+        piVar13 = (int *)((uint)auStack_40 >> 1 & 0x7f);
+      }
+      if (piVar13 != (int *)0x0) {
+        uVar4 = _ZN14CSRStageMarker7SetDescERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                          (piStack_98,auStack_40,uVar4);
+      }
+      uVar4 = _ZN14CSRStageMarker12SetCharacterERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                        (piStack_98,iVar9 + 0x34,uVar4);
+      if (((uint)auStack_40 & 1) != 0) {
+        _ZdlPv(piStack_38);
+      }
+    }
+    else {
+      bVar1 = *(byte *)(iVar9 + 0x34);
+      uVar7 = *(uint *)(iVar9 + 0x38);
+      if ((bVar1 & 1) == 0) {
+        uVar7 = (uint)(bVar1 >> 1);
+      }
+      if (uVar7 != 0) {
+        _ZN10CSRDataMgr3getEv();
+        uVar20 = _ZN10CSRDataMgr13GetStaticDataEv();
+        iVar14 = _ZN13CSRStaticData15IsTutorialStageERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                           (uVar20,iVar9 + 0x1c);
+        piVar13 = piStack_98;
+        if (iVar14 == 1) {
+          _ZN10CSRDataMgr3getEv();
+          uVar20 = _ZN10CSRDataMgr13GetStaticDataEv();
+          _ZN13CSRStaticData36GetTutorialStageThumbnailDescriptionERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEE
+                    (auStack_40,uVar20,iVar9 + 0x1c);
+          _ZN14CSRStageMarker7SetDescERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                    (piVar13,auStack_40,uVar4);
+          if (((uint)auStack_40 & 1) != 0) {
+            _ZdlPv(piStack_38);
+          }
+          uVar4 = _ZN14CSRStageMarker12SetCharacterERKNSt6__ndk112basic_stringIcNS0_11char_traitsIcEENS0_9allocatorIcEEEEh
+                            (piStack_98,(byte *)(iVar9 + 0x34),uVar4);
+        }
+        else {
+          uVar4 = _ZN14CSRStageMarker11SetHasStoryEhh(piStack_98,1,uVar4);
+        }
+      }
+    }
+    goto LAB_00e92cd8;
+  }
+LAB_00e92a38:
+  _ZN14CSRStageMarker8SetStateENS_5STATEE(piStack_98,0);
+  goto LAB_00e92cd8;
+}
+
+

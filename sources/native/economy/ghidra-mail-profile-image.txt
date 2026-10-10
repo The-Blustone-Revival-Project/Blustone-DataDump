@@ -1,0 +1,101 @@
+===== proven Thumb 010abd9a =====
+
+void FUN_010abd9a(int param_1,int *param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *this;
+  int iVar2;
+  CSRDataMgr *pCVar3;
+  CSRUserLV *pCVar4;
+  uint uVar5;
+  __shared_weak_count *p_Var6;
+  int *piVar7;
+  int *piVar8;
+  int iVar9;
+  int iVar10;
+  uint uVar11;
+  CSRUserProfileDraw *unaff_r10;
+  uint uStack_28;
+
+  piVar8 = (int *)*param_2;
+  piVar7 = (int *)param_2[1];
+  *param_2 = 0;
+  param_2[1] = 0;
+  if ((*(__shared_weak_count **)(param_1 + 8) != (__shared_weak_count *)0x0) &&
+     (this = (__shared_weak_count *)
+             std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8)),
+     this != (__shared_weak_count *)0x0)) {
+    if (piVar8 != (int *)0x0) {
+      unaff_r10 = *(CSRUserProfileDraw **)(param_1 + 4);
+    }
+    if (piVar8 != (int *)0x0 && unaff_r10 != (CSRUserProfileDraw *)0x0) {
+      CSRUserProfileDraw::LoadImageFromURL(unaff_r10,(basic_string *)(piVar8 + 0x10));
+      iVar9 = *piVar8;
+      iVar10 = piVar8[1];
+      uStack_28 = piVar8[0x1b];
+      uVar11 = piVar8[0x1c];
+      iVar2 = CPVDataMgr::get();
+      if (*(int *)(iVar2 + 0x58) == iVar9 && *(int *)(iVar2 + 0x5c) == iVar10) {
+        pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+        iVar2 = CSRDataMgr::GetPlayData(pCVar3);
+        uStack_28 = *(uint *)(iVar2 + 0x14c);
+        pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+        iVar2 = CSRDataMgr::GetPlayData(pCVar3);
+        uVar11 = *(uint *)(iVar2 + 0x150);
+      }
+      pCVar4 = (CSRUserLV *)CSRUserLV::get();
+      uVar5 = CSRUserLV::GetUserLevel(pCVar4,uStack_28);
+      pCVar4 = (CSRUserLV *)CSRUserLV::get();
+      uVar11 = CSRUserLV::GetVIPLevel(pCVar4,uVar11);
+      CSRUserProfileDraw::SetData(unaff_r10,uVar5,uVar11,piVar8[0x16]);
+    }
+    p_Var6 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar2 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar2 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar2 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  if (piVar7 != (int *)0x0) {
+    piVar8 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar8);
+      iVar2 = *piVar8;
+      bVar1 = (bool)hasExclusiveAccess(piVar8);
+    } while (!bVar1);
+    *piVar8 = iVar2 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar2 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      DataMemoryBarrier(0x1b);
+      if (piVar7[2] != 0) {
+        piVar8 = piVar7 + 2;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar8);
+          iVar2 = *piVar8;
+          bVar1 = (bool)hasExclusiveAccess(piVar8);
+        } while (!bVar1);
+        *piVar8 = iVar2 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar2 != 0) {
+          return;
+        }
+      }
+                    /* WARNING: Could not recover jumptable at 0x01bd1d2e. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (**(code **)(*piVar7 + 0x10))();
+      return;
+    }
+  }
+  return;
+}

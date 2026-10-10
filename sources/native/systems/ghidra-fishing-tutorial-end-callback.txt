@@ -1,0 +1,62 @@
+===== proven Thumb 00ef3764 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ef3764(int param_1,int *param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *this;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  int *piVar4;
+  int *piVar5;
+  float fVar6;
+  basic_string abStack_28 [8];
+  void *pvStack_20;
+  int iStack_1c;
+
+  piVar5 = *(int **)(_DAT_00ef3858 + 0xef3776);
+  iStack_1c = *piVar5;
+  if (*(__shared_weak_count **)(param_1 + 8) != (__shared_weak_count *)0x0) {
+    iVar3 = *param_2;
+    this = (__shared_weak_count *)
+           std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8));
+    if (this != (__shared_weak_count *)0x0) {
+      piVar4 = *(int **)(param_1 + 4);
+      if (piVar4 != (int *)0x0) {
+        *(undefined1 *)((int)piVar4 + 0x6c1) = 0;
+        if (iVar3 == 1) {
+          *(undefined1 *)((int)piVar4 + 0x6c1) = 1;
+        }
+        else {
+          CGMDataMgr::get();
+          fVar6 = (float)CGMDataMgr::GetLocalizedText((char *)abStack_28);
+          Toast(abStack_28,'\0',fVar6);
+          if (((byte)abStack_28[0] & 1) != 0) {
+            operator_delete(pvStack_20);
+          }
+          (**(code **)(*piVar4 + 0x34))(piVar4);
+        }
+      }
+      p_Var2 = this + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var2);
+        iVar3 = *(int *)p_Var2;
+        bVar1 = (bool)hasExclusiveAccess(p_Var2);
+      } while (!bVar1);
+      *(int *)p_Var2 = iVar3 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar3 == 0) {
+        (**(code **)(*(int *)this + 8))(this);
+        std::__ndk1::__shared_weak_count::__release_weak(this);
+      }
+    }
+  }
+  if (*piVar5 == iStack_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

@@ -1,0 +1,182 @@
+===== f487d0 HasRewardActivity @ 00f487d0 =====
+
+/* CSRSupply::HasRewardActivity() */
+
+void CSRSupply::HasRewardActivity(void)
+
+{
+  basic_string *pbVar1;
+  basic_string *pbVar2;
+  basic_string *pbVar3;
+  int iVar4;
+  int *piVar5;
+  basic_string *pbVar6;
+  basic_string *local_6c;
+  basic_string *local_68;
+  int local_60;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_5c [8];
+  void *local_54;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_50 [8];
+  void *local_48;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_44 [8];
+  void *local_3c;
+  undefined8 local_38;
+  undefined4 local_30;
+  int local_28;
+  
+  piVar5 = *(int **)(DAT_00f4897c + 0xf487e0);
+  local_28 = *piVar5;
+  GetFuelSupply((CSRSupply *)&local_6c);
+  pbVar2 = local_68;
+  pbVar1 = local_6c;
+  if (local_6c != local_68) {
+    pbVar6 = local_6c + 0x10;
+    do {
+      local_60 = *(int *)(pbVar6 + -0x10);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string(local_5c,pbVar6 + -0xc);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string(local_50,pbVar6);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string(local_44,pbVar6 + 0xc);
+      iVar4 = local_60;
+      local_38 = *(undefined8 *)(pbVar6 + 0x18);
+      local_30 = *(undefined4 *)(pbVar6 + 0x20);
+      if (((byte)local_44[0] & 1) != 0) {
+        operator_delete(local_3c);
+      }
+      if (((byte)local_50[0] & 1) != 0) {
+        operator_delete(local_48);
+      }
+      if (((byte)local_5c[0] & 1) != 0) {
+        operator_delete(local_54);
+      }
+      pbVar1 = local_6c;
+    } while ((iVar4 != 1) && (pbVar3 = pbVar6 + 0x24, pbVar6 = pbVar6 + 0x34, pbVar3 != pbVar2));
+  }
+  local_6c = pbVar1;
+  if (pbVar1 != (basic_string *)0x0) {
+    while (pbVar2 = local_68, pbVar2 != pbVar1) {
+      if (((byte)pbVar2[-0x18] & 1) != 0) {
+        operator_delete(*(void **)(pbVar2 + -0x10));
+      }
+      if (((byte)pbVar2[-0x24] & 1) != 0) {
+        operator_delete(*(void **)(pbVar2 + -0x1c));
+      }
+      local_68 = pbVar2 + -0x34;
+      if (((byte)pbVar2[-0x30] & 1) != 0) {
+        operator_delete(*(void **)(pbVar2 + -0x28));
+      }
+    }
+    operator_delete(local_6c);
+  }
+  iVar4 = *piVar5 - local_28;
+  if (iVar4 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar4);
+  }
+  return;
+}
+
+
+===== db0e2c CheckSupplyNoti @ 00db0e2c =====
+
+/* CSRPopUpVillage::CheckSupplyNoti() */
+
+void __thiscall CSRPopUpVillage::CheckSupplyNoti(CSRPopUpVillage *this)
+
+{
+  bool bVar1;
+  uchar uVar2;
+  CSRDataMgr *pCVar3;
+  CSRPlayData *pCVar4;
+  int iVar5;
+  __shared_weak_count *p_Var6;
+  int *piVar7;
+  CMHashID local_40 [8];
+  void *local_38;
+  CMUpdatable *local_24;
+  __shared_weak_count *local_20;
+  int local_1c;
+  
+  piVar7 = *(int **)(DAT_00db0fcc + 0xdb0e3e);
+  local_1c = *piVar7;
+  pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar4 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar3);
+  iVar5 = CSRPlayData::GetStageAchieveCnt(pCVar4,0xd);
+  if (iVar5 == 0) {
+    SetNameTagVisible(this,2,0);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>
+              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               local_40,(char *)(DAT_00db0fd0 + 0xdb0ee4));
+    CSRFramedScene::FindCastByName<CMUpdatable>((basic_string *)&local_24);
+    CMUpdatable::SetVisible(local_24,'\0');
+    if (local_20 != (__shared_weak_count *)0x0) {
+      p_Var6 = local_20 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)local_20 + 8))(local_20);
+        std::__ndk1::__shared_weak_count::__release_weak(local_20);
+      }
+    }
+    if (((byte)local_40[0] & 1) != 0) {
+      operator_delete(local_38);
+    }
+  }
+  else {
+    pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar4 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar3);
+    uVar2 = CSRPlayData::IsNotiEvent(pCVar4,3);
+    CMUpdatable::SetVisible(*(CMUpdatable **)(this + 0x820),uVar2);
+    iVar5 = *(int *)(this + 0x780);
+    CMHashID::CMHashID(local_40,(char *)(DAT_00db0fd4 + 0xdb0e7e));
+    CMNode<CMUpdatable>::
+    FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_24,iVar5 + 4,local_40);
+    if (((byte)local_40[0] & 1) != 0) {
+      operator_delete(local_38);
+    }
+    CMUpdatable::SetVisible(local_24,uVar2);
+    if (local_20 != (__shared_weak_count *)0x0) {
+      p_Var6 = local_20 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)local_20 + 8))(local_20);
+        std::__ndk1::__shared_weak_count::__release_weak(local_20);
+      }
+    }
+  }
+  if (*piVar7 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== b70464 IsSupplyNoti @ 00b70464 =====
+
+/* CSRPlayData::IsSupplyNoti() */
+
+bool __thiscall CSRPlayData::IsSupplyNoti(CSRPlayData *this)
+
+{
+  return *(int *)(this + 0x30c) != *(int *)(this + 0x310);
+}
+
+

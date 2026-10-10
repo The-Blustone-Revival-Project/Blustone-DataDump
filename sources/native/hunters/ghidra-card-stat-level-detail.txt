@@ -1,0 +1,401 @@
+===== 0087acc8 GetStat @ 0087acc8 =====
+
+/* CSRCardInfo::GetStat(unsigned int, unsigned int) const */
+
+void CSRCardInfo::GetStat(uint param_1,uint param_2)
+
+{
+  bool bVar1;
+  bool bVar2;
+  int *piVar3;
+  int iVar4;
+  uint uVar5;
+  __shared_weak_count *p_Var6;
+  int in_r2;
+  int in_r3;
+  int *piVar7;
+  int *piVar8;
+  __shared_weak_count *p_Var9;
+  int *piVar10;
+  int local_30;
+  __shared_weak_count *local_2c;
+  int local_28;
+  
+  piVar8 = *(int **)(DAT_0087ae30 + 0x87acde);
+  local_28 = *piVar8;
+  piVar7 = *(int **)(param_2 + 0xa0);
+  piVar10 = *(int **)(param_2 + 0xa4);
+  if (piVar7 != piVar10) {
+    do {
+      piVar3 = (int *)*piVar7;
+      p_Var9 = (__shared_weak_count *)piVar7[1];
+      if (p_Var9 != (__shared_weak_count *)0x0) {
+        p_Var6 = p_Var9 + 4;
+        do {
+          ExclusiveAccess(p_Var6);
+          bVar1 = (bool)hasExclusiveAccess(p_Var6);
+        } while (!bVar1);
+        *(int *)p_Var6 = *(int *)p_Var6 + 1;
+      }
+      if (*piVar3 == in_r2) {
+        bVar1 = piVar3[1] == in_r3;
+      }
+      else {
+        bVar1 = false;
+      }
+      if (p_Var9 != (__shared_weak_count *)0x0) {
+        p_Var6 = p_Var9 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var6);
+          iVar4 = *(int *)p_Var6;
+          bVar2 = (bool)hasExclusiveAccess(p_Var6);
+        } while (!bVar2);
+        *(int *)p_Var6 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 == 0) {
+          (**(code **)(*(int *)p_Var9 + 8))(p_Var9);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      piVar3 = piVar7;
+    } while ((!bVar1) && (piVar7 = piVar7 + 2, piVar3 = piVar10, piVar7 != piVar10));
+    if (*(int **)(param_2 + 0xa4) != piVar3) {
+      *(int *)param_1 = *piVar3;
+      iVar4 = piVar3[1];
+      *(int *)(param_1 + 4) = iVar4;
+      if (iVar4 != 0) {
+        piVar7 = (int *)(iVar4 + 4);
+        do {
+          ExclusiveAccess(piVar7);
+          bVar1 = (bool)hasExclusiveAccess(piVar7);
+        } while (!bVar1);
+        *piVar7 = *piVar7 + 1;
+      }
+      goto LAB_0087ae1a;
+    }
+  }
+  if (in_r3 != 0) {
+    uVar5 = CSRAwake::get();
+    CSRAwake::FindAwakeRef((basic_string *)&local_30,uVar5);
+    if (local_30 != 0) {
+      iVar4 = *(int *)(local_30 + 0x1c);
+      *(undefined4 *)param_1 = *(undefined4 *)(local_30 + 0x18);
+      *(int *)(param_1 + 4) = iVar4;
+      if (iVar4 != 0) {
+        piVar7 = (int *)(iVar4 + 4);
+        do {
+          ExclusiveAccess(piVar7);
+          bVar1 = (bool)hasExclusiveAccess(piVar7);
+        } while (!bVar1);
+        *piVar7 = *piVar7 + 1;
+      }
+      if (local_2c != (__shared_weak_count *)0x0) {
+        p_Var9 = local_2c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var9);
+          iVar4 = *(int *)p_Var9;
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 == 0) {
+          (**(code **)(*(int *)local_2c + 8))(local_2c);
+          std::__ndk1::__shared_weak_count::__release_weak(local_2c);
+        }
+      }
+      goto LAB_0087ae1a;
+    }
+    if (local_2c != (__shared_weak_count *)0x0) {
+      p_Var9 = local_2c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var9);
+        iVar4 = *(int *)p_Var9;
+        bVar1 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar1);
+      *(int *)p_Var9 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_2c + 8))(local_2c);
+        std::__ndk1::__shared_weak_count::__release_weak(local_2c);
+      }
+    }
+  }
+  *(undefined4 *)param_1 = 0;
+  *(undefined4 *)(param_1 + 4) = 0;
+LAB_0087ae1a:
+  if (*piVar8 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 010a0c68 GetCardMaxLevel @ 010a0c68 =====
+
+/* CSRUserLV::GetCardMaxLevel(unsigned int, unsigned int) */
+
+void __thiscall CSRUserLV::GetCardMaxLevel(CSRUserLV *this,uint param_1,uint param_2)
+
+{
+  CSRUserLV *pCVar1;
+  int iVar2;
+  CSRUserLV *pCVar3;
+  CSRUserLV *pCVar4;
+  CSRUserLV *pCVar5;
+  int *piVar6;
+  void *local_28;
+  void *local_24;
+  int local_1c;
+  
+  piVar6 = *(int **)(DAT_010a0d08 + 0x10a0c78);
+  local_1c = *piVar6;
+  if (param_2 == 0) {
+    pCVar1 = this + 0x7c;
+    pCVar5 = *(CSRUserLV **)pCVar1;
+    pCVar4 = pCVar1;
+    if (pCVar5 == (CSRUserLV *)0x0) goto LAB_010a0cd2;
+    do {
+      pCVar3 = pCVar5;
+      if (*(uint *)(pCVar5 + 0x10) < param_1) {
+        pCVar3 = pCVar5 + 4;
+      }
+      if (*(uint *)(pCVar5 + 0x10) >= param_1) {
+        pCVar4 = pCVar5;
+      }
+      pCVar5 = *(CSRUserLV **)pCVar3;
+    } while (*(CSRUserLV **)pCVar3 != (CSRUserLV *)0x0);
+    if ((pCVar4 == pCVar1) || (param_1 < *(uint *)(pCVar4 + 0x10))) goto LAB_010a0cd2;
+  }
+  else {
+    pCVar1 = this + 0x88;
+    pCVar5 = *(CSRUserLV **)pCVar1;
+    pCVar4 = pCVar1;
+    if (pCVar5 == (CSRUserLV *)0x0) goto LAB_010a0cd2;
+    do {
+      pCVar3 = pCVar5;
+      if (*(uint *)(pCVar5 + 0x10) < param_2) {
+        pCVar3 = pCVar5 + 4;
+      }
+      if (*(uint *)(pCVar5 + 0x10) >= param_2) {
+        pCVar4 = pCVar5;
+      }
+      pCVar5 = *(CSRUserLV **)pCVar3;
+    } while (*(CSRUserLV **)pCVar3 != (CSRUserLV *)0x0);
+    if ((pCVar4 == pCVar1) || (param_2 < *(uint *)(pCVar4 + 0x10))) goto LAB_010a0cd2;
+  }
+  std::__ndk1::vector<CSRUserLV::CARD_LEVEL_INFO,std::__ndk1::allocator<CSRUserLV::CARD_LEVEL_INFO>>
+  ::vector((vector<CSRUserLV::CARD_LEVEL_INFO,std::__ndk1::allocator<CSRUserLV::CARD_LEVEL_INFO>> *)
+           &local_28,(vector *)(pCVar4 + 0x14));
+  if (local_28 != (void *)0x0) {
+    local_24 = local_28;
+    operator_delete(local_28);
+  }
+LAB_010a0cd2:
+  iVar2 = *piVar6 - local_1c;
+  if (iVar2 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar2);
+}
+
+
+===== 010a0d0c GetCardMaxExp @ 010a0d0c =====
+
+/* CSRUserLV::GetCardMaxExp(unsigned int, unsigned int, unsigned int) */
+
+undefined4 __thiscall
+CSRUserLV::GetCardMaxExp(CSRUserLV *this,uint param_1,uint param_2,uint param_3)
+
+{
+  CSRUserLV *pCVar1;
+  undefined4 uVar2;
+  CSRUserLV *pCVar3;
+  CSRUserLV *pCVar4;
+  CSRUserLV *pCVar5;
+  
+  if (param_3 == 0) {
+    pCVar1 = this + 0x7c;
+    pCVar5 = *(CSRUserLV **)pCVar1;
+    pCVar4 = pCVar1;
+    if (pCVar5 != (CSRUserLV *)0x0) {
+      do {
+        pCVar3 = pCVar5;
+        if (*(uint *)(pCVar5 + 0x10) < param_1) {
+          pCVar3 = pCVar5 + 4;
+        }
+        if (*(uint *)(pCVar5 + 0x10) >= param_1) {
+          pCVar4 = pCVar5;
+        }
+        pCVar5 = *(CSRUserLV **)pCVar3;
+      } while (*(CSRUserLV **)pCVar3 != (CSRUserLV *)0x0);
+      if (pCVar4 != pCVar1) {
+        if (param_1 < *(uint *)(pCVar4 + 0x10)) {
+          return 0;
+        }
+        goto joined_r0x010a0d92;
+      }
+    }
+  }
+  else {
+    pCVar1 = this + 0x88;
+    pCVar5 = *(CSRUserLV **)pCVar1;
+    pCVar4 = pCVar1;
+    if (pCVar5 != (CSRUserLV *)0x0) {
+      do {
+        pCVar3 = pCVar5;
+        if (*(uint *)(pCVar5 + 0x10) < param_3) {
+          pCVar3 = pCVar5 + 4;
+        }
+        if (*(uint *)(pCVar5 + 0x10) >= param_3) {
+          pCVar4 = pCVar5;
+        }
+        pCVar5 = *(CSRUserLV **)pCVar3;
+      } while (*(CSRUserLV **)pCVar3 != (CSRUserLV *)0x0);
+      if ((pCVar4 != pCVar1) && (*(uint *)(pCVar4 + 0x10) <= param_3)) {
+joined_r0x010a0d92:
+        if (param_2 == 0) {
+          return *(undefined4 *)(*(int *)(pCVar4 + 0x14) + 0x14);
+        }
+        if (param_2 < (uint)(*(int *)(pCVar4 + 0x18) - *(int *)(pCVar4 + 0x14) >> 4)) {
+          uVar2 = *(undefined4 *)(*(int *)(pCVar4 + 0x14) + param_2 * 0x10 + 4);
+        }
+        else {
+          uVar2 = *(undefined4 *)(*(int *)(pCVar4 + 0x18) + -0xc);
+        }
+        return uVar2;
+      }
+    }
+  }
+  return 0;
+}
+
+
+===== 010a0da0 GetCardMinExp @ 010a0da0 =====
+
+/* CSRUserLV::GetCardMinExp(unsigned int, unsigned int, unsigned int) */
+
+undefined4 __thiscall
+CSRUserLV::GetCardMinExp(CSRUserLV *this,uint param_1,uint param_2,uint param_3)
+
+{
+  CSRUserLV *pCVar1;
+  undefined4 uVar2;
+  CSRUserLV *pCVar3;
+  uint uVar4;
+  CSRUserLV *pCVar5;
+  CSRUserLV *pCVar6;
+  
+  if (param_3 == 0) {
+    pCVar1 = this + 0x7c;
+    pCVar6 = *(CSRUserLV **)pCVar1;
+    pCVar5 = pCVar1;
+    if (pCVar6 != (CSRUserLV *)0x0) {
+      do {
+        pCVar3 = pCVar6;
+        if (*(uint *)(pCVar6 + 0x10) < param_1) {
+          pCVar3 = pCVar6 + 4;
+        }
+        if (*(uint *)(pCVar6 + 0x10) >= param_1) {
+          pCVar5 = pCVar6;
+        }
+        pCVar6 = *(CSRUserLV **)pCVar3;
+      } while (*(CSRUserLV **)pCVar3 != (CSRUserLV *)0x0);
+      if (pCVar5 != pCVar1) {
+        if (param_1 < *(uint *)(pCVar5 + 0x10)) {
+          return 0;
+        }
+        goto LAB_010a0e0c;
+      }
+    }
+  }
+  else {
+    pCVar1 = this + 0x88;
+    pCVar6 = *(CSRUserLV **)pCVar1;
+    pCVar5 = pCVar1;
+    if (pCVar6 != (CSRUserLV *)0x0) {
+      do {
+        pCVar3 = pCVar6;
+        if (*(uint *)(pCVar6 + 0x10) < param_3) {
+          pCVar3 = pCVar6 + 4;
+        }
+        if (*(uint *)(pCVar6 + 0x10) >= param_3) {
+          pCVar5 = pCVar6;
+        }
+        pCVar6 = *(CSRUserLV **)pCVar3;
+      } while (*(CSRUserLV **)pCVar3 != (CSRUserLV *)0x0);
+      if ((pCVar5 != pCVar1) && (*(uint *)(pCVar5 + 0x10) <= param_3)) {
+LAB_010a0e0c:
+        uVar4 = param_2 - 1;
+        if ((uint)(*(int *)(pCVar5 + 0x18) - *(int *)(pCVar5 + 0x14) >> 4) <= uVar4) {
+          return *(undefined4 *)(*(int *)(pCVar5 + 0x18) + -0xc);
+        }
+        if ((int)uVar4 < 0) {
+          uVar2 = 0;
+        }
+        else {
+          uVar2 = *(undefined4 *)(*(int *)(pCVar5 + 0x14) + uVar4 * 0x10 + 4);
+        }
+        return uVar2;
+      }
+    }
+  }
+  return 0;
+}
+
+
+===== 010a0e34 GetCardRaiseExp @ 010a0e34 =====
+
+/* CSRUserLV::GetCardRaiseExp(unsigned int, unsigned int, unsigned int) */
+
+void CSRUserLV::GetCardRaiseExp(uint param_1,uint param_2,uint param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  int *piVar3;
+  int *piVar4;
+  int *piVar5;
+  int *piVar6;
+  void *local_28;
+  void *local_24;
+  int local_1c;
+  
+  piVar5 = *(int **)(DAT_010a0ec8 + 0x10a0e46);
+  local_1c = *piVar5;
+  piVar1 = (int *)(param_1 + 0x7c);
+  piVar6 = (int *)*piVar1;
+  piVar3 = piVar1;
+  if (piVar6 != (int *)0x0) {
+    do {
+      piVar4 = piVar6;
+      if ((uint)piVar6[4] < param_2) {
+        piVar4 = piVar6 + 1;
+      }
+      if ((uint)piVar6[4] >= param_2) {
+        piVar3 = piVar6;
+      }
+      piVar6 = (int *)*piVar4;
+    } while ((int *)*piVar4 != (int *)0x0);
+    if (((piVar3 != piVar1) && ((uint)piVar3[4] <= param_2)) &&
+       (std::__ndk1::
+        vector<CSRUserLV::CARD_LEVEL_INFO,std::__ndk1::allocator<CSRUserLV::CARD_LEVEL_INFO>>::
+        vector((vector<CSRUserLV::CARD_LEVEL_INFO,std::__ndk1::allocator<CSRUserLV::CARD_LEVEL_INFO>>
+                *)&local_28,(vector *)(piVar3 + 5)), local_28 != (void *)0x0)) {
+      local_24 = local_28;
+      operator_delete(local_28);
+    }
+  }
+  iVar2 = *piVar5 - local_1c;
+  if (iVar2 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar2);
+}
+
+

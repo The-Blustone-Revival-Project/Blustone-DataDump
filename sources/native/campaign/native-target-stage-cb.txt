@@ -1,0 +1,143 @@
+===== 00b4606c ReqTargetStageMonsterCB =====
+
+/* CSRSyncMStage::ReqTargetStageMonsterCB(std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&,
+   std::__ndk1::shared_ptr<CPVHTTPRequest>, std::__ndk1::shared_ptr<CPVHTTPResponse>,
+   nlohmann::basic_json<std::__ndk1::map, std::__ndk1::vector, std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >, bool, long long, unsigned long
+   long, double, std::__ndk1::allocator, nlohmann::adl_serializer, std::__ndk1::vector<unsigned
+   char, std::__ndk1::allocator<unsigned char> > > const&) */
+
+void CSRSyncMStage::ReqTargetStageMonsterCB(void)
+
+{
+  int *piVar1;
+  int iVar2;
+  CSRGameMob *this;
+  basic_string *pbVar3;
+  basic_json *pbVar4;
+  int *piVar5;
+  undefined4 *in_r3;
+  int *piVar6;
+  bool bVar7;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *in_stack_00000000;
+  basic_json *local_88;
+  int iStack_84;
+  undefined4 local_80;
+  undefined4 uStack_7c;
+  undefined4 local_78;
+  undefined4 uStack_74;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_70 [8];
+  void *local_68;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_64 [8];
+  void *local_5c;
+  char *local_58;
+  int *local_54;
+  int local_50;
+  int local_4c;
+  int local_48;
+  byte local_40;
+  void *local_38;
+  byte local_34;
+  void *local_2c;
+  basic_json *local_28;
+  int local_24;
+  
+  piVar6 = *(int **)(DAT_00b46208 + 0xb4607c);
+  local_24 = *piVar6;
+  iVar2 = CPVHTTPResponse::GetResultCode((CPVHTTPResponse *)*in_r3);
+  if (iVar2 != 1) goto LAB_00b4619e;
+  local_28 = nlohmann::
+             basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             ::operator[]<char_const>(in_stack_00000000,(char *)(DAT_00b4620c + 0xb46098));
+  nlohmann::detail::
+  iteration_proxy<nlohmann::detail::iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>>
+  ::begin();
+  if (*local_28 == (basic_json)0x2) {
+    uStack_7c = 0x80000000;
+    local_80 = *(undefined4 *)(*(int *)(local_28 + 8) + 4);
+LAB_00b460ca:
+    iStack_84 = 0;
+  }
+  else {
+    if (*local_28 != (basic_json)0x1) {
+      uStack_7c = 1;
+      local_80 = 0;
+      goto LAB_00b460ca;
+    }
+    uStack_7c = 0x80000000;
+    local_80 = 0;
+    iStack_84 = *(int *)(local_28 + 8) + 4;
+  }
+  local_78 = 0;
+  uStack_74 = 0;
+  local_88 = local_28;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_70,(char *)(DAT_00b46210 + 0xb460da));
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_64,(char *)(DAT_00b46214 + 0xb460f0));
+  while (iVar2 = nlohmann::detail::
+                 iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                 ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                               *)&local_58,(iter_impl *)&local_88), iVar2 == 0) {
+    this = (CSRGameMob *)CSRGameMob::get();
+    pbVar3 = (basic_string *)
+             nlohmann::detail::
+             iteration_proxy_value<nlohmann::detail::iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>>
+             ::key((iteration_proxy_value<nlohmann::detail::iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>>
+                    *)&local_58);
+    pbVar4 = (basic_json *)
+             nlohmann::detail::
+             iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+             ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                          *)&local_58);
+    CSRGameMob::AddStageMonster(this,pbVar3,pbVar4);
+    if (*local_58 == '\x02') {
+      local_50 = local_50 + 0x10;
+    }
+    else if (*local_58 == '\x01') {
+      piVar1 = (int *)local_54[1];
+      if ((int *)local_54[1] == (int *)0x0) {
+        while( true ) {
+          piVar1 = local_54 + 2;
+          piVar5 = (int *)*piVar1;
+          bVar7 = (int *)*piVar5 == local_54;
+          local_54 = piVar5;
+          if (bVar7) break;
+          local_54 = (int *)*piVar1;
+        }
+      }
+      else {
+        do {
+          local_54 = piVar1;
+          piVar1 = (int *)*local_54;
+        } while ((int *)*local_54 != (int *)0x0);
+      }
+    }
+    else {
+      local_4c = local_4c + 1;
+    }
+    local_48 = local_48 + 1;
+  }
+  if (((byte)local_64[0] & 1) != 0) {
+    operator_delete(local_5c);
+  }
+  if (((byte)local_70[0] & 1) != 0) {
+    operator_delete(local_68);
+  }
+  if ((local_34 & 1) != 0) {
+    operator_delete(local_2c);
+  }
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+LAB_00b4619e:
+  if (*piVar6 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

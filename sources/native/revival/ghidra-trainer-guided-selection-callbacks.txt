@@ -1,0 +1,96 @@
+===== proven Thumb 00ee9894 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ee9894(void)
+
+{
+  CSRDataMgr *this;
+  CSRPlayData *this_00;
+  int *piVar1;
+  basic_json abStack_38 [8];
+  undefined4 uStack_30;
+  undefined4 uStack_2c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_28 [8];
+  void *pvStack_20;
+  int iStack_1c;
+  
+  piVar1 = *(int **)(_DAT_00ee9944 + 0xee98a4);
+  iStack_1c = *piVar1;
+  this = (CSRDataMgr *)CSRDataMgr::get();
+  this_00 = (CSRPlayData *)CSRDataMgr::GetPlayData(this);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(abStack_28,(char *)(_DAT_00ee9948 + 0xee98be));
+  uStack_2c = 0;
+  uStack_30 = 3;
+  abStack_38[0] = (basic_json)0x5;
+  CSRPlayData::SetMarker(this_00,(basic_string *)abStack_28,abStack_38);
+  nlohmann::
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  ::json_value::destroy((json_value *)&uStack_30,abStack_38[0]);
+  if (((byte)abStack_28[0] & 1) != 0) {
+    operator_delete(pvStack_20);
+  }
+  CSRSceneMgr::PushSceneFadeOutIn
+            (*(CSRSceneMgr **)(**(int **)(_DAT_00ee994c + 0xee9902) + 8),0xae,0xff000000);
+  if (*piVar1 != iStack_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== proven Thumb 00ee99a8 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ee99a8(void)
+
+{
+  CMSoundMgr *this;
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int *piVar4;
+  float fVar5;
+  CMHashID aCStack_40 [8];
+  void *pvStack_38;
+  int iStack_24;
+  
+  iVar2 = *(int *)(**(int **)(_DAT_00ee99bc + 0xee99b4) + 8);
+  piVar4 = *(int **)(DAT_00eb4128 + 0xeb4062);
+  iStack_24 = *piVar4;
+  this = (CMSoundMgr *)CMSoundMgr::get();
+  fVar5 = (float)CMHashID::CMHashID(aCStack_40,(char *)(DAT_00eb412c + 0xeb407a));
+  CMSoundMgr::PlaySFX(this,aCStack_40,fVar5,'\0');
+  if (((byte)aCStack_40[0] & 1) != 0) {
+    operator_delete(pvStack_38);
+  }
+  *(undefined4 *)(iVar2 + 0x69c) = 3;
+  CWIPSFader::Reset((CWIPSFader *)(iVar2 + 0x58));
+  *(undefined4 *)(iVar2 + 0x67c) = 0x3dcccccd;
+  CWIPSFader::SetColor((CWIPSFader *)(iVar2 + 0x58),0xff000000);
+  *(undefined1 *)(iVar2 + 0x673) = 0;
+  *(undefined2 *)(iVar2 + 0x671) = 0x100;
+  *(undefined4 *)(iVar2 + 0x680) = 0;
+  *(undefined1 *)(iVar2 + 0x674) = 0;
+  *(undefined4 *)(iVar2 + 0x50) = *(undefined4 *)(iVar2 + 0x54);
+  *(undefined4 *)(iVar2 + 0x54) = 0xae;
+  piVar1 = operator_new(0xc);
+  iVar3 = *(int *)(iVar2 + 0x44);
+  *piVar1 = iVar3;
+  piVar1[1] = iVar2 + 0x44;
+  piVar1[2] = 0xae;
+  *(int **)(iVar3 + 4) = piVar1;
+  *(undefined1 *)(iVar2 + 0x33) = 1;
+  *(int **)(iVar2 + 0x44) = piVar1;
+  *(int *)(iVar2 + 0x4c) = *(int *)(iVar2 + 0x4c) + 1;
+  if (*piVar4 != iStack_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

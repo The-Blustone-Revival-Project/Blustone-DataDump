@@ -1,0 +1,60 @@
+===== proven Thumb 00c50cbc =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00c50cbc(int param_1,undefined4 param_2,int param_3)
+
+{
+  bool bVar1;
+  int *piVar2;
+  uint uVar3;
+  int iVar4;
+  undefined4 extraout_r3;
+  int *piVar5;
+  char *unaff_r11;
+
+  if ((*(__shared_weak_count **)(param_1 + 8) != (__shared_weak_count *)0x0) &&
+     (piVar2 = (int *)std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8))
+     , piVar2 != (int *)0x0)) {
+    piVar5 = *(int **)(param_1 + 4);
+    if ((piVar5 != (int *)0x0) &&
+       (uVar3 = CMHashID::Crc32((CMHashID *)&DAT_00000008,
+                                CONCAT44(extraout_r3,_DAT_00c50d68 + 0xc50cde),unaff_r11),
+       *(int *)(param_3 + 0x14) == 0 && (uVar3 ^ *(uint *)(param_3 + 0x10)) == 0xffffffff)) {
+      CMEventPool<>::Call((CMEventPool<> *)(piVar5 + 0x10c));
+      (**(code **)(*piVar5 + 0x4c))(piVar5);
+    }
+    piVar5 = piVar2 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar5);
+      iVar4 = *piVar5;
+      bVar1 = (bool)hasExclusiveAccess(piVar5);
+    } while (!bVar1);
+    *piVar5 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*piVar2 + 8))(piVar2);
+      DataMemoryBarrier(0x1b);
+      if (piVar2[2] != 0) {
+        piVar5 = piVar2 + 2;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(piVar5);
+          iVar4 = *piVar5;
+          bVar1 = (bool)hasExclusiveAccess(piVar5);
+        } while (!bVar1);
+        *piVar5 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 != 0) {
+          return;
+        }
+      }
+                    /* WARNING: Could not recover jumptable at 0x01bd1d2e. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (**(code **)(*piVar2 + 0x10))();
+      return;
+    }
+  }
+  return;
+}

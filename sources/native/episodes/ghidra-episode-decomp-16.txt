@@ -1,0 +1,96 @@
+===== 0xb92378 FUN_00b92378 @ 00b92378 =====
+
+/* WARNING: Removing unreachable block (ram,0x00eb4ac6) */
+/* WARNING: Removing unreachable block (ram,0x00eb4b08) */
+/* WARNING: Removing unreachable block (ram,0x00eb4b1e) */
+/* WARNING: Removing unreachable block (ram,0x00eb4b2a) */
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+
+void FUN_00b92378(int param_1)
+
+{
+  undefined4 *puVar1;
+  bool bVar2;
+  __shared_weak_count *p_Var3;
+  uint uVar4;
+  int iVar5;
+  code *pcVar6;
+  int *piVar7;
+  int local_40;
+  __shared_weak_count *p_Stack_3c;
+  CMSingleton *local_30;
+  int local_24;
+  
+  piVar7 = *(int **)(DAT_00b92460 + 0xb9238a);
+  local_24 = *piVar7;
+  uVar4 = *(uint *)(param_1 + 0x34);
+  if ((*(byte *)(param_1 + 0x30) & 1) == 0) {
+    uVar4 = (uint)(*(byte *)(param_1 + 0x30) >> 1);
+  }
+  if (uVar4 == 0) {
+    if (*piVar7 == local_24) {
+                    /* WARNING: Could not recover jumptable at 0x00eb48de. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+      (*(code *)(&switchD_00eb48de::switchdataD_00eb48e2 + switchD_00eb48de::switchdataD_00eb48e2))
+                ();
+      return;
+    }
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+            ((CMSingleton *)&local_40);
+  if (p_Stack_3c != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Stack_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar2 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar2);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Stack_3c + 8))(p_Stack_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_3c);
+    }
+  }
+  puVar1 = (undefined4 *)(local_40 + 0x18);
+  local_40 = DAT_00b92468 + 0xb923e6;
+  local_30 = (CMSingleton *)&local_40;
+  CSRSyncLottery::RequestGachaSpecific
+            (CONCAT44(param_1 + 8,*puVar1),*(basic_string **)(param_1 + 0x28),
+             *(function **)(param_1 + 0x2c));
+  if ((CMSingleton *)&local_40 == local_30) {
+    pcVar6 = *(code **)(*(int *)local_30 + 0x10);
+  }
+  else {
+    if (local_30 == (CMSingleton *)0x0) goto LAB_00b92430;
+    pcVar6 = *(code **)(*(int *)local_30 + 0x14);
+  }
+  (*pcVar6)();
+LAB_00b92430:
+  if (*piVar7 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 0xec4964 FUN_00ec4964 @ 00ec4964 =====
+
+void FUN_00ec4964(int param_1)
+
+{
+  int *piVar1;
+  int iVar2;
+  
+  piVar1 = operator_new(8);
+  iVar2 = *(int *)(param_1 + 4);
+  *piVar1 = (int)&DAT_00ec4980 + DAT_00ec4980;
+  piVar1[1] = iVar2;
+  return;
+}
+
+

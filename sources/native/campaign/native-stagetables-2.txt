@@ -1,0 +1,79 @@
+===== 00a27ec6 GetStageIDList =====
+
+/* CSRGameStage::GetStageIDList() const */
+
+void CSRGameStage::GetStageIDList(void)
+
+{
+  vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+  *in_r0;
+  int iVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar2;
+  int *in_r1;
+  int iVar3;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this;
+  
+  *(undefined4 *)in_r0 = 0;
+  *(undefined4 *)(in_r0 + 4) = 0;
+  *(undefined4 *)(in_r0 + 8) = 0;
+  iVar3 = *in_r1;
+  iVar1 = in_r1[1];
+  if (iVar3 != iVar1) {
+    pbVar2 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)0x0;
+    this = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)0x0;
+    while( true ) {
+      if (this == pbVar2) {
+        std::__ndk1::
+        vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+        ::
+        __push_back_slow_path<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+                  (in_r0,(basic_string *)(iVar3 + 0x1c));
+      }
+      else {
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string(this,(basic_string *)(iVar3 + 0x1c));
+        *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+         (in_r0 + 4) = this + 0xc;
+      }
+      if (iVar1 + -0xac == iVar3) break;
+      iVar3 = iVar3 + 0xac;
+      this = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+              (in_r0 + 4);
+      pbVar2 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+                (in_r0 + 8);
+    }
+  }
+  return;
+}
+
+
+===== 00c44aea SetStageID =====
+
+/* CSRPopUpGameResultFail::SetStageID(std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&) */
+
+void __thiscall
+CSRPopUpGameResultFail::SetStageID(CSRPopUpGameResultFail *this,basic_string *param_1)
+
+{
+  uint uVar1;
+  basic_string *pbVar2;
+  
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)(this + 300)
+      != (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)param_1)
+  {
+    uVar1 = *(uint *)(param_1 + 4);
+    pbVar2 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar2 = param_1 + 1;
+      uVar1 = (uint)((byte)*param_1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 300),(char *)pbVar2,uVar1);
+    return;
+  }
+  return;
+}
+
+

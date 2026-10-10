@@ -1,0 +1,41 @@
+PROGRAM	libnative_core.so
+FUNCTION	ParseInven	entry=00b2d038	body=762
+OPERATOR_BRACKET	0x7930f8
+
+--- call #1 @ 00b2d058  bl 0x007930f8
+    r1: ret_data   [literal@01d689bb  ldr@00b2d050  slot=00b2d380  add@00b2d056  dist=8]
+    r0: <non-ascii>   [literal@021bafe4  ldr@00b2d046  slot=00b2d37c  add@00b2d048  dist=18]
+    all pc-relative literals within 64 bytes above this call:
+        r0  <non-ascii>   @00b2d046  dist=18
+        r1  ret_data   @00b2d050  dist=8
+
+--- call #2 @ 00b2d062  bl 0x007930f8
+    r1: achievement   [literal@01d6ee96  ldr@00b2d05c  slot=00b2d384  add@00b2d060  dist=6]
+    r0: <non-ascii>   [literal@021bafe4  ldr@00b2d046  slot=00b2d37c  add@00b2d048  dist=28]
+    all pc-relative literals within 64 bytes above this call:
+        r0  <non-ascii>   @00b2d046  dist=28
+        r1  ret_data   @00b2d050  dist=18
+        r1  achievement   @00b2d05c  dist=6
+
+--- call #3 @ 00b2d0fe  bl 0x007930f8
+    r1: <no pc-relative load within 64 bytes>
+    r0: s_cnt   [literal@01d7afe9  ldr@00b2d0be  slot=00b2d3dc  add@00b2d0c4  dist=64]
+    all pc-relative literals within 64 bytes above this call:
+        r0  s_cnt   @00b2d0be  dist=64
+
+--- call #4 @ 00b2d14e  bl 0x007930f8
+    r1: <no pc-relative load within 64 bytes>
+    r0: <no pc-relative load within 64 bytes>
+    all pc-relative literals within 64 bytes above this call:
+
+--- call #5 @ 00b2d19a  bl 0x007930f8
+    r1: g_cnt   [literal@01d7afef  ldr@00b2d194  slot=00b2d3e0  add@00b2d198  dist=6]
+    r0: <no pc-relative load within 64 bytes>
+    all pc-relative literals within 64 bytes above this call:
+        r1  g_cnt   @00b2d194  dist=6
+
+--- call #6 @ 00b2d1e6  bl 0x007930f8
+    r1: fish_id   [literal@01d7af57  ldr@00b2d1e0  slot=00b2d3e4  add@00b2d1e4  dist=6]
+    r0: <no pc-relative load within 64 bytes>
+    all pc-relative literals within 64 bytes above this call:
+        r1  fish_id   @00b2d1e0  dist=6

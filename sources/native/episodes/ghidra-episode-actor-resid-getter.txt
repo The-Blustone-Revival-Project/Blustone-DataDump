@@ -1,0 +1,29 @@
+===== 0099b342 GetResID @ 0099b342 =====
+
+/* CSRGameActorBaseDraw::GetResID() const */
+
+CSRGameActorBaseDraw * __thiscall CSRGameActorBaseDraw::GetResID(CSRGameActorBaseDraw *this)
+
+{
+  return this + 0x888;
+}
+
+
+===== 00984c18 GetResPrefix @ 00984c18 =====
+
+/* CSRGameActor::GetResPrefix() const */
+
+void CSRGameActor::GetResPrefix(void)
+
+{
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *in_r0;
+  basic_string *pbVar1;
+  CSRGameActorBaseDraw *in_r1;
+  
+  pbVar1 = (basic_string *)CSRGameActorBaseDraw::GetResID(in_r1);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string(in_r0,pbVar1);
+  return;
+}
+
+

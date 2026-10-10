@@ -1,0 +1,132 @@
+===== 0099aee8 GetRole @ 0099aee8 =====
+
+/* CSRGameActorBaseDraw::GetRole() const */
+
+int __thiscall CSRGameActorBaseDraw::GetRole(CSRGameActorBaseDraw *this)
+
+{
+  return *(int *)(this + 0x8b4) + 0x80;
+}
+
+
+===== 0099aef0 GetAtk @ 0099aef0 =====
+
+/* CSRGameActorBaseDraw::GetAtk() const */
+
+float __thiscall CSRGameActorBaseDraw::GetAtk(CSRGameActorBaseDraw *this)
+
+{
+  float fVar1;
+  undefined8 in_d0;
+  undefined4 in_s3;
+  float fVar2;
+  undefined4 in_s5;
+  undefined8 uVar3;
+
+  uVar3 = FloatVectorMin(CONCAT44(in_s5,*(undefined4 *)(*(int *)(this + 0x8bc) + 0x38)),
+                         CONCAT44(in_s3,0x40400000),2,0x20);
+  uVar3 = FloatVectorMax(uVar3,CONCAT44((int)((ulonglong)in_d0 >> 0x20),DAT_0099af2c),2,0x20);
+  fVar1 = *(float *)(*(int *)(this + 0x8b4) + 0x38) * (float)uVar3;
+  fVar2 = 1.0;
+  if (1.0 < fVar1) {
+    fVar2 = fVar1;
+  }
+  return fVar2;
+}
+
+
+===== 0099b078 GetDef @ 0099b078 =====
+
+/* CSRGameActorBaseDraw::GetDef() const */
+
+float __thiscall CSRGameActorBaseDraw::GetDef(CSRGameActorBaseDraw *this)
+
+{
+  undefined8 in_d0;
+  undefined4 in_s3;
+  undefined4 in_s5;
+  undefined8 uVar1;
+
+  uVar1 = FloatVectorMin(CONCAT44(in_s5,*(undefined4 *)(*(int *)(this + 0x8bc) + 0x40)),
+                         CONCAT44((int)((ulonglong)in_d0 >> 0x20),0x40400000),2,0x20);
+  uVar1 = FloatVectorMax(uVar1,CONCAT44(in_s3,DAT_0099b0a4),2,0x20);
+  return *(float *)(*(int *)(this + 0x8b4) + 0x40) * (float)uVar1;
+}
+
+
+===== 0099edc0 RefData @ 0099edc0 =====
+
+/* CSRGameActorBuffInfo::RefData(CSRGameActor const*) const */
+
+float __thiscall CSRGameActorBuffInfo::RefData(CSRGameActorBuffInfo *this,CSRGameActor *param_1)
+
+{
+  float fVar1;
+
+  switch(*(undefined4 *)(this + 0xc)) {
+  case 0:
+    if (*(int *)(this + 8) - 6U < 4) {
+      return DAT_0099ee8c;
+    }
+    break;
+  case 1:
+    fVar1 = (float)CSRGameActorBaseDraw::GetAtk((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 2:
+    fVar1 = (float)CSRGameActorBaseDraw::GetAtk((CSRGameActorBaseDraw *)param_1);
+    return fVar1 / DAT_0099ee90;
+  case 3:
+    fVar1 = (float)CSRGameActorBaseDraw::GetDef((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 4:
+    fVar1 = (float)CSRGameActorBaseDraw::GetHPMax((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 5:
+    fVar1 = (float)CSRGameActorBaseDraw::GetHP((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 6:
+    fVar1 = (float)CSRGameActorBaseDraw::GetRecoveryNatual((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 7:
+    fVar1 = (float)CSRGameActorBaseDraw::GetAtkSpd((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 8:
+    fVar1 = (float)CSRGameActorBaseDraw::GetAtkSpd((CSRGameActorBaseDraw *)param_1);
+    return 10.0 / fVar1;
+  case 9:
+    fVar1 = (float)CSRGameActorBaseDraw::GetCriticalChance((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 10:
+    fVar1 = (float)CSRGameActorBaseDraw::GetCriticalBonus((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 0xb:
+    fVar1 = (float)CSRGameActorBaseDraw::GetBlockChance((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  case 0xc:
+    fVar1 = (float)CSRGameActorBaseDraw::GetBlockDmg((CSRGameActorBaseDraw *)param_1);
+    return fVar1;
+  }
+  return 1.0;
+}
+
+
+===== 0099abdc IsUndead @ 0099abdc =====
+
+/* CSRGameActorBaseDraw::IsUndead() const */
+
+uint __thiscall CSRGameActorBaseDraw::IsUndead(CSRGameActorBaseDraw *this)
+
+{
+  return (*(uint *)(*(int *)(this + 0x8bc) + 0x88) & 3) >> 1;
+}
+
+
+===== 0099ac38 CanRunning @ 0099ac38 =====
+
+/* CSRGameActorBaseDraw::CanRunning() const */
+
+bool __thiscall CSRGameActorBaseDraw::CanRunning(CSRGameActorBaseDraw *this)
+
+{
+  return *(float *)(this + 0x8b0) != 0.0;
+}

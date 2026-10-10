@@ -1,0 +1,19 @@
+PROGRAM	libnative_core.so
+===== range 010ac71c .. 010ac758 =====
+010ac71c  mla r0,r2,r1,r0
+010ac720  vmov s2,r3
+010ac724  vmov s0,r0
+010ac728  vcvt.f32.u32 s0,s0
+010ac72c  vmul.f32 s0,s0,s2
+010ac730  vmov r0,s0
+010ac734  bx lr
+010ac736  movs r2,#0x8
+010ac738  add.w r1,r2,r1, lsl #0x1
+010ac73c  vmov s2,r0
+010ac740  vmov s0,r1
+010ac744  vcvt.f32.u32 s0,s0
+010ac748  vmul.f32 s0,s0,s2
+010ac74c  vmov r0,s0
+010ac750  bx lr
+010ac752  vmov.f32 s0,0x3f800000
+010ac756  vldr.32 s4,[sp]

@@ -1,0 +1,196 @@
+===== 009b2e56 SizeList @ 009b2e56 =====
+
+/* CSRGameActorSkillMgr::SizeList() const */
+
+undefined4 __thiscall CSRGameActorSkillMgr::SizeList(CSRGameActorSkillMgr *this)
+
+{
+  return *(undefined4 *)(this + 0x50);
+}
+
+
+===== 0097ed04 AddAura @ 0097ed04 =====
+
+/* CSRGameActor::AddAura(BUF_DATA const&) */
+
+void __thiscall CSRGameActor::AddAura(CSRGameActor *this,BUF_DATA *param_1)
+
+{
+  CMFramework *this_00;
+  BUF_DATA *pBVar1;
+  uint uVar2;
+  undefined4 *puVar3;
+  int iVar4;
+  undefined8 uVar5;
+
+  puVar3 = *(undefined4 **)(this + 0x9d0);
+  if (puVar3 < *(undefined4 **)(this + 0x9d4)) {
+    __aeabi_memclr8(puVar3,0xe0);
+    *puVar3 = 0xffffffff;
+    __aeabi_memclr4(puVar3 + 1,0x90);
+    puVar3[0x2d] = 0;
+    puVar3[0x2e] = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    puVar3[0x2f] = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    puVar3[0x30] = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    puVar3[0x31] = 0;
+    puVar3[0x32] = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    puVar3[0x33] = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    puVar3[0x34] = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    puVar3[0x38] = 0;
+    puVar3[0x39] = 0;
+    puVar3[0x25] = puVar3 + 0x25;
+    puVar3[0x26] = puVar3 + 0x25;
+    puVar3[0x27] = 0;
+    puVar3[0x28] = puVar3 + 0x28;
+    puVar3[0x29] = puVar3 + 0x28;
+    puVar3[0x2a] = 0;
+    puVar3[0x2b] = puVar3 + 0x2b;
+    puVar3[0x2c] = puVar3 + 0x2b;
+    puVar3[0x35] = 0;
+    puVar3[0x36] = 0;
+    *(undefined4 **)(this + 0x9d0) = puVar3 + 0x3a;
+  }
+  else {
+    std::__ndk1::vector<AURA,std::__ndk1::allocator<AURA>>::__emplace_back_slow_path<>
+              ((vector<AURA,std::__ndk1::allocator<AURA>> *)(this + 0x9cc));
+  }
+  this_00 = (CMFramework *)CMFramework::get();
+  uVar5 = CMFramework::MakeKey(this_00,(char *)(DAT_0097ee00 + 0x97ed88));
+  iVar4 = *(int *)(this + 0x9d0);
+  *(undefined8 *)(iVar4 + -8) = uVar5;
+  SRSKILL_RESULT_INFO::operator=
+            ((SRSKILL_RESULT_INFO *)(iVar4 + -0xe8),(SRSKILL_RESULT_INFO *)param_1);
+  if ((SRSKILL_RESULT_INFO *)(iVar4 + -0xe8) != (SRSKILL_RESULT_INFO *)param_1) {
+    uVar2 = *(uint *)(param_1 + 0xbc);
+    pBVar1 = *(BUF_DATA **)(param_1 + 0xc0);
+    if (((byte)param_1[0xb8] & 1) == 0) {
+      pBVar1 = param_1 + 0xb9;
+      uVar2 = (uint)((byte)param_1[0xb8] >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (iVar4 + -0x30),(char *)pBVar1,uVar2);
+    uVar2 = *(uint *)(param_1 + 200);
+    pBVar1 = *(BUF_DATA **)(param_1 + 0xcc);
+    if (((byte)param_1[0xc4] & 1) == 0) {
+      pBVar1 = param_1 + 0xc5;
+      uVar2 = (uint)((byte)param_1[0xc4] >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (iVar4 + -0x24),(char *)pBVar1,uVar2);
+    uVar2 = *(uint *)(param_1 + 0xd4);
+    pBVar1 = *(BUF_DATA **)(param_1 + 0xd8);
+    if (((byte)param_1[0xd0] & 1) == 0) {
+      pBVar1 = param_1 + 0xd1;
+      uVar2 = (uint)((byte)param_1[0xd0] >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (iVar4 + -0x18),(char *)pBVar1,uVar2);
+  }
+  return;
+}
+
+
+===== 00989924 __on_zero_shared @ 00989924 =====
+
+/* std::__ndk1::__shared_ptr_emplace<CSRGameActorSkillMgr,
+   std::__ndk1::allocator<CSRGameActorSkillMgr> >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::__shared_ptr_emplace<CSRGameActorSkillMgr,std::__ndk1::allocator<CSRGameActorSkillMgr>>
+::__on_zero_shared(__shared_ptr_emplace<CSRGameActorSkillMgr,std::__ndk1::allocator<CSRGameActorSkillMgr>>
+                   *this)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x0098992a. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (*(code *)**(undefined4 **)(this + 0x10))(this + 0x10);
+  return;
+}
+
+
+===== 0097c264 FindComponentForce<CSRGameActorSkillMgr> @ 0097c264 =====
+
+/* std::__ndk1::shared_ptr<CSRGameActorSkillMgr>
+   CMUpdatable::FindComponentForce<CSRGameActorSkillMgr>() */
+
+void CMUpdatable::FindComponentForce<CSRGameActorSkillMgr>(void)
+
+{
+  bool bVar1;
+  undefined4 *in_r0;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  __shared_weak_count *p_Var4;
+  CMUpdatable *in_r1;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  CMUpdatable *pCVar7;
+  CMUpdatable *pCVar8;
+  int *piVar9;
+  undefined4 local_38;
+  __shared_weak_count *local_34;
+  undefined4 local_30;
+  __shared_weak_count *p_Stack_2c;
+  int local_28;
+
+  piVar9 = *(int **)(DAT_0097c3b4 + 0x97c278);
+  local_28 = *piVar9;
+  std::__ndk1::recursive_mutex::lock((recursive_mutex *)(in_r1 + 0x214));
+  pCVar7 = *(CMUpdatable **)(in_r1 + 0x20c);
+  pCVar8 = in_r1 + 0x208;
+  if (pCVar8 != pCVar7) {
+    uVar5 = *(undefined4 *)(DAT_0097c3b8 + 0x97c29e);
+    uVar6 = *(undefined4 *)(DAT_0097c3bc + 0x97c2a0);
+    do {
+      if ((*(int *)(pCVar7 + 8) != 0) &&
+         (iVar2 = __dynamic_cast(*(int *)(pCVar7 + 8),uVar5,uVar6,0), iVar2 != 0)) break;
+      pCVar7 = *(CMUpdatable **)(pCVar7 + 4);
+    } while (pCVar8 != pCVar7);
+  }
+  if (pCVar8 == pCVar7) {
+    std::__ndk1::shared_ptr<CSRGameActorSkillMgr>::make_shared<>
+              ((shared_ptr<CSRGameActorSkillMgr> *)&local_30);
+    local_38 = local_30;
+    local_34 = p_Stack_2c;
+    if (p_Stack_2c != (__shared_weak_count *)0x0) {
+      p_Var3 = p_Stack_2c + 4;
+      do {
+        ExclusiveAccess(p_Var3);
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = *(int *)p_Var3 + 1;
+    }
+    AddComponent(in_r1,(shared_ptr *)&local_38);
+    p_Var3 = local_34;
+    if (local_34 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_34 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar2 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar2 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar2 == 0) {
+        (**(code **)(*(int *)local_34 + 8))(local_34);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+    }
+    *in_r0 = local_30;
+    in_r0[1] = p_Stack_2c;
+  }
+  else {
+    smart_point_cast<CSRGameActorSkillMgr,std::__ndk1::shared_ptr<CMComponentBase>>
+              ((shared_ptr *)in_r0);
+  }
+  std::__ndk1::recursive_mutex::unlock((recursive_mutex *)(in_r1 + 0x214));
+  if (*piVar9 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

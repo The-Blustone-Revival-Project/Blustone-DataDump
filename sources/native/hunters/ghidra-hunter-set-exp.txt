@@ -1,0 +1,30 @@
+===== 00869ea4 SetExp @ 00869ea4 =====
+
+/* CSRCard::SetExp(unsigned int) */
+
+void __thiscall CSRCard::SetExp(CSRCard *this,uint param_1)
+
+{
+  CSRUserLV *pCVar1;
+  uint uVar2;
+  undefined4 uVar3;
+  
+  if (*(uint *)(this + 0x20) != param_1) {
+    *(uint *)(this + 0x20) = param_1;
+    pCVar1 = (CSRUserLV *)CSRUserLV::get();
+    uVar2 = CSRUserLV::GetCardLevel(pCVar1,*(uint *)(this + 0x24),param_1,*(uint *)(this + 0x694));
+    if (*(uint *)(this + 0x678) == uVar2) {
+      return;
+    }
+    *(uint *)(this + 0x678) = uVar2;
+    pCVar1 = (CSRUserLV *)CSRUserLV::get();
+    uVar3 = CSRUserLV::GetCardMinExp(pCVar1,*(uint *)(this + 0x24),uVar2,*(uint *)(this + 0x694));
+    *(undefined4 *)(this + 0x680) = uVar3;
+    pCVar1 = (CSRUserLV *)CSRUserLV::get();
+    uVar3 = CSRUserLV::GetCardMaxExp(pCVar1,*(uint *)(this + 0x24),uVar2,*(uint *)(this + 0x694));
+    *(undefined4 *)(this + 0x684) = uVar3;
+  }
+  return;
+}
+
+

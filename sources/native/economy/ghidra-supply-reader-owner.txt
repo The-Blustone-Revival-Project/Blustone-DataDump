@@ -1,0 +1,381 @@
+===== 8b33f4 get<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>,CMSpinLock> @ 008b33f4 =====
+
+/* std::__ndk1::shared_ptr<CSRDataMgr> CMSingleton::get<CSRDataMgr,
+   CMSingleton::DefaultAlloc<CSRDataMgr>, CMSpinLock>() */
+
+void __thiscall
+CMSingleton::get<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>,CMSpinLock>(CMSingleton *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  undefined4 *puVar6;
+  int iVar7;
+  undefined4 *extraout_r1;
+  int *piVar8;
+  byte *pbVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  int *piVar12;
+  undefined8 uVar13;
+  int *local_2c;
+  __shared_weak_count *local_28;
+  
+  puVar6 = (undefined4 *)(DAT_008b3554 + 0x8b340a);
+  piVar12 = *(int **)(DAT_008b3550 + 0x8b3408);
+  pbVar9 = (byte *)*puVar6;
+  iVar2 = *piVar12;
+  DataMemoryBarrier(0x1b);
+  puVar10 = (undefined4 *)(DAT_008b3558 + 0x8b3420);
+  if ((*pbVar9 & 1) == 0) {
+    uVar13 = __cxa_guard_acquire(pbVar9);
+    puVar6 = (undefined4 *)((ulonglong)uVar13 >> 0x20);
+    if ((int)uVar13 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_008b355c + 0x8b3540),*puVar10,DAT_008b3560 + 0x8b3544);
+      __cxa_guard_release(pbVar9);
+      puVar6 = extraout_r1;
+    }
+  }
+  piVar11 = (int *)*puVar10;
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    puVar6 = *(undefined4 **)(p_Var3 + 4);
+  }
+  if (p_Var3 != (__shared_weak_count *)0x0 && puVar6 != (undefined4 *)0xffffffff) {
+LAB_008b3498:
+    p_Var3 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(p_Var3);
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      iVar4 = *piVar11;
+      p_Var5 = p_Var3 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+      if (iVar4 != 0) goto LAB_008b34e4;
+    }
+  }
+  else {
+    CMPoolMgr::get<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMSpinLock>
+              ();
+    CMPool<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMSpinLock>::Alloc
+              ();
+    iVar4 = *local_2c;
+    iVar7 = local_2c[1];
+    if (iVar7 != 0) {
+      piVar8 = (int *)(iVar7 + 8);
+      do {
+        ExclusiveAccess(piVar8);
+        bVar1 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar1);
+      *piVar8 = *piVar8 + 1;
+    }
+    *piVar11 = iVar4;
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    piVar11[1] = iVar7;
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+    if (local_28 != (__shared_weak_count *)0x0) {
+      p_Var3 = local_28 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar4 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_28 + 8))(local_28);
+        std::__ndk1::__shared_weak_count::__release_weak(local_28);
+      }
+    }
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    if (p_Var3 != (__shared_weak_count *)0x0) goto LAB_008b3498;
+  }
+  _RMAssert('\0',(char *)(DAT_008b3568 + 0x8b34d2),(char *)(DAT_008b356c + 0x8b34d6),0xf4,
+            DAT_008b3564 + 0x8b34ce,DAT_008b3570 + 0x8b34d8,DAT_008b3574 + 0x8b34da);
+LAB_008b34e4:
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = 0;
+  if (p_Var3 == (__shared_weak_count *)0x0) {
+    *(undefined4 *)(this + 4) = 0;
+  }
+  else {
+    iVar4 = std::__ndk1::__shared_weak_count::lock(p_Var3);
+    *(int *)(this + 4) = iVar4;
+    if (iVar4 != 0) {
+      *(int *)this = *piVar11;
+    }
+  }
+  if (*piVar12 != iVar2) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 8b5dc0 Alloc @ 008b5dc0 =====
+
+/* CMPool<CMSingleton::Holder<CSRDataMgr, CMSingleton::DefaultAlloc<CSRDataMgr> >,
+   CMSpinLock>::Alloc() */
+
+void CMPool<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMSpinLock>::Alloc
+               (void)
+
+{
+  byte bVar1;
+  bool bVar2;
+  int iVar3;
+  int *piVar4;
+  CSRDataMgr *this;
+  __shared_weak_count *p_Var5;
+  int in_r1;
+  int iVar6;
+  int iVar7;
+  byte *pbVar8;
+  byte *pbVar9;
+  __shared_weak_count *this_00;
+  int *piVar10;
+  undefined4 *puVar11;
+  
+  pbVar9 = (byte *)(in_r1 + 0x44);
+  piVar10 = *(int **)(DAT_008b5f44 + 0x8b5dd8);
+  iVar3 = *piVar10;
+  do {
+    do {
+      ExclusiveAccess(pbVar9);
+      bVar1 = *pbVar9;
+      bVar2 = (bool)hasExclusiveAccess(pbVar9);
+    } while (!bVar2);
+    *pbVar9 = 1;
+    DataMemoryBarrier(0x1b);
+  } while ((bVar1 & 1) != 0);
+  iVar6 = *(int *)(in_r1 + 0x40);
+  if (iVar6 == 0) {
+    puVar11 = operator_new(8);
+    this = operator_new(0xa860);
+    CSRDataMgr::CSRDataMgr(this);
+    *puVar11 = this;
+    piVar4 = operator_new(0x10);
+    iVar6 = DAT_008b5f48;
+    puVar11[1] = piVar4;
+    *piVar4 = *(int *)(iVar6 + 0x8b5e3c) + 8;
+    piVar4[1] = 0;
+    piVar4[2] = 0;
+    piVar4[3] = (int)this;
+  }
+  else {
+    piVar4 = *(int **)(in_r1 + 0x3c);
+    iVar7 = *piVar4;
+    puVar11 = (undefined4 *)piVar4[2];
+    *(int *)(iVar7 + 4) = piVar4[1];
+    *(int *)piVar4[1] = iVar7;
+    *(int *)(in_r1 + 0x40) = iVar6 + -1;
+    operator_delete(piVar4);
+  }
+  piVar4 = *(int **)(in_r1 + 0x18);
+  if (piVar4 != (int *)0x0) {
+    (**(code **)(*piVar4 + 0x18))(piVar4,puVar11);
+  }
+  DataMemoryBarrier(0x1b);
+  pbVar8 = *(byte **)(DAT_008b5f4c + 0x8b5e5c);
+  *pbVar9 = 0;
+  DataMemoryBarrier(0x1b);
+  piVar4 = (int *)(DAT_008b5f50 + 0x8b5e6c);
+  if (((*pbVar8 & 1) == 0) && (iVar6 = __cxa_guard_acquire(pbVar8), iVar6 != 0)) {
+    __cxa_atexit(*(undefined4 *)(DAT_008b5f54 + 0x8b5ee6),*piVar4,DAT_008b5f58 + 0x8b5eea);
+    __cxa_guard_release(pbVar8);
+  }
+  this_00 = *(__shared_weak_count **)(*piVar4 + 4);
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var5 = this_00 + 8;
+    do {
+      ExclusiveAccess(p_Var5);
+      bVar2 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar2);
+    *(int *)p_Var5 = *(int *)p_Var5 + 1;
+    do {
+      ExclusiveAccess(p_Var5);
+      bVar2 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar2);
+    *(int *)p_Var5 = *(int *)p_Var5 + 1;
+  }
+  std::__ndk1::shared_ptr<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>>::
+  shared_ptr<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMPool<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMSpinLock>::Alloc()::_lambda(CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>*)_1_>
+            ();
+  if (this_00 != (__shared_weak_count *)0x0) {
+    std::__ndk1::__shared_weak_count::__release_weak(this_00);
+    std::__ndk1::__shared_weak_count::__release_weak(this_00);
+  }
+  if (*piVar10 != iVar3) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 8b5bc4 get<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMSpinLock> @ 008b5bc4 =====
+
+/* CMPool<CMSingleton::Holder<CSRDataMgr, CMSingleton::DefaultAlloc<CSRDataMgr> >, CMSpinLock>&
+   CMPoolMgr::get<CMSingleton::Holder<CSRDataMgr, CMSingleton::DefaultAlloc<CSRDataMgr> >,
+   CMSpinLock>() */
+
+CMPool * CMPoolMgr::
+         get<CMSingleton::Holder<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>>,CMSpinLock>(void)
+
+{
+  __shared_weak_count *p_Var1;
+  bool bVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  int iVar6;
+  __shared_weak_count *this;
+  int *piVar7;
+  int iVar8;
+  __shared_weak_count *p_Var9;
+  int *piVar10;
+  byte *pbVar11;
+  CMPool *pCVar12;
+  undefined4 *puVar13;
+  __shared_weak_count *p_Var14;
+  mutex *this_00;
+  __shared_weak_count *p_Var15;
+  
+  pbVar11 = *(byte **)(DAT_008b5da0 + 0x8b5bd2);
+  DataMemoryBarrier(0x1b);
+  puVar13 = (undefined4 *)(DAT_008b5da4 + 0x8b5bde);
+  iVar6 = (uint)*pbVar11 << 0x1f;
+  if (iVar6 == 0) {
+    iVar8 = __cxa_guard_acquire(pbVar11);
+    iVar6 = 0;
+    if (iVar8 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_008b5da8 + 0x8b5d32),*puVar13,DAT_008b5dac + 0x8b5d36);
+      iVar6 = __cxa_guard_release(pbVar11);
+    }
+  }
+  puVar13 = (undefined4 *)*puVar13;
+  p_Var14 = (__shared_weak_count *)puVar13[1];
+  if (p_Var14 != (__shared_weak_count *)0x0) {
+    iVar6 = *(int *)(p_Var14 + 4);
+  }
+  if (p_Var14 == (__shared_weak_count *)0x0 || iVar6 == -1) {
+    this = operator_new(0x58);
+    iVar6 = DAT_008b5db4;
+    uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    uVar4 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    uVar5 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    p_Var15 = this + 0x10;
+    piVar7 = (int *)(DAT_008b5db0 + 0x8b5c12);
+    *(undefined4 *)(this + 0x20) = 0;
+    *(undefined4 *)(this + 0x24) = uVar3;
+    *(undefined4 *)(this + 0x28) = uVar4;
+    *(undefined4 *)(this + 0x2c) = uVar5;
+    iVar8 = *piVar7;
+    *(undefined4 *)(this + 0x40) = 0;
+    *(undefined4 *)(this + 0x44) = uVar3;
+    *(undefined4 *)(this + 0x48) = uVar4;
+    *(undefined4 *)(this + 0x4c) = uVar5;
+    *(undefined4 *)p_Var15 = 0;
+    *(undefined4 *)(this + 0x14) = uVar3;
+    *(undefined4 *)(this + 0x18) = uVar4;
+    *(undefined4 *)(this + 0x1c) = uVar5;
+    *(undefined4 *)(this + 0x50) = 0;
+    *(undefined4 *)(this + 0x54) = 0;
+    *(undefined4 *)(this + 0x30) = 0;
+    *(undefined4 *)(this + 0x34) = uVar3;
+    *(undefined4 *)(this + 0x38) = uVar4;
+    *(undefined4 *)(this + 0x3c) = uVar5;
+    iVar6 = *(int *)(iVar6 + 0x8b5c1c);
+    *(undefined4 *)(this + 0x28) = 0;
+    *(undefined4 *)(this + 0x40) = 0;
+    *(__shared_weak_count **)(this + 0x48) = this + 0x48;
+    *(__shared_weak_count **)(this + 0x4c) = this + 0x48;
+    *(int *)this = iVar8 + 8;
+    *(int *)(this + 0x10) = iVar6 + 8;
+    p_Var9 = this + 8;
+    *(undefined4 *)p_Var9 = 0;
+    p_Var1 = this + 4;
+    *(undefined4 *)p_Var1 = 0;
+    do {
+      ExclusiveAccess(p_Var9);
+      bVar2 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar2);
+    *(int *)p_Var9 = *(int *)p_Var9 + 1;
+    *puVar13 = p_Var15;
+    puVar13[1] = this;
+    if (p_Var14 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+    }
+    this_00 = *(mutex **)(DAT_008b5db8 + 0x8b5c78);
+    std::__ndk1::mutex::lock(this_00);
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar2 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar2);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    piVar7 = operator_new(0x10);
+    piVar10 = *(int **)(DAT_008b5dbc + 0x8b5c98);
+    iVar6 = *piVar10;
+    *piVar7 = iVar6;
+    piVar7[1] = (int)piVar10;
+    piVar7[2] = (int)p_Var15;
+    piVar7[3] = (int)this;
+    *(int **)(iVar6 + 4) = piVar7;
+    *piVar10 = (int)piVar7;
+    piVar10[2] = piVar10[2] + 1;
+    std::__ndk1::mutex::unlock(this_00);
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var1);
+      iVar6 = *(int *)p_Var1;
+      bVar2 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar2);
+    *(int *)p_Var1 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  if (((__shared_weak_count *)puVar13[1] == (__shared_weak_count *)0x0) ||
+     (p_Var14 = (__shared_weak_count *)
+                std::__ndk1::__shared_weak_count::lock((__shared_weak_count *)puVar13[1]),
+     p_Var14 == (__shared_weak_count *)0x0)) {
+    pCVar12 = (CMPool *)0x0;
+  }
+  else {
+    pCVar12 = (CMPool *)*puVar13;
+    p_Var9 = p_Var14 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar6 = *(int *)p_Var9;
+      bVar2 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar2);
+    *(int *)p_Var9 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)p_Var14 + 8))(p_Var14);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+    }
+  }
+  return pCVar12;
+}
+
+

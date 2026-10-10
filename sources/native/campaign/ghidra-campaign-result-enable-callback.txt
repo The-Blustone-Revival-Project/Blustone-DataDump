@@ -1,0 +1,38 @@
+===== c51476 FUN_00c51476 @ 00c51476 =====
+
+void FUN_00c51476(int param_1)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *this;
+  __shared_weak_count *p_Var3;
+
+  iVar2 = CSRUIModalHandler::get();
+  if (1 < *(uint *)(iVar2 + 0xc)) {
+    return;
+  }
+  if ((*(__shared_weak_count **)(param_1 + 8) != (__shared_weak_count *)0x0) &&
+     (this = (__shared_weak_count *)
+             std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8)),
+     this != (__shared_weak_count *)0x0)) {
+    if (*(CSRPopUpGameResultWin **)(param_1 + 4) != (CSRPopUpGameResultWin *)0x0) {
+      CSRPopUpGameResultWin::EnableAutoProgress(*(CSRPopUpGameResultWin **)(param_1 + 4),'\x01');
+    }
+    p_Var3 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar2 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar2 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar2 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+      return;
+    }
+  }
+  return;
+}

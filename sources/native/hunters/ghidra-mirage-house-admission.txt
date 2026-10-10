@@ -1,0 +1,138 @@
+===== 0xdb042c IsNameTagVisible @ 00db042c =====
+
+/* CSRPopUpVillage::IsNameTagVisible(CSRPopUpVillage::BUTTON) const */
+
+void __thiscall CSRPopUpVillage::IsNameTagVisible(CSRPopUpVillage *this,int param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  int *piVar3;
+  int iVar4;
+  CMHashID local_40 [8];
+  void *local_38;
+  undefined1 local_24 [4];
+  __shared_weak_count *p_Stack_20;
+  int local_1c;
+
+  piVar3 = *(int **)(DAT_00db04d0 + 0xdb0442);
+  local_1c = *piVar3;
+  iVar4 = *(int *)(this + param_2 * 8 + 0x770);
+  CMHashID::CMHashID(local_40,(char *)(DAT_00db04d4 + 0xdb0452));
+  CMNode<CMUpdatable>::
+  FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (local_24,iVar4 + 4,local_40);
+  if (p_Stack_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Stack_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar4 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Stack_20 + 8))(p_Stack_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_20);
+    }
+  }
+  if (((byte)local_40[0] & 1) != 0) {
+    operator_delete(local_38);
+  }
+  iVar4 = *piVar3 - local_1c;
+  if (iVar4 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar4);
+}
+
+
+===== 0xdb0da4 IsNameTagVisible @ 00db0da4 =====
+
+/* CSRPopUpVillage::IsNameTagVisible(TU_TYPE) */
+
+void __thiscall CSRPopUpVillage::IsNameTagVisible(undefined4 param_1,undefined4 param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  undefined4 uVar3;
+  CSRDataMgr *this;
+  CSRPlayData *pCVar4;
+  int iVar5;
+  int *piVar6;
+  int local_24;
+  __shared_weak_count *p_Stack_20;
+  int local_1c;
+
+  piVar6 = *(int **)(DAT_00db0e28 + 0xdb0db6);
+  local_1c = *piVar6;
+  CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+            ((CMSingleton *)&local_24);
+  if (p_Stack_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Stack_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar5 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Stack_20 + 8))(p_Stack_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_20);
+    }
+  }
+  iVar5 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(local_24 + 0x24),param_2,0);
+  if (iVar5 < 2) {
+    this = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar4 = (CSRPlayData *)CSRDataMgr::GetPlayData(this);
+    iVar5 = CSRPlayData::GetStageAchieveCnt(pCVar4,param_2);
+    uVar3 = 0;
+    if (iVar5 != 0) {
+      uVar3 = 1;
+    }
+  }
+  else {
+    uVar3 = 1;
+  }
+  if (*piVar6 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(uVar3);
+}
+
+
+===== 0xdb0200 EnterHouse @ 00db0200 =====
+
+/* CSRPopUpVillage::EnterHouse(CSRScene::TYPE) */
+
+void __thiscall CSRPopUpVillage::EnterHouse(CSRPopUpVillage *this,undefined4 param_2)
+
+{
+  CMSoundMgr *this_00;
+  int *piVar1;
+  float fVar2;
+  CMHashID local_40 [8];
+  void *local_38;
+  int local_24;
+
+  piVar1 = *(int **)(DAT_00db0278 + 0xdb0214);
+  local_24 = *piVar1;
+  this_00 = (CMSoundMgr *)CMSoundMgr::get();
+  fVar2 = (float)CMHashID::CMHashID(local_40,(char *)(DAT_00db027c + 0xdb0228));
+  CMSoundMgr::PlaySFX(this_00,local_40,fVar2,'\0');
+  if (((byte)local_40[0] & 1) != 0) {
+    operator_delete(local_38);
+  }
+  CSRScene::ChangeScene((CSRScene *)this,param_2);
+  if (*piVar1 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

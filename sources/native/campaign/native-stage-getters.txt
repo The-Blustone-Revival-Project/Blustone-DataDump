@@ -1,0 +1,576 @@
+===== 0084e8f0 GetStageData =====
+
+/* CSRGameStage::GetStageData(TU_TYPE) const */
+
+void __thiscall CSRGameStage::GetStageData(CSRGameStage *this,undefined4 param_2)
+
+{
+  CSRDataMgr *this_00;
+  undefined4 uVar1;
+  int iVar2;
+  int *piVar3;
+  basic_string local_28 [8];
+  void *local_20;
+  int local_1c;
+  
+  piVar3 = *(int **)(DAT_0084e960 + 0x84e904);
+  local_1c = *piVar3;
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  uVar1 = CSRDataMgr::GetStaticData(this_00);
+  CSRStaticData::GetStageID(local_28,uVar1,param_2);
+  GetStageData(this,local_28);
+  if (((byte)local_28[0] & 1) != 0) {
+    operator_delete(local_20);
+  }
+  iVar2 = *piVar3 - local_1c;
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar2);
+  }
+  return;
+}
+
+
+===== 00a27f60 GetStageData =====
+
+/* CSRGameStage::GetStageData(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+void __thiscall CSRGameStage::GetStageData(CSRGameStage *this,basic_string *param_1)
+
+{
+  byte bVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  undefined8 uVar4;
+  undefined8 uVar5;
+  int iVar6;
+  uint uVar7;
+  int iVar8;
+  undefined4 uVar9;
+  int iVar10;
+  void *__s2;
+  size_t __n;
+  int *piVar11;
+  int iVar12;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34 [4];
+  size_t local_30;
+  void *local_2c;
+  int local_28;
+  
+  piVar11 = *(int **)(DAT_00a280e0 + 0xa27f72);
+  local_28 = *piVar11;
+  iVar10 = *(int *)this;
+  iVar12 = *(int *)(this + 4);
+  iVar6 = std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string(local_34,param_1);
+  iVar8 = iVar10;
+  if (iVar10 != iVar12) {
+    __s2 = local_2c;
+    __n = local_30;
+    if (((byte)local_34[0] & 1) == 0) {
+      __s2 = (void *)(iVar6 + 1);
+      __n = (size_t)((byte)local_34[0] >> 1);
+    }
+    do {
+      bVar1 = *(byte *)(iVar10 + 0x1c);
+      uVar7 = *(uint *)(iVar10 + 0x20);
+      if ((bVar1 & 1) == 0) {
+        uVar7 = (uint)(bVar1 >> 1);
+      }
+      if (uVar7 == __n) {
+        iVar8 = iVar10;
+        if ((bVar1 & 1) == 0) {
+          if (__n == 0) break;
+          uVar7 = 0;
+          while (*(char *)(iVar10 + uVar7 + 0x1d) == *(char *)((int)__s2 + uVar7)) {
+            uVar7 = uVar7 + 1;
+            if (bVar1 >> 1 == uVar7) goto LAB_00a27fee;
+          }
+        }
+        else if ((__n == 0) || (iVar6 = memcmp(*(void **)(iVar10 + 0x24),__s2,__n), iVar6 == 0))
+        break;
+      }
+      iVar10 = iVar10 + 0xac;
+      iVar8 = iVar12;
+    } while (iVar10 != iVar12);
+  }
+LAB_00a27fee:
+  if (((byte)local_34[0] & 1) != 0) {
+    operator_delete(local_2c);
+  }
+  if ((*(int *)(this + 4) == iVar8) &&
+     (DataMemoryBarrier(0x1b), (*(byte *)(DAT_00a280e4 + 0xa28008) & 1) == 0)) {
+    iVar6 = __cxa_guard_acquire(DAT_00a280ec + 0xa28032);
+    iVar8 = DAT_00a280f0;
+    iVar10 = DAT_00a280f0 + 0xa2803c;
+    if (iVar6 != 0) {
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )(DAT_00a280f0 + 0xa28058),*(basic_string **)(DAT_00a280f4 + 0xa28042));
+      iVar12 = DAT_00a280fc;
+      iVar6 = DAT_00a280f8;
+      uVar5 = DAT_00a280d8;
+      uVar4 = DAT_00a280d0;
+      uVar9 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+      uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+      uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+      *(undefined4 *)(&UNK_00a280c4 + iVar8) = 0;
+      *(undefined4 *)(&UNK_00a280c8 + iVar8) = 0;
+      *(undefined4 *)((int)&DAT_00a280d8 + iVar8 + 4) = 0;
+      *(undefined4 *)((int)&DAT_00a280e0 + iVar8) = 0;
+      *(undefined4 *)((int)&DAT_00a280e4 + iVar8) = 1;
+      *(undefined4 *)(iVar8 + 0xa280b4) = 0;
+      *(undefined4 *)(&UNK_00a280b8 + iVar8) = uVar9;
+      *(undefined4 *)(&UNK_00a280bc + iVar8) = uVar2;
+      *(undefined4 *)(&UNK_00a280c0 + iVar8) = uVar3;
+      *(undefined4 *)(iVar8 + 0xa280a4) = 0;
+      *(undefined4 *)(iVar8 + 0xa280a8) = uVar9;
+      *(undefined4 *)(iVar8 + 0xa280ac) = uVar2;
+      *(undefined4 *)(iVar8 + 0xa280b0) = uVar3;
+      *(undefined4 *)(iVar8 + 0xa28094) = 0;
+      *(undefined4 *)(iVar8 + 0xa28098) = uVar9;
+      *(undefined4 *)(iVar8 + 0xa2809c) = uVar2;
+      *(undefined4 *)(iVar8 + 0xa280a0) = uVar3;
+      *(undefined4 *)(iVar8 + 0xa28084) = 0;
+      *(undefined4 *)(iVar8 + 0xa28088) = uVar9;
+      *(undefined4 *)(iVar8 + 0xa2808c) = uVar2;
+      *(undefined4 *)(iVar8 + 0xa28090) = uVar3;
+      *(undefined4 *)(iVar8 + 0xa28074) = 0;
+      *(undefined4 *)(iVar8 + 0xa28078) = uVar9;
+      *(undefined4 *)(iVar8 + 0xa2807c) = uVar2;
+      *(undefined4 *)(iVar8 + 0xa28080) = uVar3;
+      *(undefined4 *)(iVar8 + 0xa28064) = 0;
+      *(undefined4 *)(iVar8 + 0xa28068) = uVar9;
+      *(undefined4 *)(iVar8 + 0xa2806c) = uVar2;
+      *(undefined4 *)(iVar8 + 0xa28070) = uVar3;
+      uVar9 = *(undefined4 *)(iVar12 + 0xa28072);
+      *(undefined8 *)(&UNK_00a280cc + iVar8) = uVar4;
+      *(undefined8 *)((int)&DAT_00a280d0 + iVar8 + 4) = uVar5;
+      __cxa_atexit(uVar9,iVar10,iVar6 + 0xa28064);
+      __cxa_guard_release(DAT_00a28100 + 0xa280b2);
+    }
+  }
+  iVar8 = *piVar11 - local_28;
+  if (iVar8 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar8);
+}
+
+
+===== 00a29498 GetAreaTotalCnt =====
+
+/* CSRGameStage::GetAreaTotalCnt() const */
+
+int __thiscall CSRGameStage::GetAreaTotalCnt(CSRGameStage *this)
+
+{
+  return (*(int *)(this + 0x10) - *(int *)(this + 0xc) >> 3) * 0x38e38e39;
+}
+
+
+===== 00a294ac GetAreaIDList =====
+
+/* CSRGameStage::GetAreaIDList() const */
+
+void CSRGameStage::GetAreaIDList(void)
+
+{
+  vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+  *in_r0;
+  int in_r1;
+  basic_string *pbVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this;
+  basic_string *pbVar2;
+  
+  *(undefined4 *)in_r0 = 0;
+  *(undefined4 *)(in_r0 + 4) = 0;
+  *(undefined4 *)(in_r0 + 8) = 0;
+  pbVar1 = *(basic_string **)(in_r1 + 0xc);
+  if (pbVar1 != *(basic_string **)(in_r1 + 0x10)) {
+    pbVar2 = *(basic_string **)(in_r1 + 0x10) + -0x48;
+    while (std::__ndk1::
+           vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+           ::
+           __push_back_slow_path<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+                     (in_r0,pbVar1), pbVar2 != pbVar1) {
+      while( true ) {
+        pbVar1 = pbVar1 + 0x48;
+        this = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+                (in_r0 + 4);
+        if (this == *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      **)(in_r0 + 8)) break;
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string(this,pbVar1);
+        *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+         (in_r0 + 4) = this + 0xc;
+        if (pbVar2 == pbVar1) {
+          return;
+        }
+      }
+    }
+  }
+  return;
+}
+
+
+===== 00a29540 GetTypeAreaIDList =====
+
+/* CSRGameStage::GetTypeAreaIDList(CSRGameStage::AREA_INFO::TYPE) const */
+
+void CSRGameStage::GetTypeAreaIDList
+               (vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+                *param_1,int param_2,int param_3)
+
+{
+  basic_string *pbVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this;
+  basic_string *pbVar2;
+  
+  *(undefined4 *)param_1 = 0;
+  *(undefined4 *)(param_1 + 4) = 0;
+  *(undefined4 *)(param_1 + 8) = 0;
+  pbVar1 = *(basic_string **)(param_2 + 0x10);
+  for (pbVar2 = *(basic_string **)(param_2 + 0xc); pbVar2 != pbVar1; pbVar2 = pbVar2 + 0x48) {
+    if (*(int *)(pbVar2 + 0x44) == param_3) {
+      this = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+              (param_1 + 4);
+      if (this == *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                    **)(param_1 + 8)) {
+        std::__ndk1::
+        vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+        ::
+        __push_back_slow_path<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+                  (param_1,pbVar2);
+      }
+      else {
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string(this,pbVar2);
+        *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+         (param_1 + 4) = this + 0xc;
+      }
+    }
+  }
+  return;
+}
+
+
+===== 00a295da GetAreaCnt =====
+
+/* CSRGameStage::GetAreaCnt(CSRGameStage::AREA_INFO::TYPE) const */
+
+int __thiscall CSRGameStage::GetAreaCnt(CSRGameStage *this,int param_2)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  
+  iVar3 = *(int *)(this + 0xc);
+  iVar2 = 0;
+  if (iVar3 == *(int *)(this + 0x10)) {
+    return 0;
+  }
+  do {
+    piVar1 = (int *)(iVar3 + 0x44);
+    iVar3 = iVar3 + 0x48;
+    if (*piVar1 == param_2) {
+      iVar2 = iVar2 + 1;
+    }
+  } while (*(int *)(this + 0x10) != iVar3);
+  return iVar2;
+}
+
+
+===== 00a295f8 GetAreaData =====
+
+/* CSRGameStage::GetAreaData(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+byte * __thiscall CSRGameStage::GetAreaData(CSRGameStage *this,basic_string *param_1)
+
+{
+  byte bVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int iVar5;
+  uint uVar6;
+  int iVar7;
+  int iVar8;
+  undefined4 uVar9;
+  byte *pbVar10;
+  size_t __n;
+  basic_string *__s2;
+  byte *pbVar11;
+  
+  pbVar10 = *(byte **)(this + 0xc);
+  pbVar11 = *(byte **)(this + 0x10);
+  if (pbVar10 != pbVar11) {
+    __n = *(size_t *)(param_1 + 4);
+    __s2 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      __s2 = param_1 + 1;
+      __n = (size_t)((byte)*param_1 >> 1);
+    }
+    do {
+      bVar1 = *pbVar10;
+      uVar6 = *(uint *)(pbVar10 + 4);
+      if ((bVar1 & 1) == 0) {
+        uVar6 = (uint)(bVar1 >> 1);
+      }
+      if (uVar6 == __n) {
+        if ((bVar1 & 1) == 0) {
+          if (__n == 0) {
+            return pbVar10;
+          }
+          uVar6 = 0;
+          while (*(basic_string *)(pbVar10 + uVar6 + 1) == __s2[uVar6]) {
+            uVar6 = uVar6 + 1;
+            if (bVar1 >> 1 == uVar6) {
+              return pbVar10;
+            }
+          }
+        }
+        else {
+          if (__n == 0) {
+            return pbVar10;
+          }
+          iVar7 = memcmp(*(void **)(pbVar10 + 8),__s2,__n);
+          if (iVar7 == 0) {
+            return pbVar10;
+          }
+        }
+      }
+      pbVar10 = pbVar10 + 0x48;
+    } while (pbVar10 != pbVar11);
+  }
+  DataMemoryBarrier(0x1b);
+  if ((*(byte *)(DAT_00a296d4 + 0xa29668) & 1) == 0) {
+    iVar8 = __cxa_guard_acquire(DAT_00a296dc + 0xa29682);
+    iVar5 = DAT_00a296e8;
+    iVar4 = DAT_00a296e4;
+    iVar7 = DAT_00a296e0;
+    pbVar10 = (byte *)(DAT_00a296e0 + 0xa2968c);
+    if (iVar8 != 0) {
+      uVar9 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+      uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+      uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+      *(undefined4 *)(DAT_00a296e0 + 0xa296cc) = 0;
+      *(undefined4 *)(iVar7 + 0xa296bc) = 0;
+      *(undefined4 *)(iVar7 + 0xa296c0) = uVar9;
+      *(undefined4 *)(iVar7 + 0xa296c4) = uVar2;
+      *(undefined4 *)(iVar7 + 0xa296c8) = uVar3;
+      *(undefined4 *)(iVar7 + 0xa296ac) = 0;
+      *(undefined4 *)(iVar7 + 0xa296b0) = uVar9;
+      *(undefined4 *)(iVar7 + 0xa296b4) = uVar2;
+      *(undefined4 *)(iVar7 + 0xa296b8) = uVar3;
+      *(undefined4 *)(iVar7 + 0xa2969c) = 0;
+      *(undefined4 *)(iVar7 + 0xa296a0) = uVar9;
+      *(undefined4 *)(iVar7 + 0xa296a4) = uVar2;
+      *(undefined4 *)(iVar7 + 0xa296a8) = uVar3;
+      pbVar10[0] = 0;
+      pbVar10[1] = 0;
+      pbVar10[2] = 0;
+      pbVar10[3] = 0;
+      *(undefined4 *)(iVar7 + 0xa29690) = uVar9;
+      *(undefined4 *)(iVar7 + 0xa29694) = uVar2;
+      *(undefined4 *)(iVar7 + 0xa29698) = uVar3;
+      uVar9 = *(undefined4 *)(iVar4 + 0xa296a2);
+      *(undefined4 *)(iVar7 + 0xa296d0) = 1;
+      __cxa_atexit(uVar9,pbVar10,iVar5 + 0xa296a4);
+      __cxa_guard_release(DAT_00a296ec + 0xa296ce);
+    }
+  }
+  else {
+    pbVar10 = (byte *)(DAT_00a296d8 + 0xa29676);
+  }
+  return pbVar10;
+}
+
+
+===== 00a296f0 GetAreaData =====
+
+/* CSRGameStage::GetAreaData(CSRGameStage::AREA_INFO::TYPE, int) const */
+
+undefined4 * __thiscall CSRGameStage::GetAreaData(CSRGameStage *this,int param_2,int param_3)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  undefined4 uVar6;
+  int iVar7;
+  undefined4 *puVar8;
+  bool bVar9;
+  
+  puVar8 = *(undefined4 **)(this + 0xc);
+  while( true ) {
+    if (puVar8 == *(undefined4 **)(this + 0x10)) {
+      DataMemoryBarrier(0x1b);
+      if ((*(byte *)(DAT_00a2977c + 0xa29714) & 1) == 0) {
+        iVar5 = __cxa_guard_acquire(DAT_00a29784 + 0xa2972a);
+        iVar4 = DAT_00a29790;
+        iVar3 = DAT_00a2978c;
+        iVar7 = DAT_00a29788;
+        puVar8 = (undefined4 *)(DAT_00a29788 + 0xa29732);
+        if (iVar5 != 0) {
+          uVar6 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+          uVar1 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+          uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+          *(undefined4 *)(DAT_00a29788 + 0xa29772) = 0;
+          *(undefined4 *)(iVar7 + 0xa29762) = 0;
+          *(undefined4 *)(iVar7 + 0xa29766) = uVar6;
+          *(undefined4 *)(iVar7 + 0xa2976a) = uVar1;
+          *(undefined4 *)(iVar7 + 0xa2976e) = uVar2;
+          *(undefined4 *)(iVar7 + 0xa29752) = 0;
+          *(undefined4 *)(iVar7 + 0xa29756) = uVar6;
+          *(undefined4 *)(iVar7 + 0xa2975a) = uVar1;
+          *(undefined4 *)(iVar7 + 0xa2975e) = uVar2;
+          *(undefined4 *)(iVar7 + 0xa29742) = 0;
+          *(undefined4 *)(iVar7 + 0xa29746) = uVar6;
+          *(undefined4 *)(iVar7 + 0xa2974a) = uVar1;
+          *(undefined4 *)(iVar7 + 0xa2974e) = uVar2;
+          *puVar8 = 0;
+          *(undefined4 *)(iVar7 + 0xa29736) = uVar6;
+          *(undefined4 *)(iVar7 + 0xa2973a) = uVar1;
+          *(undefined4 *)(iVar7 + 0xa2973e) = uVar2;
+          uVar6 = *(undefined4 *)(iVar3 + 0xa29748);
+          *(undefined4 *)(iVar7 + 0xa29776) = 1;
+          __cxa_atexit(uVar6,puVar8,iVar4 + 0xa2974a);
+          __cxa_guard_release(DAT_00a29794 + 0xa29774);
+        }
+        return puVar8;
+      }
+      return (undefined4 *)(DAT_00a29780 + 0xa29722);
+    }
+    iVar7 = puVar8[0x11];
+    bVar9 = iVar7 == param_2;
+    if (bVar9) {
+      iVar7 = puVar8[0xf];
+    }
+    if (bVar9 && iVar7 == param_3) break;
+    puVar8 = puVar8 + 0x12;
+  }
+  return puVar8;
+}
+
+
+===== 00a29ac0 GetStageData =====
+
+/* CSRGameStage::GetStageData(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, unsigned int) const */
+
+int __thiscall CSRGameStage::GetStageData(CSRGameStage *this,basic_string *param_1,uint param_2)
+
+{
+  byte bVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  undefined8 uVar4;
+  undefined8 uVar5;
+  int iVar6;
+  uint uVar7;
+  int iVar8;
+  int iVar9;
+  undefined4 uVar10;
+  basic_string *__s2;
+  int iVar11;
+  uint *puVar12;
+  size_t __n;
+  uint *puVar13;
+  
+  puVar12 = *(uint **)(this + 0x18);
+  puVar13 = *(uint **)(this + 0x1c);
+  if (puVar12 != puVar13) {
+    __n = *(size_t *)(param_1 + 4);
+    __s2 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      __s2 = param_1 + 1;
+      __n = (size_t)((byte)*param_1 >> 1);
+    }
+    do {
+      bVar1 = (byte)puVar12[1];
+      uVar7 = puVar12[2];
+      if ((bVar1 & 1) == 0) {
+        uVar7 = (uint)(bVar1 >> 1);
+      }
+      if (uVar7 == __n) {
+        if ((bVar1 & 1) == 0) {
+          if (__n != 0) {
+            uVar7 = 0;
+            do {
+              if (*(basic_string *)((int)puVar12 + uVar7 + 5) != __s2[uVar7]) goto LAB_00a29aec;
+              uVar7 = uVar7 + 1;
+            } while (bVar1 >> 1 != uVar7);
+          }
+        }
+        else if ((__n != 0) && (iVar8 = memcmp((void *)puVar12[3],__s2,__n), iVar8 != 0))
+        goto LAB_00a29aec;
+        if (*puVar12 == param_2) {
+          iVar8 = GetStageData(this,(basic_string *)(puVar12 + 4));
+          return iVar8;
+        }
+      }
+LAB_00a29aec:
+      puVar12 = puVar12 + 7;
+    } while (puVar12 != puVar13);
+  }
+  DataMemoryBarrier(0x1b);
+  if (((*(byte *)(DAT_00a29c10 + 0xa29b42) & 1) == 0) &&
+     (iVar9 = __cxa_guard_acquire(DAT_00a29c14 + 0xa29b6c), iVar8 = DAT_00a29c18, iVar9 != 0)) {
+    iVar11 = DAT_00a29c18 + 0xa29b7a;
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 (DAT_00a29c18 + 0xa29b96),*(basic_string **)(DAT_00a29c1c + 0xa29b7c));
+    iVar6 = DAT_00a29c24;
+    iVar9 = DAT_00a29c20;
+    uVar5 = DAT_00a29c08;
+    uVar4 = DAT_00a29c00;
+    uVar10 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    *(undefined4 *)((int)&DAT_00a29c00 + iVar8 + 2) = 0;
+    *(undefined4 *)((int)&DAT_00a29c00 + iVar8 + 6) = 0;
+    *(undefined4 *)((int)&DAT_00a29c18 + iVar8 + 2) = 0;
+    *(undefined4 *)((int)&DAT_00a29c1c + iVar8 + 2) = 0;
+    *(undefined4 *)((int)&DAT_00a29c20 + iVar8 + 2) = 1;
+    *(undefined4 *)(&UNK_00a29bf2 + iVar8) = 0;
+    *(undefined4 *)(&UNK_00a29bf6 + iVar8) = uVar10;
+    *(undefined4 *)(&UNK_00a29bfa + iVar8) = uVar2;
+    *(undefined4 *)(&UNK_00a29bfe + iVar8) = uVar3;
+    *(undefined4 *)(iVar8 + 0xa29be2) = 0;
+    *(undefined4 *)(iVar8 + 0xa29be6) = uVar10;
+    *(undefined4 *)(iVar8 + 0xa29bea) = uVar2;
+    *(undefined4 *)(iVar8 + 0xa29bee) = uVar3;
+    *(undefined4 *)(iVar8 + 0xa29bd2) = 0;
+    *(undefined4 *)(iVar8 + 0xa29bd6) = uVar10;
+    *(undefined4 *)(iVar8 + 0xa29bda) = uVar2;
+    *(undefined4 *)(iVar8 + 0xa29bde) = uVar3;
+    *(undefined4 *)(iVar8 + 0xa29bc2) = 0;
+    *(undefined4 *)(iVar8 + 0xa29bc6) = uVar10;
+    *(undefined4 *)(iVar8 + 0xa29bca) = uVar2;
+    *(undefined4 *)(iVar8 + 0xa29bce) = uVar3;
+    *(undefined4 *)(iVar8 + 0xa29bb2) = 0;
+    *(undefined4 *)(iVar8 + 0xa29bb6) = uVar10;
+    *(undefined4 *)(iVar8 + 0xa29bba) = uVar2;
+    *(undefined4 *)(iVar8 + 0xa29bbe) = uVar3;
+    *(undefined4 *)(iVar8 + 0xa29ba2) = 0;
+    *(undefined4 *)(iVar8 + 0xa29ba6) = uVar10;
+    *(undefined4 *)(iVar8 + 0xa29baa) = uVar2;
+    *(undefined4 *)(iVar8 + 0xa29bae) = uVar3;
+    uVar10 = *(undefined4 *)(iVar6 + 0xa29bac);
+    *(undefined8 *)((int)&DAT_00a29c08 + iVar8 + 2) = uVar4;
+    *(undefined8 *)((int)&DAT_00a29c10 + iVar8 + 2) = uVar5;
+    __cxa_atexit(uVar10,iVar11,iVar9 + 0xa29b9e);
+    __cxa_guard_release(DAT_00a29c28 + 0xa29bec);
+  }
+  return DAT_00a29c2c + 0xa29b50;
+}
+
+

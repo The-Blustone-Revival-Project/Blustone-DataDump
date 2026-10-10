@@ -1,0 +1,989 @@
+===== 00e51908 SetData @ 00e51908 =====
+
+/* WARNING: Removing unreachable block (ram,0x00e521d0) */
+/* WARNING: Removing unreachable block (ram,0x00e521d2) */
+/* WARNING: Removing unreachable block (ram,0x00e521d8) */
+/* CSRSceneMEpisodeList::SetData(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&, unsigned char) */
+
+void __thiscall
+CSRSceneMEpisodeList::SetData
+          (CSRSceneMEpisodeList *this,basic_string *param_1,basic_string *param_2,uchar param_3)
+
+{
+  byte bVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> bVar2;
+  CSREpisodeData CVar3;
+  bool bVar4;
+  uint uVar5;
+  CGMTime *pCVar6;
+  CSREpisodeData *pCVar7;
+  CSRUserDB CVar8;
+  int *piVar9;
+  undefined1 uVar10;
+  __shared_weak_count *p_Var11;
+  CSRMEpisode *pCVar12;
+  basic_string *pbVar13;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_00;
+  CSRDataMgr *pCVar14;
+  CSRInventory *this_01;
+  CSRItemInfo *this_02;
+  int iVar15;
+  uint uVar16;
+  undefined8 *puVar17;
+  char cVar18;
+  int *piVar19;
+  int iVar20;
+  char *pcVar21;
+  int iVar22;
+  CSREpisodeData *pCVar23;
+  byte *pbVar24;
+  int iVar25;
+  uint uVar26;
+  size_t sVar27;
+  __shared_weak_count *p_Var28;
+  CSREpisodeData *pCVar29;
+  byte *pbVar30;
+  __shared_weak_count *p_Var31;
+  CSRUITextbox *this_03;
+  int iVar32;
+  undefined4 uVar33;
+  vector<CSRSceneMEpisodeList::DATA,std::__ndk1::allocator<CSRSceneMEpisodeList::DATA>> *this_04;
+  int iVar34;
+  int iVar35;
+  bool bVar36;
+  uint local_a8;
+  __shared_weak_count *local_a4;
+  undefined4 local_a0;
+  undefined1 uStack_9c;
+  undefined1 local_9b;
+  undefined1 uStack_9a;
+  undefined4 local_99;
+  CSREpisodeData *local_94;
+  __shared_weak_count *local_90;
+  undefined4 local_88;
+  __shared_weak_count *local_84;
+  CSREpisodeData *local_80;
+  undefined4 local_7c;
+  __shared_weak_count *local_78;
+  CSREpisodeData *local_74;
+  CSREpisodeData *local_70;
+  __shared_weak_count *local_6c;
+  uint local_68;
+  int iStack_64;
+  undefined1 local_60;
+  char cStack_5f;
+  char cStack_5e;
+  byte bStack_5d;
+  undefined1 uStack_5c;
+  char local_5b;
+  undefined1 local_5a;
+  byte local_59;
+  undefined1 uStack_58;
+  undefined1 uStack_57;
+  undefined1 uStack_56;
+  CSREpisodeData *local_54;
+  __shared_weak_count *local_50;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_48 [4];
+  uint local_44;
+  CSREpisodeData *local_40;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_3c;
+  byte local_3b [3];
+  uint local_38;
+  byte *local_34;
+  int *local_30;
+  __shared_weak_count *local_2c;
+  int local_28;
+
+  piVar19 = *(int **)(DAT_00e51cb4 + 0xe51920);
+  local_28 = *piVar19;
+  iVar34 = *(int *)(this + 0x68c);
+  iVar32 = *(int *)(this + 0x690);
+LAB_00e5192e:
+  if (iVar32 != iVar34) {
+    while( true ) {
+      p_Var31 = *(__shared_weak_count **)(iVar32 + -4);
+      iVar32 = iVar32 + -0x1c;
+      if (p_Var31 == (__shared_weak_count *)0x0) break;
+      p_Var11 = p_Var31 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar20 = *(int *)p_Var11;
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = iVar20 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar20 != 0) break;
+      (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+      if (iVar32 == iVar34) goto LAB_00e5196a;
+    }
+    goto LAB_00e5192e;
+  }
+LAB_00e5196a:
+  iVar20 = *(int *)(this + 0x680);
+  iVar32 = *(int *)(this + 0x684);
+  *(int *)(this + 0x690) = iVar34;
+LAB_00e51978:
+  if (iVar32 != iVar20) {
+    while( true ) {
+      p_Var31 = *(__shared_weak_count **)(iVar32 + -4);
+      iVar32 = iVar32 + -0x1c;
+      if (p_Var31 == (__shared_weak_count *)0x0) break;
+      p_Var11 = p_Var31 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar34 = *(int *)p_Var11;
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = iVar34 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar34 != 0) break;
+      (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+      if (iVar32 == iVar20) goto LAB_00e519b4;
+    }
+    goto LAB_00e51978;
+  }
+LAB_00e519b4:
+  *(int *)(this + 0x684) = iVar20;
+  CSRMEpisode::get();
+  CSRMEpisode::FindDataById((basic_string *)&local_30);
+  piVar9 = local_30;
+  this_03 = (CSRUITextbox *)this;
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (this + 0xb4) !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (local_30 + 4)) {
+    bVar1 = *(byte *)(local_30 + 4);
+    uVar26 = local_30[5];
+    pcVar21 = (char *)local_30[6];
+    this_03 = (CSRUITextbox *)(bVar1 & 1);
+    if ((bVar1 & 1) == 0) {
+      pcVar21 = (char *)((int)local_30 + 0x11);
+      uVar26 = (uint)(bVar1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 0xb4),pcVar21,uVar26);
+  }
+  iVar32 = *(int *)(this + 0xa0);
+  if (iVar32 != 0) {
+    this_03 = *(CSRUITextbox **)(iVar32 + 0x864);
+  }
+  if (iVar32 != 0 && this_03 != (CSRUITextbox *)0x0) {
+    pcVar21 = (char *)piVar9[6];
+    if ((*(byte *)(piVar9 + 4) & 1) == 0) {
+      pcVar21 = (char *)((int)piVar9 + 0x11);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>
+              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_68,pcVar21);
+    CSRUITextbox::SetText(this_03,(basic_string *)&local_68,'\0');
+    if ((local_68 & 1) != 0) {
+      operator_delete((void *)CONCAT13(bStack_5d,CONCAT12(cStack_5e,CONCAT11(cStack_5f,local_60))));
+    }
+  }
+  uVar33 = 4;
+  iVar32 = local_30[0x41];
+  if (param_3 == '\0') {
+    uVar33 = 3;
+  }
+  pCVar12 = (CSRMEpisode *)CSRMEpisode::get();
+  pbVar13 = (basic_string *)CSRMEpisode::GetNeedClearItem(pCVar12,uVar33);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string(&local_3c,pbVar13);
+  pCVar12 = (CSRMEpisode *)CSRMEpisode::get();
+  pbVar13 = (basic_string *)CSRMEpisode::GetNeedReadItem(pCVar12,uVar33);
+  iVar34 = std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string(local_48,pbVar13);
+  iVar20 = *(int *)(iVar32 + 0x18);
+  iVar32 = iVar32 + 0x14;
+  this_04 = (vector<CSRSceneMEpisodeList::DATA,std::__ndk1::allocator<CSRSceneMEpisodeList::DATA>> *
+            )(this + 0x68c);
+  if (iVar32 != iVar20) {
+    this_00 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              (this + 0x6ec);
+    iVar35 = 1;
+    bVar4 = true;
+    do {
+      local_54 = (CSREpisodeData *)0x0;
+      local_50 = (__shared_weak_count *)0x0;
+      bStack_5d = 0;
+      cStack_5e = 0;
+      cStack_5f = 0;
+      local_60 = 0;
+      if (*local_30 == 3) {
+        local_68 = 0;
+      }
+      else if (*local_30 == 4) {
+        local_68 = 1;
+      }
+      CSRMEpisode::get();
+      CSRMEpisode::FindDataById((basic_string *)&local_70);
+      pCVar12 = (CSRMEpisode *)CSRMEpisode::get();
+      local_60 = CSRMEpisode::IsReadDataById(pCVar12,*(basic_string **)(iVar20 + 8));
+      pCVar12 = (CSRMEpisode *)CSRMEpisode::get();
+      cStack_5f = CSRMEpisode::IsClearedDataById(pCVar12,*(basic_string **)(iVar20 + 8));
+      p_Var31 = local_50;
+      if (local_6c != (__shared_weak_count *)0x0) {
+        p_Var11 = local_6c + 4;
+        do {
+          ExclusiveAccess(p_Var11);
+          bVar36 = (bool)hasExclusiveAccess(p_Var11);
+        } while (!bVar36);
+        *(int *)p_Var11 = *(int *)p_Var11 + 1;
+      }
+      local_54 = local_70;
+      local_50 = local_6c;
+      if (p_Var31 != (__shared_weak_count *)0x0) {
+        p_Var11 = p_Var31 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var11);
+          iVar22 = *(int *)p_Var11;
+          bVar36 = (bool)hasExclusiveAccess(p_Var11);
+        } while (!bVar36);
+        *(int *)p_Var11 = iVar22 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar22 == 0) {
+          (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+        }
+      }
+      iStack_64 = iVar35;
+      if (local_68 == 0) {
+        local_5b = '\x01';
+      }
+      else {
+        pbVar13 = *(basic_string **)(local_54 + 0xf8);
+        local_5b = pbVar13 == *(basic_string **)(local_54 + 0xfc);
+        if ((local_68 == 1) && (pbVar13 != *(basic_string **)(local_54 + 0xfc))) {
+          pCVar14 = (CSRDataMgr *)CSRDataMgr::get();
+          iVar22 = CSRDataMgr::GetPlayData(pCVar14);
+          this_01 = *(CSRInventory **)(iVar22 + 0x11c);
+          p_Var31 = *(__shared_weak_count **)(iVar22 + 0x120);
+          if (p_Var31 != (__shared_weak_count *)0x0) {
+            p_Var11 = p_Var31 + 4;
+            do {
+              ExclusiveAccess(p_Var11);
+              bVar36 = (bool)hasExclusiveAccess(p_Var11);
+            } while (!bVar36);
+            *(int *)p_Var11 = *(int *)p_Var11 + 1;
+          }
+          uVar26 = CSRInventory::GetInstItemCnt(this_01,pbVar13);
+          if (p_Var31 != (__shared_weak_count *)0x0) {
+            p_Var11 = p_Var31 + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var11);
+              iVar22 = *(int *)p_Var11;
+              bVar36 = (bool)hasExclusiveAccess(p_Var11);
+            } while (!bVar36);
+            *(int *)p_Var11 = iVar22 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar22 == 0) {
+              (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+              std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+            }
+          }
+          this_02 = (CSRItemInfo *)CSRItemInfo::get();
+          iVar22 = CSRItemInfo::GetItemData(this_02,pbVar13);
+          local_5b = *(uint *)(pbVar13 + 0xc) <= uVar26;
+          bVar2 = *this_00;
+          bVar36 = ((byte)bVar2 & 1) == 0;
+          if (bVar36) {
+            bVar2 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>)
+                    ((byte)bVar2 >> 1);
+          }
+          uVar26 = (uint)(byte)bVar2;
+          if (!bVar36) {
+            uVar26 = *(uint *)(this + 0x6f0);
+          }
+          if ((uVar26 == 0) &&
+             (this_00 !=
+              (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              (iVar22 + 0x14))) {
+            uVar26 = *(uint *)(iVar22 + 0x18);
+            pcVar21 = *(char **)(iVar22 + 0x1c);
+            if ((*(byte *)(iVar22 + 0x14) & 1) == 0) {
+              pcVar21 = (char *)(iVar22 + 0x15);
+              uVar26 = (uint)(*(byte *)(iVar22 + 0x14) >> 1);
+            }
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                      (this_00,pcVar21,uVar26);
+          }
+        }
+      }
+      cStack_5e = cStack_5f;
+      if (bVar4 && cStack_5f == '\0') {
+        local_5a = 1;
+        cStack_5e = local_5b;
+        bVar4 = false;
+      }
+      iVar22 = CSREpisodeData::IsValid(local_70);
+      pCVar7 = local_70;
+      if (iVar22 == 0) {
+        cStack_5e = '\0';
+      }
+      if (local_68 == 1) {
+        CVar3 = local_70[4];
+        sVar27 = *(size_t *)(local_70 + 8);
+        uVar26 = local_44;
+        if (((byte)local_48[0] & 1) == 0) {
+          uVar26 = (uint)((byte)local_48[0] >> 1);
+        }
+        if (((byte)CVar3 & 1) == 0) {
+          sVar27 = (size_t)((byte)CVar3 >> 1);
+        }
+        if (sVar27 == uVar26) {
+          pCVar29 = local_70 + 5;
+          pCVar23 = local_40;
+          if (((byte)local_48[0] & 1) == 0) {
+            pCVar23 = (CSREpisodeData *)(iVar34 + 1);
+          }
+          if (((byte)CVar3 & 1) == 0) {
+            if (sVar27 != 0) {
+              uVar26 = (uint)((byte)CVar3 >> 1);
+              do {
+                if (*pCVar29 != *pCVar23) goto LAB_00e51d14;
+                pCVar23 = pCVar23 + 1;
+                pCVar29 = pCVar29 + 1;
+                uVar26 = uVar26 - 1;
+              } while (uVar26 != 0);
+            }
+          }
+          else if (sVar27 != 0) {
+            iVar22 = memcmp(*(void **)(local_70 + 0xc),pCVar23,sVar27);
+            bVar36 = iVar22 == 0;
+            goto LAB_00e51e46;
+          }
+          bVar36 = true;
+        }
+        else {
+LAB_00e51d14:
+          bVar36 = false;
+        }
+LAB_00e51e46:
+        bStack_5d = bVar36 & local_5b == '\x01';
+        iVar22 = *(int *)(pCVar7 + 0x104);
+        uStack_5c = 0;
+        iVar15 = iVar22 + 0x14;
+        iVar22 = *(int *)(iVar22 + 0x18);
+        if (iVar15 != iVar22) {
+LAB_00e51e74:
+          pbVar30 = *(byte **)(iVar22 + 8);
+          p_Var31 = *(__shared_weak_count **)(iVar22 + 0xc);
+          if (p_Var31 != (__shared_weak_count *)0x0) {
+            p_Var11 = p_Var31 + 4;
+            do {
+              ExclusiveAccess(p_Var11);
+              bVar36 = (bool)hasExclusiveAccess(p_Var11);
+            } while (!bVar36);
+            *(int *)p_Var11 = *(int *)p_Var11 + 1;
+          }
+          bVar1 = *pbVar30;
+          sVar27 = *(size_t *)(pbVar30 + 4);
+          uVar26 = local_38;
+          if (((byte)local_3c & 1) == 0) {
+            uVar26 = (uint)((byte)local_3c >> 1);
+          }
+          if ((bVar1 & 1) == 0) {
+            sVar27 = (size_t)(bVar1 >> 1);
+          }
+          if (sVar27 != uVar26) goto LAB_00e51ee6;
+          pbVar24 = local_34;
+          if (((byte)local_3c & 1) == 0) {
+            pbVar24 = local_3b;
+          }
+          if ((bVar1 & 1) == 0) {
+            if (sVar27 != 0) {
+              uVar26 = (uint)(bVar1 >> 1);
+              while (pbVar30 = pbVar30 + 1, *pbVar30 == *pbVar24) {
+                pbVar24 = pbVar24 + 1;
+                uVar26 = uVar26 - 1;
+                if (uVar26 == 0) goto LAB_00e51f1c;
+              }
+              goto LAB_00e51ee6;
+            }
+          }
+          else if ((sVar27 != 0) &&
+                  (iVar25 = memcmp(*(void **)(pbVar30 + 8),pbVar24,sVar27), iVar25 != 0))
+          goto LAB_00e51ee6;
+LAB_00e51f1c:
+          uStack_5c = 1;
+          if (p_Var31 != (__shared_weak_count *)0x0) {
+            p_Var11 = p_Var31 + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var11);
+              iVar22 = *(int *)p_Var11;
+              bVar36 = (bool)hasExclusiveAccess(p_Var11);
+            } while (!bVar36);
+            *(int *)p_Var11 = iVar22 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar22 == 0) {
+              (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+              goto LAB_00e51f50;
+            }
+          }
+        }
+      }
+      else if (local_68 == 0) {
+        CVar3 = local_70[4];
+        sVar27 = *(size_t *)(local_70 + 8);
+        uVar26 = local_44;
+        if (((byte)local_48[0] & 1) == 0) {
+          uVar26 = (uint)((byte)local_48[0] >> 1);
+        }
+        if (((byte)CVar3 & 1) == 0) {
+          sVar27 = (size_t)((byte)CVar3 >> 1);
+        }
+        if (sVar27 == uVar26) {
+          pCVar29 = local_70 + 5;
+          pCVar23 = local_40;
+          if (((byte)local_48[0] & 1) == 0) {
+            pCVar23 = (CSREpisodeData *)(iVar34 + 1);
+          }
+          if (((byte)CVar3 & 1) == 0) {
+            if (sVar27 != 0) {
+              uVar26 = (uint)((byte)CVar3 >> 1);
+              do {
+                if (*pCVar29 != *pCVar23) goto LAB_00e51d1a;
+                pCVar23 = pCVar23 + 1;
+                pCVar29 = pCVar29 + 1;
+                uVar26 = uVar26 - 1;
+              } while (uVar26 != 0);
+            }
+          }
+          else if (sVar27 != 0) {
+            iVar22 = memcmp(*(void **)(local_70 + 0xc),pCVar23,sVar27);
+            bStack_5d = iVar22 == 0;
+            goto LAB_00e51d2e;
+          }
+          bStack_5d = true;
+        }
+        else {
+LAB_00e51d1a:
+          bStack_5d = false;
+        }
+LAB_00e51d2e:
+        iVar15 = *(int *)(pCVar7 + 0x104);
+        uStack_5c = 0;
+        for (iVar22 = *(int *)(iVar15 + 0x18); iVar15 + 0x14 != iVar22;
+            iVar22 = *(int *)(iVar22 + 4)) {
+          pbVar30 = *(byte **)(iVar22 + 8);
+          p_Var31 = *(__shared_weak_count **)(iVar22 + 0xc);
+          if (p_Var31 != (__shared_weak_count *)0x0) {
+            p_Var11 = p_Var31 + 4;
+            do {
+              ExclusiveAccess(p_Var11);
+              bVar36 = (bool)hasExclusiveAccess(p_Var11);
+            } while (!bVar36);
+            *(int *)p_Var11 = *(int *)p_Var11 + 1;
+          }
+          bVar1 = *pbVar30;
+          sVar27 = *(size_t *)(pbVar30 + 4);
+          uVar26 = local_38;
+          if (((byte)local_3c & 1) == 0) {
+            uVar26 = (uint)((byte)local_3c >> 1);
+          }
+          if ((bVar1 & 1) == 0) {
+            sVar27 = (size_t)(bVar1 >> 1);
+          }
+          if (sVar27 == uVar26) {
+            pbVar24 = local_34;
+            if (((byte)local_3c & 1) == 0) {
+              pbVar24 = local_3b;
+            }
+            if ((bVar1 & 1) == 0) {
+              if (sVar27 == 0) goto LAB_00e51df8;
+              uVar26 = (uint)(bVar1 >> 1);
+              while (pbVar30 = pbVar30 + 1, *pbVar30 == *pbVar24) {
+                pbVar24 = pbVar24 + 1;
+                uVar26 = uVar26 - 1;
+                if (uVar26 == 0) goto LAB_00e51df8;
+              }
+            }
+            else if ((sVar27 == 0) ||
+                    (iVar25 = memcmp(*(void **)(pbVar30 + 8),pbVar24,sVar27), iVar25 == 0)) {
+LAB_00e51df8:
+              uStack_5c = 1;
+              if (p_Var31 != (__shared_weak_count *)0x0) {
+                p_Var11 = p_Var31 + 4;
+                DataMemoryBarrier(0x1b);
+                do {
+                  ExclusiveAccess(p_Var11);
+                  iVar22 = *(int *)p_Var11;
+                  bVar36 = (bool)hasExclusiveAccess(p_Var11);
+                } while (!bVar36);
+                *(int *)p_Var11 = iVar22 + -1;
+                DataMemoryBarrier(0x1b);
+                if (iVar22 == 0) {
+                  (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+LAB_00e51f50:
+                  std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+                }
+              }
+              break;
+            }
+          }
+          if (p_Var31 != (__shared_weak_count *)0x0) {
+            p_Var11 = p_Var31 + 4;
+            DataMemoryBarrier(0x1b);
+            do {
+              ExclusiveAccess(p_Var11);
+              iVar25 = *(int *)p_Var11;
+              bVar36 = (bool)hasExclusiveAccess(p_Var11);
+            } while (!bVar36);
+            *(int *)p_Var11 = iVar25 + -1;
+            DataMemoryBarrier(0x1b);
+            if (iVar25 == 0) {
+              (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+              std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+            }
+          }
+        }
+      }
+LAB_00e51f54:
+      if (*(int *)(this + 0x65c) == 4) {
+        uVar33 = CSRMEpisode::get();
+        CSRMEpisode::GetTypeStr(&local_a8,uVar33,2);
+        pCVar14 = (CSRDataMgr *)CSRDataMgr::get();
+        pbVar13 = (basic_string *)CSRDataMgr::GetUserLocalDB(pCVar14);
+        CSRUserDB::GetEpisodeInProgressID((CSRUserDB *)&local_7c,pbVar13);
+        CSRMEpisode::get();
+        CSRMEpisode::GetNextItemWithSameType((basic_string *)&local_88);
+        pCVar7 = local_70;
+        pCVar6 = local_7c;
+        CVar8 = local_7c._0_1_;
+        uVar26 = (uint)local_7c & 1;
+        CVar3 = local_70[4];
+        p_Var11 = *(__shared_weak_count **)(local_70 + 8);
+        p_Var31 = local_78;
+        if (((uint)local_7c & 1) == 0) {
+          p_Var31 = (__shared_weak_count *)(uint)((byte)local_7c._0_1_ >> 1);
+        }
+        if (((byte)CVar3 & 1) == 0) {
+          p_Var11 = (__shared_weak_count *)(uint)((byte)CVar3 >> 1);
+        }
+        if (p_Var11 == p_Var31) {
+          pCVar23 = local_74;
+          if (((uint)local_7c & 1) == 0) {
+            pCVar23 = (CSREpisodeData *)((int)&local_7c + 1);
+          }
+          pCVar29 = local_70 + 5;
+          if (((byte)CVar3 & 1) == 0) {
+            if (p_Var11 != (__shared_weak_count *)0x0) {
+              uVar16 = (uint)((byte)CVar3 >> 1);
+              do {
+                if (*pCVar29 != *pCVar23) goto LAB_00e51ff6;
+                pCVar23 = pCVar23 + 1;
+                pCVar29 = pCVar29 + 1;
+                uVar16 = uVar16 - 1;
+              } while (uVar16 != 0);
+            }
+          }
+          else if (p_Var11 != (__shared_weak_count *)0x0) {
+            iVar22 = memcmp(*(void **)(local_70 + 0xc),pCVar23,(size_t)p_Var11);
+            uStack_57 = iVar22 == 0;
+            goto LAB_00e5200e;
+          }
+          uStack_57 = true;
+        }
+        else {
+LAB_00e51ff6:
+          uStack_57 = false;
+        }
+LAB_00e5200e:
+        uVar16 = (uint)local_88 & 1;
+        uVar5 = (uint)local_88 & 1;
+        p_Var11 = local_84;
+        if (((uint)local_88 & 1) == 0) {
+          p_Var11 = (__shared_weak_count *)((uint)local_88 >> 1 & 0x7f);
+        }
+        if (p_Var31 == p_Var11) {
+          pCVar23 = local_80;
+          if (((uint)local_88 & 1) == 0) {
+            pCVar23 = (CSREpisodeData *)((int)&local_88 + 1);
+          }
+          if (uVar26 == 0) {
+            if (p_Var31 != (__shared_weak_count *)0x0) {
+              uVar26 = (uint)((byte)CVar8 >> 1);
+              pCVar29 = (CSREpisodeData *)((int)&local_7c + 1);
+              do {
+                if (*pCVar29 != *pCVar23) goto LAB_00e52068;
+                pCVar23 = pCVar23 + 1;
+                pCVar29 = pCVar29 + 1;
+                uVar26 = uVar26 - 1;
+              } while (uVar26 != 0);
+            }
+          }
+          else if ((p_Var31 != (__shared_weak_count *)0x0) &&
+                  (iVar22 = memcmp(local_74,pCVar23,(size_t)p_Var31), iVar22 != 0))
+          goto LAB_00e52068;
+        }
+        else {
+LAB_00e52068:
+          CVar3 = pCVar7[4];
+          p_Var31 = *(__shared_weak_count **)(pCVar7 + 8);
+          if (((byte)CVar3 & 1) == 0) {
+            p_Var31 = (__shared_weak_count *)(uint)((byte)CVar3 >> 1);
+          }
+          if (p_Var31 == p_Var11) {
+            pCVar23 = local_80;
+            if (uVar16 == 0) {
+              pCVar23 = (CSREpisodeData *)((int)&local_88 + 1);
+            }
+            pCVar29 = pCVar7 + 5;
+            if (((byte)CVar3 & 1) == 0) {
+              if (p_Var11 != (__shared_weak_count *)0x0) {
+                uVar26 = (uint)((byte)CVar3 >> 1);
+                do {
+                  if (*pCVar29 != *pCVar23) goto LAB_00e520ae;
+                  pCVar23 = pCVar23 + 1;
+                  pCVar29 = pCVar29 + 1;
+                  uVar26 = uVar26 - 1;
+                } while (uVar26 != 0);
+              }
+            }
+            else if (p_Var11 != (__shared_weak_count *)0x0) {
+              iVar22 = memcmp(*(void **)(pCVar7 + 0xc),pCVar23,(size_t)p_Var11);
+              uStack_56 = iVar22 == 0;
+              goto LAB_00e520cc;
+            }
+            uStack_56 = 1;
+          }
+          else {
+LAB_00e520ae:
+            uStack_56 = 0;
+          }
+        }
+LAB_00e520cc:
+        local_59 = bStack_5d;
+        uStack_58 = uStack_5c;
+        if (uVar5 != 0) {
+          operator_delete(local_80);
+          pCVar6 = local_7c;
+        }
+        if (((uint)pCVar6 & 1) != 0) {
+          operator_delete(local_74);
+        }
+        if ((local_a8 & 1) != 0) {
+          operator_delete(local_a0);
+        }
+      }
+      std::__ndk1::
+      vector<CSRSceneMEpisodeList::DATA,std::__ndk1::allocator<CSRSceneMEpisodeList::DATA>>::insert
+                (this_04,*(undefined4 *)this_04,&local_68);
+      p_Var31 = local_6c;
+      if (local_6c != (__shared_weak_count *)0x0) {
+        p_Var11 = local_6c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var11);
+          iVar22 = *(int *)p_Var11;
+          bVar36 = (bool)hasExclusiveAccess(p_Var11);
+        } while (!bVar36);
+        *(int *)p_Var11 = iVar22 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar22 == 0) {
+          (**(code **)(*(int *)local_6c + 8))(local_6c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+        }
+      }
+      p_Var31 = local_50;
+      iVar35 = iVar35 + 1;
+      if (local_50 != (__shared_weak_count *)0x0) {
+        p_Var11 = local_50 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var11);
+          iVar22 = *(int *)p_Var11;
+          bVar36 = (bool)hasExclusiveAccess(p_Var11);
+        } while (!bVar36);
+        *(int *)p_Var11 = iVar22 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar22 == 0) {
+          (**(code **)(*(int *)local_50 + 8))(local_50);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+        }
+      }
+      iVar20 = *(int *)(iVar20 + 4);
+    } while (iVar32 != iVar20);
+  }
+  FUN_00e59784(*(undefined4 *)(this + 0x68c),*(undefined4 *)(this + 0x690));
+  local_54 = (CSREpisodeData *)0x0;
+  local_50 = (__shared_weak_count *)0x0;
+  local_60 = 0;
+  cStack_5f = 0;
+  cStack_5e = 0;
+  bStack_5d = 0;
+  uStack_5c = 0;
+  local_5b = 0;
+  local_5a = 0;
+  local_59 = 0;
+  uStack_58 = 0;
+  uStack_57 = 0;
+  uStack_56 = 0;
+  local_68 = 3;
+  puVar17 = *(undefined8 **)(this + 0x690);
+  if (puVar17 == *(undefined8 **)(this + 0x694)) {
+    std::__ndk1::
+    vector<CSRSceneMEpisodeList::DATA,std::__ndk1::allocator<CSRSceneMEpisodeList::DATA>>::
+    __push_back_slow_path<CSRSceneMEpisodeList::DATA_const&>(this_04,(DATA *)&local_68);
+  }
+  else {
+    *(undefined4 *)((int)puVar17 + 0xf) = 0;
+    *puVar17 = CONCAT44(iStack_64,3);
+    puVar17[1] = 0;
+    *(undefined4 *)((int)puVar17 + 0x14) = 0;
+    *(undefined4 *)(puVar17 + 3) = 0;
+    *(int *)(this + 0x690) = (int)puVar17 + 0x1c;
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_a8,(char *)(DAT_00e5252c + 0xe521f8));
+  CSRFramedScene::FindCastByName<CMUIButton>((basic_string *)&local_88);
+  if ((local_a8 & 1) != 0) {
+    operator_delete(local_a0);
+  }
+  if (local_88 != (CMUpdatable *)0x0) {
+    CMUpdatable::SetVisible(local_88,*local_30 == 4);
+  }
+  uVar26 = *(uint *)(param_2 + 4);
+  if (((byte)*param_2 & 1) == 0) {
+    uVar26 = (uint)((byte)*param_2 >> 1);
+  }
+  if (uVar26 != 0) {
+    CSRMEpisode::get();
+    CSRMEpisode::FindDataById((basic_string *)&local_a8);
+    pbVar13 = *(basic_string **)(local_a8 + 0x104);
+    p_Var31 = *(__shared_weak_count **)(local_a8 + 0x108);
+    if (p_Var31 != (__shared_weak_count *)0x0) {
+      p_Var11 = p_Var31 + 4;
+      do {
+        ExclusiveAccess(p_Var11);
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = *(int *)p_Var11 + 1;
+    }
+    if (local_a4 != (__shared_weak_count *)0x0) {
+      p_Var11 = local_a4 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar32 = *(int *)p_Var11;
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = iVar32 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar32 == 0) {
+        (**(code **)(*(int *)local_a4 + 8))(local_a4);
+        std::__ndk1::__shared_weak_count::__release_weak(local_a4);
+      }
+    }
+    local_94 = (CSREpisodeData *)0x0;
+    local_90 = (__shared_weak_count *)0x0;
+    local_a0 = (void *)0x0;
+    uStack_9c = 0;
+    local_9b = 0;
+    uStack_9a = 0;
+    local_99 = 0;
+    local_a8 = 1;
+    pCVar12 = (CSRMEpisode *)CSRMEpisode::get();
+    uVar10 = CSRMEpisode::IsReadDataById(pCVar12,pbVar13);
+    local_a0 = (void *)CONCAT31(local_a0._1_3_,uVar10);
+    pCVar12 = (CSRMEpisode *)CSRMEpisode::get();
+    uVar10 = CSRMEpisode::IsClearedDataById(pCVar12,pbVar13);
+    local_a0._0_2_ = CONCAT11(uVar10,(undefined1)local_a0);
+    CSRMEpisode::get();
+    CSRMEpisode::FindDataById((basic_string *)&local_70);
+    p_Var11 = local_90;
+    if (local_6c != (__shared_weak_count *)0x0) {
+      p_Var28 = local_6c + 4;
+      do {
+        ExclusiveAccess(p_Var28);
+        bVar4 = (bool)hasExclusiveAccess(p_Var28);
+      } while (!bVar4);
+      *(int *)p_Var28 = *(int *)p_Var28 + 1;
+    }
+    local_94 = local_70;
+    local_90 = local_6c;
+    if (p_Var11 != (__shared_weak_count *)0x0) {
+      p_Var28 = p_Var11 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var28);
+        iVar32 = *(int *)p_Var28;
+        bVar4 = (bool)hasExclusiveAccess(p_Var28);
+      } while (!bVar4);
+      *(int *)p_Var28 = iVar32 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar32 == 0) {
+        (**(code **)(*(int *)p_Var11 + 8))(p_Var11);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+      }
+    }
+    pCVar7 = local_94;
+    CMSingleton::get<CGMTime,CMSingleton::DefaultAlloc<CGMTime>,CMSpinLock>
+              ((CMSingleton *)&local_7c);
+    if (local_78 != (__shared_weak_count *)0x0) {
+      p_Var11 = local_78 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar32 = *(int *)p_Var11;
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = iVar32 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar32 == 0) {
+        (**(code **)(*(int *)local_78 + 8))(local_78);
+        std::__ndk1::__shared_weak_count::__release_weak(local_78);
+      }
+    }
+    iVar32 = CGMTime::GetCurServerTimeStamp(local_7c);
+    if ((*(int *)(pCVar7 + 0x70) <= iVar32) && (iVar32 <= *(int *)(pCVar7 + 0x80))) {
+      local_9b = 1;
+    }
+    cVar18 = local_a0._1_1_;
+    if (local_a0._1_1_ == '\0') {
+      cVar18 = '\x01';
+    }
+    local_a0._0_3_ = CONCAT12(cVar18,(undefined2)local_a0);
+    std::__ndk1::
+    vector<CSRSceneMEpisodeList::DATA,std::__ndk1::allocator<CSRSceneMEpisodeList::DATA>>::insert
+              ((vector<CSRSceneMEpisodeList::DATA,std::__ndk1::allocator<CSRSceneMEpisodeList::DATA>>
+                *)(this + 0x680),*(undefined4 *)(this + 0x680),&local_a8);
+    if (local_6c != (__shared_weak_count *)0x0) {
+      p_Var11 = local_6c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar32 = *(int *)p_Var11;
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = iVar32 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar32 == 0) {
+        (**(code **)(*(int *)local_6c + 8))(local_6c);
+        std::__ndk1::__shared_weak_count::__release_weak(local_6c);
+      }
+    }
+    p_Var11 = local_90;
+    if (local_90 != (__shared_weak_count *)0x0) {
+      p_Var28 = local_90 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var28);
+        iVar32 = *(int *)p_Var28;
+        bVar4 = (bool)hasExclusiveAccess(p_Var28);
+      } while (!bVar4);
+      *(int *)p_Var28 = iVar32 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar32 == 0) {
+        (**(code **)(*(int *)local_90 + 8))(local_90);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+      }
+    }
+    if (p_Var31 != (__shared_weak_count *)0x0) {
+      p_Var11 = p_Var31 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar32 = *(int *)p_Var11;
+        bVar4 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar4);
+      *(int *)p_Var11 = iVar32 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar32 == 0) {
+        (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+      }
+    }
+  }
+  if (local_84 != (__shared_weak_count *)0x0) {
+    p_Var31 = local_84 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var31);
+      iVar32 = *(int *)p_Var31;
+      bVar4 = (bool)hasExclusiveAccess(p_Var31);
+    } while (!bVar4);
+    *(int *)p_Var31 = iVar32 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar32 == 0) {
+      (**(code **)(*(int *)local_84 + 8))(local_84);
+      std::__ndk1::__shared_weak_count::__release_weak(local_84);
+    }
+  }
+  p_Var31 = local_50;
+  if (local_50 != (__shared_weak_count *)0x0) {
+    p_Var11 = local_50 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var11);
+      iVar32 = *(int *)p_Var11;
+      bVar4 = (bool)hasExclusiveAccess(p_Var11);
+    } while (!bVar4);
+    *(int *)p_Var11 = iVar32 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar32 == 0) {
+      (**(code **)(*(int *)local_50 + 8))(local_50);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+    }
+  }
+  if (((byte)local_48[0] & 1) != 0) {
+    operator_delete(local_40);
+  }
+  if (((byte)local_3c & 1) != 0) {
+    operator_delete(local_34);
+  }
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var31 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var31);
+      iVar32 = *(int *)p_Var31;
+      bVar4 = (bool)hasExclusiveAccess(p_Var31);
+    } while (!bVar4);
+    *(int *)p_Var31 = iVar32 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar32 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_2c);
+    }
+  }
+  if (*piVar19 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+LAB_00e51ee6:
+  if (p_Var31 != (__shared_weak_count *)0x0) {
+    p_Var11 = p_Var31 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var11);
+      iVar25 = *(int *)p_Var11;
+      bVar36 = (bool)hasExclusiveAccess(p_Var11);
+    } while (!bVar36);
+    *(int *)p_Var11 = iVar25 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar25 == 0) {
+      (**(code **)(*(int *)p_Var31 + 8))(p_Var31);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var31);
+    }
+  }
+  iVar22 = *(int *)(iVar22 + 4);
+  if (iVar15 == iVar22) goto LAB_00e51f54;
+  goto LAB_00e51e74;
+}

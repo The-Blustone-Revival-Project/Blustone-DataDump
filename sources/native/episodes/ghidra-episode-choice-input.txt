@@ -1,0 +1,386 @@
+===== 8f1af4 OnProcessCursorPress @ 008f1af4 =====
+
+/* CSRDlgPlayer::OnProcessCursorPress(unsigned int, float, CRMPoint const&, unsigned char) */
+
+void __thiscall
+CSRDlgPlayer::OnProcessCursorPress
+          (CSRDlgPlayer *this,uint param_1,float param_2,CRMPoint *param_3,uchar param_4)
+
+{
+  bool bVar1;
+  bool bVar2;
+  int iVar3;
+  CMSoundMgr *this_00;
+  CMVec4Rect *pCVar4;
+  undefined4 *puVar5;
+  float fVar6;
+  uint uVar7;
+  CSRDataMgr *this_01;
+  __shared_weak_count *p_Var8;
+  int iVar9;
+  __shared_weak_count *p_Var10;
+  uint uVar11;
+  undefined4 extraout_r3;
+  undefined4 extraout_r3_00;
+  undefined4 extraout_r3_01;
+  uint uVar12;
+  int *piVar13;
+  CMUpdatable *this_02;
+  CSRDlgScriptPlayer *this_03;
+  uint uVar14;
+  undefined4 uVar15;
+  int *piVar16;
+  undefined8 uVar17;
+  char *in_stack_00000000;
+  char *pcVar18;
+  CMComponentPlayable *local_60;
+  __shared_weak_count *local_5c;
+  uint local_58 [2];
+  void *local_50;
+  CMComponentPlayable *local_3c;
+  __shared_weak_count *local_38;
+  int local_34;
+
+  piVar16 = *(int **)(DAT_008f1e98 + 0x8f1b10);
+  local_34 = *piVar16;
+  iVar3 = CSRScene::IsEnd((CSRScene *)this);
+  if (iVar3 == 1) {
+    this_00 = (CMSoundMgr *)CMSoundMgr::get();
+    CMSoundMgr::UnmuteBGM(this_00);
+  }
+  else {
+    pcVar18 = in_stack_00000000;
+    (**(code **)(**(int **)(this + 0x13c) + 0x24))
+              (*(int **)(this + 0x13c),param_1,param_3,(CRMPoint *)(uint)param_4);
+    if ((char)(*(int **)(this + 0x11c))[0x9c] == '\0') {
+      pCVar4 = (CMVec4Rect *)(**(code **)(**(int **)(this + 0x11c) + 0x90))();
+      iVar3 = CMTestIntersection(pCVar4,(CRMPoint *)(uint)param_4);
+      if (iVar3 == 1) goto LAB_008f1db0;
+    }
+    this_03 = (CSRDlgScriptPlayer *)(this + 0x150);
+    iVar3 = CSRDlgScriptPlayer::IsPlayingVideo(this_03);
+    if (in_stack_00000000 == (char *)0x1 && iVar3 == 1) {
+      if (*(char *)(*(int *)(this + 0x134) + 0x270) != '\0') {
+        CMUpdatable::SetVisible(*(CMUpdatable **)(this + 300),'\0');
+        CMUpdatable::SetVisible(*(CMUpdatable **)(this + 0x134),'\x01');
+        uVar15 = *(undefined4 *)(this + 0x134);
+        CMHashID::CMHashID((CMHashID *)local_58,(char *)(DAT_008f1ed4 + 0x8f1c3c));
+        CMUpdatable::
+        FindComponent<CMComponentAnim,CMUpdatable::FindComponentByName<CMComponentAnim>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMComponentAnim_const>const&)_1_>
+                  (&local_3c,uVar15,(CMHashID *)local_58);
+        if ((local_58[0] & 1) != 0) {
+          operator_delete(local_50);
+        }
+        if (local_3c != (CMComponentPlayable *)0x0) {
+          CMComponentPlayable::Stop(local_3c);
+          CMComponentPlayable::Rewind(local_3c);
+          CMComponentPlayable::Play(local_3c);
+        }
+        iVar3 = CPVDataMgr::get();
+        if (*(char *)(iVar3 + 0xbd) == '\0') {
+          this_02 = *(CMUpdatable **)(this + 0x134);
+          this_01 = (CSRDataMgr *)CSRDataMgr::get();
+          iVar3 = CSRDataMgr::GetPlayData(this_01);
+          CMUpdatable::SetVisible(this_02,*(uchar *)(iVar3 + 0x183));
+        }
+        p_Var10 = local_38;
+        if (local_38 != (__shared_weak_count *)0x0) {
+          p_Var8 = local_38 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var8);
+            iVar3 = *(int *)p_Var8;
+            bVar1 = (bool)hasExclusiveAccess(p_Var8);
+          } while (!bVar1);
+          *(int *)p_Var8 = iVar3 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar3 == 0) {
+            (**(code **)(*(int *)local_38 + 8))(local_38);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+          }
+        }
+      }
+    }
+    else {
+      iVar3 = CSRDlgScriptPlayer::IsScriptPlayerEnd(this_03);
+      if ((iVar3 == 0) && (iVar3 = CSRDlgScriptPlayer::IsPlayingVideo(this_03), iVar3 == 0)) {
+        CSRDlgScriptPlayer::SkipScript(this_03);
+      }
+      else {
+        if (((in_stack_00000000 != (char *)0x1) || (iVar3 = SkipTalk(this), iVar3 != 1)) &&
+           (this[0x109] == (CSRDlgPlayer)0x1)) {
+          puVar5 = (undefined4 *)CSRUIScrollView::GetScrollPos(*(CSRUIScrollView **)(this + 0x10c));
+          local_3c = (CMComponentPlayable *)*puVar5;
+          local_38 = (__shared_weak_count *)puVar5[1];
+          fVar6 = (float)CRMVector2::GetLength((CRMVector2 *)&local_3c);
+          if (*(undefined4 **)(this + 0x4bc) == *(undefined4 **)(this + 0x4c0)) {
+            bVar1 = false;
+            iVar3 = 0;
+          }
+          else {
+            piVar13 = (int *)**(undefined4 **)(this + 0x4bc);
+            iVar3 = piVar13[1];
+            if (iVar3 == 0) {
+              bVar1 = false;
+            }
+            else {
+              uVar7 = CMHashID::Crc32((CMHashID *)&DAT_0000000d,
+                                      CONCAT44(extraout_r3,DAT_008f1ed8 + 0x8f1bde),pcVar18);
+              if ((*(int *)(iVar3 + 0x26c) == 0 && (uVar7 ^ *(uint *)(iVar3 + 0x268)) == 0xffffffff)
+                 || (iVar3 = piVar13[1],
+                    uVar7 = CMHashID::Crc32((CMHashID *)&DAT_0000000d,
+                                            CONCAT44(extraout_r3_00,DAT_008f1edc + 0x8f1bf8),pcVar18
+                                           ),
+                    *(int *)(iVar3 + 0x26c) == 0 && (uVar7 ^ *(uint *)(iVar3 + 0x268)) == 0xffffffff
+                    )) {
+                bVar1 = true;
+              }
+              else {
+                iVar3 = piVar13[1];
+                uVar7 = CMHashID::Crc32((CMHashID *)&DAT_0000000d,
+                                        CONCAT44(extraout_r3_01,DAT_008f1ee0 + 0x8f1cde),pcVar18);
+                bVar1 = *(int *)(iVar3 + 0x26c) == 0 &&
+                        (uVar7 ^ *(uint *)(iVar3 + 0x268)) == 0xffffffff;
+              }
+            }
+            iVar3 = *(int *)(*piVar13 + 0x60) - *(int *)(*piVar13 + 0x5c) >> 2;
+          }
+          iVar9 = CSRDlgScriptPlayer::IsSkipDialog(this_03);
+          if ((((iVar9 == 1) && (!bVar1 && iVar3 == 1)) &&
+              (*(char *)(*(int *)(this + 300) + 0x270) != '\0')) &&
+             (iVar3 = CSRDlgScriptPlayer::IsPlayingVideo(this_03), iVar3 == 0)) {
+            CMUpdatable::SetVisible(*(CMUpdatable **)(this + 300),'\x01');
+            uVar15 = *(undefined4 *)(this + 300);
+            CMHashID::CMHashID((CMHashID *)local_58,(char *)(DAT_008f1ee4 + 0x8f1dfe));
+            CMUpdatable::
+            FindComponent<CMComponentAnim,CMUpdatable::FindComponentByName<CMComponentAnim>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMComponentAnim_const>const&)_1_>
+                      (&local_60,uVar15,(CMHashID *)local_58);
+            if ((local_58[0] & 1) != 0) {
+              operator_delete(local_50);
+            }
+            if (local_60 != (CMComponentPlayable *)0x0) {
+              CMComponentPlayable::Stop(local_60);
+              CMComponentPlayable::Rewind(local_60);
+              CMComponentPlayable::Play(local_60);
+            }
+            if (local_5c != (__shared_weak_count *)0x0) {
+              p_Var10 = local_5c + 4;
+              DataMemoryBarrier(0x1b);
+              do {
+                ExclusiveAccess(p_Var10);
+                iVar3 = *(int *)p_Var10;
+                bVar2 = (bool)hasExclusiveAccess(p_Var10);
+              } while (!bVar2);
+              *(int *)p_Var10 = iVar3 + -1;
+              DataMemoryBarrier(0x1b);
+              if (iVar3 == 0) {
+                (**(code **)(*(int *)local_5c + 8))(local_5c);
+                std::__ndk1::__shared_weak_count::__release_weak(local_5c);
+              }
+            }
+          }
+          if (fVar6 <= 1.0) {
+            uVar12 = *(uint *)(this + 0x500);
+            uVar7 = *(uint *)(this + 0x4f8) + *(uint *)(this + 0x508);
+            uVar14 = *(int *)(this + 0x504) +
+                     *(int *)(this + 0x50c) + *(int *)(this + 0x4fc) +
+                     (uint)CARRY4(*(uint *)(this + 0x4f8),*(uint *)(this + 0x508)) +
+                     (uint)CARRY4(uVar7,uVar12);
+            uVar17 = RMGetTickCount();
+            uVar11 = (uint)((ulonglong)uVar17 >> 0x20);
+            if ((((uVar14 < uVar11 || uVar11 - uVar14 < (uint)(uVar7 + uVar12 <= (uint)uVar17)) &&
+                 (*(int *)(this + 0x4c8) == *(int *)(this + 0x4cc))) &&
+                ((*(int *)(this + 0x4d4) == *(int *)(this + 0x4d8) &&
+                 ((*(int *)(this + 0x4e0) == *(int *)(this + 0x4e4) &&
+                  (*(undefined4 **)(this + 0x4bc) != *(undefined4 **)(this + 0x4c0))))))) &&
+               ((!bVar1 && (iVar3 = *(int *)**(undefined4 **)(this + 0x4bc), iVar3 != 0)))) {
+              SpawnNext(this,(vector *)(iVar3 + 0x5c));
+            }
+          }
+          else {
+            iVar3 = CSRUIScrollView::IsScrolling(*(CSRUIScrollView **)(this + 0x10c));
+            if (iVar3 == 0) {
+              local_58[0] = 0;
+              local_58[1] = 0;
+              CSRUIScrollView::MoveTo(*(CRMVector2 **)(this + 0x10c),fVar6 / DAT_008f1ed0);
+            }
+          }
+        }
+        this[0x109] = SUB41(in_stack_00000000,0);
+      }
+    }
+  }
+LAB_008f1db0:
+  iVar3 = *piVar16 - local_34;
+  if (iVar3 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar3);
+}
+
+
+===== 8f2318 GetSelectionBoxArea @ 008f2318 =====
+
+/* CSRDlgPlayer::GetSelectionBoxArea(unsigned int) */
+
+void CSRDlgPlayer::GetSelectionBoxArea(uint param_1)
+
+{
+  bool bVar1;
+  bool bVar2;
+  int iVar3;
+  __shared_weak_count *p_Var4;
+  undefined4 *puVar5;
+  int in_r1;
+  uint in_r2;
+  CMHashID *pCVar6;
+  int *piVar7;
+  __shared_weak_count *this;
+  float fVar8;
+  float fVar9;
+  float fVar10;
+  CMHashID local_50 [8];
+  void *local_48;
+  int *local_34;
+  __shared_weak_count *local_30;
+  int local_2c;
+
+  piVar7 = *(int **)(DAT_008f24e0 + 0x8f2330);
+  local_2c = *piVar7;
+  if (in_r2 < (uint)(*(int *)(in_r1 + 0x4c0) - *(int *)(in_r1 + 0x4bc) >> 2)) {
+    iVar3 = *(int *)(*(int *)(in_r1 + 0x4bc) + in_r2 * 4);
+    pCVar6 = *(CMHashID **)(iVar3 + 4);
+    if (pCVar6 != (CMHashID *)0x0) {
+      this = *(__shared_weak_count **)(iVar3 + 8);
+      if (this != (__shared_weak_count *)0x0) {
+        p_Var4 = this + 4;
+        do {
+          ExclusiveAccess(p_Var4);
+          bVar1 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar1);
+        *(int *)p_Var4 = *(int *)p_Var4 + 1;
+      }
+      CMHashID::CMHashID(local_50,(char *)(DAT_008f24e4 + 0x8f2370));
+      CMUpdatable::FindByName((CMUpdatable *)&local_34,pCVar6);
+      if (((byte)local_50[0] & 1) != 0) {
+        operator_delete(local_48);
+      }
+      bVar1 = local_34 != (int *)0x0;
+      if (bVar1) {
+        iVar3 = CSRUIScrollView::GetScrollPos(*(CSRUIScrollView **)(in_r1 + 0x10c));
+        fVar10 = *(float *)(iVar3 + 4);
+        puVar5 = (undefined4 *)(**(code **)(*local_34 + 0x90))(local_34);
+        *(undefined4 *)param_1 = *puVar5;
+        fVar8 = (float)puVar5[1];
+        *(undefined4 *)(param_1 + 8) = puVar5[2];
+        fVar9 = (float)puVar5[3];
+        *(float *)(param_1 + 4) = fVar8 - fVar10;
+        *(float *)(param_1 + 0xc) = fVar9 - fVar10;
+      }
+      if (local_30 != (__shared_weak_count *)0x0) {
+        p_Var4 = local_30 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var4);
+          iVar3 = *(int *)p_Var4;
+          bVar2 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar2);
+        *(int *)p_Var4 = iVar3 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar3 == 0) {
+          (**(code **)(*(int *)local_30 + 8))(local_30);
+          std::__ndk1::__shared_weak_count::__release_weak(local_30);
+        }
+      }
+      if (this != (__shared_weak_count *)0x0) {
+        p_Var4 = this + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var4);
+          iVar3 = *(int *)p_Var4;
+          bVar2 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar2);
+        *(int *)p_Var4 = iVar3 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar3 == 0) {
+          (**(code **)(*(int *)this + 8))(this);
+          std::__ndk1::__shared_weak_count::__release_weak(this);
+        }
+      }
+      if (bVar1) goto LAB_008f242a;
+    }
+  }
+  *(undefined4 *)param_1 = 0;
+  *(undefined4 *)(param_1 + 4) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(param_1 + 8) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(param_1 + 0xc) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+LAB_008f242a:
+  if (*piVar7 != local_2c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== ec751c OnProcessCursorPress @ 00ec751c =====
+
+/* CSRSceneNPCDlg::OnProcessCursorPress(unsigned int, float, CRMPoint const&, unsigned char) */
+
+bool __thiscall
+CSRSceneNPCDlg::OnProcessCursorPress
+          (CSRSceneNPCDlg *this,uint param_1,float param_2,CRMPoint *param_3,uchar param_4)
+
+{
+  int iVar1;
+  CSRSceneNPCDlg *pCVar2;
+  int iVar3;
+  CSRSceneNPCDlg *pCVar4;
+  bool bVar5;
+  float extraout_s0;
+  float extraout_s0_00;
+  float fVar6;
+  undefined4 in_stack_00000000;
+
+  iVar1 = CSRDlgScriptPlayer::IsPlayingVideo((CSRDlgScriptPlayer *)(*(int *)(this + 0x6d8) + 0x150))
+  ;
+  if (iVar1 == 1) {
+    iVar1 = (**(code **)(**(int **)(this + 0x6d8) + 0x40))
+                      (*(int **)(this + 0x6d8),param_1,param_3,param_4,in_stack_00000000);
+    fVar6 = extraout_s0;
+  }
+  else {
+    pCVar4 = *(CSRSceneNPCDlg **)(this + 0x6e8);
+    while ((pCVar4 != this + 0x6ec &&
+           (iVar1 = (**(code **)(**(int **)(pCVar4 + 0x14) + 0x44))
+                              (*(int **)(pCVar4 + 0x14),param_1,param_3,param_4,in_stack_00000000),
+           iVar1 != 1))) {
+      pCVar2 = *(CSRSceneNPCDlg **)(pCVar4 + 4);
+      if (*(CSRSceneNPCDlg **)(pCVar4 + 4) == (CSRSceneNPCDlg *)0x0) {
+        pCVar2 = pCVar4 + 8;
+        bVar5 = *(CSRSceneNPCDlg **)*(CSRSceneNPCDlg **)pCVar2 != pCVar4;
+        pCVar4 = *(CSRSceneNPCDlg **)pCVar2;
+        if (bVar5) {
+          do {
+            iVar1 = *(int *)pCVar2;
+            pCVar2 = (CSRSceneNPCDlg *)(iVar1 + 8);
+            pCVar4 = *(CSRSceneNPCDlg **)pCVar2;
+          } while (*(int *)pCVar4 != iVar1);
+        }
+      }
+      else {
+        do {
+          pCVar4 = pCVar2;
+          pCVar2 = *(CSRSceneNPCDlg **)pCVar4;
+        } while (*(CSRSceneNPCDlg **)pCVar4 != (CSRSceneNPCDlg *)0x0);
+      }
+    }
+    iVar1 = (**(code **)(**(int **)(this + 0x6d8) + 0x40))
+                      (*(int **)(this + 0x6d8),param_1,param_3,param_4,in_stack_00000000);
+    fVar6 = extraout_s0_00;
+  }
+  iVar3 = CSRFramedScene::OnProcessCursorPress((CSRFramedScene *)this,param_1,fVar6,param_3,param_4)
+  ;
+  return iVar3 != 0 || iVar1 != 0;
+}

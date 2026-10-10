@@ -1,0 +1,279 @@
+===== e62af4 AddPoint @ 00e62af4 =====
+
+/* CSREpisodeMapDraw::AddPoint(std::__ndk1::shared_ptr<EPISODE_STAGEDATA>) */
+
+void __thiscall CSREpisodeMapDraw::AddPoint(CSREpisodeMapDraw *this,int *param_2)
+
+{
+  bool bVar1;
+  undefined8 uVar2;
+  void *pvVar3;
+  __shared_weak_count *p_Var4;
+  __shared_weak_count *p_Var5;
+  __tree_node_base **pp_Var6;
+  __tree_node_base *p_Var7;
+  int iVar8;
+  undefined4 extraout_r3;
+  undefined4 extraout_r3_00;
+  undefined4 uVar9;
+  __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>>>
+  *this_00;
+  int *piVar10;
+  uint local_58;
+  __shared_weak_count *p_Stack_54;
+  void *local_50;
+  uint local_4c;
+  __shared_weak_count *local_48;
+  shared_ptr asStack_40 [4];
+  __shared_weak_count *local_3c;
+  int local_38;
+  __shared_weak_count *local_34;
+  uint local_30;
+  __shared_weak_count *local_2c;
+  __tree_end_node *local_28;
+  int local_24;
+  
+  piVar10 = *(int **)(DAT_00e62db0 + 0xe62b08);
+  local_24 = *piVar10;
+  local_34 = (__shared_weak_count *)param_2[1];
+  local_38 = *param_2;
+  if (local_34 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_34 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  CSREpisodeMapPointDraw::factory((CSREpisodeMapPointDraw *)&local_30,&local_38);
+  p_Var4 = local_34;
+  uVar9 = extraout_r3;
+  if (local_34 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_34 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar8 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    uVar9 = 0;
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)local_34 + 8))(local_34);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      uVar9 = extraout_r3_00;
+    }
+  }
+  local_58 = local_30;
+  p_Stack_54 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var4 = local_2c + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      if (bVar1) {
+        *(int *)p_Var4 = *(int *)p_Var4 + 1;
+      }
+      uVar9 = 0;
+    } while (!bVar1);
+  }
+  CMNode<CMUpdatable>::AttachChild(asStack_40,CONCAT44(uVar9,&local_58));
+  if (local_3c != (__shared_weak_count *)0x0) {
+    p_Var4 = local_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar8 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)local_3c + 8))(local_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_3c);
+    }
+  }
+  p_Var4 = p_Stack_54;
+  if (p_Stack_54 != (__shared_weak_count *)0x0) {
+    p_Var5 = p_Stack_54 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar8 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)p_Stack_54 + 8))(p_Stack_54);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_58,(basic_string *)(*(int *)(*param_2 + 0xc) + 4));
+  local_4c = local_30;
+  local_48 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var4 = local_2c + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  this_00 = (__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>>>
+             *)(this + 0x82c);
+  pp_Var6 = std::__ndk1::
+            __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeMapPointDraw>>>>
+            ::
+            __find_equal<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                      (this_00,&local_28,(basic_string *)&local_58);
+  if (*pp_Var6 == (__tree_node_base *)0x0) {
+    p_Var7 = operator_new(0x24);
+    pvVar3 = local_50;
+    uVar2 = CONCAT44(p_Stack_54,local_58);
+    local_58 = 0;
+    p_Stack_54 = (__shared_weak_count *)0x0;
+    local_50 = (void *)0x0;
+    *(undefined8 *)(p_Var7 + 0x10) = uVar2;
+    *(void **)(p_Var7 + 0x18) = pvVar3;
+    *(uint *)(p_Var7 + 0x1c) = local_4c;
+    *(__shared_weak_count **)(p_Var7 + 0x20) = local_48;
+    *(undefined4 *)p_Var7 = 0;
+    *(undefined4 *)(p_Var7 + 4) = 0;
+    local_4c = 0;
+    local_48 = (__shared_weak_count *)0x0;
+    *(__tree_end_node **)(p_Var7 + 8) = local_28;
+    *pp_Var6 = p_Var7;
+    if (**(int **)this_00 != 0) {
+      *(int *)this_00 = **(int **)this_00;
+      p_Var7 = *pp_Var6;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x830),p_Var7);
+    *(int *)(this + 0x834) = *(int *)(this + 0x834) + 1;
+  }
+  p_Var4 = local_48;
+  if (local_48 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_48 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar8 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)local_48 + 8))(local_48);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var4 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar8 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_2c);
+    }
+  }
+  if (*piVar10 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== e666dc SetData @ 00e666dc =====
+
+/* CSREpisodeMapPointDraw::SetData(std::__ndk1::shared_ptr<EPISODE_STAGEDATA>) */
+
+void __thiscall CSREpisodeMapPointDraw::SetData(CSREpisodeMapPointDraw *this,int *param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  int *piVar4;
+  CSRUITextbox *local_48;
+  __shared_weak_count *local_44;
+  CMHashID local_40 [8];
+  void *local_38;
+  CSRUITextbox *local_24;
+  __shared_weak_count *local_20;
+  int local_1c;
+  
+  piVar4 = *(int **)(DAT_00e66880 + 0xe666f0);
+  local_1c = *piVar4;
+  (**(code **)(*(int *)this + 0x70))(this,*(int *)(*param_2 + 0xc) + 100);
+  CMHashID::CMHashID(local_40,(char *)(DAT_00e66884 + 0xe6670e));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_24,this + 4,local_40);
+  if (((byte)local_40[0] & 1) != 0) {
+    operator_delete(local_38);
+  }
+  CMFormat((char *)local_40,DAT_00e66888 + 0xe66734,*(undefined4 *)*param_2);
+  CSRUITextbox::SetText(local_24,(basic_string *)local_40,'\0');
+  if (((byte)local_40[0] & 1) != 0) {
+    operator_delete(local_38);
+  }
+  CMHashID::CMHashID(local_40,(char *)(DAT_00e6688c + 0xe66758));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_48,this + 4,local_40);
+  if (((byte)local_40[0] & 1) != 0) {
+    operator_delete(local_38);
+  }
+  CSRUITextbox::SetText(local_48,(basic_string *)(*(int *)(*param_2 + 0xc) + 0x4c),'\0');
+  if (local_44 != (__shared_weak_count *)0x0) {
+    p_Var2 = local_44 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar3 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)local_44 + 8))(local_44);
+      std::__ndk1::__shared_weak_count::__release_weak(local_44);
+    }
+  }
+  if (local_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = local_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar3 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)local_20 + 8))(local_20);
+      std::__ndk1::__shared_weak_count::__release_weak(local_20);
+    }
+  }
+  if (*piVar4 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

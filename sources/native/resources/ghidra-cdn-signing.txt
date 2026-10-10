@@ -1,0 +1,66 @@
+===== 0x7cbbc0 Signing @ 007cbbc0 =====
+
+/* CPVCDN2::Signing(unsigned char const*, unsigned long long) */
+
+void __thiscall CPVCDN2::Signing(CPVCDN2 *this,uchar *param_1,ulonglong param_2)
+
+{
+  int *piVar1;
+  int iVar2;
+  undefined4 local_e8;
+  undefined4 uStack_e4;
+  undefined4 uStack_e0;
+  undefined4 uStack_dc;
+  int local_d8 [4];
+  undefined1 auStack_c8 [65];
+  undefined1 local_87;
+  int local_80;
+  undefined1 *local_7c;
+  uint auStack_78 [16];
+  undefined1 local_37;
+  int local_30;
+  uint *local_2c;
+  int local_28;
+
+  piVar1 = *(int **)(DAT_007cbd48 + 0x7cbbd6);
+  local_28 = *piVar1;
+  iVar2 = CryptoPP::Algorithm::Algorithm((Algorithm *)local_d8,true);
+  local_7c = (undefined1 *)(iVar2 + 0x10);
+  local_2c = (uint *)(iVar2 + 0x60);
+  local_80 = 0x10;
+  local_d8[1] = 0;
+  local_d8[2] = 0;
+  local_d8[0] = *(int *)(DAT_007cbd4c + 0x7cbbf8) + 8;
+  local_87 = 1;
+  local_30 = 0x10;
+  local_37 = 1;
+  CryptoPP::Weak1::MD5::InitState(local_2c);
+  uStack_e4 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uStack_e0 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uStack_dc = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  local_d8[0] = *(int *)(DAT_007cbd50 + 0x7cbc26) + 8;
+  local_e8 = 0;
+  CryptoPP::IteratedHashBase<unsigned_int,CryptoPP::HashTransformation>::Update
+            ((IteratedHashBase<unsigned_int,CryptoPP::HashTransformation> *)local_d8,param_1,
+             (uint)param_2);
+  (**(code **)(local_d8[0] + 0x18))(local_d8,&local_e8);
+  CMToHex((uchar *)this,(uint)&local_e8);
+  if (local_2c == auStack_78) {
+    local_37 = 0;
+    for (iVar2 = local_30; iVar2 != 0; iVar2 = iVar2 + -1) {
+      auStack_78[iVar2 + -1] = 0;
+    }
+  }
+  local_d8[0] = *(int *)(DAT_007cbd54 + 0x7cbc7c) + 8;
+  if (local_7c == auStack_c8) {
+    local_87 = 0;
+    for (iVar2 = local_80; iVar2 != 0; iVar2 = iVar2 + -1) {
+      local_d8[iVar2 + 3] = 0;
+    }
+  }
+  if (*piVar1 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

@@ -1,0 +1,48 @@
+===== proven Thumb 00e8e670 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00e8e670(int param_1,undefined4 param_2,undefined4 *param_3,int *param_4)
+
+{
+  int iVar1;
+  CSRDataMgr *pCVar2;
+  CSRPlayData *this;
+  CSRUserDB *this_00;
+  int *piVar3;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_34 [8];
+  void *pvStack_2c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_28 [8];
+  void *pvStack_20;
+  int iStack_1c;
+
+  piVar3 = *(int **)(_DAT_00e8e74c + 0xe8e684);
+  iStack_1c = *piVar3;
+  iVar1 = CPVHTTPResponse::GetResultCode((CPVHTTPResponse *)*param_3);
+  if (iVar1 == 1) {
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    this = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_28,(char *)(_DAT_00e8e750 + 0xe8e6a4));
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_34,(char *)(_DAT_00e8e754 + 0xe8e6ac));
+    CSRPlayData::SetMarker(this,(basic_string *)abStack_28,(basic_string *)abStack_34,1);
+    if (((byte)abStack_34[0] & 1) != 0) {
+      operator_delete(pvStack_2c);
+    }
+    if (((byte)abStack_28[0] & 1) != 0) {
+      operator_delete(pvStack_20);
+    }
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    this_00 = (CSRUserDB *)CSRDataMgr::GetUserLocalDB(pCVar2);
+    CSRUserDB::PutCurStageInfo
+              (this_00,(basic_string *)(param_1 + 4),(param_4[1] - *param_4 >> 2) * -0x55555555);
+    CSRSceneMgr::PushSceneFadeOutIn
+              (*(CSRSceneMgr **)(**(int **)(_DAT_00e8e758 + 0xe8e706) + 8),4,0xff000000);
+  }
+  if (*piVar3 != iStack_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

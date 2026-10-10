@@ -1,0 +1,121 @@
+===== 0086c30c SetRefID =====
+
+/* CSRCard::SetRefID(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRCard::SetRefID(CSRCard *this,basic_string *param_1)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  __shared_weak_count *p_Var3;
+  uint uVar4;
+  basic_string *pbVar5;
+  int iVar6;
+  __shared_weak_count *p_Var7;
+  int *piVar8;
+  undefined4 local_24;
+  __shared_weak_count *local_20;
+  int local_1c;
+  
+  piVar8 = *(int **)(DAT_0086c3fc + 0x86c320);
+  local_1c = *piVar8;
+  uVar4 = *(uint *)(param_1 + 4);
+  if (((byte)*param_1 & 1) == 0) {
+    uVar4 = (uint)((byte)*param_1 >> 1);
+  }
+  if (uVar4 == 0) {
+    _RMAssert('\0',(char *)(DAT_0086c404 + 0x86c342),(char *)(DAT_0086c408 + 0x86c346),0x2db,
+              DAT_0086c400 + 0x86c33e,DAT_0086c40c + 0x86c348,DAT_0086c410 + 0x86c34a);
+  }
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (this + 0x5c) !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)param_1) {
+    uVar4 = *(uint *)(param_1 + 4);
+    pbVar5 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar5 = param_1 + 1;
+      uVar4 = (uint)((byte)*param_1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 0x5c),(char *)pbVar5,uVar4);
+  }
+  CSRCardInfoContainer::get();
+  CSRCardInfoContainer::FindCardByID((basic_string *)&local_24);
+  p_Var3 = local_20;
+  uVar2 = local_24;
+  local_24 = 0;
+  local_20 = (__shared_weak_count *)0x0;
+  p_Var7 = *(__shared_weak_count **)(this + 0x50);
+  *(undefined4 *)(this + 0x4c) = uVar2;
+  *(__shared_weak_count **)(this + 0x50) = p_Var3;
+  if (p_Var7 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var7 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar6 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)p_Var7 + 8))(p_Var7);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+  p_Var3 = local_20;
+  if (local_20 != (__shared_weak_count *)0x0) {
+    p_Var7 = local_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar6 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)local_20 + 8))(local_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (*piVar8 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 00bf51be SetRefID =====
+
+/* CSRPopUpFindHiddenShard::SetRefID(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall
+CSRPopUpFindHiddenShard::SetRefID(CSRPopUpFindHiddenShard *this,basic_string *param_1)
+
+{
+  uint uVar1;
+  basic_string *pbVar2;
+  
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (this + 0x8cc) !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)param_1) {
+    uVar1 = *(uint *)(param_1 + 4);
+    pbVar2 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar2 = param_1 + 1;
+      uVar1 = (uint)((byte)*param_1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 0x8cc),(char *)pbVar2,uVar1);
+    return;
+  }
+  return;
+}
+
+

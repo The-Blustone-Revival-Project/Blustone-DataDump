@@ -1,0 +1,33 @@
+===== 84e87c GetStageAchieveCnt @ 0084e87c =====
+
+/* CSRPlayData::GetStageAchieveCnt(TU_TYPE) const */
+
+void __thiscall CSRPlayData::GetStageAchieveCnt(CSRPlayData *this,undefined4 param_2)
+
+{
+  CSRDataMgr *this_00;
+  undefined4 uVar1;
+  int iVar2;
+  int *piVar3;
+  basic_string local_28 [8];
+  void *local_20;
+  int local_1c;
+  
+  piVar3 = *(int **)(DAT_0084e8ec + 0x84e890);
+  local_1c = *piVar3;
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  uVar1 = CSRDataMgr::GetStaticData(this_00);
+  CSRStaticData::GetStageID(local_28,uVar1,param_2);
+  GetStageAchieveCnt(this,local_28);
+  if (((byte)local_28[0] & 1) != 0) {
+    operator_delete(local_20);
+  }
+  iVar2 = *piVar3 - local_1c;
+  if (iVar2 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar2);
+  }
+  return;
+}
+
+

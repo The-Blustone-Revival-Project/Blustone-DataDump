@@ -1,0 +1,25 @@
+PROGRAM	libnative_core.so
+===== range 00b1bc90 .. 00b1bcd6 =====
+00b1bc92  str.w r8,[sp,#0x10]
+00b1bc96  add r1,sp,#0x8
+00b1bc98  bl 0x00728b08
+00b1bc9c  ldr r0,[sp,#0x10]
+00b1bc9e  vldr.64 d16,[sp,#0x8]
+00b1bca2  strd r8,r8,[sp,#0x8]
+00b1bca6  strd r0,r9,[sp,#0x20]
+00b1bcaa  str.w r8,[sp,#0x10]
+00b1bcae  vstr.64 d16,[sp,#0x18]
+00b1bcb2  add r0,sp,#0x48
+00b1bcb4  mov r1,r10
+00b1bcb6  mov r2,r4
+00b1bcb8  mov r3,r4
+00b1bcba  bl 0x007e3a14
+00b1bcbe  ldrb.w r0,[sp,#0x18]
+00b1bcc2  lsls r0,r0,#0x1f
+00b1bcc4  itt ne
+00b1bcc6  ldr.ne r0,[sp,#0x20]
+00b1bcc8  blx.ne 0x00e0b250
+00b1bccc  ldrb.w r0,[sp,#0x8]
+00b1bcd0  lsls r0,r0,#0x1f
+00b1bcd2  itt ne
+00b1bcd4  ldr.ne r0,[sp,#0x10]

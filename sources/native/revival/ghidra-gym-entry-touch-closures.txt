@@ -1,0 +1,104 @@
+===== proven Thumb 00dc9cf8 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00dc9cf8(int param_1)
+
+{
+  code *pcVar1;
+  int *piVar2;
+  int iStack_30;
+  int iStack_2c;
+  int *piStack_20;
+  int iStack_14;
+  
+  piStack_20 = &iStack_30;
+  piVar2 = *(int **)(_DAT_00dc9d64 + 0xdc9d06);
+  iStack_14 = *piVar2;
+  iStack_2c = *(int *)(param_1 + 4);
+  iStack_30 = _DAT_00dc9d68 + 0xdc9d1e;
+  CSRPopUpTutorialBase::WaitForTouchInput(*(CSRPopUpTutorialBase **)(iStack_2c + 0x928),&iStack_30);
+  if (&iStack_30 == piStack_20) {
+    pcVar1 = *(code **)(*piStack_20 + 0x10);
+  }
+  else {
+    if (piStack_20 == (int *)0x0) goto LAB_00dc9d38;
+    pcVar1 = *(code **)(*piStack_20 + 0x14);
+  }
+  (*pcVar1)();
+LAB_00dc9d38:
+  if (*piVar2 != iStack_14) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== proven Thumb 00eecf08 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00eecf08(int param_1)
+
+{
+  bool bVar1;
+  CSRTutorialGuideMsgDraw *pCVar2;
+  code *pcVar3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  __shared_weak_count *this;
+  int *piVar6;
+  int iStack_38;
+  int iStack_34;
+  int *piStack_28;
+  int iStack_1c;
+  
+  piStack_28 = &iStack_38;
+  piVar6 = *(int **)(_DAT_00eecfe8 + 0xeecf18);
+  iStack_1c = *piVar6;
+  iStack_34 = *(int *)(param_1 + 4);
+  pCVar2 = *(CSRTutorialGuideMsgDraw **)(*(int *)(iStack_34 + 0x7e4) + 0xcc);
+  this = *(__shared_weak_count **)(*(int *)(iStack_34 + 0x7e4) + 0xd0);
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var5 = this + 4;
+    do {
+      ExclusiveAccess(p_Var5);
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = *(int *)p_Var5 + 1;
+  }
+  iStack_38 = _DAT_00eecfec + 0xeecf4a;
+  CSRTutorialGuideMsgDraw::Disappear(pCVar2,&iStack_38);
+  if (&iStack_38 == piStack_28) {
+    pcVar3 = *(code **)(*piStack_28 + 0x10);
+  }
+  else {
+    if (piStack_28 == (int *)0x0) goto LAB_00eecf62;
+    pcVar3 = *(code **)(*piStack_28 + 0x14);
+  }
+  (*pcVar3)();
+LAB_00eecf62:
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var5 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar4 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  if (*piVar6 == iStack_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

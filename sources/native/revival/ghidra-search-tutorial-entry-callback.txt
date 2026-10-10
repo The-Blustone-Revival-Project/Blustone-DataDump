@@ -1,0 +1,147 @@
+===== proven Thumb 00e30c98 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00e30c98(int param_1,int *param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *this;
+  CSRDataMgr *pCVar2;
+  CSRPlayData *pCVar3;
+  undefined1 *puVar4;
+  __shared_weak_count *p_Var5;
+  byte *pbVar6;
+  undefined4 extraout_r0;
+  int iVar7;
+  undefined4 extraout_r1;
+  __tree_node **pp_Var8;
+  CSRSceneFindShardSelSupporter *this_00;
+  uint uVar9;
+  int *piVar10;
+  float fVar11;
+  double dVar12;
+  __tree_node **pp_Stack_44;
+  __tree_node *p_Stack_40;
+  int iStack_3c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_38 [8];
+  undefined1 *puStack_30;
+  undefined4 uStack_2c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_28 [8];
+  void *pvStack_20;
+  int iStack_1c;
+  
+  piVar10 = *(int **)(_DAT_00e30ec0 + 0xe30caa);
+  iStack_1c = *piVar10;
+  pp_Var8 = (__tree_node **)*param_2;
+  p_Stack_40 = (__tree_node *)param_2[1];
+  iStack_3c = param_2[2];
+  pp_Stack_44 = &p_Stack_40;
+  if (iStack_3c != 0) {
+    *(__tree_node ***)(p_Stack_40 + 8) = pp_Stack_44;
+    param_2[2] = 0;
+    param_2[1] = 0;
+    *param_2 = (int)(param_2 + 1);
+    pp_Stack_44 = pp_Var8;
+  }
+  if ((*(__shared_weak_count **)(param_1 + 8) == (__shared_weak_count *)0x0) ||
+     (this = (__shared_weak_count *)
+             std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8)),
+     this == (__shared_weak_count *)0x0)) {
+    this = (__shared_weak_count *)0x0;
+LAB_00e30d2e:
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_28,(char *)(_DAT_00e30ec4 + 0xe30d3e));
+    uStack_2c = 0;
+    puStack_30 = &DAT_00000005;
+    abStack_38[0] =
+         (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>)0x5;
+    CSRPlayData::SetMarker(pCVar3,(basic_string *)abStack_28,(basic_json *)abStack_38);
+    nlohmann::
+    basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+    ::json_value::destroy((json_value *)&puStack_30,abStack_38[0]);
+    if (((byte)abStack_28[0] & 1) != 0) {
+      operator_delete(pvStack_20);
+    }
+    CSRSceneMgr::SceneGoTo(*(CSRSceneMgr **)(**(int **)(_DAT_00e30ec8 + 0xe30d7a) + 8),9);
+    CGMDataMgr::get();
+    fVar11 = (float)CGMDataMgr::GetLocalizedText((char *)abStack_38);
+    Toast((basic_string *)abStack_38,'\0',fVar11);
+    if (((byte)abStack_38[0] & 1) != 0) {
+      operator_delete(puStack_30);
+    }
+    if (this == (__shared_weak_count *)0x0) goto LAB_00e30dd8;
+    goto LAB_00e30db0;
+  }
+  this_00 = *(CSRSceneFindShardSelSupporter **)(param_1 + 4);
+  if ((this_00 == (CSRSceneFindShardSelSupporter *)0x0) || (*(int *)(param_1 + 0xc) != 1))
+  goto LAB_00e30d2e;
+  CSRSceneFindShardSelSupporter::Arrange(this_00);
+  CMTableView2::ResizeTableView(*(CMTableView2 **)(this_00 + 0x684));
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(abStack_38,(char *)(_DAT_00e30ed0 + 0xe30d0a));
+  puVar4 = (undefined1 *)CSRPlayData::GetMarker(pCVar3,(basic_string *)abStack_38);
+  switch(*puVar4) {
+  case 3:
+    pbVar6 = *(byte **)(puVar4 + 8);
+    if ((*pbVar6 & 1) == 0) {
+      pbVar6 = pbVar6 + 1;
+    }
+    else {
+      pbVar6 = *(byte **)(pbVar6 + 8);
+    }
+    strtod((char *)pbVar6,(char **)0x0);
+    dVar12 = (double)CONCAT44(extraout_r1,extraout_r0);
+    goto code_r0x00e30e16;
+  case 4:
+    uVar9 = (uint)(byte)puVar4[8];
+    break;
+  case 5:
+  case 6:
+    uVar9 = *(uint *)(puVar4 + 8);
+    break;
+  case 7:
+    dVar12 = *(double *)(puVar4 + 8);
+code_r0x00e30e16:
+    uVar9 = (uint)(longlong)dVar12;
+    break;
+  default:
+    uVar9 = 0;
+  }
+  if (((byte)abStack_38[0] & 1) != 0) {
+    operator_delete(puStack_30);
+  }
+  if (uVar9 == 8) {
+    CSRSceneFindShardSelSupporter::SetTutorial(this_00);
+  }
+LAB_00e30db0:
+  p_Var5 = this + 4;
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(p_Var5);
+    iVar7 = *(int *)p_Var5;
+    bVar1 = (bool)hasExclusiveAccess(p_Var5);
+  } while (!bVar1);
+  *(int *)p_Var5 = iVar7 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar7 == 0) {
+    (**(code **)(*(int *)this + 8))(this);
+    std::__ndk1::__shared_weak_count::__release_weak(this);
+  }
+LAB_00e30dd8:
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<unsigned_long_long,std::__ndk1::shared_ptr<SRTARGET_USER>>,std::__ndk1::__map_value_compare<unsigned_long_long,std::__ndk1::__value_type<unsigned_long_long,std::__ndk1::shared_ptr<SRTARGET_USER>>,std::__ndk1::less<unsigned_long_long>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<unsigned_long_long,std::__ndk1::shared_ptr<SRTARGET_USER>>>>
+  ::destroy((__tree<std::__ndk1::__value_type<unsigned_long_long,std::__ndk1::shared_ptr<SRTARGET_USER>>,std::__ndk1::__map_value_compare<unsigned_long_long,std::__ndk1::__value_type<unsigned_long_long,std::__ndk1::shared_ptr<SRTARGET_USER>>,std::__ndk1::less<unsigned_long_long>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<unsigned_long_long,std::__ndk1::shared_ptr<SRTARGET_USER>>>>
+             *)&pp_Stack_44,p_Stack_40);
+  if (*piVar10 != iStack_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

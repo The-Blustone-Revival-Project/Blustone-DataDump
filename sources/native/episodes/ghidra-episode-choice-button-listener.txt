@@ -1,0 +1,260 @@
+===== 8f1214 OnButtonClick @ 008f1214 =====
+
+/* CSRDlgPlayer::OnButtonClick(CMUIView*, CMUIBase*) */
+
+void CSRDlgPlayer::OnButtonClick(CMUIView *param_1,CMUIBase *param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  CSRUITextbox *pCVar3;
+  CMTaskStream *this;
+  uint uVar4;
+  undefined4 *puVar5;
+  float fVar6;
+  basic_string *pbVar7;
+  CMSoundMgr *this_00;
+  __shared_weak_count *p_Var8;
+  CSRDataMgr *this_01;
+  CSRPlayData *pCVar9;
+  CSRGameStage *pCVar10;
+  code *pcVar11;
+  undefined1 *puVar12;
+  int in_r2;
+  int iVar13;
+  undefined4 in_r3;
+  int *piVar14;
+  int iVar15;
+  int *piVar16;
+  undefined4 uVar17;
+  int *piVar18;
+  bool bVar19;
+  float extraout_s0;
+  float extraout_s0_00;
+  char *in_stack_ffffff70;
+  CSRUIScrollView *local_7c;
+  __shared_weak_count *local_78;
+  CSRUITextbox *local_74;
+  __shared_weak_count *local_70;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_6c;
+  undefined1 auStack_6b [7];
+  undefined1 *local_64;
+  int local_60;
+  __shared_weak_count *local_5c;
+  undefined4 local_58;
+  undefined4 local_54;
+  undefined4 *local_50;
+  CMUIView *local_4c;
+  CMUIView *local_48;
+  function *local_40;
+  int local_34;
+  
+  piVar14 = *(int **)(DAT_008f15cc + 0x8f122e);
+  local_34 = *piVar14;
+  if ((*(int *)(param_1 + 0x124) != 0) && (*(int *)(param_1 + 0x124) == in_r2)) {
+    if (*piVar14 != local_34) {
+                    /* WARNING: Subroutine does not return */
+      __stack_chk_fail();
+    }
+    *(undefined4 *)(param_1 + 0x414) = 0;
+    CSRDlgFrontDraw::SetSkipVideo(*(CSRDlgFrontDraw **)(param_1 + 0x308));
+    return;
+  }
+  if ((*(int *)(param_1 + 0x11c) == 0) || (*(int *)(param_1 + 0x11c) != in_r2)) {
+    piVar18 = *(int **)(param_1 + 0x4bc);
+    iVar15 = *(int *)(*piVar18 + 4);
+    if ((iVar15 != 0) &&
+       (uVar4 = CMHashID::Crc32((CMHashID *)&DAT_0000000d,CONCAT44(in_r3,DAT_008f15d4 + 0x8f12ba),
+                                in_stack_ffffff70),
+       *(int *)(iVar15 + 0x26c) == 0 && (uVar4 ^ *(uint *)(iVar15 + 0x268)) == 0xffffffff)) {
+      puVar5 = (undefined4 *)CSRUIScrollView::GetScrollPos(*(CSRUIScrollView **)(param_1 + 0x10c));
+      local_58 = *puVar5;
+      local_54 = puVar5[1];
+      fVar6 = (float)CRMVector2::GetLength((CRMVector2 *)&local_58);
+      if ((fVar6 <= 1.0) ||
+         (iVar15 = CSRUIScrollView::IsScrolling(*(CSRUIScrollView **)(param_1 + 0x10c)), iVar15 != 0
+         )) {
+        if (piVar18 != *(int **)(param_1 + 0x4c0)) {
+          do {
+            piVar16 = (int *)*piVar18;
+            CSRUIScrollView::GetButton((char *)&local_60);
+            if (local_60 == in_r2) {
+              iVar15 = *piVar16;
+              bVar19 = *(int *)(iVar15 + 4) == 4;
+              if (bVar19) {
+                iVar15 = *(int *)(iVar15 + 8);
+              }
+              if (bVar19 && iVar15 == 2) {
+                this_01 = (CSRDataMgr *)CSRDataMgr::get();
+                pCVar9 = (CSRPlayData *)CSRDataMgr::GetPlayData(this_01);
+                iVar15 = CSRPlayData::GetStageAchieveCnt(pCVar9,0x23);
+                if (iVar15 != 0) goto LAB_008f1352;
+                pCVar10 = (CSRGameStage *)CSRGameStage::get();
+                iVar15 = CSRGameStage::GetStageData(pCVar10,0x23);
+                CGMDataMgr::get();
+                CGMDataMgr::GetLocalizedText((char *)&local_6c);
+                iVar13 = *(int *)(iVar15 + 0x48);
+                puVar12 = local_64;
+                if (((byte)local_6c & 1) == 0) {
+                  puVar12 = auStack_6b;
+                }
+                if ((*(byte *)(iVar15 + 0x40) & 1) == 0) {
+                  iVar13 = iVar15 + 0x41;
+                }
+                CMFormat((char *)&local_50,puVar12,iVar13);
+                if (((byte)local_6c & 1) != 0) {
+                  operator_delete(local_64);
+                }
+                iVar15 = CSRUIModalHandler::get();
+                CSRScenePostEffect::Toast((basic_string *)(iVar15 + 0x20),extraout_s0_00);
+                if (((uint)local_50 & 1) != 0) {
+                  operator_delete(local_48);
+                }
+              }
+              else {
+LAB_008f1352:
+                CSRUIScrollView::GetTextbox((char *)&local_74);
+                CMUIView::GetPanel((char *)&local_7c);
+                pCVar3 = local_74;
+                uVar4 = CSRUIScrollView::GetBgColor(local_7c);
+                CSRUITextbox::SetTextColor(pCVar3,uVar4);
+                pbVar7 = (basic_string *)CSRUITextbox::GetText(local_74);
+                std::__ndk1::
+                basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+                basic_string(&local_6c,pbVar7);
+                pCVar3 = local_74;
+                std::__ndk1::
+                basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+                basic_string<decltype(nullptr)>
+                          ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                            *)&local_50,(char *)(DAT_008f16f8 + 0x8f138e));
+                CSRUITextbox::SetText(pCVar3,(basic_string *)&local_50,'\0');
+                if (((uint)local_50 & 1) != 0) {
+                  operator_delete(local_48);
+                }
+                CSRUITextbox::SetText(local_74,(basic_string *)&local_6c,'\0');
+                this_00 = (CMSoundMgr *)CMSoundMgr::get();
+                fVar6 = (float)CMHashID::CMHashID((CMHashID *)&local_50,
+                                                  (char *)(DAT_008f16fc + 0x8f13c2));
+                CMSoundMgr::PlaySFX(this_00,(CMHashID *)&local_50,fVar6,'\0');
+                if (((uint)local_50 & 1) != 0) {
+                  operator_delete(local_48);
+                }
+                iVar15 = *piVar16;
+                if (*(undefined4 **)(iVar15 + 0x5c) == *(undefined4 **)(iVar15 + 0x60)) {
+                  uVar17 = *(undefined4 *)(iVar15 + 4);
+                  local_48 = (CMUIView *)0x0;
+                  local_50 = (undefined4 *)0x0;
+                  local_4c = (CMUIView *)0x0;
+                  puVar5 = operator_new(4);
+                  local_4c = (CMUIView *)(puVar5 + 1);
+                  *puVar5 = uVar17;
+                  local_50 = puVar5;
+                  local_48 = local_4c;
+                  SpawnNext((CSRDlgPlayer *)param_1,(vector *)&local_50);
+                }
+                else {
+                  uVar17 = **(undefined4 **)(iVar15 + 0x5c);
+                  local_48 = (CMUIView *)0x0;
+                  local_50 = (undefined4 *)0x0;
+                  local_4c = (CMUIView *)0x0;
+                  puVar5 = operator_new(4);
+                  local_4c = (CMUIView *)(puVar5 + 1);
+                  *puVar5 = uVar17;
+                  local_50 = puVar5;
+                  local_48 = local_4c;
+                  SpawnNext((CSRDlgPlayer *)param_1,(vector *)&local_50);
+                }
+                operator_delete(puVar5);
+                if (((byte)local_6c & 1) != 0) {
+                  operator_delete(local_64);
+                }
+                p_Var2 = local_78;
+                if (local_78 != (__shared_weak_count *)0x0) {
+                  p_Var8 = local_78 + 4;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var8);
+                    iVar15 = *(int *)p_Var8;
+                    bVar19 = (bool)hasExclusiveAccess(p_Var8);
+                  } while (!bVar19);
+                  *(int *)p_Var8 = iVar15 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar15 == 0) {
+                    (**(code **)(*(int *)local_78 + 8))(local_78);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+                  }
+                }
+                p_Var2 = local_70;
+                if (local_70 != (__shared_weak_count *)0x0) {
+                  p_Var8 = local_70 + 4;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var8);
+                    iVar15 = *(int *)p_Var8;
+                    bVar19 = (bool)hasExclusiveAccess(p_Var8);
+                  } while (!bVar19);
+                  *(int *)p_Var8 = iVar15 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar15 == 0) {
+                    (**(code **)(*(int *)local_70 + 8))(local_70);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+                  }
+                }
+              }
+              bVar19 = true;
+            }
+            else {
+              bVar19 = false;
+            }
+            p_Var2 = local_5c;
+            if (local_5c != (__shared_weak_count *)0x0) {
+              p_Var8 = local_5c + 4;
+              DataMemoryBarrier(0x1b);
+              do {
+                ExclusiveAccess(p_Var8);
+                iVar15 = *(int *)p_Var8;
+                bVar1 = (bool)hasExclusiveAccess(p_Var8);
+              } while (!bVar1);
+              *(int *)p_Var8 = iVar15 + -1;
+              DataMemoryBarrier(0x1b);
+              if (iVar15 == 0) {
+                (**(code **)(*(int *)local_5c + 8))(local_5c);
+                std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+              }
+            }
+          } while ((!bVar19) && (piVar18 = piVar18 + 1, piVar18 != *(int **)(param_1 + 0x4c0)));
+        }
+      }
+      else {
+        local_50 = (undefined4 *)0x0;
+        local_4c = (CMUIView *)0x0;
+        CSRUIScrollView::MoveTo(*(CRMVector2 **)(param_1 + 0x10c),fVar6 / DAT_008f16f4);
+      }
+    }
+  }
+  else {
+    CMFramework::get();
+    this = (CMTaskStream *)CMTaskStream::get();
+    local_50 = (undefined4 *)(DAT_008f15d0 + 0x8f1286);
+    local_4c = param_1;
+    local_40 = (function *)&local_50;
+    CMTaskStream::OnceImpl(this,(function *)&local_50,extraout_s0);
+    if ((function *)&local_50 == local_40) {
+      pcVar11 = *(code **)(*(int *)local_40 + 0x10);
+    }
+    else {
+      if (local_40 == (function *)0x0) goto LAB_008f157e;
+      pcVar11 = *(code **)(*(int *)local_40 + 0x14);
+    }
+    (*pcVar11)();
+  }
+LAB_008f157e:
+  if (*piVar14 != local_34) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

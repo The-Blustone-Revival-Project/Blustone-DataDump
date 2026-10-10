@@ -1,0 +1,58 @@
+===== b6cbf0 GetUserLevel @ 00b6cbf0 =====
+
+/* CSRPlayData::GetUserLevel() */
+
+uint __thiscall CSRPlayData::GetUserLevel(CSRPlayData *this)
+
+{
+  CSRUserLV *this_00;
+  uint uVar1;
+  CPVTracker *this_01;
+  
+  this_00 = (CSRUserLV *)CSRUserLV::get();
+  uVar1 = CSRUserLV::GetUserLevel(this_00,*(uint *)(this + 0x14c));
+  if (this[5] == (CSRPlayData)0x1) {
+    if (uVar1 != *(uint *)(this + 8)) {
+      *(uint *)(this + 8) = uVar1;
+      this_01 = (CPVTracker *)CPVTracker::get();
+      CPVTracker::MarkLevelUp(this_01,uVar1);
+    }
+  }
+  else if (this[5] == (CSRPlayData)0x0) {
+    *(uint *)(this + 8) = uVar1;
+    this[5] = (CSRPlayData)0x1;
+    return uVar1;
+  }
+  return uVar1;
+}
+
+
+===== 10a0916 GetUserLevel @ 010a0916 =====
+
+/* CSRUserLV::GetUserLevel(unsigned int) */
+
+int __thiscall CSRUserLV::GetUserLevel(CSRUserLV *this,uint param_1)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  
+  iVar3 = *(int *)(this + 0x54);
+  if (iVar3 == *(int *)(this + 0x58)) {
+    return 1;
+  }
+  iVar2 = *(int *)(this + 0x58) - iVar3;
+  iVar1 = 0;
+  do {
+    if (param_1 < *(uint *)(iVar3 + iVar1 * 4)) break;
+    iVar2 = iVar2 + -4;
+    iVar1 = iVar1 + 1;
+  } while (iVar2 != 0);
+  if (iVar1 == 0) {
+    iVar1 = 1;
+  }
+  return iVar1;
+}
+
+

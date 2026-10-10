@@ -1,0 +1,202 @@
+===== 007a8f50 MakeRect @ 007a8f50 =====
+
+/* CSRUIRect::MakeRect(char const*, unsigned int, CRMVector4 const&) */
+
+void __thiscall CSRUIRect::MakeRect(CSRUIRect *this,char *param_1,uint param_2,CRMVector4 *param_3)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  __shared_weak_count *p_Var3;
+  size_t sVar4;
+  int iVar5;
+  __shared_weak_count *p_Var6;
+  int *piVar7;
+  undefined4 local_3c;
+  undefined4 uStack_38;
+  undefined4 local_34;
+  __shared_weak_count *local_30;
+  undefined4 local_2c;
+  undefined4 uStack_28;
+  int local_24;
+
+  piVar7 = *(int **)(DAT_007a9050 + 0x7a8f66);
+  local_24 = *piVar7;
+  local_2c = *(undefined4 *)(this + 0x78);
+  uStack_28 = *(undefined4 *)(this + 0x7c);
+  std::__ndk1::shared_ptr<CM9Sprite>::make_shared<>((shared_ptr<CM9Sprite> *)&local_34);
+  p_Var3 = local_30;
+  uVar2 = local_34;
+  local_34 = 0;
+  local_30 = (__shared_weak_count *)0x0;
+  p_Var6 = *(__shared_weak_count **)(this + 0x880);
+  *(undefined4 *)(this + 0x87c) = uVar2;
+  *(__shared_weak_count **)(this + 0x880) = p_Var3;
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  p_Var3 = local_30;
+  if (local_30 != (__shared_weak_count *)0x0) {
+    p_Var6 = local_30 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar5 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_30 + 8))(local_30);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  local_34 = *(undefined4 *)param_3;
+  *(undefined4 *)(this + 0x864) = local_34;
+  local_30 = *(__shared_weak_count **)(param_3 + 4);
+  *(__shared_weak_count **)(this + 0x868) = local_30;
+  local_3c = *(undefined4 *)(param_3 + 8);
+  *(undefined4 *)(this + 0x86c) = local_3c;
+  uStack_38 = *(undefined4 *)(param_3 + 0xc);
+  *(undefined4 *)(this + 0x870) = uStack_38;
+  CM9Sprite::SetRatio(*(CM9Sprite **)(this + 0x87c),(CRMVector2 *)&local_34,(CRMVector2 *)&local_3c)
+  ;
+  sVar4 = strlen(param_1);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+         (this + 0x84c),param_1,sVar4);
+  CM9Sprite::Init9Sprite
+            (*(CM9Sprite **)(this + 0x87c),(basic_string *)(this + 0x84c),(CMVec2Size *)&local_2c);
+  *(uint *)(this + 0x858) = param_2;
+  if (*piVar7 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 00704504 make_shared<char_const(&)[12]> @ 00704504 =====
+
+/* std::__ndk1::shared_ptr<CMImageNode> std::__ndk1::shared_ptr<CMImageNode>::make_shared<char const
+   (&) [12]>(char const (&) [12]) */
+
+void __thiscall
+std::__ndk1::shared_ptr<CMImageNode>::make_shared<char_const(&)[12]>
+          (shared_ptr<CMImageNode> *this,char *param_1)
+
+{
+  __shared_weak_count *p_Var1;
+  __shared_weak_count *p_Var2;
+  bool bVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  __shared_weak_count *this_00;
+  int *piVar7;
+  int iVar8;
+  undefined4 uVar9;
+  __shared_weak_count *this_01;
+  __shared_weak_count *p_Var10;
+
+  this_00 = operator_new(0x8a0);
+  piVar7 = (int *)(DAT_00704608 + 0x704526);
+  p_Var1 = this_00 + 8;
+  *(undefined4 *)p_Var1 = 0;
+  iVar8 = *piVar7;
+  p_Var2 = this_00 + 4;
+  *(undefined4 *)p_Var2 = 0;
+  *(int *)this_00 = iVar8 + 8;
+  uVar9 = CMDrawable::CMDrawable((CMDrawable *)(this_00 + 0x10),param_1);
+  iVar8 = DAT_0070460c;
+  uVar4 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uVar5 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar6 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  *(undefined4 *)this = uVar9;
+  *(__shared_weak_count **)(this + 4) = this_00;
+  *(undefined4 *)(this_00 + 0x848) = 0;
+  *(undefined4 *)(this_00 + 0x84c) = uVar4;
+  *(undefined4 *)(this_00 + 0x850) = uVar5;
+  *(undefined4 *)(this_00 + 0x854) = uVar6;
+  *(undefined4 *)(this_00 + 0x858) = 0;
+  *(undefined4 *)(this_00 + 0x85c) = uVar4;
+  *(undefined4 *)(this_00 + 0x860) = uVar5;
+  *(undefined4 *)(this_00 + 0x864) = uVar6;
+  *(undefined4 *)(this_00 + 0x868) = 0;
+  *(undefined4 *)(this_00 + 0x86c) = uVar4;
+  *(undefined4 *)(this_00 + 0x870) = uVar5;
+  *(undefined4 *)(this_00 + 0x874) = uVar6;
+  *(undefined4 *)(this_00 + 0x878) = 0;
+  *(undefined4 *)(this_00 + 0x87c) = uVar4;
+  *(undefined4 *)(this_00 + 0x880) = uVar5;
+  *(undefined4 *)(this_00 + 0x884) = uVar6;
+  p_Var10 = this_00 + 0x888;
+  iVar8 = *(int *)(iVar8 + 0x70455a);
+  *(undefined4 *)(this_00 + 0x838) = 0;
+  *(undefined4 *)(this_00 + 0x83c) = 0;
+  *(undefined4 *)(this_00 + 0x840) = 0;
+  *(undefined4 *)p_Var10 = 0;
+  *(undefined4 *)(this_00 + 0x88c) = uVar4;
+  *(undefined4 *)(this_00 + 0x890) = uVar5;
+  *(undefined4 *)(this_00 + 0x894) = uVar6;
+  *(undefined4 *)(this_00 + 0x898) = 0;
+  *(int *)(this_00 + 0x10) = iVar8 + 8;
+  this_01 = *(__shared_weak_count **)(this_00 + 0x18);
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var10 = *(__shared_weak_count **)(this_01 + 4);
+  }
+  if (this_01 == (__shared_weak_count *)0x0 || p_Var10 == (__shared_weak_count *)0xffffffff) {
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar3 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar3);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    *(undefined4 *)(this_00 + 0x14) = uVar9;
+    *(__shared_weak_count **)(this_00 + 0x18) = this_00;
+    if (this_01 != (__shared_weak_count *)0x0) {
+      __shared_weak_count::__release_weak(this_01);
+    }
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar8 = *(int *)p_Var2;
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      __shared_weak_count::__release_weak(this_00);
+      return;
+    }
+  }
+  return;
+}
+
+
+===== 0077fbf8 ParseRect2 @ 0077fbf8 =====
+
+/* CMUIParser::ParseRect2(tinyxml2::XMLElement const*, std::__ndk1::shared_ptr<CSRUIRect>) */
+
+void CMUIParser::ParseRect2(void)
+
+{
+  return;
+}

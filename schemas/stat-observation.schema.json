@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blustone source-backed stat observation",
+  "type": "object",
+  "required": ["id", "entity_id", "measure", "value", "raw", "units", "context", "counts_as_base_stat", "provenance"],
+  "properties": {
+    "id": {"type": "string"},
+    "entity_id": {"type": ["string", "null"]},
+    "measure": {"type": "string"},
+    "value": {"type": ["number", "null"]},
+    "raw": {"type": "string"},
+    "units": {"type": "string"},
+    "context": {"type": "object"},
+    "counts_as_base_stat": {"type": "boolean"},
+    "provenance": {"$ref": "provenance.schema.json"}
+  }
+}

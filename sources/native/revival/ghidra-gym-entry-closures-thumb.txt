@@ -1,0 +1,240 @@
+===== proven Thumb 00dc98b8 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00dc98b8(int param_1)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  basic_string *pbVar3;
+  int iVar4;
+  code *pcVar5;
+  __shared_weak_count *p_Var6;
+  CSRTutorialGuideMsgDraw *pCVar7;
+  int iVar8;
+  int *piVar9;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_58 [8];
+  void *pvStack_50;
+  basic_string abStack_4c [8];
+  void *pvStack_44;
+  uint uStack_40;
+  int iStack_3c;
+  void *pvStack_38;
+  basic_string *pbStack_30;
+  int iStack_24;
+  
+  piVar9 = *(int **)(_DAT_00dc9a94 + 0xdc98c8);
+  iStack_24 = *piVar9;
+  iVar8 = *(int *)(param_1 + 4);
+  pCVar7 = *(CSRTutorialGuideMsgDraw **)(*(int *)(iVar8 + 0x928) + 0xcc);
+  p_Var6 = *(__shared_weak_count **)(*(int *)(iVar8 + 0x928) + 0xd0);
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &uStack_40,(char *)(_DAT_00dc9a98 + 0xdc98f2));
+  CGMDataMgr::get();
+  CGMDataMgr::GetLocalizedText((char *)abStack_4c);
+  pbVar3 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string<decltype(nullptr)>(abStack_58,(char *)(_DAT_00dc9aa0 + 0xdc990c));
+  CSRTutorialGuideMsgDraw::SetComment(pCVar7,(basic_string *)&uStack_40,abStack_4c,400,pbVar3);
+  if (((byte)abStack_58[0] & 1) != 0) {
+    operator_delete(pvStack_50);
+  }
+  if (((byte)abStack_4c[0] & 1) != 0) {
+    operator_delete(pvStack_44);
+  }
+  if ((uStack_40 & 1) != 0) {
+    operator_delete(pvStack_38);
+  }
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar4 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  pCVar7 = *(CSRTutorialGuideMsgDraw **)(*(int *)(iVar8 + 0x928) + 0xcc);
+  p_Var6 = *(__shared_weak_count **)(*(int *)(iVar8 + 0x928) + 0xd0);
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+  }
+  uStack_40 = _DAT_00dc9aa4 + 0xdc99a4;
+  iStack_3c = iVar8;
+  pbStack_30 = (basic_string *)&uStack_40;
+  CSRTutorialGuideMsgDraw::Appear(pCVar7,0,(basic_string *)&uStack_40);
+  if ((basic_string *)&uStack_40 == pbStack_30) {
+    pcVar5 = *(code **)(*(int *)pbStack_30 + 0x10);
+  }
+  else {
+    if (pbStack_30 == (basic_string *)0x0) goto LAB_00dc99bc;
+    pcVar5 = *(code **)(*(int *)pbStack_30 + 0x14);
+  }
+  (*pcVar5)();
+LAB_00dc99bc:
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar8 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  if (*piVar9 == iStack_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== proven Thumb 00eecbdc =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00eecbdc(int param_1)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  basic_string *pbVar3;
+  int iVar4;
+  code *pcVar5;
+  __shared_weak_count *p_Var6;
+  CSRTutorialGuideMsgDraw *pCVar7;
+  int iVar8;
+  int *piVar9;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_58 [8];
+  void *pvStack_50;
+  basic_string abStack_4c [8];
+  void *pvStack_44;
+  uint uStack_40;
+  int iStack_3c;
+  void *pvStack_38;
+  basic_string *pbStack_30;
+  int iStack_24;
+  
+  piVar9 = *(int **)(_DAT_00eecdb8 + 0xeecbec);
+  iStack_24 = *piVar9;
+  iVar8 = *(int *)(param_1 + 4);
+  pCVar7 = *(CSRTutorialGuideMsgDraw **)(*(int *)(iVar8 + 0x7e4) + 0xcc);
+  p_Var6 = *(__shared_weak_count **)(*(int *)(iVar8 + 0x7e4) + 0xd0);
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &uStack_40,(char *)(_DAT_00eecdbc + 0xeecc16));
+  CGMDataMgr::get();
+  CGMDataMgr::GetLocalizedText((char *)abStack_4c);
+  pbVar3 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string<decltype(nullptr)>(abStack_58,(char *)(_DAT_00eecdc4 + 0xeecc30));
+  CSRTutorialGuideMsgDraw::SetComment(pCVar7,(basic_string *)&uStack_40,abStack_4c,500,pbVar3);
+  if (((byte)abStack_58[0] & 1) != 0) {
+    operator_delete(pvStack_50);
+  }
+  if (((byte)abStack_4c[0] & 1) != 0) {
+    operator_delete(pvStack_44);
+  }
+  if ((uStack_40 & 1) != 0) {
+    operator_delete(pvStack_38);
+  }
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar4 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  pCVar7 = *(CSRTutorialGuideMsgDraw **)(*(int *)(iVar8 + 0x7e4) + 0xcc);
+  p_Var6 = *(__shared_weak_count **)(*(int *)(iVar8 + 0x7e4) + 0xd0);
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+  }
+  uStack_40 = _DAT_00eecdc8 + 0xeeccc8;
+  iStack_3c = iVar8;
+  pbStack_30 = (basic_string *)&uStack_40;
+  CSRTutorialGuideMsgDraw::Appear(pCVar7,(basic_string *)&uStack_40);
+  if ((basic_string *)&uStack_40 == pbStack_30) {
+    pcVar5 = *(code **)(*(int *)pbStack_30 + 0x10);
+  }
+  else {
+    if (pbStack_30 == (basic_string *)0x0) goto LAB_00eeccde;
+    pcVar5 = *(code **)(*(int *)pbStack_30 + 0x14);
+  }
+  (*pcVar5)();
+LAB_00eeccde:
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar8 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  if (*piVar9 == iStack_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

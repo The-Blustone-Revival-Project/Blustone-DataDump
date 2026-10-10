@@ -1,0 +1,384 @@
+===== a299ba GetStageCnt @ 00a299ba =====
+
+/* CSRGameStage::GetStageCnt(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+int __thiscall CSRGameStage::GetStageCnt(CSRGameStage *this,basic_string *param_1)
+
+{
+  byte bVar1;
+  uint uVar2;
+  int iVar3;
+  size_t __n;
+  basic_string *__s2;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  
+  iVar4 = *(int *)(this + 0x18);
+  iVar6 = *(int *)(this + 0x1c);
+  if (iVar4 == iVar6) {
+    iVar5 = 0;
+  }
+  else {
+    iVar5 = 0;
+    __n = *(size_t *)(param_1 + 4);
+    __s2 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      __s2 = param_1 + 1;
+      __n = (size_t)((byte)*param_1 >> 1);
+    }
+    do {
+      bVar1 = *(byte *)(iVar4 + 4);
+      uVar2 = *(uint *)(iVar4 + 8);
+      if ((bVar1 & 1) == 0) {
+        uVar2 = (uint)(bVar1 >> 1);
+      }
+      if (uVar2 == __n) {
+        if ((bVar1 & 1) == 0) {
+          if (__n != 0) {
+            uVar2 = 0;
+            do {
+              if (*(basic_string *)(iVar4 + uVar2 + 5) != __s2[uVar2]) goto LAB_00a299e4;
+              uVar2 = uVar2 + 1;
+            } while (bVar1 >> 1 != uVar2);
+          }
+        }
+        else if (__n != 0) {
+          iVar3 = memcmp(*(void **)(iVar4 + 0xc),__s2,__n);
+          if (iVar3 == 0) {
+            iVar5 = iVar5 + 1;
+          }
+          goto LAB_00a299e4;
+        }
+        iVar5 = iVar5 + 1;
+      }
+LAB_00a299e4:
+      iVar4 = iVar4 + 0x1c;
+    } while (iVar4 != iVar6);
+  }
+  return iVar5;
+}
+
+
+===== a29880 GetStageLinks @ 00a29880 =====
+
+/* CSRGameStage::GetStageLinks(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+void CSRGameStage::GetStageLinks(basic_string *param_1)
+
+{
+  byte bVar1;
+  basic_string bVar2;
+  uint uVar3;
+  int iVar4;
+  undefined4 uVar5;
+  int in_r1;
+  undefined4 uVar6;
+  byte *__s2;
+  byte *in_r2;
+  size_t __n;
+  STAGE_LINK *pSVar7;
+  STAGE_LINK *pSVar8;
+  undefined4 *puVar9;
+  
+  uVar6 = 0;
+  *(undefined4 *)param_1 = 0;
+  *(undefined4 *)(param_1 + 4) = 0;
+  *(undefined4 *)(param_1 + 8) = 0;
+  pSVar7 = *(STAGE_LINK **)(in_r1 + 0x18);
+  pSVar8 = *(STAGE_LINK **)(in_r1 + 0x1c);
+  if (pSVar7 == pSVar8) {
+    uVar5 = 0;
+  }
+  else {
+    do {
+      bVar1 = *in_r2;
+      bVar2 = *(basic_string *)(pSVar7 + 4);
+      uVar3 = *(uint *)(in_r2 + 4);
+      __n = *(size_t *)(pSVar7 + 8);
+      if ((bVar1 & 1) == 0) {
+        uVar3 = (uint)(bVar1 >> 1);
+      }
+      if (((byte)bVar2 & 1) == 0) {
+        __n = (size_t)((byte)bVar2 >> 1);
+      }
+      if (__n == uVar3) {
+        __s2 = *(byte **)(in_r2 + 8);
+        if ((bVar1 & 1) == 0) {
+          __s2 = in_r2 + 1;
+        }
+        if (((byte)bVar2 & 1) == 0) {
+          if (__n != 0) {
+            uVar3 = 0;
+            do {
+              if (pSVar7[uVar3 + 5] != *(STAGE_LINK *)(__s2 + uVar3)) goto LAB_00a298aa;
+              uVar3 = uVar3 + 1;
+            } while ((byte)bVar2 >> 1 != uVar3);
+          }
+        }
+        else if ((__n != 0) && (iVar4 = memcmp(*(void **)(pSVar7 + 0xc),__s2,__n), iVar4 != 0))
+        goto LAB_00a298aa;
+        puVar9 = *(undefined4 **)(param_1 + 4);
+        if (puVar9 == *(undefined4 **)(param_1 + 8)) {
+          std::__ndk1::
+          vector<CSRGameStage::STAGE_LINK,std::__ndk1::allocator<CSRGameStage::STAGE_LINK>>::
+          __push_back_slow_path<CSRGameStage::STAGE_LINK_const&>
+                    ((vector<CSRGameStage::STAGE_LINK,std::__ndk1::allocator<CSRGameStage::STAGE_LINK>>
+                      *)param_1,pSVar7);
+        }
+        else {
+          *puVar9 = *(undefined4 *)pSVar7;
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)(puVar9 + 1),(basic_string *)(pSVar7 + 4));
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)(puVar9 + 4),(basic_string *)(pSVar7 + 0x10));
+          *(undefined4 **)(param_1 + 4) = puVar9 + 7;
+        }
+      }
+LAB_00a298aa:
+      pSVar7 = pSVar7 + 0x1c;
+    } while (pSVar7 != pSVar8);
+    uVar5 = *(undefined4 *)param_1;
+    uVar6 = *(undefined4 *)(param_1 + 4);
+  }
+  FUN_00a30668(uVar5,uVar6);
+  return;
+}
+
+
+===== a29c34 GetRewards @ 00a29c34 =====
+
+/* CSRGameStage::GetRewards(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+void CSRGameStage::GetRewards(basic_string *param_1)
+
+{
+  byte bVar1;
+  ACHIEVE_REWARD AVar2;
+  uint uVar3;
+  int iVar4;
+  int in_r1;
+  byte *__s2;
+  byte *in_r2;
+  size_t __n;
+  ACHIEVE_REWARD *this;
+  ACHIEVE_REWARD *pAVar5;
+  ACHIEVE_REWARD *pAVar6;
+  
+  *(undefined4 *)param_1 = 0;
+  *(undefined4 *)(param_1 + 4) = 0;
+  *(undefined4 *)(param_1 + 8) = 0;
+  pAVar5 = *(ACHIEVE_REWARD **)(in_r1 + 0x24);
+  pAVar6 = *(ACHIEVE_REWARD **)(in_r1 + 0x28);
+  do {
+    if (pAVar5 == pAVar6) {
+      return;
+    }
+    bVar1 = *in_r2;
+    AVar2 = pAVar5[0x10];
+    uVar3 = *(uint *)(in_r2 + 4);
+    __n = *(size_t *)(pAVar5 + 0x14);
+    if ((bVar1 & 1) == 0) {
+      uVar3 = (uint)(bVar1 >> 1);
+    }
+    if (((byte)AVar2 & 1) == 0) {
+      __n = (size_t)((byte)AVar2 >> 1);
+    }
+    if (__n == uVar3) {
+      __s2 = *(byte **)(in_r2 + 8);
+      if ((bVar1 & 1) == 0) {
+        __s2 = in_r2 + 1;
+      }
+      if (((byte)AVar2 & 1) == 0) {
+        if (__n != 0) {
+          uVar3 = 0;
+          do {
+            if (pAVar5[uVar3 + 0x11] != *(ACHIEVE_REWARD *)(__s2 + uVar3)) goto LAB_00a29c5c;
+            uVar3 = uVar3 + 1;
+          } while ((byte)AVar2 >> 1 != uVar3);
+        }
+      }
+      else if ((__n != 0) && (iVar4 = memcmp(*(void **)(pAVar5 + 0x18),__s2,__n), iVar4 != 0))
+      goto LAB_00a29c5c;
+      this = *(ACHIEVE_REWARD **)(param_1 + 4);
+      if (this == *(ACHIEVE_REWARD **)(param_1 + 8)) {
+        std::__ndk1::
+        vector<CSRGameStage::ACHIEVE_REWARD,std::__ndk1::allocator<CSRGameStage::ACHIEVE_REWARD>>::
+        __push_back_slow_path<CSRGameStage::ACHIEVE_REWARD_const&>
+                  ((vector<CSRGameStage::ACHIEVE_REWARD,std::__ndk1::allocator<CSRGameStage::ACHIEVE_REWARD>>
+                    *)param_1,pAVar5);
+      }
+      else {
+        ACHIEVE_REWARD::ACHIEVE_REWARD(this,pAVar5);
+        *(ACHIEVE_REWARD **)(param_1 + 4) = this + 0x34;
+      }
+    }
+LAB_00a29c5c:
+    pAVar5 = pAVar5 + 0x34;
+  } while( true );
+}
+
+
+===== b6cedc SetStageAchieve @ 00b6cedc =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CSRPlayData::SetStageAchieve(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, int) */
+
+void __thiscall CSRPlayData::SetStageAchieve(CSRPlayData *this,basic_string *param_1,int param_2)
+
+{
+  ulonglong uVar1;
+  void *pvVar2;
+  uint uVar3;
+  void *pvVar4;
+  __tree_node_base **pp_Var5;
+  __tree_node_base *p_Var6;
+  basic_string *pbVar7;
+  int *piVar8;
+  __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>>>
+  *this_00;
+  __tree_end_node *local_5c;
+  uint local_58;
+  undefined4 uStack_54;
+  void *local_50;
+  undefined8 local_4c;
+  void *local_44;
+  undefined2 local_40;
+  __tree_node_base local_3e;
+  basic_string *local_38;
+  uint uStack_34;
+  void *local_30;
+  undefined2 local_2c;
+  __tree_node_base local_2a;
+  int local_28;
+  
+  this_00 = (__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>>>
+             *)(this + 0x27c);
+  piVar8 = *(int **)(_LAB_00b6d0f0 + 0xb6cef4);
+  local_28 = *piVar8;
+  uVar3 = std::__ndk1::
+          __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>>>
+          ::
+          __count_unique<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                    (this_00,param_1);
+  if (uVar3 != 0) {
+    local_38 = param_1;
+    std::__ndk1::
+    __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>>>
+    ::
+    __emplace_unique_key_args<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>,std::__ndk1::tuple<>>
+              ((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>>>
+                *)&local_58,(basic_string *)this_00,(piecewise_construct_t *)param_1,
+               (tuple *)(DAT_00b6d0f8 + 0xb6cf16),(tuple *)&local_38);
+    *(undefined1 *)(local_58 + param_2 + 0x28) = 1;
+    goto LAB_00b6d096;
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_38,*(basic_string **)(DAT_00b6d0f4 + 0xb6cf34));
+  local_2a = (__tree_node_base)0x0;
+  local_2c = 0;
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)&local_38 !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)param_1) {
+    uVar3 = *(uint *)(param_1 + 4);
+    pbVar7 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar7 = param_1 + 1;
+      uVar3 = (uint)((byte)*param_1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           &local_38,(char *)pbVar7,uVar3);
+  }
+  local_2a = (__tree_node_base)0x0;
+  local_2c = 0;
+  *(undefined1 *)((int)&local_2c + param_2) = 1;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_58,param_1);
+  pvVar2 = local_30;
+  local_4c = 0;
+  local_44 = (void *)0x0;
+  if (((uint)local_38 & 1) == 0) {
+    local_4c = CONCAT44(uStack_34,local_38);
+    local_44 = local_30;
+  }
+  else {
+    if (0xffffffef < uStack_34) {
+                    /* WARNING: Subroutine does not return */
+      std::__ndk1::__basic_string_common<true>::__throw_length_error();
+    }
+    if (uStack_34 < 0xb) {
+      pvVar4 = (void *)((int)&local_4c + 1);
+      local_4c = (ulonglong)((uStack_34 & 0x7f) << 1);
+      if (uStack_34 != 0) goto LAB_00b6cfd8;
+    }
+    else {
+      pvVar4 = operator_new(uStack_34 + 0x10 & 0xfffffff0);
+      local_4c = CONCAT44(uStack_34,uStack_34 + 0x10) & 0xfffffffffffffff0 | 1;
+      local_44 = pvVar4;
+LAB_00b6cfd8:
+      __aeabi_memcpy(pvVar4,pvVar2,uStack_34);
+    }
+    *(undefined1 *)((int)pvVar4 + uStack_34) = 0;
+  }
+  local_3e = local_2a;
+  local_40 = local_2c;
+  pp_Var5 = std::__ndk1::
+            __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRPlayData::STAGE_INFO>>>
+            ::
+            __find_equal<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                      (this_00,&local_5c,(basic_string *)&local_58);
+  if (*pp_Var5 == (__tree_node_base *)0x0) {
+    p_Var6 = operator_new(0x2c);
+    pvVar2 = local_44;
+    uVar1 = local_4c;
+    *(void **)(p_Var6 + 0x18) = local_50;
+    *(ulonglong *)(p_Var6 + 0x10) = CONCAT44(uStack_54,local_58);
+    local_58 = 0;
+    uStack_54 = 0;
+    local_50 = (void *)0x0;
+    local_4c = 0;
+    local_44 = (void *)0x0;
+    *(void **)(p_Var6 + 0x24) = pvVar2;
+    *(ulonglong *)(p_Var6 + 0x1c) = uVar1;
+    *(undefined2 *)(p_Var6 + 0x28) = local_40;
+    p_Var6[0x2a] = local_3e;
+    *(undefined4 *)p_Var6 = 0;
+    *(undefined4 *)(p_Var6 + 4) = 0;
+    *(__tree_end_node **)(p_Var6 + 8) = local_5c;
+    *pp_Var5 = p_Var6;
+    if (**(int **)this_00 != 0) {
+      *(int *)this_00 = **(int **)this_00;
+      p_Var6 = *pp_Var5;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x280),p_Var6);
+    *(int *)(this + 0x284) = *(int *)(this + 0x284) + 1;
+  }
+  if ((local_4c & 1) != 0) {
+    operator_delete(local_44);
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  if (((uint)local_38 & 1) != 0) {
+    operator_delete(local_30);
+  }
+LAB_00b6d096:
+  if (*piVar8 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

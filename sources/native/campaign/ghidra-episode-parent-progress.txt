@@ -1,0 +1,408 @@
+===== b1b2ec RegisterClearIDs @ 00b1b2ec =====
+
+/* CSRMEpisode::RegisterClearIDs(CSREpisodeData::TYPE,
+   std::__ndk1::vector<std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, std::__ndk1::allocator<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > > >&) */
+
+void __thiscall CSRMEpisode::RegisterClearIDs(CSRMEpisode *this,int param_2,undefined4 *param_3)
+
+{
+  byte *pbVar1;
+  bool bVar2;
+  byte *pbVar3;
+  CSRMEpisode *pCVar4;
+  __shared_weak_count *p_Var5;
+  int *piVar6;
+  int iVar7;
+  CSRMEpisode *pCVar8;
+  byte *pbVar9;
+  __shared_weak_count *p_Var10;
+  CSRMEpisode *pCVar11;
+  int iVar12;
+  undefined4 local_2c;
+  __shared_weak_count *p_Stack_28;
+  
+  pbVar9 = (byte *)*param_3;
+  pbVar1 = (byte *)param_3[1];
+  while (pbVar3 = pbVar1, pbVar3 != pbVar9) {
+    pbVar1 = pbVar3 + -0xc;
+    if ((*pbVar1 & 1) != 0) {
+      operator_delete(*(void **)(pbVar3 + -4));
+    }
+  }
+  param_3[1] = pbVar9;
+  if (*(CSRMEpisode **)(this + 0x38) != this + 0x3c) {
+    pCVar11 = *(CSRMEpisode **)(this + 0x38);
+    do {
+      pCVar4 = (CSRMEpisode *)
+               std::__ndk1::
+               __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>>>
+               ::
+               find<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                         ((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>>>
+                           *)(this + 0x2c),*(basic_string **)(pCVar11 + 0x1c));
+      if (this + 0x30 == pCVar4) {
+        piVar6 = (int *)0x0;
+LAB_00b1b386:
+        iVar12 = *piVar6;
+      }
+      else {
+        piVar6 = *(int **)(pCVar4 + 0x1c);
+        p_Var10 = *(__shared_weak_count **)(pCVar4 + 0x20);
+        if (p_Var10 == (__shared_weak_count *)0x0) goto LAB_00b1b386;
+        p_Var5 = p_Var10 + 4;
+        do {
+          ExclusiveAccess(p_Var5);
+          bVar2 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar2);
+        *(int *)p_Var5 = *(int *)p_Var5 + 1;
+        iVar12 = *piVar6;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar7 = *(int *)p_Var5;
+          bVar2 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar2);
+        *(int *)p_Var5 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+        }
+      }
+      if (iVar12 == param_2) {
+        local_2c = *(undefined4 *)(pCVar11 + 0x1c);
+        p_Var10 = *(__shared_weak_count **)(pCVar11 + 0x20);
+        if (p_Var10 != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Var10 + 4;
+          do {
+            ExclusiveAccess(p_Var5);
+            bVar2 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar2);
+          *(int *)p_Var5 = *(int *)p_Var5 + 1;
+        }
+        p_Stack_28 = p_Var10;
+        RecursiveRegisterClearIDs(this,param_3,&local_2c);
+        if (p_Var10 != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Var10 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar12 = *(int *)p_Var5;
+            bVar2 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar2);
+          *(int *)p_Var5 = iVar12 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar12 == 0) {
+            (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+          }
+        }
+      }
+      pCVar4 = *(CSRMEpisode **)(pCVar11 + 4);
+      if (*(CSRMEpisode **)(pCVar11 + 4) == (CSRMEpisode *)0x0) {
+        pCVar4 = pCVar11 + 8;
+        pCVar8 = *(CSRMEpisode **)pCVar4;
+        if (*(CSRMEpisode **)pCVar8 != pCVar11) {
+          do {
+            iVar12 = *(int *)pCVar4;
+            pCVar4 = (CSRMEpisode *)(iVar12 + 8);
+            pCVar8 = *(CSRMEpisode **)pCVar4;
+          } while (*(int *)pCVar8 != iVar12);
+        }
+      }
+      else {
+        do {
+          pCVar8 = pCVar4;
+          pCVar4 = *(CSRMEpisode **)pCVar8;
+        } while (*(CSRMEpisode **)pCVar8 != (CSRMEpisode *)0x0);
+      }
+      pCVar11 = pCVar8;
+    } while (pCVar8 != this + 0x3c);
+  }
+  return;
+}
+
+
+===== b1baf6 RecursiveRegisterClearIDs @ 00b1baf6 =====
+
+/* CSRMEpisode::RecursiveRegisterClearIDs(std::__ndk1::vector<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   std::__ndk1::allocator<std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > > >&, std::__ndk1::shared_ptr<CSREpisodeData::LINK>) */
+
+void __thiscall
+CSRMEpisode::RecursiveRegisterClearIDs
+          (CSRMEpisode *this,
+          vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+          *param_1,int *param_3)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  basic_string *pbVar3;
+  int iVar4;
+  basic_string *pbVar5;
+  __shared_weak_count *this_00;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_01;
+  undefined4 local_2c;
+  __shared_weak_count *p_Stack_28;
+  
+  pbVar3 = (basic_string *)*param_3;
+  pbVar5 = *(basic_string **)(pbVar3 + 0x18);
+  if (pbVar3 + 0x14 != pbVar5) {
+    do {
+      local_2c = *(undefined4 *)(pbVar5 + 8);
+      this_00 = *(__shared_weak_count **)(pbVar5 + 0xc);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var2 = this_00 + 4;
+        do {
+          ExclusiveAccess(p_Var2);
+          bVar1 = (bool)hasExclusiveAccess(p_Var2);
+        } while (!bVar1);
+        *(int *)p_Var2 = *(int *)p_Var2 + 1;
+      }
+      p_Stack_28 = this_00;
+      RecursiveRegisterClearIDs(this,param_1,&local_2c);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var2 = this_00 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var2);
+          iVar4 = *(int *)p_Var2;
+          bVar1 = (bool)hasExclusiveAccess(p_Var2);
+        } while (!bVar1);
+        *(int *)p_Var2 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 == 0) {
+          (**(code **)(*(int *)this_00 + 8))(this_00);
+          std::__ndk1::__shared_weak_count::__release_weak(this_00);
+        }
+      }
+      pbVar5 = *(basic_string **)(pbVar5 + 4);
+    } while (pbVar3 + 0x14 != pbVar5);
+    pbVar3 = (basic_string *)*param_3;
+  }
+  this_01 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+             (param_1 + 4);
+  if (this_01 !=
+      *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+       (param_1 + 8)) {
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string(this_01,pbVar3);
+    *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+     (param_1 + 4) = this_01 + 0xc;
+    return;
+  }
+  std::__ndk1::
+  vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+  ::
+  __push_back_slow_path<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+            (param_1,pbVar3);
+  return;
+}
+
+
+===== b1b17c RegisterReadIDs @ 00b1b17c =====
+
+/* CSRMEpisode::RegisterReadIDs(CSREpisodeData::TYPE,
+   std::__ndk1::vector<std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, std::__ndk1::allocator<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > > >&) */
+
+void __thiscall CSRMEpisode::RegisterReadIDs(CSRMEpisode *this,int param_2,undefined4 *param_3)
+
+{
+  byte *pbVar1;
+  bool bVar2;
+  byte *pbVar3;
+  CSRMEpisode *pCVar4;
+  __shared_weak_count *p_Var5;
+  int *piVar6;
+  int iVar7;
+  CSRMEpisode *pCVar8;
+  byte *pbVar9;
+  __shared_weak_count *p_Var10;
+  CSRMEpisode *pCVar11;
+  int iVar12;
+  undefined4 local_2c;
+  __shared_weak_count *p_Stack_28;
+  
+  pbVar9 = (byte *)*param_3;
+  pbVar1 = (byte *)param_3[1];
+  while (pbVar3 = pbVar1, pbVar3 != pbVar9) {
+    pbVar1 = pbVar3 + -0xc;
+    if ((*pbVar1 & 1) != 0) {
+      operator_delete(*(void **)(pbVar3 + -4));
+    }
+  }
+  param_3[1] = pbVar9;
+  if (*(CSRMEpisode **)(this + 0x38) != this + 0x3c) {
+    pCVar11 = *(CSRMEpisode **)(this + 0x38);
+    do {
+      pCVar4 = (CSRMEpisode *)
+               std::__ndk1::
+               __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>>>
+               ::
+               find<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+                         ((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSREpisodeData>>>>
+                           *)(this + 0x2c),*(basic_string **)(pCVar11 + 0x1c));
+      if (this + 0x30 == pCVar4) {
+        piVar6 = (int *)0x0;
+LAB_00b1b216:
+        iVar12 = *piVar6;
+      }
+      else {
+        piVar6 = *(int **)(pCVar4 + 0x1c);
+        p_Var10 = *(__shared_weak_count **)(pCVar4 + 0x20);
+        if (p_Var10 == (__shared_weak_count *)0x0) goto LAB_00b1b216;
+        p_Var5 = p_Var10 + 4;
+        do {
+          ExclusiveAccess(p_Var5);
+          bVar2 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar2);
+        *(int *)p_Var5 = *(int *)p_Var5 + 1;
+        iVar12 = *piVar6;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar7 = *(int *)p_Var5;
+          bVar2 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar2);
+        *(int *)p_Var5 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+        }
+      }
+      if (iVar12 == param_2) {
+        local_2c = *(undefined4 *)(pCVar11 + 0x1c);
+        p_Var10 = *(__shared_weak_count **)(pCVar11 + 0x20);
+        if (p_Var10 != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Var10 + 4;
+          do {
+            ExclusiveAccess(p_Var5);
+            bVar2 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar2);
+          *(int *)p_Var5 = *(int *)p_Var5 + 1;
+        }
+        p_Stack_28 = p_Var10;
+        RecursiveRegisterReadIDs(this,param_3,&local_2c);
+        if (p_Var10 != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Var10 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar12 = *(int *)p_Var5;
+            bVar2 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar2);
+          *(int *)p_Var5 = iVar12 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar12 == 0) {
+            (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+          }
+        }
+      }
+      pCVar4 = *(CSRMEpisode **)(pCVar11 + 4);
+      if (*(CSRMEpisode **)(pCVar11 + 4) == (CSRMEpisode *)0x0) {
+        pCVar4 = pCVar11 + 8;
+        pCVar8 = *(CSRMEpisode **)pCVar4;
+        if (*(CSRMEpisode **)pCVar8 != pCVar11) {
+          do {
+            iVar12 = *(int *)pCVar4;
+            pCVar4 = (CSRMEpisode *)(iVar12 + 8);
+            pCVar8 = *(CSRMEpisode **)pCVar4;
+          } while (*(int *)pCVar8 != iVar12);
+        }
+      }
+      else {
+        do {
+          pCVar8 = pCVar4;
+          pCVar4 = *(CSRMEpisode **)pCVar8;
+        } while (*(CSRMEpisode **)pCVar8 != (CSRMEpisode *)0x0);
+      }
+      pCVar11 = pCVar8;
+    } while (pCVar8 != this + 0x3c);
+  }
+  return;
+}
+
+
+===== b1ba18 RecursiveRegisterReadIDs @ 00b1ba18 =====
+
+/* CSRMEpisode::RecursiveRegisterReadIDs(std::__ndk1::vector<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   std::__ndk1::allocator<std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > > >&, std::__ndk1::shared_ptr<CSREpisodeData::LINK>) */
+
+void __thiscall
+CSRMEpisode::RecursiveRegisterReadIDs
+          (CSRMEpisode *this,
+          vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+          *param_1,int *param_3)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  int iVar5;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_00;
+  __shared_weak_count *this_01;
+  undefined4 local_28;
+  __shared_weak_count *p_Stack_24;
+  
+  this_00 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+             (param_1 + 4);
+  if (this_00 ==
+      *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+       (param_1 + 8)) {
+    std::__ndk1::
+    vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+    ::
+    __push_back_slow_path<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+              (param_1,(basic_string *)*param_3);
+  }
+  else {
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string(this_00,(basic_string *)*param_3);
+    *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+     (param_1 + 4) = this_00 + 0xc;
+  }
+  iVar2 = *param_3;
+  for (iVar5 = *(int *)(iVar2 + 0x18); iVar2 + 0x14 != iVar5; iVar5 = *(int *)(iVar5 + 4)) {
+    local_28 = *(undefined4 *)(iVar5 + 8);
+    this_01 = *(__shared_weak_count **)(iVar5 + 0xc);
+    if (this_01 != (__shared_weak_count *)0x0) {
+      p_Var3 = this_01 + 4;
+      do {
+        ExclusiveAccess(p_Var3);
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = *(int *)p_Var3 + 1;
+    }
+    p_Stack_24 = this_01;
+    RecursiveRegisterReadIDs(this,param_1,&local_28);
+    if (this_01 != (__shared_weak_count *)0x0) {
+      p_Var3 = this_01 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar4 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)this_01 + 8))(this_01);
+        std::__ndk1::__shared_weak_count::__release_weak(this_01);
+      }
+    }
+  }
+  return;
+}
+
+

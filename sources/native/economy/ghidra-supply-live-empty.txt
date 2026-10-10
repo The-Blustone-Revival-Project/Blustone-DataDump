@@ -1,0 +1,194 @@
+===== f84c10 ReqSupplyCB @ 00f84c10 =====
+
+/* CSRSyncRef::ReqSupplyCB(std::__ndk1::shared_ptr<CPVHTTPRequest> const&,
+   std::__ndk1::shared_ptr<CPVHTTPResponse> const&, nlohmann::basic_json<std::__ndk1::map,
+   std::__ndk1::vector, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, bool, long long, unsigned long long, double,
+   std::__ndk1::allocator, nlohmann::adl_serializer, std::__ndk1::vector<unsigned char,
+   std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall
+CSRSyncRef::ReqSupplyCB
+          (CSRSyncRef *this,shared_ptr *param_1,shared_ptr *param_2,basic_json *param_3)
+
+{
+  int iVar1;
+  CSRDataMgr *this_00;
+  CSRRefData *this_01;
+  
+  if ((*(CPVHTTPResponse **)param_2 != (CPVHTTPResponse *)0x0) &&
+     (iVar1 = CPVHTTPResponse::GetResultCode(*(CPVHTTPResponse **)param_2), iVar1 != 1)) {
+    return;
+  }
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  this_01 = (CSRRefData *)CSRDataMgr::GetReferenceData(this_00);
+  CSRRefData::SetSupply(this_01,param_3);
+  return;
+}
+
+
+===== de4146 SetActivitySupplyThumb @ 00de4146 =====
+
+/* CSRRefData::SetActivitySupplyThumb() */
+
+void __thiscall CSRRefData::SetActivitySupplyThumb(CSRRefData *this)
+
+{
+  CSRItemInfo *pCVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar2;
+  undefined4 uVar3;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar4;
+  uint uVar5;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar6;
+  int iVar7;
+  int iVar8;
+  
+  iVar7 = *(int *)(this + 0x2c0);
+  iVar8 = *(int *)(this + 0x2c4);
+  do {
+    if (iVar7 == iVar8) {
+      return;
+    }
+    pbVar6 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             (iVar7 + 0x28);
+    if (*(int *)pbVar6 == 0) {
+      pbVar6 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               (iVar7 + 0x24);
+      if (*(int *)pbVar6 != 0) {
+        pCVar1 = (CSRItemInfo *)CSRItemInfo::get();
+        uVar3 = 1;
+        goto LAB_00de4174;
+      }
+      pbVar6 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+                (iVar7 + 0x3c);
+      if (*(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+           (iVar7 + 0x40) != pbVar6) {
+        if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            (iVar7 + 0x48) != pbVar6) {
+          uVar5 = *(uint *)(pbVar6 + 4);
+          pbVar2 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                     **)(pbVar6 + 8);
+          if (((byte)*pbVar6 & 1) == 0) {
+            pbVar2 = pbVar6 + 1;
+            uVar5 = (uint)((byte)*pbVar6 >> 1);
+          }
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)(iVar7 + 0x48),(char *)pbVar2,uVar5);
+          pbVar6 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                     **)(iVar7 + 0x3c);
+        }
+LAB_00de41f4:
+        pbVar6 = pbVar6 + 0xc;
+        goto LAB_00de419a;
+      }
+      pbVar6 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+                (iVar7 + 0x30);
+      if (*(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+           (iVar7 + 0x34) != pbVar6) {
+        if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            (iVar7 + 0x48) != pbVar6) {
+          uVar5 = *(uint *)(pbVar6 + 4);
+          pbVar2 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                     **)(pbVar6 + 8);
+          if (((byte)*pbVar6 & 1) == 0) {
+            pbVar2 = pbVar6 + 1;
+            uVar5 = (uint)((byte)*pbVar6 >> 1);
+          }
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)(iVar7 + 0x48),(char *)pbVar2,uVar5);
+          pbVar6 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                     **)(iVar7 + 0x30);
+        }
+        goto LAB_00de41f4;
+      }
+    }
+    else {
+      pCVar1 = (CSRItemInfo *)CSRItemInfo::get();
+      uVar3 = 0xb;
+LAB_00de4174:
+      pbVar2 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               CSRItemInfo::GetItemRefID(pCVar1,uVar3);
+      if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+          (iVar7 + 0x48) != pbVar2) {
+        uVar5 = *(uint *)(pbVar2 + 4);
+        pbVar4 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **
+                  )(pbVar2 + 8);
+        if (((byte)*pbVar2 & 1) == 0) {
+          pbVar4 = pbVar2 + 1;
+          uVar5 = (uint)((byte)*pbVar2 >> 1);
+        }
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 (iVar7 + 0x48),(char *)pbVar4,uVar5);
+      }
+LAB_00de419a:
+      *(undefined4 *)(iVar7 + 0x54) = *(undefined4 *)pbVar6;
+    }
+    iVar7 = iVar7 + 0x58;
+  } while( true );
+}
+
+
+===== de4a5e GetActivitySupplyCnt @ 00de4a5e =====
+
+/* CSRRefData::GetActivitySupplyCnt() */
+
+int __thiscall CSRRefData::GetActivitySupplyCnt(CSRRefData *this)
+
+{
+  return (*(int *)(this + 0x2c4) - *(int *)(this + 0x2c0) >> 3) * -0x45d1745d;
+}
+
+
+===== de4a72 GetActivitySupply @ 00de4a72 =====
+
+/* CSRRefData::GetActivitySupply(unsigned int) */
+
+CSRRefData * __thiscall CSRRefData::GetActivitySupply(CSRRefData *this,uint param_1)
+
+{
+  CSRRefData *pCVar1;
+  uint uVar2;
+  
+  pCVar1 = this + 0x114;
+  uVar2 = (*(int *)(this + 0x2c4) - *(int *)(this + 0x2c0) >> 3) * -0x45d1745d;
+  if (param_1 <= uVar2 && uVar2 - param_1 != 0) {
+    pCVar1 = (CSRRefData *)(param_1 * 0x58 + *(int *)(this + 0x2c0));
+  }
+  return pCVar1;
+}
+
+
+===== ae60e8 ReqSupplyCB @ 00ae60e8 =====
+
+/* CSRInstanceSync::ReqSupplyCB(std::__ndk1::shared_ptr<CPVHTTPRequest> const&,
+   std::__ndk1::shared_ptr<CPVHTTPResponse> const&, nlohmann::basic_json<std::__ndk1::map,
+   std::__ndk1::vector, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, bool, long long, unsigned long long, double,
+   std::__ndk1::allocator, nlohmann::adl_serializer, std::__ndk1::vector<unsigned char,
+   std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall
+CSRInstanceSync::ReqSupplyCB
+          (CSRInstanceSync *this,shared_ptr *param_1,shared_ptr *param_2,basic_json *param_3)
+
+{
+  int iVar1;
+  CSRDataMgr *this_00;
+  CSRPlayData *this_01;
+  
+  iVar1 = CPVHTTPResponse::GetResultCode(*(CPVHTTPResponse **)param_2);
+  if (iVar1 != 1) {
+    return;
+  }
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  this_01 = (CSRPlayData *)CSRDataMgr::GetPlayData(this_00);
+  CSRPlayData::ParseSupplyInfo(this_01,param_3);
+  return;
+}
+
+

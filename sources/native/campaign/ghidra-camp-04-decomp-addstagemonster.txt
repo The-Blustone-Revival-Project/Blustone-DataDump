@@ -1,0 +1,586 @@
+===== 0xa0d194 AddStageMonster @ 00a0d194 =====
+
+/* CSRGameMob::AddStageMonster(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, nlohmann::basic_json<std::__ndk1::map,
+   std::__ndk1::vector, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, bool, long long, unsigned long long, double,
+   std::__ndk1::allocator, nlohmann::adl_serializer, std::__ndk1::vector<unsigned char,
+   std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall
+CSRGameMob::AddStageMonster(CSRGameMob *this,basic_string *param_1,basic_json *param_2)
+
+{
+  ulonglong *puVar1;
+  undefined4 *puVar2;
+  uint *puVar3;
+  basic_json bVar4;
+  char cVar5;
+  ulonglong *puVar6;
+  float fVar7;
+  ulonglong uVar8;
+  ulonglong *puVar9;
+  void *pvVar10;
+  vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>> *pvVar11;
+  uint *puVar12;
+  int *piVar13;
+  int iVar14;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *this_00;
+  basic_json *pbVar15;
+  undefined4 extraout_r0;
+  undefined4 extraout_r0_00;
+  uint uVar16;
+  int *piVar17;
+  byte *pbVar18;
+  byte *pbVar19;
+  undefined4 *puVar20;
+  undefined4 extraout_r1;
+  undefined4 extraout_r1_00;
+  int *piVar21;
+  uint *puVar22;
+  undefined4 *puVar23;
+  byte *pbVar24;
+  uint uVar25;
+  bool bVar26;
+  uint in_fpscr;
+  float fVar27;
+  double dVar28;
+  undefined8 local_d0;
+  undefined1 *local_c8;
+  undefined4 *local_c4;
+  undefined4 *local_c0;
+  byte *local_b8;
+  byte *local_b4;
+  undefined4 local_a8;
+  undefined4 uStack_a4;
+  undefined1 *local_a0;
+  char *local_9c;
+  int local_98;
+  undefined4 local_94;
+  undefined4 local_90;
+  char *local_8c;
+  int *local_88;
+  int local_84;
+  int local_80;
+  ulonglong *local_7c;
+  ulonglong *local_78;
+  ulonglong *local_74;
+  basic_json *local_70;
+  uint uStack_6c;
+  void *local_68;
+  undefined4 local_64;
+  undefined8 local_60;
+  undefined8 uStack_58;
+  uint *local_50;
+  uint *local_4c;
+  basic_json *local_44;
+  int *local_40;
+  int local_3c;
+  uint local_38;
+  int local_34;
+  
+  piVar21 = *(int **)(DAT_00a0d4f0 + 0xa0d1b8);
+  local_34 = *piVar21;
+  local_60 = 0;
+  uStack_58 = 0;
+  local_4c = (uint *)0x0;
+  local_50 = (uint *)0x0;
+  local_70 = nlohmann::
+             basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             ::operator[]<char_const>
+                       ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                         *)param_2,(char *)(DAT_00a0d4f4 + 0xa0d1bc));
+  fVar7 = DAT_00a0d4f8;
+  local_3c = 0;
+  local_38 = 0x80000000;
+  local_40 = (int *)0x0;
+  bVar4 = *local_70;
+  if (bVar4 == (basic_json)0x2) {
+    local_3c = **(int **)(local_70 + 8);
+  }
+  else if (bVar4 == (basic_json)0x1) {
+    local_40 = (int *)**(int **)(local_70 + 8);
+  }
+  else {
+    local_38 = (uint)(bVar4 == (basic_json)0x0);
+  }
+  local_64 = 0x80000000;
+  local_68 = (void *)0x0;
+  uStack_6c = 0;
+  if (*local_70 == (basic_json)0x2) {
+    local_68 = *(void **)(*(int *)(local_70 + 8) + 4);
+  }
+  else if (*local_70 == (basic_json)0x1) {
+    uStack_6c = *(int *)(local_70 + 8) + 4;
+  }
+  else {
+    local_64 = 1;
+  }
+  local_44 = local_70;
+  while( true ) {
+    iVar14 = nlohmann::detail::
+             iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+             ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                           *)&local_44,(iter_impl *)&local_70);
+    if (iVar14 != 0) break;
+    local_9c = (char *)nlohmann::detail::
+                       iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                       ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                    *)&local_44);
+    local_74 = (ulonglong *)0x0;
+    local_84 = 0;
+    local_80 = -0x80000000;
+    local_7c = (ulonglong *)0x0;
+    local_78 = (ulonglong *)0x0;
+    local_88 = (int *)0x0;
+    cVar5 = *local_9c;
+    if (cVar5 == '\x02') {
+      local_84 = **(int **)(local_9c + 8);
+    }
+    else if (cVar5 == '\x01') {
+      local_88 = (int *)**(int **)(local_9c + 8);
+    }
+    else if (cVar5 == '\0') {
+      local_80 = 1;
+    }
+    else {
+      local_80 = 0;
+    }
+    local_94 = 0;
+    local_90 = 0x80000000;
+    local_98 = 0;
+    local_8c = local_9c;
+    if (*local_9c == '\x02') {
+      local_94 = *(undefined4 *)(*(int *)(local_9c + 8) + 4);
+    }
+    else if (*local_9c == '\x01') {
+      local_98 = *(int *)(local_9c + 8) + 4;
+    }
+    else {
+      local_90 = 1;
+    }
+    while (iVar14 = nlohmann::detail::
+                    iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                    ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                  *)&local_8c,(iter_impl *)&local_9c), iVar14 == 0) {
+      this_00 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                 *)nlohmann::detail::
+                   iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                   ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                *)&local_8c);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_d0,*(basic_string **)(DAT_00a0d4fc + 0xa0d2f4));
+      local_c4 = (undefined4 *)0x0;
+      local_c0 = (undefined4 *)0x0;
+      pbVar15 = nlohmann::
+                basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                ::operator[]<char_const>(this_00,(char *)(DAT_00a0d500 + 0xa0d304));
+      local_a8 = 0;
+      uStack_a4 = 0;
+      local_a0 = (undefined1 *)0x0;
+      nlohmann::detail::
+      from_json<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>>
+                (pbVar15,(string_t *)&local_a8);
+      uVar8 = local_d0;
+      if ((local_d0 & 1) != 0) {
+        *local_c8 = 0;
+        local_d0 = local_d0 & 0xffffffff;
+        if ((uVar8 & 1) != 0) {
+          operator_delete(local_c8);
+        }
+      }
+      local_d0 = CONCAT44(uStack_a4,local_a8);
+      local_c8 = local_a0;
+      pbVar15 = nlohmann::
+                basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                ::operator[]<char_const>(this_00,(char *)(DAT_00a0d504 + 0xa0d346));
+      switch(*pbVar15) {
+      case (basic_json)0x3:
+        pbVar24 = *(byte **)(pbVar15 + 8);
+        if ((*pbVar24 & 1) == 0) {
+          pbVar24 = pbVar24 + 1;
+        }
+        else {
+          pbVar24 = *(byte **)(pbVar24 + 8);
+        }
+        strtod((char *)pbVar24,(char **)0x0);
+        dVar28 = (double)CONCAT44(extraout_r1,extraout_r0);
+        goto LAB_00a0d380;
+      case (basic_json)0x4:
+        local_c4 = (undefined4 *)(uint)(byte)pbVar15[8];
+        break;
+      case (basic_json)0x5:
+      case (basic_json)0x6:
+        local_c4 = *(undefined4 **)(pbVar15 + 8);
+        break;
+      case (basic_json)0x7:
+        dVar28 = *(double *)(pbVar15 + 8);
+LAB_00a0d380:
+        local_c4 = (undefined4 *)((uint)(0.0 < dVar28) * (int)(longlong)dVar28);
+        break;
+      default:
+        local_c4 = (undefined4 *)0x0;
+      }
+      pbVar15 = nlohmann::
+                basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                ::operator[]<char_const>(this_00,(char *)(DAT_00a0d508 + 0xa0d398));
+      switch(*pbVar15) {
+      case (basic_json)0x3:
+        pbVar24 = *(byte **)(pbVar15 + 8);
+        if ((*pbVar24 & 1) == 0) {
+          pbVar24 = pbVar24 + 1;
+        }
+        else {
+          pbVar24 = *(byte **)(pbVar24 + 8);
+        }
+        strtod((char *)pbVar24,(char **)0x0);
+        dVar28 = (double)CONCAT44(extraout_r1_00,extraout_r0_00);
+        goto LAB_00a0d3ce;
+      case (basic_json)0x4:
+        uVar16 = (uint)(byte)pbVar15[8];
+        break;
+      case (basic_json)0x5:
+      case (basic_json)0x6:
+        uVar16 = *(uint *)(pbVar15 + 8);
+        break;
+      case (basic_json)0x7:
+        dVar28 = *(double *)(pbVar15 + 8);
+LAB_00a0d3ce:
+        uVar16 = (uint)(longlong)dVar28;
+        break;
+      default:
+        uVar16 = 0;
+      }
+      fVar27 = (float)VectorSignedToFloat(uVar16,(byte)(in_fpscr >> 0x16) & 3);
+      local_c0 = (undefined4 *)(fVar27 * fVar7);
+      if (local_78 < local_74) {
+        *(undefined1 **)(local_78 + 1) = local_c8;
+        *local_78 = local_d0;
+        local_d0 = 0;
+        local_c8 = (undefined1 *)0x0;
+        *(undefined4 **)((int)local_78 + 0xc) = local_c4;
+        *(undefined4 **)(local_78 + 2) = local_c0;
+        local_78 = (ulonglong *)((int)local_78 + 0x14);
+      }
+      else {
+        std::__ndk1::
+        vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>::
+        __emplace_back_slow_path<CSRGameMob::STAGE_MONSTER>
+                  ((vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>
+                    *)&local_7c,(STAGE_MONSTER *)&local_d0);
+        if ((local_d0 & 1) != 0) {
+          operator_delete(local_c8);
+        }
+      }
+      if (*local_8c == '\x02') {
+        local_84 = local_84 + 0x10;
+      }
+      else if (*local_8c == '\x01') {
+        piVar13 = (int *)local_88[1];
+        if ((int *)local_88[1] == (int *)0x0) {
+          while( true ) {
+            piVar13 = local_88 + 2;
+            piVar17 = (int *)*piVar13;
+            bVar26 = (int *)*piVar17 == local_88;
+            local_88 = piVar17;
+            if (bVar26) break;
+            local_88 = (int *)*piVar13;
+          }
+        }
+        else {
+          do {
+            local_88 = piVar13;
+            piVar13 = (int *)*local_88;
+          } while ((int *)*local_88 != (int *)0x0);
+        }
+      }
+      else {
+        local_80 = local_80 + 1;
+      }
+    }
+    pvVar11 = local_60._4_4_;
+    if (local_60._4_4_ ==
+        (vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>> *)
+        uStack_58) {
+      std::__ndk1::
+      vector<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>,std::__ndk1::allocator<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>>>
+      ::
+      __push_back_slow_path<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>const&>
+                ((vector<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>,std::__ndk1::allocator<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>>>
+                  *)&local_60,(vector *)&local_7c);
+    }
+    else {
+      std::__ndk1::
+      vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>::vector
+                (local_60._4_4_,(vector *)&local_7c);
+      local_60 = CONCAT44(pvVar11 + 0xc,(undefined4 *)local_60);
+    }
+    puVar9 = local_7c;
+    puVar1 = local_78;
+    if (local_7c != (ulonglong *)0x0) {
+      while (puVar6 = puVar1, puVar6 != puVar9) {
+        puVar1 = (ulonglong *)((int)puVar6 + -0x14);
+        if ((*(byte *)puVar1 & 1) != 0) {
+          operator_delete(*(void **)((int)puVar6 + -0xc));
+        }
+      }
+      local_78 = puVar9;
+      operator_delete(local_7c);
+    }
+    if (*local_44 == (basic_json)0x2) {
+      local_3c = local_3c + 0x10;
+    }
+    else if (*local_44 == (basic_json)0x1) {
+      piVar13 = (int *)local_40[1];
+      if ((int *)local_40[1] == (int *)0x0) {
+        while( true ) {
+          piVar13 = local_40 + 2;
+          piVar17 = (int *)*piVar13;
+          bVar26 = (int *)*piVar17 == local_40;
+          local_40 = piVar17;
+          if (bVar26) break;
+          local_40 = (int *)*piVar13;
+        }
+      }
+      else {
+        do {
+          local_40 = piVar13;
+          piVar13 = (int *)*local_40;
+        } while ((int *)*local_40 != (int *)0x0);
+      }
+    }
+    else {
+      local_38 = local_38 + 1;
+    }
+  }
+  local_44 = nlohmann::
+             basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             ::operator[]<char_const>
+                       ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                         *)param_2,(char *)(DAT_00a0d874 + 0xa0d512));
+  local_c4 = (undefined4 *)&LAB_80000000;
+  local_c8 = (void *)0x0;
+  local_d0 = ZEXT48(local_44);
+  bVar4 = *local_44;
+  if (bVar4 == (basic_json)0x2) {
+    local_c8 = (undefined1 *)**(int **)(local_44 + 8);
+  }
+  else if (bVar4 == (basic_json)0x1) {
+    local_d0 = CONCAT44(**(undefined4 **)(local_44 + 8),local_44);
+  }
+  else {
+    local_c4 = (undefined4 *)(uint)(bVar4 == (basic_json)0x0);
+  }
+  local_38 = 0x80000000;
+  local_3c = 0;
+  local_40 = (int *)0x0;
+  if (*local_44 == (basic_json)0x2) {
+    local_3c = *(undefined4 *)(*(int *)(local_44 + 8) + 4);
+  }
+  else if (*local_44 == (basic_json)0x1) {
+    local_40 = (int *)(*(int *)(local_44 + 8) + 4);
+  }
+  else {
+    local_38 = 1;
+  }
+  do {
+    iVar14 = nlohmann::detail::
+             iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+             ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                           *)&local_d0,(iter_impl *)&local_44);
+    if (iVar14 != 0) {
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_d0,param_1);
+      std::__ndk1::
+      vector<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>,std::__ndk1::allocator<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>>>
+      ::vector((vector<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>,std::__ndk1::allocator<std::__ndk1::vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>>>>
+                *)&local_c4,(vector *)&local_60);
+      std::__ndk1::
+      vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+      ::vector((vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+                *)&local_b8,(vector *)((int)&uStack_58 + 4));
+      std::__ndk1::
+      __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRGameMob::STAGE_MONSTER_LINK>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRGameMob::STAGE_MONSTER_LINK>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRGameMob::STAGE_MONSTER_LINK>>>
+      ::
+      __emplace_unique_key_args<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,CSRGameMob::STAGE_MONSTER_LINK>>
+                ((basic_string *)&local_44,this + 0xc);
+      pbVar24 = local_b8;
+      if (local_b8 != (byte *)0x0) {
+        while (pbVar19 = local_b4, pbVar19 != pbVar24) {
+          local_b4 = pbVar19 + -0xc;
+          if ((*local_b4 & 1) != 0) {
+            operator_delete(*(void **)(pbVar19 + -4));
+          }
+        }
+        local_b4 = pbVar24;
+        operator_delete(local_b8);
+      }
+      puVar20 = local_c4;
+      puVar2 = local_c0;
+      if (local_c4 != (undefined4 *)0x0) {
+        while (puVar23 = puVar2, puVar23 != puVar20) {
+          puVar2 = puVar23 + -3;
+          pbVar24 = (byte *)*puVar2;
+          if (pbVar24 != (byte *)0x0) {
+            pbVar18 = (byte *)puVar23[-2];
+            pbVar19 = pbVar24;
+            if (pbVar18 != pbVar24) {
+              do {
+                pbVar19 = pbVar18 + -0x14;
+                if ((*pbVar19 & 1) != 0) {
+                  operator_delete(*(void **)(pbVar18 + -0xc));
+                }
+                pbVar18 = pbVar19;
+              } while (pbVar24 != pbVar19);
+              pbVar19 = (byte *)*puVar2;
+            }
+            puVar23[-2] = pbVar24;
+            operator_delete(pbVar19);
+          }
+        }
+        local_c0 = puVar20;
+        operator_delete(local_c4);
+      }
+      if ((local_d0 & 1) != 0) {
+        operator_delete(local_c8);
+      }
+      puVar12 = uStack_58._4_4_;
+      if (uStack_58._4_4_ != (uint *)0x0) {
+        puVar22 = local_50;
+        if (local_50 != uStack_58._4_4_) {
+          do {
+            puVar3 = puVar22 + -3;
+            if ((*puVar3 & 1) != 0) {
+              operator_delete((void *)puVar22[-1]);
+            }
+            puVar22 = puVar3;
+          } while (puVar12 != puVar3);
+        }
+        local_50 = puVar12;
+        operator_delete(uStack_58._4_4_);
+      }
+      puVar2 = (undefined4 *)local_60;
+      if ((undefined4 *)local_60 != (undefined4 *)0x0) {
+        puVar20 = (undefined4 *)local_60;
+        puVar23 = (undefined4 *)local_60._4_4_;
+        if (local_60._4_4_ !=
+            (vector<CSRGameMob::STAGE_MONSTER,std::__ndk1::allocator<CSRGameMob::STAGE_MONSTER>> *)
+            (undefined4 *)local_60) {
+          do {
+            puVar20 = puVar23 + -3;
+            pbVar24 = (byte *)*puVar20;
+            if (pbVar24 != (byte *)0x0) {
+              pbVar18 = (byte *)puVar23[-2];
+              pbVar19 = pbVar24;
+              if (pbVar18 != pbVar24) {
+                do {
+                  pbVar19 = pbVar18 + -0x14;
+                  if ((*pbVar19 & 1) != 0) {
+                    operator_delete(*(void **)(pbVar18 + -0xc));
+                  }
+                  pbVar18 = pbVar19;
+                } while (pbVar24 != pbVar19);
+                pbVar19 = (byte *)*puVar20;
+              }
+              puVar23[-2] = pbVar24;
+              operator_delete(pbVar19);
+            }
+            puVar23 = puVar20;
+          } while (puVar20 != puVar2);
+          puVar20 = (undefined4 *)local_60;
+        }
+        local_60 = CONCAT44(puVar2,(undefined4 *)local_60);
+        operator_delete(puVar20);
+      }
+      if (*piVar21 == local_34) {
+        return;
+      }
+                    /* WARNING: Subroutine does not return */
+      __stack_chk_fail();
+    }
+    pbVar15 = (basic_json *)
+              nlohmann::detail::
+              iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+              ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                           *)&local_d0);
+    local_70 = (basic_json *)0x0;
+    uStack_6c = 0;
+    local_68 = (void *)0x0;
+    nlohmann::detail::
+    from_json<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>>
+              (pbVar15,(string_t *)&local_70);
+    puVar12 = local_50;
+    pvVar10 = local_68;
+    uVar16 = uStack_6c;
+    if (local_50 == local_4c) {
+      std::__ndk1::
+      vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+      ::
+      __push_back_slow_path<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+                ((vector<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::allocator<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>
+                  *)((int)&uStack_58 + 4),(basic_string *)&local_70);
+    }
+    else {
+      *local_50 = 0;
+      local_50[1] = 0;
+      local_50[2] = 0;
+      if (((uint)local_70 & 1) == 0) {
+        local_50[2] = (uint)local_68;
+        *(ulonglong *)local_50 = CONCAT44(uStack_6c,local_70);
+      }
+      else {
+        if (0xffffffef < uStack_6c) {
+                    /* WARNING: Subroutine does not return */
+          std::__ndk1::__basic_string_common<true>::__throw_length_error();
+        }
+        if (uStack_6c < 0xb) {
+          pbVar24 = (byte *)((int)local_50 + 1);
+          *(byte *)local_50 = (byte)(uStack_6c << 1);
+          if (uStack_6c != 0) goto LAB_00a0d61a;
+        }
+        else {
+          uVar25 = uStack_6c + 0x10 & 0xfffffff0;
+          pbVar24 = operator_new(uVar25);
+          *puVar12 = uVar25 | 1;
+          puVar12[1] = uVar16;
+          puVar12[2] = (uint)pbVar24;
+LAB_00a0d61a:
+          __aeabi_memcpy(pbVar24,pvVar10,uVar16);
+        }
+        pbVar24[uVar16] = 0;
+      }
+      local_50 = puVar12 + 3;
+    }
+    if (((uint)local_70 & 1) != 0) {
+      operator_delete(local_68);
+    }
+    if (*(char *)local_d0 == '\x02') {
+      local_c8 = (undefined1 *)((int)local_c8 + 0x10);
+    }
+    else if (*(char *)local_d0 == '\x01') {
+      piVar13 = *(int **)(local_d0._4_4_ + 4);
+      if (*(int **)(local_d0._4_4_ + 4) == (int *)0x0) {
+        while( true ) {
+          piVar17 = *(int **)(local_d0._4_4_ + 8);
+          if (*piVar17 == local_d0._4_4_) break;
+          local_d0._4_4_ = *(int *)(local_d0._4_4_ + 8);
+        }
+      }
+      else {
+        do {
+          piVar17 = piVar13;
+          piVar13 = (int *)*piVar17;
+        } while ((int *)*piVar17 != (int *)0x0);
+      }
+      local_d0 = CONCAT44(piVar17,(char *)local_d0);
+    }
+    else {
+      local_c4 = (undefined4 *)((int)local_c4 + 1);
+    }
+  } while( true );
+}
+
+

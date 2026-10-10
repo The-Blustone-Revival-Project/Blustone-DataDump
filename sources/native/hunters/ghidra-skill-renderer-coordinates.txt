@@ -1,0 +1,93 @@
+===== 010e0528 GetLogicalPos @ 010e0528 =====
+
+/* CRMRenderer4::GetLogicalPos(CRMPoint const&) const */
+
+void CRMRenderer4::GetLogicalPos(CRMPoint *param_1)
+
+{
+  int in_r1;
+  int *in_r2;
+  int iVar1;
+  int iVar2;
+  uint in_fpscr;
+  float fVar3;
+  float fVar4;
+  float fVar5;
+  float fVar6;
+  float fVar7;
+  float fVar8;
+  float fVar9;
+
+  iVar2 = *(int *)(in_r1 + 0x28) - *(int *)(in_r1 + 0x20);
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
+  }
+  fVar3 = (float)VectorUnsignedToFloat(iVar2,(byte)(in_fpscr >> 0x16) & 3);
+  iVar1 = *(int *)(in_r1 + 0x50) - *(int *)(in_r1 + 0x48);
+  fVar4 = (float)VectorSignedToFloat(in_r2[1] - *(int *)(in_r1 + 0x48),(byte)(in_fpscr >> 0x16) & 3)
+  ;
+  iVar2 = *(int *)(in_r1 + 0x24) - *(int *)(in_r1 + 0x1c);
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
+  }
+  fVar6 = (float)VectorUnsignedToFloat(iVar2,(byte)(in_fpscr >> 0x16) & 3);
+  fVar7 = (float)VectorSignedToFloat(*in_r2 - *(int *)(in_r1 + 0x44),(byte)(in_fpscr >> 0x16) & 3);
+  if (iVar1 < 0) {
+    iVar1 = -iVar1;
+  }
+  fVar9 = (float)VectorUnsignedToFloat(iVar1,(byte)(in_fpscr >> 0x16) & 3);
+  iVar2 = *(int *)(in_r1 + 0x4c) - *(int *)(in_r1 + 0x44);
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
+  }
+  fVar5 = (float)VectorUnsignedToFloat(iVar2,(byte)(in_fpscr >> 0x16) & 3);
+  fVar8 = *(float *)(in_r1 + 0x6c);
+  *(int *)param_1 = (int)(*(float *)(in_r1 + 0x68) + (fVar7 * fVar6) / fVar5);
+  *(int *)(param_1 + 4) = (int)(fVar8 + (fVar4 * fVar3) / fVar9);
+  return;
+}
+
+
+===== 010e05cc GetPhysicalPos @ 010e05cc =====
+
+/* CRMRenderer4::GetPhysicalPos(CRMPoint const&) const */
+
+void CRMRenderer4::GetPhysicalPos(CRMPoint *param_1)
+
+{
+  int in_r1;
+  int iVar1;
+  int iVar2;
+  int *in_r2;
+  int iVar3;
+  int iVar4;
+  int iVar5;
+  int iVar6;
+  float fVar7;
+
+  iVar5 = *(int *)(in_r1 + 0x48);
+  iVar6 = *in_r2;
+  iVar3 = *(int *)(in_r1 + 0x50) - iVar5;
+  if (iVar3 < 0) {
+    iVar3 = -iVar3;
+  }
+  iVar1 = *(int *)(in_r1 + 0x28) - *(int *)(in_r1 + 0x20);
+  if (iVar1 < 0) {
+    iVar1 = -iVar1;
+  }
+  iVar1 = FUN_01be2230(iVar3 * in_r2[1],iVar1);
+  fVar7 = *(float *)(in_r1 + 0x68);
+  iVar4 = *(int *)(in_r1 + 0x44);
+  iVar3 = *(int *)(in_r1 + 0x4c) - iVar4;
+  if (iVar3 < 0) {
+    iVar3 = -iVar3;
+  }
+  iVar2 = *(int *)(in_r1 + 0x24) - *(int *)(in_r1 + 0x1c);
+  *(int *)(param_1 + 4) = iVar1 + iVar5 + (int)*(float *)(in_r1 + 0x6c);
+  if (iVar2 < 0) {
+    iVar2 = -iVar2;
+  }
+  iVar3 = FUN_01be2230(iVar3 * iVar6,iVar2);
+  *(int *)param_1 = iVar3 + iVar4 + (int)fVar7;
+  return;
+}

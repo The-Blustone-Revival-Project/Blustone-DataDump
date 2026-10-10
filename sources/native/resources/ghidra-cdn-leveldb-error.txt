@@ -1,0 +1,188 @@
+===== 1b733b0 MakeRoomForWrite @ 01b733b0 =====
+
+/* leveldb::DBImpl::MakeRoomForWrite(bool) */
+
+void leveldb::DBImpl::MakeRoomForWrite(bool param_1)
+
+{
+  ulonglong uVar1;
+  WritableFile *pWVar2;
+  undefined4 *puVar3;
+  int *piVar4;
+  char *pcVar5;
+  void *pvVar6;
+  Writer *this;
+  MemTable *this_00;
+  int iVar7;
+  uint uVar8;
+  undefined4 uVar9;
+  int in_r1;
+  uint in_r2;
+  int iVar10;
+  uint uVar11;
+  undefined4 uVar12;
+  int iVar13;
+  char *pcVar14;
+  int *piVar15;
+  bool bVar16;
+  basic_string local_48 [8];
+  void *local_40;
+  char *local_3c;
+  WritableFile *local_38;
+  int local_34;
+
+  puVar3 = (undefined4 *)(uint)param_1;
+  pcVar14 = (char *)0x0;
+  piVar4 = *(int **)(DAT_01b73628 + 0x1b733ce);
+  local_34 = *piVar4;
+  *puVar3 = 0;
+  pcVar5 = *(char **)(in_r1 + 0xf0);
+  if (pcVar5 == (char *)0x0) {
+    uVar11 = in_r2 ^ 1;
+    pcVar14 = (char *)0x0;
+    do {
+      if (((uVar11 & 1) == 0) ||
+         (iVar7 = VersionSet::NumLevelFiles(*(VersionSet **)(in_r1 + 0xec),0), iVar7 < 8)) {
+        if (((in_r2 & 1) == 0) &&
+           (uVar8 = MemTable::ApproximateMemoryUsage(*(MemTable **)(in_r1 + 0x74)),
+           uVar8 <= *(uint *)(in_r1 + 0x28))) goto LAB_01b735ec;
+        if (*(int *)(in_r1 + 0x78) == 0) {
+          iVar7 = VersionSet::NumLevelFiles(*(VersionSet **)(in_r1 + 0xec),0);
+          if (iVar7 < 0xc) {
+            iVar7 = *(int *)(in_r1 + 0xec);
+            pcVar5 = (char *)0x0;
+            uVar8 = *(uint *)(iVar7 + 0x20);
+            iVar13 = *(int *)(iVar7 + 0x24);
+            uVar1 = *(ulonglong *)(iVar7 + 0x20);
+            iVar10 = iVar13 + (uint)(0xfffffffe < uVar8);
+            *(uint *)(iVar7 + 0x20) = uVar8 + 1;
+            *(int *)(iVar7 + 0x24) = iVar10;
+            local_38 = (WritableFile *)0x0;
+            piVar15 = *(int **)(in_r1 + 4);
+            LogFileName(local_48,uVar1);
+            (**(code **)(*piVar15 + 0x10))(&local_3c,piVar15,local_48,&local_38);
+            if (local_3c != (char *)0x0) {
+              pcVar5 = (char *)Status::CopyState(local_3c);
+              *puVar3 = pcVar5;
+              pcVar14 = pcVar5;
+              if (local_3c != (char *)0x0) {
+                operator_delete__(local_3c);
+              }
+            }
+            if (((byte)local_48[0] & 1) != 0) {
+              operator_delete(local_40);
+            }
+            if (pcVar5 == (char *)0x0) {
+              if (*(Writer **)(in_r1 + 0x90) != (Writer *)0x0) {
+                pvVar6 = (void *)log::Writer::~Writer(*(Writer **)(in_r1 + 0x90));
+                operator_delete(pvVar6);
+              }
+              if (*(int **)(in_r1 + 0x80) != (int *)0x0) {
+                (**(code **)(**(int **)(in_r1 + 0x80) + 4))();
+              }
+              pWVar2 = local_38;
+              *(WritableFile **)(in_r1 + 0x80) = local_38;
+              *(uint *)(in_r1 + 0x88) = uVar8;
+              *(int *)(in_r1 + 0x8c) = iVar13;
+              this = operator_new(0x1c);
+              uVar9 = log::Writer::Writer(this,pWVar2);
+              uVar12 = *(undefined4 *)(in_r1 + 0x74);
+              *(undefined4 *)(in_r1 + 0x90) = uVar9;
+              *(undefined4 *)(in_r1 + 0x78) = uVar12;
+              (*(code *)&SUB_ffff0fa0)();
+              *(undefined4 *)(in_r1 + 0x7c) = uVar12;
+              this_00 = operator_new(0x3c);
+              iVar7 = MemTable::MemTable(this_00,(InternalKeyComparator *)(in_r1 + 8));
+              *(int *)(in_r1 + 0x74) = iVar7;
+              *(int *)(iVar7 + 8) = *(int *)(iVar7 + 8) + 1;
+              if (*(char *)(in_r1 + 0xe4) == '\0') {
+                iVar13 = *(int *)(in_r1 + 0x68);
+                iVar7 = (*(code *)&SUB_ffff0fa0)();
+                iVar10 = DAT_01b73634;
+                bVar16 = iVar13 == 0;
+                if (bVar16) {
+                  iVar7 = *(int *)(in_r1 + 0xf0);
+                }
+                if (bVar16 && iVar7 == 0) {
+                  iVar7 = *(int *)(in_r1 + 0x78);
+                  bVar16 = iVar7 == 0;
+                  if (bVar16) {
+                    iVar7 = *(int *)(in_r1 + 0xe8);
+                  }
+                  if (((!bVar16 || iVar7 != 0) ||
+                      (iVar7 = *(int *)(*(int *)(in_r1 + 0xec) + 0xd0),
+                      1.0 <= *(double *)(iVar7 + 0x70))) || (*(int *)(iVar7 + 100) != 0)) {
+                    *(undefined1 *)(in_r1 + 0xe4) = 1;
+                    (**(code **)(**(int **)(in_r1 + 4) + 0x3c))
+                              (*(int **)(in_r1 + 4),*(undefined4 *)(iVar10 + 0x1b73532));
+                  }
+                }
+              }
+              in_r2 = 0;
+              goto LAB_01b735c2;
+            }
+            iVar7 = *(int *)(in_r1 + 0xec);
+            if (*(uint *)(iVar7 + 0x20) == uVar8 + 1 && *(int *)(iVar7 + 0x24) == iVar10) {
+              *(uint *)(iVar7 + 0x20) = uVar8;
+              *(int *)(iVar7 + 0x24) = iVar13;
+            }
+            goto LAB_01b735ec;
+          }
+          pcVar5 = (char *)(DAT_01b73630 + 0x1b735b8);
+        }
+        else {
+          pcVar5 = (char *)(DAT_01b7362c + 0x1b735a2);
+        }
+        Log(*(Logger **)(in_r1 + 0x24),pcVar5);
+        port::CondVar::Wait((CondVar *)(in_r1 + 0x6c));
+      }
+      else {
+        port::Mutex::Unlock((Mutex *)(in_r1 + 100));
+        (**(code **)(**(int **)(in_r1 + 4) + 0x50))(*(int **)(in_r1 + 4),1000);
+        port::Mutex::Lock((Mutex *)(in_r1 + 100));
+        uVar11 = 0;
+      }
+LAB_01b735c2:
+      pcVar5 = *(char **)(in_r1 + 0xf0);
+    } while (pcVar5 == (char *)0x0);
+  }
+  if (pcVar14 == pcVar5) goto LAB_01b735ec;
+  if (pcVar14 == (char *)0x0) {
+LAB_01b735e0:
+    uVar9 = Status::CopyState(pcVar5);
+  }
+  else {
+    operator_delete__(pcVar14);
+    pcVar5 = *(char **)(in_r1 + 0xf0);
+    if (pcVar5 != (char *)0x0) goto LAB_01b735e0;
+    uVar9 = 0;
+  }
+  *puVar3 = uVar9;
+LAB_01b735ec:
+  if (*piVar4 == local_34) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 1b7134c RecordBackgroundError @ 01b7134c =====
+
+/* leveldb::DBImpl::RecordBackgroundError(leveldb::Status const&) */
+
+void __thiscall leveldb::DBImpl::RecordBackgroundError(DBImpl *this,Status *param_1)
+
+{
+  undefined4 uVar1;
+
+  if (*(int *)(this + 0xf0) != 0) {
+    return;
+  }
+  if (*(char **)param_1 != (char *)0x0) {
+    uVar1 = Status::CopyState(*(char **)param_1);
+    *(undefined4 *)(this + 0xf0) = uVar1;
+  }
+  port::CondVar::SignalAll((CondVar *)(this + 0x6c));
+  return;
+}

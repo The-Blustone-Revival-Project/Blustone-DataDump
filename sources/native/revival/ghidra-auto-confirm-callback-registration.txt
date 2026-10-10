@@ -1,0 +1,25 @@
+PROGRAM	libnative_core.so
+===== range 00e7ead8 .. 00e7eb10 =====
+00e7eada  cmp r3,#0x0
+00e7eadc  bne 0x00e7ead0
+00e7eade  ldr r1,[0x00e7ecac]
+00e7eae0  str.w r8,[sp,#0x78]
+00e7eae4  add r1,pc
+00e7eae6  strd r5,r6,[sp,#0x6c]
+00e7eaea  adds r1,#0x8
+00e7eaec  str r1,[sp,#0x68]
+00e7eaee  mov r1,r8
+00e7eaf0  bl 0x00c49a90
+00e7eaf4  ldr r0,[sp,#0x78]
+00e7eaf6  cmp r8,r0
+00e7eaf8  beq 0x00e7eb02
+00e7eafa  cbz r0,0x00e7eb08
+00e7eafc  ldr r1,[r0,#0x0]
+00e7eafe  ldr r1,[r1,#0x14]
+00e7eb00  b 0x00e7eb06
+00e7eb02  ldr r1,[r0,#0x0]
+00e7eb04  ldr r1,[r1,#0x10]
+00e7eb06  blx r1
+00e7eb08  cmp.w r10,#0x0
+00e7eb0c  itt eq
+00e7eb0e  mov.eq r0,r6

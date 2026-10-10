@@ -1,0 +1,79 @@
+===== 0099aef0 GetAtk @ 0099aef0 =====
+
+/* CSRGameActorBaseDraw::GetAtk() const */
+
+float __thiscall CSRGameActorBaseDraw::GetAtk(CSRGameActorBaseDraw *this)
+
+{
+  float fVar1;
+  undefined8 in_d0;
+  undefined4 in_s3;
+  float fVar2;
+  undefined4 in_s5;
+  undefined8 uVar3;
+  
+  uVar3 = FloatVectorMin(CONCAT44(in_s5,*(undefined4 *)(*(int *)(this + 0x8bc) + 0x38)),
+                         CONCAT44(in_s3,0x40400000),2,0x20);
+  uVar3 = FloatVectorMax(uVar3,CONCAT44((int)((ulonglong)in_d0 >> 0x20),DAT_0099af2c),2,0x20);
+  fVar1 = *(float *)(*(int *)(this + 0x8b4) + 0x38) * (float)uVar3;
+  fVar2 = 1.0;
+  if (1.0 < fVar1) {
+    fVar2 = fVar1;
+  }
+  return fVar2;
+}
+
+
+===== 0099af30 GetAtkSpd @ 0099af30 =====
+
+/* CSRGameActorBaseDraw::GetAtkSpd() const */
+
+float __thiscall CSRGameActorBaseDraw::GetAtkSpd(CSRGameActorBaseDraw *this)
+
+{
+  float fVar1;
+  float fVar2;
+  
+  fVar1 = *(float *)(*(int *)(this + 0x8b4) + 0x3c) * *(float *)(*(int *)(this + 0x8bc) + 0x3c);
+  fVar2 = DAT_0099af5c;
+  if (DAT_0099af5c < fVar1) {
+    fVar2 = fVar1;
+  }
+  return fVar2;
+}
+
+
+===== 0099b078 GetDef @ 0099b078 =====
+
+/* CSRGameActorBaseDraw::GetDef() const */
+
+float __thiscall CSRGameActorBaseDraw::GetDef(CSRGameActorBaseDraw *this)
+
+{
+  undefined8 in_d0;
+  undefined4 in_s3;
+  undefined4 in_s5;
+  undefined8 uVar1;
+  
+  uVar1 = FloatVectorMin(CONCAT44(in_s5,*(undefined4 *)(*(int *)(this + 0x8bc) + 0x40)),
+                         CONCAT44((int)((ulonglong)in_d0 >> 0x20),0x40400000),2,0x20);
+  uVar1 = FloatVectorMax(uVar1,CONCAT44(in_s3,DAT_0099b0a4),2,0x20);
+  return *(float *)(*(int *)(this + 0x8b4) + 0x40) * (float)uVar1;
+}
+
+
+===== 00b6cc2c GetUserVIPLevel @ 00b6cc2c =====
+
+/* CSRPlayData::GetUserVIPLevel() const */
+
+void __thiscall CSRPlayData::GetUserVIPLevel(CSRPlayData *this)
+
+{
+  CSRUserLV *this_00;
+  
+  this_00 = (CSRUserLV *)CSRUserLV::get();
+  CSRUserLV::GetVIPLevel(this_00,*(uint *)(this + 0x150));
+  return;
+}
+
+

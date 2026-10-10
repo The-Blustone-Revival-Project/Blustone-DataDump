@@ -1,0 +1,144 @@
+===== 0xdd819c SetExtra @ 00dd819c =====
+[DECOMPILATION FAILED] 
+Low-level Error: Forced merge caused intersection
+===== 0xde4200 PostProcessVirtualFriends @ 00de4200 =====
+
+/* CSRRefData::PostProcessVirtualFriends() */
+
+void __thiscall CSRRefData::PostProcessVirtualFriends(CSRRefData *this)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  __shared_weak_count *p_Var3;
+  undefined4 uVar4;
+  CSRRefData *pCVar5;
+  int *piVar6;
+  int iVar7;
+  CSRRefData *pCVar8;
+  __shared_weak_count *this_00;
+  CSRCard *this_01;
+  CSRRefData *pCVar9;
+  undefined4 uVar10;
+  undefined4 uVar11;
+  undefined4 uVar12;
+  undefined4 uVar13;
+  undefined4 local_60;
+  undefined4 uStack_5c;
+  undefined4 uStack_58;
+  undefined4 uStack_54;
+  undefined4 local_50;
+  undefined4 local_4c;
+  __shared_weak_count *local_48;
+  undefined4 local_44;
+  __shared_weak_count *local_40;
+  int local_3c;
+  
+  piVar6 = *(int **)(DAT_00de43f0 + 0xde421a);
+  local_3c = *piVar6;
+  if (*(CSRRefData **)(this + 0x374) != this + 0x378) {
+    uVar10 = 0;
+    uVar11 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    uVar12 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    uVar13 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    pCVar9 = *(CSRRefData **)(this + 0x374);
+    do {
+      this_01 = *(CSRCard **)(pCVar9 + 0x38);
+      this_00 = *(__shared_weak_count **)(pCVar9 + 0x3c);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var2 = this_00 + 4;
+        do {
+          ExclusiveAccess(p_Var2);
+          bVar1 = (bool)hasExclusiveAccess(p_Var2);
+        } while (!bVar1);
+        *(int *)p_Var2 = *(int *)p_Var2 + 1;
+      }
+      local_44 = 0;
+      local_40 = (__shared_weak_count *)0x0;
+      local_4c = 0;
+      local_48 = (__shared_weak_count *)0x0;
+      CSRCard::Load(this_01,&local_44,&local_4c);
+      p_Var2 = local_48;
+      if (local_48 != (__shared_weak_count *)0x0) {
+        p_Var3 = local_48 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar7 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)local_48 + 8))(local_48);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+        }
+      }
+      p_Var2 = local_40;
+      if (local_40 != (__shared_weak_count *)0x0) {
+        p_Var3 = local_40 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar7 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)local_40 + 8))(local_40);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+        }
+      }
+      local_50 = 0;
+      local_60 = uVar10;
+      uStack_5c = uVar11;
+      uStack_58 = uVar12;
+      uStack_54 = uVar13;
+      (**(code **)(*(int *)this_01 + 8))(this_01,&local_60);
+      uVar4 = CSRCard::GetCombatPoint(this_01);
+      *(undefined4 *)(pCVar9 + 0x40) = uVar4;
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var2 = this_00 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var2);
+          iVar7 = *(int *)p_Var2;
+          bVar1 = (bool)hasExclusiveAccess(p_Var2);
+        } while (!bVar1);
+        *(int *)p_Var2 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)this_00 + 8))(this_00);
+          std::__ndk1::__shared_weak_count::__release_weak(this_00);
+        }
+      }
+      pCVar5 = *(CSRRefData **)(pCVar9 + 4);
+      if (*(CSRRefData **)(pCVar9 + 4) == (CSRRefData *)0x0) {
+        pCVar5 = pCVar9 + 8;
+        pCVar8 = *(CSRRefData **)pCVar5;
+        if (*(CSRRefData **)pCVar8 != pCVar9) {
+          do {
+            iVar7 = *(int *)pCVar5;
+            pCVar5 = (CSRRefData *)(iVar7 + 8);
+            pCVar8 = *(CSRRefData **)pCVar5;
+          } while (*(int *)pCVar8 != iVar7);
+        }
+      }
+      else {
+        do {
+          pCVar8 = pCVar5;
+          pCVar5 = *(CSRRefData **)pCVar8;
+        } while (*(CSRRefData **)pCVar8 != (CSRRefData *)0x0);
+      }
+      pCVar9 = pCVar8;
+    } while (pCVar8 != this + 0x378);
+  }
+  if (*piVar6 != local_3c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

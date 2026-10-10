@@ -1,0 +1,148 @@
+===== e73e64 OnRefresh @ 00e73e64 =====
+
+/* CSRSceneAreaSel::OnRefresh() */
+
+void __thiscall CSRSceneAreaSel::OnRefresh(CSRSceneAreaSel *this)
+
+{
+  byte bVar1;
+  CSRSceneAreaSel CVar2;
+  CSRDataMgr *pCVar3;
+  CSRPlayData *this_00;
+  uint uVar4;
+  uint uVar5;
+  float fVar6;
+  CSRSceneAreaSel *__s1;
+  int iVar7;
+  CSRUserDB *this_01;
+  uint extraout_r1;
+  CSRSceneAreaSel *__s2;
+  uint uVar8;
+  size_t __n;
+  CSRSceneAreaSel *pCVar9;
+  uint uVar10;
+  byte *pbVar11;
+  int *piVar12;
+  CSRUIScrollView *this_02;
+  float extraout_s0;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  float fVar16;
+  undefined8 uVar17;
+  float local_44;
+  float local_40;
+  int local_3c;
+  
+  piVar12 = *(int **)(DAT_00e74028 + 0xe73e7c);
+  local_3c = *piVar12;
+  pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+  this_00 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar3);
+  uVar4 = CSRPlayData::CalcTotalAP(this_00);
+  pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+  CSRDataMgr::GetPlayData(pCVar3);
+  SetAP((uint)this,uVar4);
+  uVar8 = *(uint *)(this + 0x720);
+  uVar4 = *(uint *)(this + 0x718) + *(uint *)(this + 0x728);
+  uVar10 = *(int *)(this + 0x71c) + *(int *)(this + 0x72c) +
+           (uint)CARRY4(*(uint *)(this + 0x718),*(uint *)(this + 0x728)) +
+           *(int *)(this + 0x724) + (uint)CARRY4(uVar4,uVar8);
+  uVar17 = RMGetTickCount();
+  uVar5 = (uint)((ulonglong)uVar17 >> 0x20);
+  if (uVar5 <= uVar10 && (uint)(uVar4 + uVar8 <= (uint)uVar17) <= uVar5 - uVar10) {
+    this_02 = *(CSRUIScrollView **)(this + 0x748);
+    uVar8 = *(uint *)(this + 0x720);
+    uVar4 = *(uint *)(this + 0x718) + *(uint *)(this + 0x728);
+    uVar10 = *(int *)(this + 0x71c) + *(int *)(this + 0x72c) +
+             (uint)CARRY4(*(uint *)(this + 0x718),*(uint *)(this + 0x728)) +
+             *(int *)(this + 0x724) + (uint)CARRY4(uVar4,uVar8);
+    uVar5 = RMGetTickCount();
+    if (uVar10 < extraout_r1 || extraout_r1 - uVar10 < (uint)(uVar4 + uVar8 <= uVar5)) {
+      local_40 = *(float *)(this + 0x740);
+      local_44 = *(float *)(this + 0x73c);
+      fVar6 = extraout_s0;
+    }
+    else {
+      fVar13 = *(float *)(this + 0x734);
+      fVar15 = *(float *)(this + 0x73c);
+      fVar14 = *(float *)(this + 0x738);
+      fVar16 = *(float *)(this + 0x740);
+      fVar6 = (float)CMCurve<CRMVector2>::GetFactor((CMCurve<CRMVector2> *)(this + 0x710));
+      local_40 = *(float *)(this + 0x738) + (fVar16 - fVar14) * fVar6;
+      local_44 = *(float *)(this + 0x734) + (fVar15 - fVar13) * fVar6;
+    }
+    CSRUIScrollView::SetScrollPos(this_02,(CRMVector2 *)&local_44,fVar6);
+  }
+  if (this[0x665] == (CSRSceneAreaSel)0x0) goto LAB_00e74008;
+  CVar2 = this[0x66c];
+  __n = *(size_t *)(this + 0x670);
+  pbVar11 = *(byte **)(DAT_00e7402c + 0xe73f54);
+  bVar1 = *pbVar11;
+  uVar4 = *(uint *)(pbVar11 + 4);
+  if (((byte)CVar2 & 1) == 0) {
+    __n = (size_t)((byte)CVar2 >> 1);
+  }
+  if ((bVar1 & 1) == 0) {
+    uVar4 = (uint)(bVar1 >> 1);
+  }
+  if (__n == uVar4) {
+    __s2 = *(CSRSceneAreaSel **)(pbVar11 + 8);
+    pCVar9 = this + 0x66d;
+    __s1 = *(CSRSceneAreaSel **)(this + 0x674);
+    if (((byte)CVar2 & 1) == 0) {
+      __s1 = pCVar9;
+    }
+    if ((bVar1 & 1) == 0) {
+      __s2 = (CSRSceneAreaSel *)(pbVar11 + 1);
+    }
+    if (((byte)CVar2 & 1) == 0) {
+      if (__n != 0) {
+        uVar4 = (uint)((byte)CVar2 >> 1);
+        do {
+          if (*pCVar9 != *__s2) goto LAB_00e73fb2;
+          __s2 = __s2 + 1;
+          pCVar9 = pCVar9 + 1;
+          uVar4 = uVar4 - 1;
+        } while (uVar4 != 0);
+      }
+    }
+    else if ((__n != 0) && (iVar7 = memcmp(__s1,__s2,__n), iVar7 != 0)) goto LAB_00e73fb2;
+  }
+  else {
+LAB_00e73fb2:
+    uVar4 = *(uint *)(this + 0x6e0);
+    uVar8 = *(uint *)(this + 0x6e8);
+    uVar5 = uVar4 + *(uint *)(this + 0x6f0);
+    uVar10 = *(int *)(this + 0x6e4) + *(int *)(this + 0x6f4) +
+             (uint)CARRY4(uVar4,*(uint *)(this + 0x6f0)) +
+             *(int *)(this + 0x6ec) + (uint)CARRY4(uVar5,uVar8);
+    uVar17 = RMGetTickCount();
+    uVar4 = (uint)((ulonglong)uVar17 >> 0x20);
+    if (uVar10 < uVar4 || uVar4 - uVar10 < (uint)(uVar5 + uVar8 <= (uint)uVar17)) {
+      CSRScene::ChangeScene((CSRScene *)this,0x84);
+      pCVar3 = (CSRDataMgr *)CSRDataMgr::get();
+      this_01 = (CSRUserDB *)CSRDataMgr::GetUserLocalDB(pCVar3);
+      CSRUserDB::PutCurAreaID(this_01,(basic_string *)(this + 0x66c));
+      this[0x665] = (CSRSceneAreaSel)0x0;
+    }
+  }
+  uVar4 = *(uint *)(this + 0x6e0);
+  uVar8 = *(uint *)(this + 0x6e8);
+  uVar5 = uVar4 + *(uint *)(this + 0x6f0);
+  uVar10 = *(int *)(this + 0x6e4) + *(int *)(this + 0x6f4) +
+           (uint)CARRY4(uVar4,*(uint *)(this + 0x6f0)) +
+           *(int *)(this + 0x6ec) + (uint)CARRY4(uVar5,uVar8);
+  uVar17 = RMGetTickCount();
+  uVar4 = (uint)((ulonglong)uVar17 >> 0x20);
+  if (uVar10 < uVar4 || uVar4 - uVar10 < (uint)(uVar5 + uVar8 <= (uint)uVar17)) {
+    this[0x666] = (CSRSceneAreaSel)0x0;
+  }
+LAB_00e74008:
+  if (*piVar12 == local_3c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

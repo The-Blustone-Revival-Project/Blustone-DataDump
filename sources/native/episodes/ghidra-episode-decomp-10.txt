@@ -1,0 +1,92 @@
+===== 0xdb4f2c SetMission @ 00db4f2c =====
+
+/* CSRPopUpVillage::SetMission(char const*, char const*) */
+
+void __thiscall CSRPopUpVillage::SetMission(CSRPopUpVillage *this,char *param_1,char *param_2)
+
+{
+  bool bVar1;
+  CSRUIImageNode *this_00;
+  __shared_weak_count *p_Var2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  int *piVar5;
+  CMHashID local_60 [8];
+  void *local_58;
+  CMHashID local_48 [8];
+  void *local_40;
+  CSRUIImageNode *local_2c;
+  __shared_weak_count *local_28;
+  int local_24;
+  
+  piVar5 = *(int **)(DAT_00db50d4 + 0xdb4f42);
+  local_24 = *piVar5;
+  iVar4 = *(int *)(this + 0x6c8);
+  CMHashID::CMHashID(local_48,(char *)(DAT_00db50d8 + 0xdb4f58));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUIImageNode,CMUpdatable::FindCastByName<CSRUIImageNode>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_2c,iVar4 + 4,local_48);
+  this_00 = local_2c;
+  CMHashID::CMHashID(local_60,param_1);
+  CSRUIImageNode::LoadSprite(this_00,local_60);
+  if (((byte)local_60[0] & 1) != 0) {
+    operator_delete(local_58);
+  }
+  p_Var3 = local_28;
+  if (local_28 != (__shared_weak_count *)0x0) {
+    p_Var2 = local_28 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar4 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)local_28 + 8))(local_28);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (((byte)local_48[0] & 1) != 0) {
+    operator_delete(local_40);
+  }
+  iVar4 = *(int *)(this + 0x6c8);
+  CMHashID::CMHashID(local_48,(char *)(DAT_00db50dc + 0xdb4fcc));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_2c,iVar4 + 4,local_48);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             local_60,param_2);
+  CSRUITextbox::SetText((CSRUITextbox *)local_2c,(basic_string *)local_60,'\0');
+  if (((byte)local_60[0] & 1) != 0) {
+    operator_delete(local_58);
+  }
+  if (local_28 != (__shared_weak_count *)0x0) {
+    p_Var3 = local_28 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar4 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)local_28 + 8))(local_28);
+      std::__ndk1::__shared_weak_count::__release_weak(local_28);
+    }
+  }
+  if (((byte)local_48[0] & 1) != 0) {
+    operator_delete(local_40);
+  }
+  if (*piVar5 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

@@ -1,0 +1,210 @@
+===== 10ab404 LoadImageFromURL @ 010ab404 =====
+
+/* CSRUserProfileDraw::LoadImageFromURL(std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRUserProfileDraw::LoadImageFromURL(CSRUserProfileDraw *this,basic_string *param_1)
+
+{
+  bool bVar1;
+  ushort uVar2;
+  undefined1 *puVar3;
+  __shared_weak_count *this_00;
+  CMHashID *pCVar4;
+  int *piVar5;
+  int iVar6;
+  undefined1 *puVar7;
+  __shared_weak_count *p_Var8;
+  __shared_weak_count *p_Var9;
+  CSRDataLoaderFromURL *this_01;
+  uint uVar10;
+  basic_string *pbVar11;
+  code *pcVar12;
+  uint uVar13;
+  CMHashID *pCVar14;
+  void *__s2;
+  int iVar15;
+  undefined1 *puVar16;
+  undefined1 *puVar17;
+  ushort local_4c [2];
+  uint local_48;
+  undefined1 *local_44;
+  uint local_40;
+  __shared_weak_count *local_3c;
+  __shared_weak_count *local_38;
+  CMHashID *local_30;
+  int iStack_2c;
+  int local_28;
+
+  piVar5 = *(int **)(DAT_010ab6e4 + 0x10ab418);
+  local_28 = *piVar5;
+  iVar6 = std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)local_4c,param_1);
+  puVar3 = local_44;
+  uVar2 = local_4c[0] & 1;
+  puVar16 = local_44;
+  uVar13 = local_48;
+  if ((local_4c[0] & 1) == 0) {
+    uVar13 = (uint)((byte)local_4c[0]._0_1_ >> 1);
+    puVar16 = (undefined1 *)(iVar6 + 1);
+  }
+  if (4 < (int)uVar13) {
+    puVar17 = puVar16 + uVar13;
+    puVar7 = puVar16;
+    uVar10 = uVar13;
+    do {
+      if ((uVar10 - 4 == 0) ||
+         (puVar7 = memchr(puVar7,0x68,uVar10 - 4), puVar7 == (undefined1 *)0x0)) break;
+      iVar6 = memcmp(puVar7,(void *)(DAT_010ab6e8 + 0x10ab460),5);
+      if (iVar6 == 0) {
+        iVar6 = 0;
+        if (puVar7 != puVar17) {
+          iVar6 = (int)puVar7 - (int)puVar16;
+        }
+        if (puVar7 != puVar17 && iVar6 != -1) goto LAB_010ab4f0;
+        break;
+      }
+      puVar7 = puVar7 + 1;
+      uVar10 = (int)puVar17 - (int)puVar7;
+    } while (4 < (int)uVar10);
+    if (5 < (int)uVar13) {
+      __s2 = (void *)(DAT_010ab6ec + 0x10ab48a);
+      puVar7 = puVar16;
+      do {
+        if ((uVar13 - 5 == 0) ||
+           (puVar7 = memchr(puVar7,0x68,uVar13 - 5), puVar7 == (undefined1 *)0x0)) break;
+        iVar6 = memcmp(puVar7,__s2,6);
+        if (iVar6 == 0) {
+          iVar6 = 0;
+          if (puVar7 != puVar17) {
+            iVar6 = (int)puVar7 - (int)puVar16;
+          }
+          if (puVar7 != puVar17 && iVar6 != -1) goto LAB_010ab4f0;
+          break;
+        }
+        puVar7 = puVar7 + 1;
+        uVar13 = (int)puVar17 - (int)puVar7;
+      } while (5 < (int)uVar13);
+    }
+  }
+  if (uVar2 == 0) {
+    local_4c[0] = 0;
+  }
+  else {
+    *puVar3 = 0;
+    local_48 = 0;
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  append((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)local_4c,
+         (char *)(DAT_010ab6f0 + 0x10ab4d4),5);
+  uVar13 = *(uint *)(param_1 + 4);
+  pbVar11 = *(basic_string **)(param_1 + 8);
+  if (((byte)*param_1 & 1) == 0) {
+    pbVar11 = param_1 + 1;
+    uVar13 = (uint)((byte)*param_1 >> 1);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  append((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)local_4c,
+         (char *)pbVar11,uVar13);
+LAB_010ab4f0:
+  if ((*(__shared_weak_count **)(this + 8) == (__shared_weak_count *)0x0) ||
+     (p_Var8 = (__shared_weak_count *)
+               std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(this + 8)),
+     p_Var8 == (__shared_weak_count *)0x0)) {
+                    /* WARNING: Subroutine does not return */
+    FUN_006e9a4c();
+  }
+  smart_point_cast<CSRUserProfileDraw,std::__ndk1::shared_ptr<CMUpdatable>>((shared_ptr *)&local_40)
+  ;
+  this_00 = local_3c;
+  uVar13 = local_40;
+  if (local_3c != (__shared_weak_count *)0x0) {
+    p_Var9 = local_3c + 8;
+    do {
+      ExclusiveAccess(p_Var9);
+      bVar1 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar1);
+    *(int *)p_Var9 = *(int *)p_Var9 + 1;
+    p_Var9 = local_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar6 = *(int *)p_Var9;
+      bVar1 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar1);
+    *(int *)p_Var9 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)local_3c + 8))(local_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_3c);
+    }
+  }
+  if (p_Var8 != (__shared_weak_count *)0x0) {
+    p_Var9 = p_Var8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar6 = *(int *)p_Var9;
+      bVar1 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar1);
+    *(int *)p_Var9 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)p_Var8 + 8))(p_Var8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var8);
+    }
+  }
+  local_30 = (CMHashID *)0x0;
+  iStack_2c = 0;
+  local_40 = 0;
+  local_3c = (__shared_weak_count *)0x0;
+  local_38 = (__shared_weak_count *)0x0;
+  CMHashID::Set((CMHashID *)&local_40,(basic_string *)local_4c);
+  iVar6 = iStack_2c;
+  pCVar4 = local_30;
+  pCVar14 = *(CMHashID **)(this + 0x850);
+  iVar15 = *(int *)(this + 0x854);
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  if (pCVar14 != pCVar4 || iVar15 != iVar6) {
+    CMHashID::Set((CMHashID *)(this + 0x840),(basic_string *)local_4c);
+    this_01 = (CSRDataLoaderFromURL *)CSRDataLoaderFromURL::get();
+    if (this_00 != (__shared_weak_count *)0x0) {
+      p_Var8 = this_00 + 8;
+      do {
+        ExclusiveAccess(p_Var8);
+        bVar1 = (bool)hasExclusiveAccess(p_Var8);
+      } while (!bVar1);
+      *(int *)p_Var8 = *(int *)p_Var8 + 1;
+    }
+    local_40 = DAT_010ab6f4 + 0x10ab5fc;
+    local_38 = this_00;
+    local_3c = (__shared_weak_count *)uVar13;
+    local_30 = (CMHashID *)&local_40;
+    CSRDataLoaderFromURL::LoadImg(this_01,(basic_string *)local_4c,(function *)&local_40,'\x01');
+    if ((CMHashID *)&local_40 == local_30) {
+      pcVar12 = *(code **)(*(int *)local_30 + 0x10);
+    }
+    else {
+      if (local_30 == (CMHashID *)0x0) goto LAB_010ab61e;
+      pcVar12 = *(code **)(*(int *)local_30 + 0x14);
+    }
+    (*pcVar12)();
+  }
+LAB_010ab61e:
+  if (this_00 != (__shared_weak_count *)0x0) {
+    std::__ndk1::__shared_weak_count::__release_weak(this_00);
+  }
+  if ((local_4c[0] & 1) != 0) {
+    operator_delete(local_44);
+  }
+  iVar6 = *piVar5 - local_28;
+  if (iVar6 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar6);
+  }
+  return;
+}

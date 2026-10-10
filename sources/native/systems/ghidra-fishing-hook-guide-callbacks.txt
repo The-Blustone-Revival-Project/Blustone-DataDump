@@ -1,0 +1,218 @@
+===== proven Thumb 00ef2c64 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ef2c64(int param_1)
+
+{
+  bool bVar1;
+  CSRTutorialGuideMsgDraw *pCVar2;
+  __shared_weak_count *p_Var3;
+  code *pcVar4;
+  int iVar5;
+  CSRPopUpMFishingHook *pCVar6;
+  int *piVar7;
+  __shared_weak_count *this;
+  int aiStack_40 [4];
+  int *piStack_30;
+  int iStack_24;
+
+  piVar7 = *(int **)(_DAT_00ef2d74 + 0xef2c74);
+  iStack_24 = *piVar7;
+  pCVar6 = *(CSRPopUpMFishingHook **)(param_1 + 4);
+  pCVar2 = *(CSRTutorialGuideMsgDraw **)(*(int *)(pCVar6 + 0x830) + 0xcc);
+  this = *(__shared_weak_count **)(*(int *)(pCVar6 + 0x830) + 0xd0);
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var3 = this + 4;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+  }
+  piStack_30 = (int *)0x0;
+  CSRTutorialGuideMsgDraw::Disappear(pCVar2,aiStack_40);
+  if (aiStack_40 == piStack_30) {
+    pcVar4 = *(code **)(*piStack_30 + 0x10);
+  }
+  else {
+    if (piStack_30 == (int *)0x0) goto LAB_00ef2cc2;
+    pcVar4 = *(code **)(*piStack_30 + 0x14);
+  }
+  (*pcVar4)();
+LAB_00ef2cc2:
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var3 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  pCVar6[0x7c9] = (CSRPopUpMFishingHook)0x1;
+  *(undefined4 *)(pCVar6 + 0x6a0) = 0xbd4ccccd;
+  *(undefined4 *)(pCVar6 + 0x6a4) = 0xbd4ccccd;
+  CSRPopUpMFishingHook::ChangeMode(pCVar6,0xffffffff);
+  if (*piVar7 == iStack_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== proven Thumb 00ef2ddc =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ef2ddc(int param_1)
+
+{
+  CMTaskStream *this;
+  code *pcVar1;
+  CSRPopUpMFishingHook *pCVar2;
+  int *piVar3;
+  float extraout_s0;
+  int iStack_38;
+  CSRPopUpMFishingHook *pCStack_34;
+  int *piStack_28;
+  int iStack_1c;
+
+  piVar3 = *(int **)(_DAT_00ef2e80 + 0xef2dee);
+  iStack_1c = *piVar3;
+  pCVar2 = *(CSRPopUpMFishingHook **)(param_1 + 4);
+  CSRPopUpMFishingHook::ChangeMode(pCVar2,1);
+  *(undefined4 *)(pCVar2 + 0x664) = 0;
+  *(undefined4 *)(pCVar2 + 0x668) = 0;
+  *(undefined4 *)(pCVar2 + 0x66c) = 0x3f800000;
+  *(undefined2 *)(pCVar2 + 0x7c8) = 1;
+  *(undefined4 *)(pCVar2 + 0x6a0) = 0;
+  *(undefined4 *)(pCVar2 + 0x6a4) = 0;
+  CMFramework::get();
+  this = (CMTaskStream *)CMTaskStream::get();
+  iStack_38 = _DAT_00ef2e84 + 0xef2e34;
+  pCStack_34 = pCVar2;
+  piStack_28 = &iStack_38;
+  CMTaskStream::OnceImpl(this,(function *)&iStack_38,extraout_s0);
+  if (&iStack_38 == piStack_28) {
+    pcVar1 = *(code **)(*piStack_28 + 0x10);
+  }
+  else {
+    if (piStack_28 == (int *)0x0) goto LAB_00ef2e4e;
+    pcVar1 = *(code **)(*piStack_28 + 0x14);
+  }
+  (*pcVar1)();
+LAB_00ef2e4e:
+  if (*piVar3 != iStack_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== proven Thumb 00ef30d8 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ef30d8(int param_1)
+
+{
+  bool bVar1;
+  CSRTutorialGuideMsgDraw *pCVar2;
+  __shared_weak_count *p_Var3;
+  code *pcVar4;
+  int iVar5;
+  int iVar6;
+  int *piVar7;
+  __shared_weak_count *this;
+  int aiStack_40 [4];
+  int *piStack_30;
+  int iStack_24;
+
+  piVar7 = *(int **)(_DAT_00ef31f4 + 0xef30e8);
+  iStack_24 = *piVar7;
+  iVar6 = *(int *)(param_1 + 4);
+  pCVar2 = *(CSRTutorialGuideMsgDraw **)(*(int *)(iVar6 + 0x830) + 0xcc);
+  this = *(__shared_weak_count **)(*(int *)(iVar6 + 0x830) + 0xd0);
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var3 = this + 4;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+  }
+  piStack_30 = (int *)0x0;
+  CSRTutorialGuideMsgDraw::Disappear(pCVar2,aiStack_40);
+  if (aiStack_40 == piStack_30) {
+    pcVar4 = *(code **)(*piStack_30 + 0x10);
+  }
+  else {
+    if (piStack_30 == (int *)0x0) goto LAB_00ef3136;
+    pcVar4 = *(code **)(*piStack_30 + 0x14);
+  }
+  (*pcVar4)();
+LAB_00ef3136:
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var3 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  *(undefined1 *)(iVar6 + 0x7c9) = 1;
+  *(undefined4 *)(iVar6 + 0x6ac) = 0xc0a00000;
+  *(undefined4 *)(iVar6 + 0x6a0) = 0xbd4ccccd;
+  *(undefined4 *)(iVar6 + 0x6a4) = 0xbd4ccccd;
+  *(undefined4 *)(iVar6 + 0x668) = 0x3fc00000;
+  *(undefined4 *)(iVar6 + 0x66c) = 0x3f000000;
+  if (*piVar7 == iStack_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== proven Thumb 00ef325a =====
+
+void FUN_00ef325a(int param_1)
+
+{
+  int iVar1;
+
+  iVar1 = *(int *)(param_1 + 4);
+  *(undefined4 *)(iVar1 + 0x6a0) = 0xbd4ccccd;
+  *(undefined4 *)(iVar1 + 0x6a4) = 0xbd4ccccd;
+  *(undefined1 *)(iVar1 + 0x7c9) = 1;
+  return;
+}
+
+
+===== proven Thumb 00ef32d6 =====
+
+void FUN_00ef32d6(float param_1,int param_2,undefined4 *param_3,undefined4 *param_4)
+
+{
+  if (*(char *)(*(uint *)(param_2 + 4) + 0x7c9) != '\0') {
+    CSRPopUpMFishingHook::OnProcessCursorPress
+              (*(uint *)(param_2 + 4),param_1,(CRMPoint *)*param_3,(uchar)*param_4);
+  }
+  return;
+}

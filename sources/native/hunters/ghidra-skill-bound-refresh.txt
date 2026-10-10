@@ -1,0 +1,312 @@
+===== 0070b0e0 InvalidateBoundBox @ 0070b0e0 =====
+
+/* CMDrawable::InvalidateBoundBox() */
+
+void __thiscall CMDrawable::InvalidateBoundBox(CMDrawable *this)
+
+{
+  int iVar1;
+  float *pfVar2;
+  float *extraout_r1;
+  float *pfVar3;
+  float *extraout_r2;
+  int *piVar4;
+  float fVar5;
+  float fVar6;
+  float fVar7;
+  float fVar8;
+  float fVar9;
+  float fVar10;
+  float fVar11;
+  float fVar12;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  float fVar16;
+  float fVar17;
+  float fVar18;
+  float local_84;
+  float local_80;
+  float local_7c;
+  float local_78;
+  float local_74;
+  float local_70;
+  float local_6c;
+  float local_68;
+  float local_64;
+  float local_60;
+  float local_5c;
+  float fStack_58;
+  int local_54;
+
+  piVar4 = *(int **)(DAT_0070b3d0 + 0x70b0f2);
+  local_54 = *piVar4;
+  CMUpdatable::CalcTransfWorld44((CMUpdatable *)this);
+  if ((int)((uint)(byte)this[0x60] << 0x1c) < 0) {
+    fVar6 = *(float *)(this + 0x78);
+    fVar5 = *(float *)(this + 0x7c);
+    fVar15 = fVar6 * *(float *)(this + 0x7fc);
+    fVar12 = *(float *)(this + 0x118);
+    fVar14 = fVar5 * *(float *)(this + 0x800);
+    fVar7 = *(float *)(this + 0x11c);
+    fVar10 = *(float *)(this + 300);
+    fVar13 = *(float *)(this + 0x128);
+    fVar16 = fVar6 + fVar15;
+    fVar17 = fVar5 + fVar14;
+    fVar18 = fVar14 + fVar5 * 0.5;
+    fVar9 = *(float *)(this + 0x124);
+    fVar11 = *(float *)(this + 0x134);
+    local_6c = fVar11 + fVar15 * fVar13 + fVar14 * fVar10;
+    local_78 = fVar9 + fVar15 * fVar12 + fVar7 * fVar17;
+    local_80 = fVar9 + fVar12 * fVar16 + fVar7 * fVar17;
+    local_68 = fVar9 + fVar15 * fVar12 + fVar14 * fVar7;
+    local_70 = fVar9 + fVar12 * fVar16 + fVar14 * fVar7;
+    local_74 = fVar11 + fVar16 * fVar13 + fVar14 * fVar10;
+    local_7c = fVar11 + fVar15 * fVar13 + fVar17 * fVar10;
+    local_84 = fVar11 + fVar16 * fVar13 + fVar17 * fVar10;
+    fVar5 = local_78;
+    if (local_80 < local_78) {
+      fVar5 = local_80;
+    }
+    fVar8 = local_68;
+    if (local_70 < local_68) {
+      fVar8 = local_70;
+    }
+    if (fVar8 <= fVar5) {
+      if (local_68 <= local_70) {
+        pfVar2 = &local_68;
+      }
+      else {
+        pfVar2 = &local_70;
+      }
+    }
+    else if (local_78 <= local_80) {
+      pfVar2 = &local_78;
+    }
+    else {
+      pfVar2 = &local_80;
+    }
+    fVar6 = fVar15 + fVar6 * 0.5;
+    fVar5 = local_78;
+    if ((int)((uint)(local_78 < local_80) << 0x1f) < 0) {
+      fVar5 = local_80;
+    }
+    fVar8 = local_68;
+    if ((int)((uint)(local_68 < local_70) << 0x1f) < 0) {
+      fVar8 = local_70;
+    }
+    local_5c = *pfVar2;
+    pfVar2 = extraout_r1;
+    if ((int)((uint)(fVar8 < fVar5) << 0x1f) < 0) {
+      iVar1 = (uint)(local_78 < local_80) << 0x1f;
+      if (-1 < iVar1) {
+        pfVar2 = &local_78;
+      }
+      if (iVar1 < 0) {
+        pfVar2 = &local_80;
+      }
+    }
+    else {
+      iVar1 = (uint)(local_68 < local_70) << 0x1f;
+      if (-1 < iVar1) {
+        pfVar2 = &local_68;
+      }
+      if (iVar1 < 0) {
+        pfVar2 = &local_70;
+      }
+    }
+    fVar5 = local_7c;
+    if (local_84 < local_7c) {
+      fVar5 = local_84;
+    }
+    fVar8 = local_6c;
+    if (local_74 < local_6c) {
+      fVar8 = local_74;
+    }
+    if (fVar8 <= fVar5) {
+      if (local_6c <= local_74) {
+        pfVar3 = &local_6c;
+      }
+      else {
+        pfVar3 = &local_74;
+      }
+    }
+    else if (local_7c <= local_84) {
+      pfVar3 = &local_7c;
+    }
+    else {
+      pfVar3 = &local_84;
+    }
+    fVar11 = fVar11 + fVar18 * fVar10 + fVar6 * fVar13;
+    fVar9 = fVar9 + fVar7 * fVar18 + fVar12 * fVar6;
+    fVar5 = local_7c;
+    if ((int)((uint)(local_7c < local_84) << 0x1f) < 0) {
+      fVar5 = local_84;
+    }
+    fVar7 = local_6c;
+    if ((int)((uint)(local_6c < local_74) << 0x1f) < 0) {
+      fVar7 = local_74;
+    }
+    fStack_58 = *pfVar3;
+    pfVar3 = extraout_r2;
+    if ((int)((uint)(fVar7 < fVar5) << 0x1f) < 0) {
+      iVar1 = (uint)(local_7c < local_84) << 0x1f;
+      if (-1 < iVar1) {
+        pfVar3 = &local_7c;
+      }
+      if (iVar1 < 0) {
+        pfVar3 = &local_84;
+      }
+    }
+    else {
+      iVar1 = (uint)(local_6c < local_74) << 0x1f;
+      if (-1 < iVar1) {
+        pfVar3 = &local_6c;
+      }
+      if (iVar1 < 0) {
+        pfVar3 = &local_74;
+      }
+    }
+    local_60 = *pfVar3 - fStack_58;
+    local_64 = *pfVar2 - local_5c;
+    CMVec4Rect::SetRect((CMVec4Rect *)(this + 0x804),(CRMVector2 *)&local_5c,(CMVec2Size *)&local_64
+                       );
+    *(float *)(this + 0x1bc) = fVar9 + (fVar15 - fVar6) * *(float *)(this + 0x8c);
+    *(float *)(this + 0x1c0) = fVar11 + (fVar14 - fVar18) * *(float *)(this + 0x90);
+    *(float *)(this + 0x1c4) = fVar9 + (fVar16 - fVar6) * *(float *)(this + 0x8c);
+    *(float *)(this + 0x1c8) = fVar11 + (fVar17 - fVar18) * *(float *)(this + 0x90);
+    (**(code **)(*(int *)this + 0x68))(this,8);
+  }
+  if (*piVar4 == local_54) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 00a3b9b0 IsVisible @ 00a3b9b0 =====
+
+/* CSRGameUIIconSkill::IsVisible() const */
+
+CSRGameUIIconSkill __thiscall CSRGameUIIconSkill::IsVisible(CSRGameUIIconSkill *this)
+
+{
+  return this[0x6c];
+}
+
+
+===== 00a3b9b8 SetVisible @ 00a3b9b8 =====
+
+/* CSRGameUIIconSkill::SetVisible(unsigned char) */
+
+void __thiscall CSRGameUIIconSkill::SetVisible(CSRGameUIIconSkill *this,uchar param_1)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int *piVar4;
+  uint in_fpscr;
+  float fVar5;
+  float fVar6;
+  undefined4 local_60;
+  undefined4 local_5c;
+  int local_58;
+  __shared_weak_count *local_54;
+  char *local_50;
+  __shared_weak_count *local_4c;
+  void *local_48;
+  CMComponentPlayer *local_34;
+  __shared_weak_count *local_30;
+  int local_2c;
+
+  piVar4 = *(int **)(DAT_00a3bbec + 0xa3b9ce);
+  local_2c = *piVar4;
+  if (this[0x6c] != (CSRGameUIIconSkill)param_1) {
+    this[0x6c] = (CSRGameUIIconSkill)param_1;
+    CMUpdatable::FindComponentForce<CMComponentPlayer>();
+    iVar2 = CMComponentPlayer::IsPlaying(local_34);
+    if (iVar2 == 1) {
+      CMComponentPlayer::Rewind(local_34);
+    }
+    if (param_1 == '\x01') {
+      CMUpdatable::SetVisible(*(CMUpdatable **)(this + 0x60),'\x01');
+      CMHashID::CMHashID((CMHashID *)&local_50,(char *)(DAT_00a3bbf0 + 0xa3ba0e));
+      CMComponentPlayer::SetGroup(local_34,(CMHashID *)&local_50);
+      if (((uint)local_50 & 1) != 0) {
+        operator_delete(local_48);
+      }
+      iVar2 = *(int *)(this + 0x60);
+      CMHashID::CMHashID((CMHashID *)&local_50,(char *)(DAT_00a3bbf4 + 0xa3ba30));
+      CMNode<CMUpdatable>::
+      FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+                (&local_58,iVar2 + 4,&local_50);
+      if (((uint)local_50 & 1) != 0) {
+        operator_delete(local_48);
+      }
+      fVar5 = *(float *)(local_58 + 0x78);
+      fVar6 = *(float *)(local_58 + 0x7c);
+      CMUpdatable::FindComponentForce<CMComponentEffect>();
+      local_5c = VectorSignedToFloat((int)(fVar6 * 0.5),(byte)(in_fpscr >> 0x16) & 3);
+      local_60 = VectorSignedToFloat((int)(fVar5 * 0.5),(byte)(in_fpscr >> 0x16) & 3);
+      CMComponentEffect::Play
+                (local_50,(CRMVector2 *)(DAT_00a3bbf8 + 0xa3ba82),(char *)&local_60,
+                 (char)DAT_00a3bbfc + 0x84);
+      if (local_4c != (__shared_weak_count *)0x0) {
+        p_Var3 = local_4c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar2 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar2 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar2 == 0) {
+          (**(code **)(*(int *)local_4c + 8))(local_4c);
+          std::__ndk1::__shared_weak_count::__release_weak(local_4c);
+        }
+      }
+      CMComponentPlayer::Play();
+      if (local_54 != (__shared_weak_count *)0x0) {
+        p_Var3 = local_54 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar2 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar2 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar2 == 0) {
+          (**(code **)(*(int *)local_54 + 8))(local_54);
+          std::__ndk1::__shared_weak_count::__release_weak(local_54);
+        }
+      }
+    }
+    else {
+      CMUpdatable::SetVisible(*(CMUpdatable **)(this + 0x60),'\0');
+    }
+    if (local_30 != (__shared_weak_count *)0x0) {
+      p_Var3 = local_30 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar2 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar2 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar2 == 0) {
+        (**(code **)(*(int *)local_30 + 8))(local_30);
+        std::__ndk1::__shared_weak_count::__release_weak(local_30);
+      }
+    }
+  }
+  if (*piVar4 == local_2c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

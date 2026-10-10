@@ -1,0 +1,264 @@
+===== 009a30e0 FindActor @ 009a30e0 =====
+
+/* CSRGameActorGroup::FindActor(std::__ndk1::shared_ptr<CSRGameActor>) */
+
+undefined4 __thiscall CSRGameActorGroup::FindActor(CSRGameActorGroup *this,int *param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  int iVar4;
+  __shared_weak_count *this_00;
+  CSRGameActorGroup *pCVar5;
+  int iVar6;
+  
+  pCVar5 = *(CSRGameActorGroup **)(this + 0x280);
+  while( true ) {
+    if (this + 0x27c == pCVar5) {
+      return 0;
+    }
+    iVar4 = *(int *)(pCVar5 + 8);
+    this_00 = *(__shared_weak_count **)(pCVar5 + 0xc);
+    if (this_00 == (__shared_weak_count *)0x0) {
+      iVar6 = *param_2;
+    }
+    else {
+      p_Var2 = this_00 + 4;
+      do {
+        ExclusiveAccess(p_Var2);
+        bVar1 = (bool)hasExclusiveAccess(p_Var2);
+      } while (!bVar1);
+      *(int *)p_Var2 = *(int *)p_Var2 + 1;
+      iVar6 = *param_2;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var2);
+        iVar3 = *(int *)p_Var2;
+        bVar1 = (bool)hasExclusiveAccess(p_Var2);
+      } while (!bVar1);
+      *(int *)p_Var2 = iVar3 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar3 == 0) {
+        (**(code **)(*(int *)this_00 + 8))(this_00);
+        std::__ndk1::__shared_weak_count::__release_weak(this_00);
+      }
+    }
+    if (iVar6 == iVar4) break;
+    pCVar5 = *(CSRGameActorGroup **)(pCVar5 + 4);
+  }
+  return 1;
+}
+
+
+===== 009a42e8 FindActorWaveCurrentBySerial @ 009a42e8 =====
+
+/* CSRGameActorGroup::FindActorWaveCurrentBySerial(unsigned long long) */
+
+void __thiscall
+CSRGameActorGroup::FindActorWaveCurrentBySerial(CSRGameActorGroup *this,ulonglong param_1)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  undefined4 in_r1;
+  int iVar3;
+  int local_20;
+  __shared_weak_count *local_1c;
+  
+  FindActorInActiveBySerial(CONCAT44(in_r1,&local_20));
+  if (local_20 == 0) {
+    FindActorInBenchBySerial(CONCAT44(in_r1,this));
+    if (local_1c == (__shared_weak_count *)0x0) {
+      return;
+    }
+  }
+  else {
+    *(int *)this = local_20;
+    *(__shared_weak_count **)(this + 4) = local_1c;
+    if (local_1c == (__shared_weak_count *)0x0) {
+      return;
+    }
+    p_Var2 = local_1c + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+  }
+  p_Var2 = local_1c + 4;
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(p_Var2);
+    iVar3 = *(int *)p_Var2;
+    bVar1 = (bool)hasExclusiveAccess(p_Var2);
+  } while (!bVar1);
+  *(int *)p_Var2 = iVar3 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar3 == 0) {
+    (**(code **)(*(int *)local_1c + 8))(local_1c);
+    std::__ndk1::__shared_weak_count::__release_weak(local_1c);
+  }
+  return;
+}
+
+
+===== 009a546a FindActorInActiveBySerial @ 009a546a =====
+
+/* CSRGameActorGroup::FindActorInActiveBySerial(unsigned long long) */
+
+void CSRGameActorGroup::FindActorInActiveBySerial(ulonglong param_1)
+
+{
+  bool bVar1;
+  undefined4 *puVar2;
+  CSRGameActorBaseDraw *this;
+  int *piVar3;
+  __shared_weak_count *p_Var4;
+  int iVar5;
+  undefined4 in_r2;
+  undefined4 in_r3;
+  int iVar6;
+  __shared_weak_count *this_00;
+  int iVar7;
+  longlong lVar8;
+  
+  iVar6 = (int)(param_1 >> 0x20);
+  puVar2 = (undefined4 *)param_1;
+  iVar7 = iVar6 + 0x29c;
+  iVar6 = *(int *)(iVar6 + 0x2a0);
+  if (iVar7 == iVar6) {
+LAB_009a54f6:
+    if (iVar7 != iVar6) {
+      *puVar2 = *(undefined4 *)(iVar6 + 8);
+      iVar6 = *(int *)(iVar6 + 0xc);
+      puVar2[1] = iVar6;
+      if (iVar6 == 0) {
+        return;
+      }
+      piVar3 = (int *)(iVar6 + 4);
+      do {
+        ExclusiveAccess(piVar3);
+        bVar1 = (bool)hasExclusiveAccess(piVar3);
+      } while (!bVar1);
+      *piVar3 = *piVar3 + 1;
+      return;
+    }
+  }
+  else {
+    do {
+      this = *(CSRGameActorBaseDraw **)(iVar6 + 8);
+      this_00 = *(__shared_weak_count **)(iVar6 + 0xc);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var4 = this_00 + 4;
+        do {
+          ExclusiveAccess(p_Var4);
+          bVar1 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar1);
+        *(int *)p_Var4 = *(int *)p_Var4 + 1;
+      }
+      lVar8 = CSRGameActorBaseDraw::GetSerial(this);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var4 = this_00 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var4);
+          iVar5 = *(int *)p_Var4;
+          bVar1 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar1);
+        *(int *)p_Var4 = iVar5 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar5 == 0) {
+          (**(code **)(*(int *)this_00 + 8))(this_00);
+          std::__ndk1::__shared_weak_count::__release_weak(this_00);
+        }
+      }
+      if (lVar8 == CONCAT44(in_r3,in_r2)) goto LAB_009a54f6;
+      iVar6 = *(int *)(iVar6 + 4);
+    } while (iVar7 != iVar6);
+  }
+  *puVar2 = 0;
+  puVar2[1] = 0;
+  return;
+}
+
+
+===== 009a565a FindActorWaveAllBySerial @ 009a565a =====
+
+/* CSRGameActorGroup::FindActorWaveAllBySerial(unsigned long long) */
+
+void CSRGameActorGroup::FindActorWaveAllBySerial(ulonglong param_1)
+
+{
+  bool bVar1;
+  undefined4 *puVar2;
+  int iVar3;
+  CSRGameActorBaseDraw *this;
+  int *piVar4;
+  __shared_weak_count *p_Var5;
+  int iVar6;
+  undefined4 in_r2;
+  undefined4 in_r3;
+  int iVar7;
+  int iVar8;
+  __shared_weak_count *this_00;
+  longlong lVar9;
+  
+  iVar3 = (int)(param_1 >> 0x20);
+  puVar2 = (undefined4 *)param_1;
+  iVar8 = *(int *)(iVar3 + 0x290);
+  iVar3 = *(int *)(iVar3 + 0x294);
+  do {
+    if (iVar8 == iVar3) {
+      *puVar2 = 0;
+      puVar2[1] = 0;
+      return;
+    }
+    for (iVar7 = *(int *)(iVar8 + 4); iVar8 != iVar7; iVar7 = *(int *)(iVar7 + 4)) {
+      this = *(CSRGameActorBaseDraw **)(iVar7 + 8);
+      this_00 = *(__shared_weak_count **)(iVar7 + 0xc);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var5 = this_00 + 4;
+        do {
+          ExclusiveAccess(p_Var5);
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = *(int *)p_Var5 + 1;
+      }
+      lVar9 = CSRGameActorBaseDraw::GetSerial(this);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var5 = this_00 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar6 = *(int *)p_Var5;
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = iVar6 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar6 == 0) {
+          (**(code **)(*(int *)this_00 + 8))(this_00);
+          std::__ndk1::__shared_weak_count::__release_weak(this_00);
+        }
+      }
+      if (lVar9 == CONCAT44(in_r3,in_r2)) {
+        *puVar2 = *(undefined4 *)(iVar7 + 8);
+        iVar8 = *(int *)(iVar7 + 0xc);
+        puVar2[1] = iVar8;
+        if (iVar8 == 0) {
+          return;
+        }
+        piVar4 = (int *)(iVar8 + 4);
+        do {
+          ExclusiveAccess(piVar4);
+          bVar1 = (bool)hasExclusiveAccess(piVar4);
+        } while (!bVar1);
+        *piVar4 = *piVar4 + 1;
+        return;
+      }
+    }
+    iVar8 = iVar8 + 0xc;
+  } while( true );
+}
+
+

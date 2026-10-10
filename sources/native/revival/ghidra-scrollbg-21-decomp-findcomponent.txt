@@ -1,0 +1,85 @@
+===== 0x9e4b14 FindComponentForce<CSRGameScrollBGDraw> @ 009e4b14 =====
+
+/* std::__ndk1::shared_ptr<CSRGameScrollBGDraw>
+   CMUpdatable::FindComponentForce<CSRGameScrollBGDraw>() */
+
+void CMUpdatable::FindComponentForce<CSRGameScrollBGDraw>(void)
+
+{
+  bool bVar1;
+  undefined4 *in_r0;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  __shared_weak_count *p_Var4;
+  CMUpdatable *in_r1;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  CMUpdatable *pCVar7;
+  CMUpdatable *pCVar8;
+  int *piVar9;
+  undefined4 local_38;
+  __shared_weak_count *local_34;
+  undefined4 local_30;
+  __shared_weak_count *p_Stack_2c;
+  int local_28;
+  
+  piVar9 = *(int **)(DAT_009e4c64 + 0x9e4b28);
+  local_28 = *piVar9;
+  std::__ndk1::recursive_mutex::lock((recursive_mutex *)(in_r1 + 0x214));
+  pCVar7 = *(CMUpdatable **)(in_r1 + 0x20c);
+  pCVar8 = in_r1 + 0x208;
+  if (pCVar8 != pCVar7) {
+    uVar5 = *(undefined4 *)(DAT_009e4c68 + 0x9e4b4e);
+    uVar6 = *(undefined4 *)(DAT_009e4c6c + 0x9e4b50);
+    do {
+      if ((*(int *)(pCVar7 + 8) != 0) &&
+         (iVar2 = __dynamic_cast(*(int *)(pCVar7 + 8),uVar5,uVar6,0), iVar2 != 0)) break;
+      pCVar7 = *(CMUpdatable **)(pCVar7 + 4);
+    } while (pCVar8 != pCVar7);
+  }
+  if (pCVar8 == pCVar7) {
+    std::__ndk1::shared_ptr<CSRGameScrollBGDraw>::make_shared<>
+              ((shared_ptr<CSRGameScrollBGDraw> *)&local_30);
+    local_38 = local_30;
+    local_34 = p_Stack_2c;
+    if (p_Stack_2c != (__shared_weak_count *)0x0) {
+      p_Var3 = p_Stack_2c + 4;
+      do {
+        ExclusiveAccess(p_Var3);
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = *(int *)p_Var3 + 1;
+    }
+    AddComponent(in_r1,(shared_ptr *)&local_38);
+    p_Var3 = local_34;
+    if (local_34 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_34 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar2 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar2 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar2 == 0) {
+        (**(code **)(*(int *)local_34 + 8))(local_34);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+    }
+    *in_r0 = local_30;
+    in_r0[1] = p_Stack_2c;
+  }
+  else {
+    smart_point_cast<CSRGameScrollBGDraw,std::__ndk1::shared_ptr<CMComponentBase>>
+              ((shared_ptr *)in_r0);
+  }
+  std::__ndk1::recursive_mutex::unlock((recursive_mutex *)(in_r1 + 0x214));
+  if (*piVar9 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

@@ -1,0 +1,719 @@
+===== 00a3c178 OnProcessCursorPress @ 00a3c178 =====
+
+/* CSRGameUIIconSkill::OnProcessCursorPress(CMUpdatable*, CRMPoint const&, unsigned char) */
+
+void __thiscall
+CSRGameUIIconSkill::OnProcessCursorPress
+          (CSRGameUIIconSkill *this,CMUpdatable *param_1,CRMPoint *param_2,uchar param_3)
+
+{
+  CMVec4Rect *pCVar1;
+  int iVar2;
+  float fVar3;
+
+  if (param_3 == '\x01') {
+    if (this[0x6c] != (CSRGameUIIconSkill)0x1) {
+      return;
+    }
+    pCVar1 = (CMVec4Rect *)(**(code **)(**(int **)(this + 0x60) + 0x90))();
+    iVar2 = CMTestIntersection(pCVar1,param_2);
+    if (iVar2 == 1) {
+      fVar3 = (float)CMUpdatable::GetOpacityf(*(CMUpdatable **)(this + 0x60));
+      CMEventPool<unsigned_char>::Call
+                ((CMEventPool<unsigned_char> *)(this + 0x44),
+                 (0.0 < fVar3 * DAT_00a3c1cc) * (char)(int)(fVar3 * DAT_00a3c1cc));
+      return;
+    }
+  }
+  return;
+}
+
+
+===== 00a3b3c8 CSRGameUIIconSkill @ 00a3b3c8 =====
+
+/* CSRGameUIIconSkill::CSRGameUIIconSkill() */
+
+void __thiscall CSRGameUIIconSkill::CSRGameUIIconSkill(CSRGameUIIconSkill *this)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  CMComponentPlayer *pCVar3;
+  int *piVar4;
+  int iVar5;
+  __shared_weak_count *p_Var6;
+  __shared_weak_count *p_Var7;
+  CMComponentPlayer *this_00;
+  CMComponentPlayer *pCVar8;
+  char *pcVar9;
+  code *pcVar10;
+  CSRGameUIIconSkill *pCVar11;
+  __shared_weak_count *p_Var12;
+  int *piVar13;
+  undefined4 local_50;
+  __shared_weak_count *local_4c;
+  CMUIView local_48 [4];
+  __shared_weak_count *local_44;
+  CMComponentPlayer *local_40;
+  __shared_weak_count *local_3c;
+  __shared_weak_count *local_38;
+  CSRGameUIIconSkill *local_34;
+  function *local_30;
+  int local_28;
+
+  piVar13 = *(int **)(DAT_00a3b73c + 0xa3b3dc);
+  local_28 = *piVar13;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00a3b740 + 0xa3b3ec));
+  piVar4 = (int *)(DAT_00a3b744 + 0xa3b3fe);
+  *(undefined4 *)(this + 0x20) = 0;
+  *(undefined4 *)(this + 0x24) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 0x28) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0x2c) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  iVar5 = *piVar4;
+  *(undefined4 *)(this + 0x38) = 0;
+  *(undefined4 *)(this + 0x3c) = 0;
+  *(int *)this = iVar5 + 8;
+  *(undefined4 *)(this + 4) = 0;
+  *(undefined4 *)(this + 8) = 0;
+  *(undefined4 *)(this + 0x14) = 0;
+  *(undefined4 *)(this + 0x18) = 0;
+  *(undefined4 *)(this + 0x30) = 0;
+  *(undefined4 *)(this + 0x10) = 0;
+  CMHashID::Set((CMHashID *)(this + 0x28),(basic_string *)&local_40);
+  iVar5 = DAT_00a3b748;
+  this[0x40] = (CSRGameUIIconSkill)0x1;
+  *(int *)this = *(int *)(iVar5 + 0xa3b434) + 8;
+  if (((uint)local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  pcVar9 = (char *)(DAT_00a3b74c + 0xa3b45a);
+  piVar4 = (int *)(DAT_00a3b750 + 0xa3b45c);
+  *(undefined4 *)(this + 0x5c) = 0;
+  *(undefined4 *)(this + 0x60) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 100) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0x68) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  iVar5 = *piVar4;
+  this[0x6c] = (CSRGameUIIconSkill)0x0;
+  *(undefined4 *)(this + 0x44) = 0;
+  *(undefined4 *)(this + 0x48) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 0x4c) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0x50) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  pCVar11 = this + 0x54;
+  *(CSRGameUIIconSkill **)(this + 0x58) = pCVar11;
+  *(int *)this = iVar5 + 8;
+  *(CSRGameUIIconSkill **)pCVar11 = pCVar11;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,pcVar9);
+  CMUIView::LoadViewCache(local_48,(basic_string *)&local_40,(Listener *)0x0);
+  if (((uint)local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_40,(char *)(DAT_00a3b754 + 0xa3b4a2));
+  CMUIView::FindCastByName<CMDrawable>((basic_string *)&local_50);
+  p_Var6 = local_4c;
+  uVar2 = local_50;
+  local_50 = 0;
+  local_4c = (__shared_weak_count *)0x0;
+  p_Var12 = *(__shared_weak_count **)(this + 100);
+  *(undefined4 *)(this + 0x60) = uVar2;
+  *(__shared_weak_count **)(this + 100) = p_Var6;
+  if (p_Var12 != (__shared_weak_count *)0x0) {
+    p_Var6 = p_Var12 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar5 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Var12 + 8))(p_Var12);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var12);
+    }
+  }
+  p_Var6 = local_4c;
+  if (local_4c != (__shared_weak_count *)0x0) {
+    p_Var12 = local_4c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var12);
+      iVar5 = *(int *)p_Var12;
+      bVar1 = (bool)hasExclusiveAccess(p_Var12);
+    } while (!bVar1);
+    *(int *)p_Var12 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_4c + 8))(local_4c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  if (((uint)local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  CMUpdatable::SetVisible(*(CMUpdatable **)(this + 0x60),'\0');
+  CMUpdatable::FindComponentForce<CMComponentPlayer>();
+  p_Var6 = local_3c;
+  pCVar3 = local_40;
+  if (local_3c == (__shared_weak_count *)0x0) {
+    p_Var12 = (__shared_weak_count *)0x0;
+    pCVar8 = (CMComponentPlayer *)0x0;
+  }
+  else {
+    p_Var12 = local_3c + 8;
+    do {
+      ExclusiveAccess(p_Var12);
+      bVar1 = (bool)hasExclusiveAccess(p_Var12);
+    } while (!bVar1);
+    *(int *)p_Var12 = *(int *)p_Var12 + 1;
+    p_Var12 = local_3c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var12);
+      iVar5 = *(int *)p_Var12;
+      bVar1 = (bool)hasExclusiveAccess(p_Var12);
+    } while (!bVar1);
+    *(int *)p_Var12 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_3c + 8))(local_3c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_3c);
+    }
+    p_Var12 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(local_3c);
+    pCVar8 = (CMComponentPlayer *)0x0;
+    if (p_Var12 != (__shared_weak_count *)0x0) {
+      pCVar8 = pCVar3;
+    }
+  }
+  CMHashID::CMHashID((CMHashID *)&local_40,(char *)(DAT_00a3b8cc + 0xa3b598));
+  CMComponentPlayer::SetGroup(pCVar8,(CMHashID *)&local_40);
+  if (((uint)local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  if (p_Var12 == (__shared_weak_count *)0x0) {
+LAB_00a3b5d2:
+    if (local_3c != (__shared_weak_count *)0x0) goto LAB_00a3b5d8;
+LAB_00a3b5fc:
+    p_Var12 = (__shared_weak_count *)0x0;
+  }
+  else {
+    p_Var7 = p_Var12 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar5 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 != 0) goto LAB_00a3b5d2;
+    (**(code **)(*(int *)p_Var12 + 8))(p_Var12);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var12);
+    if (local_3c == (__shared_weak_count *)0x0) goto LAB_00a3b5fc;
+LAB_00a3b5d8:
+    p_Var12 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(local_3c);
+  }
+  CMComponentPlayer::Play();
+  if (p_Var12 == (__shared_weak_count *)0x0) {
+LAB_00a3b620:
+    if (local_3c != (__shared_weak_count *)0x0) goto LAB_00a3b626;
+LAB_00a3b65e:
+    pCVar8 = (CMComponentPlayer *)0x0;
+    this_00 = (CMComponentPlayer *)0x0;
+  }
+  else {
+    p_Var7 = p_Var12 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar5 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 != 0) goto LAB_00a3b620;
+    (**(code **)(*(int *)p_Var12 + 8))(p_Var12);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var12);
+    if (local_3c == (__shared_weak_count *)0x0) goto LAB_00a3b65e;
+LAB_00a3b626:
+    this_00 = (CMComponentPlayer *)std::__ndk1::__shared_weak_count::lock(local_3c);
+    local_3c = local_3c + 8;
+    pCVar8 = this_00;
+    if (this_00 != (CMComponentPlayer *)0x0) {
+      pCVar8 = pCVar3;
+    }
+    do {
+      ExclusiveAccess(local_3c);
+      bVar1 = (bool)hasExclusiveAccess(local_3c);
+    } while (!bVar1);
+    *(int *)local_3c = *(int *)local_3c + 1;
+  }
+  local_3c = (__shared_weak_count *)pCVar3;
+  local_38 = p_Var6;
+  local_40 = (CMComponentPlayer *)(DAT_00a3b8d0 + 0xa3b676);
+  local_34 = this;
+  local_30 = (function *)&local_40;
+  CMEventPool<>::operator+=((CMEventPool<> *)(pCVar8 + 0x44),(function *)&local_40);
+  if ((function *)&local_40 == local_30) {
+    pcVar10 = *(code **)(*(int *)local_30 + 0x10);
+  }
+  else {
+    if (local_30 == (function *)0x0) goto LAB_00a3b690;
+    pcVar10 = *(code **)(*(int *)local_30 + 0x14);
+  }
+  (*pcVar10)();
+LAB_00a3b690:
+  if (this_00 != (CMComponentPlayer *)0x0) {
+    p_Var12 = (__shared_weak_count *)(this_00 + 4);
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var12);
+      iVar5 = *(int *)p_Var12;
+      bVar1 = (bool)hasExclusiveAccess(p_Var12);
+    } while (!bVar1);
+    *(int *)p_Var12 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      std::__ndk1::__shared_weak_count::__release_weak((__shared_weak_count *)this_00);
+    }
+  }
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+  }
+  if (local_44 != (__shared_weak_count *)0x0) {
+    p_Var6 = local_44 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar5 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_44 + 8))(local_44);
+      std::__ndk1::__shared_weak_count::__release_weak(local_44);
+    }
+  }
+  iVar5 = *piVar13 - local_28;
+  if (iVar5 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar5);
+  }
+  return;
+}
+
+
+===== 00a3c1d0 OnAttach @ 00a3c1d0 =====
+
+/* CSRGameUIIconSkill::OnAttach(CMUpdatable*) */
+
+void CSRGameUIIconSkill::OnAttach(CMUpdatable *param_1)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  undefined4 in_r3;
+  int *piVar5;
+  undefined4 local_24;
+  __shared_weak_count *local_20;
+  shared_ptr asStack_1c [4];
+  __shared_weak_count *local_18;
+  int local_14;
+
+  piVar5 = *(int **)(DAT_00a3c2a8 + 0xa3c1de);
+  local_14 = *piVar5;
+  local_24 = *(undefined4 *)(param_1 + 0x60);
+  local_20 = *(__shared_weak_count **)(param_1 + 100);
+  if (local_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = local_20 + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+      if (bVar1) {
+        *(int *)p_Var2 = *(int *)p_Var2 + 1;
+      }
+      in_r3 = 0;
+    } while (!bVar1);
+  }
+  CMNode<CMUpdatable>::AttachChild(asStack_1c,CONCAT44(in_r3,&local_24));
+  if (local_18 != (__shared_weak_count *)0x0) {
+    p_Var2 = local_18 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar4 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)local_18 + 8))(local_18);
+      std::__ndk1::__shared_weak_count::__release_weak(local_18);
+    }
+  }
+  p_Var2 = local_20;
+  if (local_20 != (__shared_weak_count *)0x0) {
+    p_Var3 = local_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar4 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)local_20 + 8))(local_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+    }
+  }
+  if (*piVar5 == local_14) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 00985f8c SetInpuable @ 00985f8c =====
+
+/* CSRGameActor::SetInpuable(std::__ndk1::weak_ptr<CSRGameUISkillPoint const>) */
+
+void __thiscall CSRGameActor::SetInpuable(CSRGameActor *this,undefined4 *param_2)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  int *piVar5;
+  undefined4 *puVar6;
+  undefined4 *puVar7;
+  uint *puVar8;
+  int iVar9;
+  undefined4 *puVar10;
+  uint uVar11;
+  code *pcVar12;
+  int *piVar13;
+  uint uVar14;
+  CSRGameActor *pCVar15;
+  __shared_weak_count *p_Var16;
+  uint *puVar17;
+  undefined4 uVar18;
+  undefined4 uVar19;
+  CSRGameUIIconSkill *pCVar20;
+  int *piVar21;
+  CSRGameActor *pCVar22;
+  int local_40;
+  __shared_weak_count *local_3c;
+  int *local_30;
+  int local_28;
+
+  piVar21 = *(int **)(DAT_00986288 + 0x985fa0);
+  local_28 = *piVar21;
+  uVar2 = *param_2;
+  iVar9 = param_2[1];
+  if (iVar9 != 0) {
+    piVar13 = (int *)(iVar9 + 8);
+    do {
+      ExclusiveAccess(piVar13);
+      bVar1 = (bool)hasExclusiveAccess(piVar13);
+    } while (!bVar1);
+    *piVar13 = *piVar13 + 1;
+  }
+  *(undefined4 *)(this + 0xa74) = uVar2;
+  p_Var3 = *(__shared_weak_count **)(this + 0xa78);
+  *(int *)(this + 0xa78) = iVar9;
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+  }
+  iVar4 = param_2[1];
+  iVar9 = 0;
+  if (iVar4 != 0) {
+    iVar9 = *(int *)(iVar4 + 4);
+  }
+  if ((iVar4 == 0 || iVar9 == -1) || (*(int *)(this + 0xa6c) != 0)) {
+    piVar13 = *(int **)(this + 0xa70);
+    *(undefined4 *)(this + 0xa6c) = 0;
+    *(undefined4 *)(this + 0xa70) = 0;
+    if (piVar13 != (int *)0x0) {
+      piVar5 = piVar13 + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(piVar5);
+        iVar9 = *piVar5;
+        bVar1 = (bool)hasExclusiveAccess(piVar5);
+      } while (!bVar1);
+      *piVar5 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*piVar13 + 8))(piVar13);
+        if (*piVar21 - local_28 != 0) {
+                    /* WARNING: Subroutine does not return */
+          __stack_chk_fail(*piVar21 - local_28);
+        }
+        (*(code *)((int)&DAT_00a16624 + DAT_00a16624))();
+        return;
+      }
+    }
+    goto LAB_00986336;
+  }
+  std::__ndk1::recursive_mutex::lock((recursive_mutex *)(this + 0x214));
+  pCVar15 = *(CSRGameActor **)(this + 0x20c);
+  pCVar22 = this + 0x208;
+  puVar10 = (undefined4 *)(DAT_00986378 + 0x986060);
+  puVar6 = (undefined4 *)(DAT_0098637c + 0x986062);
+  puVar7 = puVar6;
+  if (pCVar22 != pCVar15) {
+    uVar18 = *puVar10;
+    uVar2 = *puVar6;
+    do {
+      puVar7 = (undefined4 *)0x0;
+      if ((*(int *)(pCVar15 + 8) != 0) &&
+         (puVar7 = (undefined4 *)__dynamic_cast(*(int *)(pCVar15 + 8),uVar18,uVar2,0),
+         puVar7 != (undefined4 *)0x0)) {
+        p_Var3 = *(__shared_weak_count **)(pCVar15 + 0xc);
+        if (p_Var3 != (__shared_weak_count *)0x0) {
+          p_Var16 = p_Var3 + 4;
+          do {
+            ExclusiveAccess(p_Var16);
+            bVar1 = (bool)hasExclusiveAccess(p_Var16);
+          } while (!bVar1);
+          *(int *)p_Var16 = *(int *)p_Var16 + 1;
+          do {
+            ExclusiveAccess(p_Var16);
+            bVar1 = (bool)hasExclusiveAccess(p_Var16);
+          } while (!bVar1);
+          *(int *)p_Var16 = *(int *)p_Var16 + 1;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var16);
+            iVar9 = *(int *)p_Var16;
+            bVar1 = (bool)hasExclusiveAccess(p_Var16);
+          } while (!bVar1);
+          *(int *)p_Var16 = iVar9 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar9 == 0) {
+            (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+          }
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var16);
+            puVar7 = *(undefined4 **)p_Var16;
+            bVar1 = (bool)hasExclusiveAccess(p_Var16);
+          } while (!bVar1);
+          *(int *)p_Var16 = (int)puVar7 + -1;
+          DataMemoryBarrier(0x1b);
+          if (puVar7 == (undefined4 *)0x0) {
+            (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+            puVar7 = (undefined4 *)std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+          }
+        }
+        break;
+      }
+      pCVar15 = *(CSRGameActor **)(pCVar15 + 4);
+    } while (pCVar22 != pCVar15);
+  }
+  if (pCVar22 != pCVar15) {
+    puVar7 = *(undefined4 **)(pCVar15 + 8);
+  }
+  if ((pCVar22 != pCVar15 && puVar7 != (undefined4 *)0x0) &&
+     (iVar9 = __dynamic_cast(puVar7,*puVar10,*puVar6,0), iVar9 != 0)) {
+    iVar4 = *(int *)(pCVar15 + 0xc);
+    if (iVar4 != 0) {
+      piVar13 = (int *)(iVar4 + 4);
+      do {
+        ExclusiveAccess(piVar13);
+        bVar1 = (bool)hasExclusiveAccess(piVar13);
+      } while (!bVar1);
+      *piVar13 = *piVar13 + 1;
+    }
+  }
+  else {
+    iVar4 = 0;
+    iVar9 = 0;
+  }
+  std::__ndk1::recursive_mutex::unlock((recursive_mutex *)(this + 0x214));
+  *(int *)(this + 0xa6c) = iVar9;
+  p_Var3 = *(__shared_weak_count **)(this + 0xa70);
+  *(int *)(this + 0xa70) = iVar4;
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    p_Var16 = p_Var3 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var16);
+      iVar9 = *(int *)p_Var16;
+      bVar1 = (bool)hasExclusiveAccess(p_Var16);
+    } while (!bVar1);
+    *(int *)p_Var16 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (*(int *)(this + 0xa6c) == 0) {
+    CMUpdatable::FindComponentForce<CSRGameUIIconSkill>();
+    p_Var3 = local_3c;
+    iVar9 = local_40;
+    local_40 = 0;
+    local_3c = (__shared_weak_count *)0x0;
+    p_Var16 = *(__shared_weak_count **)(this + 0xa70);
+    *(int *)(this + 0xa6c) = iVar9;
+    *(__shared_weak_count **)(this + 0xa70) = p_Var3;
+    if (p_Var16 != (__shared_weak_count *)0x0) {
+      p_Var3 = p_Var16 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar9 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)p_Var16 + 8))(p_Var16);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var16);
+      }
+      p_Var3 = local_3c;
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var16 = local_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var16);
+          iVar9 = *(int *)p_Var16;
+          bVar1 = (bool)hasExclusiveAccess(p_Var16);
+        } while (!bVar1);
+        *(int *)p_Var16 = iVar9 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar9 == 0) {
+          (**(code **)(*(int *)local_3c + 8))(local_3c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+        }
+      }
+    }
+    local_3c = (__shared_weak_count *)(this + 0x8c4);
+    local_40 = *(int *)(DAT_00986380 + 0x9861d2) + 8;
+    iVar9 = *(int *)(this + 0xa6c);
+    local_30 = &local_40;
+    std::__ndk1::mutex::lock((mutex *)(iVar9 + 0x44));
+    puVar17 = *(uint **)(iVar9 + 0x4c);
+    if (puVar17 < *(uint **)(iVar9 + 0x50)) {
+      puVar8 = *(uint **)(DAT_00986384 + 0x9861f4);
+      uVar11 = *puVar8 + 1;
+      uVar14 = puVar8[1] + (uint)(0xfffffffe < *puVar8);
+      *puVar8 = uVar11;
+      puVar8[1] = uVar14;
+      *puVar17 = uVar11;
+      puVar17[1] = uVar14;
+      if (local_30 == (int *)0x0) {
+        uVar11 = 0;
+LAB_0098625e:
+        puVar17[6] = uVar11;
+      }
+      else {
+        if (&local_40 != local_30) {
+          uVar11 = (**(code **)(*local_30 + 8))();
+          goto LAB_0098625e;
+        }
+        puVar17[6] = (uint)(puVar17 + 2);
+        (**(code **)(*local_30 + 0xc))();
+      }
+      *(uint **)(iVar9 + 0x4c) = puVar17 + 8;
+    }
+    else {
+      std::__ndk1::
+      vector<CMEventSet<unsigned_char>,std::__ndk1::allocator<CMEventSet<unsigned_char>>>::
+      __emplace_back_slow_path<std::__ndk1::function<void(unsigned_char)>const&>
+                ((vector<CMEventSet<unsigned_char>,std::__ndk1::allocator<CMEventSet<unsigned_char>>>
+                  *)(iVar9 + 0x48),(function *)&local_40);
+    }
+    std::__ndk1::mutex::unlock((mutex *)(iVar9 + 0x44));
+    if (&local_40 == local_30) {
+      pcVar12 = *(code **)(*local_30 + 0x10);
+    }
+    else {
+      if (local_30 == (int *)0x0) goto LAB_00986292;
+      pcVar12 = *(code **)(*local_30 + 0x14);
+    }
+    (*pcVar12)();
+  }
+LAB_00986292:
+  CMUpdatable::FindComponentForce<CSRGameUIIconSkill>();
+  p_Var3 = local_3c;
+  iVar9 = local_40;
+  local_40 = 0;
+  local_3c = (__shared_weak_count *)0x0;
+  p_Var16 = *(__shared_weak_count **)(this + 0xa70);
+  *(int *)(this + 0xa6c) = iVar9;
+  *(__shared_weak_count **)(this + 0xa70) = p_Var3;
+  if (p_Var16 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var16 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar9 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*(int *)p_Var16 + 8))(p_Var16);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var16);
+    }
+    p_Var3 = local_3c;
+    if (local_3c != (__shared_weak_count *)0x0) {
+      p_Var16 = local_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var16);
+        iVar9 = *(int *)p_Var16;
+        bVar1 = (bool)hasExclusiveAccess(p_Var16);
+      } while (!bVar1);
+      *(int *)p_Var16 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)local_3c + 8))(local_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+    }
+  }
+  pCVar20 = *(CSRGameUIIconSkill **)(this + 0xa6c);
+  puVar7 = (undefined4 *)CSRGameActorBaseDraw::GetRole((CSRGameActorBaseDraw *)this);
+  uVar19 = *puVar7;
+  puVar7 = (undefined4 *)CSRGameActorBaseDraw::GetAttr((CSRGameActorBaseDraw *)this);
+  uVar18 = *puVar7;
+  uVar2 = CSRGameActorBaseDraw::GetSkillCost((CSRGameActorBaseDraw *)this);
+  CSRGameUIIconSkill::SetData(pCVar20,uVar19,uVar18,uVar2);
+  CSRGameUIIconSkill::SetVisible(*(CSRGameUIIconSkill **)(this + 0xa6c),'\0');
+LAB_00986336:
+  if (*piVar21 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 0097ecba IsSkillEnabled @ 0097ecba =====
+
+/* CSRGameActor::IsSkillEnabled() const */
+
+CSRGameActor __thiscall CSRGameActor::IsSkillEnabled(CSRGameActor *this)
+
+{
+  return this[0xa7d];
+}

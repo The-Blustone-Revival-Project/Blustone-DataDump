@@ -1,0 +1,4523 @@
+===== 0x9db7b0 ShowEffect @ 009db7b0 =====
+
+/* CSRGameBase::ShowEffect(char const*, CRMVector2 const&, char const*, unsigned char,
+   std::__ndk1::function<void (float, CMHashID const&)>) */
+
+void __thiscall
+CSRGameBase::ShowEffect
+          (CSRGameBase *this,CRMVector2 *param_1,char *param_2,uchar param_4_00,undefined4 param_4,
+          function *param_6)
+
+{
+  CSRGameBase CVar1;
+  __shared_weak_count *p_Var2;
+  CMSoundMgr *this_00;
+  CMEventPool<float_const,CMHashID_const&> *this_01;
+  int iVar3;
+  CSRGameBase *pCVar4;
+  CSRGameBase *pCVar5;
+  __shared_weak_count *this_02;
+  uint uVar6;
+  CMComponentEffect *this_03;
+  CSRGameBase *pCVar7;
+  CSRGameBase *pCVar8;
+  int *piVar9;
+  bool bVar10;
+  float fVar11;
+  uint local_40 [2];
+  void *local_38;
+  uint local_30;
+  uint uStack_2c;
+  int local_28;
+  
+  piVar9 = *(int **)(DAT_009db978 + 0x9db7c8);
+  local_28 = *piVar9;
+  CMHashID::CMHashID((CMHashID *)local_40,(char *)param_1);
+  pCVar4 = *(CSRGameBase **)(this + 0x1ec);
+  this = this + 0x1ec;
+  pCVar8 = this;
+  pCVar7 = this;
+  if (pCVar4 != (CSRGameBase *)0x0) {
+    do {
+      uVar6 = *(uint *)(pCVar4 + 0x24);
+      bVar10 = (uint)(local_30 <= *(uint *)(pCVar4 + 0x20)) <= uVar6 - uStack_2c;
+      pCVar5 = pCVar4;
+      if (uVar6 <= uStack_2c && bVar10) {
+        pCVar5 = pCVar4 + 4;
+      }
+      if (uVar6 > uStack_2c || !bVar10) {
+        pCVar7 = pCVar4;
+      }
+      pCVar4 = *(CSRGameBase **)pCVar5;
+    } while (*(CSRGameBase **)pCVar5 != (CSRGameBase *)0x0);
+    if ((pCVar7 != this) &&
+       (pCVar8 = pCVar7,
+       uStack_2c <= *(uint *)(pCVar7 + 0x24) &&
+       (uint)(*(uint *)(pCVar7 + 0x20) <= local_30) <= uStack_2c - *(uint *)(pCVar7 + 0x24))) {
+      pCVar8 = this;
+    }
+  }
+  if ((local_40[0] & 1) != 0) {
+    operator_delete(local_38);
+  }
+  if (pCVar8 == this) {
+    _RMAssert('\0',(char *)(DAT_009db980 + 0x9db842),(char *)(DAT_009db984 + 0x9db846),0x7d6,
+              DAT_009db97c + 0x9db83e,DAT_009db988 + 0x9db848,DAT_009db98c + 0x9db84a);
+  }
+  this_02 = *(__shared_weak_count **)(pCVar8 + 0x59c);
+  this_03 = *(CMComponentEffect **)(pCVar8 + 0x598);
+  if (this_02 != (__shared_weak_count *)0x0) {
+    p_Var2 = this_02 + 4;
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar10 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar10);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+  }
+  CMComponentEffect::SetRenderOption(this_03,(CRMRenderParam *)(pCVar8 + 0x2c));
+  CMComponentEffect::SetScale(this_03,(CRMVector2 *)(pCVar8 + 0x5a0));
+  *(undefined4 *)(this_03 + 0x44) = *(undefined4 *)(pCVar8 + 0x28);
+  CVar1 = pCVar8[0x58c];
+  bVar10 = ((byte)CVar1 & 1) == 0;
+  if (bVar10) {
+    CVar1 = (CSRGameBase)((byte)CVar1 >> 1);
+  }
+  uVar6 = (uint)(byte)CVar1;
+  if (!bVar10) {
+    uVar6 = *(uint *)(pCVar8 + 0x590);
+  }
+  if (uVar6 != 0) {
+    this_00 = (CMSoundMgr *)CMSoundMgr::get();
+    local_30 = 0;
+    uStack_2c = 0;
+    local_40[0] = 0;
+    local_40[1] = 0;
+    local_38 = (void *)0x0;
+    fVar11 = (float)CMHashID::Set((CMHashID *)local_40,(basic_string *)(pCVar8 + 0x58c));
+    CMSoundMgr::PlaySFX(this_00,(CMHashID *)local_40,fVar11,'\0');
+    if ((local_40[0] & 1) != 0) {
+      operator_delete(local_38);
+    }
+  }
+  this_01 = (CMEventPool<float_const,CMHashID_const&> *)
+            CMComponentEffect::Play((char *)this_03,param_1,param_2,param_4_00);
+  if (*(int *)(param_6 + 0x10) != 0) {
+    CMEventPool<float_const,CMHashID_const&>::operator+=(this_01,param_6);
+  }
+  if (this_02 != (__shared_weak_count *)0x0) {
+    p_Var2 = this_02 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar3 = *(int *)p_Var2;
+      bVar10 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar10);
+    *(int *)p_Var2 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)this_02 + 8))(this_02);
+      std::__ndk1::__shared_weak_count::__release_weak(this_02);
+    }
+  }
+  if (*piVar9 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 0x9c33c4 InitEffect @ 009c33c4 =====
+
+/* CSRGameBase::InitEffect() */
+
+void __thiscall CSRGameBase::InitEffect(CSRGameBase *this)
+
+{
+  bool bVar1;
+  undefined1 *puVar2;
+  int *piVar3;
+  __shared_weak_count *p_Var4;
+  __shared_weak_count *p_Var5;
+  int *piVar6;
+  CRMShader2 *pCVar7;
+  undefined4 uVar8;
+  void *pvVar9;
+  void *pvVar10;
+  int iVar11;
+  undefined4 extraout_r1;
+  undefined4 extraout_r1_00;
+  int extraout_r1_01;
+  EFFECT_DRAW_PARAM *pEVar12;
+  int extraout_r1_02;
+  int extraout_r1_03;
+  int extraout_r1_04;
+  int extraout_r1_05;
+  int extraout_r1_06;
+  int iVar13;
+  int extraout_r1_07;
+  int extraout_r1_08;
+  int extraout_r1_09;
+  int extraout_r1_10;
+  int extraout_r1_11;
+  int extraout_r1_12;
+  int extraout_r1_13;
+  int extraout_r1_14;
+  int extraout_r1_15;
+  int extraout_r1_16;
+  int extraout_r1_17;
+  int extraout_r1_18;
+  int extraout_r1_19;
+  int extraout_r1_20;
+  int extraout_r1_21;
+  int extraout_r1_22;
+  int extraout_r1_23;
+  int extraout_r1_24;
+  int extraout_r1_25;
+  int extraout_r1_26;
+  int extraout_r1_27;
+  int extraout_r1_28;
+  int extraout_r1_29;
+  int extraout_r1_30;
+  int extraout_r1_31;
+  int extraout_r1_32;
+  undefined4 extraout_r1_33;
+  int iVar14;
+  undefined4 extraout_r1_34;
+  undefined4 extraout_r1_35;
+  void *pvVar15;
+  CMHashID *pCVar16;
+  undefined4 *puVar17;
+  int iVar18;
+  void *pvVar19;
+  undefined4 local_1834;
+  __shared_weak_count *local_1830;
+  undefined4 local_182c;
+  __shared_weak_count *local_1828;
+  undefined4 local_1824;
+  undefined4 uStack_1820;
+  undefined4 local_181c;
+  __shared_weak_count *local_1818;
+  undefined4 local_1814;
+  __shared_weak_count *local_1810;
+  undefined4 local_180c;
+  __shared_weak_count *local_1808;
+  undefined4 local_1804;
+  __shared_weak_count *local_1800;
+  undefined4 local_17fc;
+  __shared_weak_count *local_17f8;
+  undefined4 local_17f4;
+  __shared_weak_count *local_17f0;
+  undefined4 local_17ec;
+  __shared_weak_count *local_17e8;
+  undefined4 local_17e4;
+  __shared_weak_count *local_17e0;
+  undefined4 local_17dc;
+  __shared_weak_count *local_17d8;
+  undefined4 local_17d4;
+  __shared_weak_count *local_17d0;
+  undefined4 local_17cc;
+  __shared_weak_count *local_17c8;
+  undefined4 local_17c4;
+  __shared_weak_count *local_17c0;
+  undefined4 local_17bc;
+  __shared_weak_count *local_17b8;
+  undefined4 local_17b4;
+  __shared_weak_count *local_17b0;
+  undefined4 local_17ac;
+  __shared_weak_count *local_17a8;
+  undefined4 local_17a4;
+  __shared_weak_count *local_17a0;
+  undefined4 local_179c;
+  __shared_weak_count *local_1798;
+  undefined4 local_1794;
+  __shared_weak_count *local_1790;
+  undefined4 local_178c;
+  __shared_weak_count *local_1788;
+  undefined4 local_1784;
+  __shared_weak_count *local_1780;
+  undefined4 local_177c;
+  __shared_weak_count *local_1778;
+  undefined4 local_1774;
+  __shared_weak_count *local_1770;
+  undefined4 local_176c;
+  __shared_weak_count *local_1768;
+  undefined4 local_1764;
+  __shared_weak_count *local_1760;
+  undefined4 local_175c;
+  __shared_weak_count *local_1758;
+  undefined4 local_1754;
+  __shared_weak_count *local_1750;
+  undefined4 local_174c;
+  __shared_weak_count *local_1748;
+  undefined4 local_1744;
+  __shared_weak_count *local_1740;
+  undefined4 local_173c;
+  __shared_weak_count *local_1738;
+  undefined4 local_1734;
+  __shared_weak_count *local_1730;
+  undefined4 local_172c;
+  __shared_weak_count *local_1728;
+  undefined4 local_1724;
+  __shared_weak_count *local_1720;
+  undefined4 local_171c;
+  __shared_weak_count *local_1718;
+  undefined4 local_1714;
+  __shared_weak_count *local_1710;
+  undefined4 local_170c;
+  __shared_weak_count *local_1708;
+  undefined4 local_1704;
+  __shared_weak_count *local_1700;
+  undefined4 local_16fc;
+  __shared_weak_count *local_16f8;
+  undefined4 local_16f4;
+  __shared_weak_count *local_16f0;
+  undefined4 local_16ec;
+  __shared_weak_count *local_16e8;
+  undefined4 local_16e4;
+  __shared_weak_count *local_16e0;
+  undefined4 local_16dc;
+  __shared_weak_count *local_16d8;
+  undefined4 local_16d4;
+  __shared_weak_count *local_16d0;
+  undefined4 local_16cc;
+  __shared_weak_count *local_16c8;
+  undefined4 local_16c4;
+  __shared_weak_count *local_16c0;
+  undefined4 local_16bc;
+  __shared_weak_count *local_16b8;
+  undefined4 local_16b4;
+  __shared_weak_count *local_16b0;
+  undefined4 local_16ac;
+  __shared_weak_count *local_16a8;
+  undefined4 local_16a4;
+  __shared_weak_count *local_16a0;
+  undefined4 local_169c;
+  __shared_weak_count *local_1698;
+  undefined4 local_1694;
+  __shared_weak_count *local_1690;
+  undefined4 local_168c;
+  __shared_weak_count *local_1688;
+  undefined4 local_1684;
+  __shared_weak_count *local_1680;
+  undefined4 local_167c;
+  __shared_weak_count *local_1678;
+  undefined4 local_1674;
+  __shared_weak_count *local_1670;
+  undefined4 local_166c;
+  __shared_weak_count *local_1668;
+  undefined4 local_1664;
+  __shared_weak_count *local_1660;
+  undefined4 local_165c;
+  __shared_weak_count *local_1658;
+  undefined4 local_1654;
+  __shared_weak_count *local_1650;
+  undefined4 local_164c;
+  __shared_weak_count *local_1648;
+  undefined4 local_1644;
+  __shared_weak_count *local_1640;
+  undefined4 local_163c;
+  __shared_weak_count *local_1638;
+  undefined4 local_1634;
+  __shared_weak_count *local_1630;
+  undefined4 local_162c;
+  __shared_weak_count *local_1628;
+  undefined4 local_1624;
+  __shared_weak_count *local_1620;
+  undefined4 local_161c;
+  __shared_weak_count *local_1618;
+  undefined4 local_1614;
+  __shared_weak_count *local_1610;
+  undefined4 local_160c;
+  __shared_weak_count *local_1608;
+  undefined4 local_1604;
+  __shared_weak_count *local_1600;
+  undefined4 local_15fc;
+  __shared_weak_count *local_15f8;
+  __shared_weak_count *local_15f0;
+  CMUpdatable local_15ec [4];
+  __shared_weak_count *local_15e8;
+  basic_string local_15e4 [8];
+  void *local_15dc;
+  undefined1 *local_15d8;
+  undefined1 *puStack_15d4;
+  undefined4 local_15d0;
+  __shared_weak_count *local_15cc;
+  void *local_15c8;
+  undefined4 local_1070;
+  CRMRenderParam aCStack_106c [4];
+  void *local_1068;
+  byte local_b0c;
+  void *local_b04;
+  __shared_weak_count *local_afc;
+  CMUpdatable local_af0 [4];
+  __shared_weak_count *local_aec;
+  CMUpdatable local_590 [4];
+  __shared_weak_count *local_58c;
+  void *local_588;
+  int iStack_2c;
+  
+  piVar3 = *(int **)(DAT_009c3400 + 0x9c33de);
+  iStack_2c = *piVar3;
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c3404 + 0x9c33f0));
+  CMUpdatable::FindByName(local_15ec,pCVar16);
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  CMUpdatable::FindComponentForce<CSRGameUISkillTip>();
+  if (local_15f0 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15f0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_15f0 + 8))(local_15f0);
+      std::__ndk1::__shared_weak_count::__release_weak(local_15f0);
+    }
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c345c + 0x9c3454));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  p_Var4 = local_58c;
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var5 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c382c + 0x9c34ca));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  p_Var4 = local_58c;
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var5 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c3830 + 0x9c3532));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  p_Var4 = local_58c;
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var5 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c3834 + 0x9c35a2));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  p_Var4 = local_58c;
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var5 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c3838 + 0x9c360a));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  p_Var4 = local_58c;
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var5 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c383c + 0x9c3672));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  p_Var4 = local_58c;
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var5 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c3840 + 0x9c36da));
+  CMUpdatable::FindByName(local_590,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  if (local_58c != (__shared_weak_count *)0x0) {
+    p_Var4 = local_58c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_58c + 8))(local_58c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_58c);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  pCVar16 = *(CMHashID **)(this + 0x2c);
+  CMHashID::CMHashID((CMHashID *)&local_1070,(char *)(DAT_009c3844 + 0x9c3742));
+  CMUpdatable::FindByName((CMUpdatable *)&local_15d0,pCVar16);
+  pCVar16 = local_15d0;
+  CMHashID::CMHashID((CMHashID *)local_590,(char *)(DAT_009c3848 + 0x9c375c));
+  CMUpdatable::FindByName(local_af0,pCVar16);
+  CMUpdatable::FindComponentForce<CMComponentEffect>();
+  if (local_aec != (__shared_weak_count *)0x0) {
+    p_Var4 = local_aec + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_aec + 8))(local_aec);
+      std::__ndk1::__shared_weak_count::__release_weak(local_aec);
+    }
+  }
+  if (((byte)local_590[0] & 1) != 0) {
+    operator_delete(local_588);
+  }
+  if (local_15cc != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15cc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_15cc + 8))(local_15cc);
+      std::__ndk1::__shared_weak_count::__release_weak(local_15cc);
+    }
+  }
+  if (((uint)local_1070 & 1) != 0) {
+    operator_delete(local_1068);
+  }
+  puVar17 = (undefined4 *)(DAT_009c384c + 0x9c380e);
+  if (*(int *)(this + 0x2ec) == 2) {
+    local_1070 = (undefined1 *)0x3e99999a;
+    CMShader::CM_SCREEN_ALPHA::Dump((CM_SCREEN_ALPHA *)local_590);
+  }
+  else {
+    pCVar7 = (CRMShader2 *)
+             (**(code **)(*(int *)**(undefined4 **)(*(int *)*puVar17 + 4) + 0x44))
+                       ((int *)**(undefined4 **)(*(int *)*puVar17 + 4),0x13);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)local_590,pCVar7);
+  }
+  if (*(int *)(this + 0x2ec) == 2) {
+    local_1070 = &DAT_3f19999a;
+    CMShader::CM_ALPHABLEND_OPACITY::Dump((CM_ALPHABLEND_OPACITY *)local_af0);
+    uVar8 = extraout_r1;
+  }
+  else {
+    pCVar7 = (CRMShader2 *)
+             (**(code **)(*(int *)**(undefined4 **)(*(int *)*puVar17 + 4) + 0x44))
+                       ((int *)**(undefined4 **)(*(int *)*puVar17 + 4),4);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)local_af0,pCVar7);
+    uVar8 = extraout_r1_00;
+  }
+  GetDashRes(&local_15d0,uVar8,3,3,1);
+  local_1644 = local_1604;
+  local_1640 = local_1600;
+  iVar11 = extraout_r1_01;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  iVar18 = DAT_009c38fc + 0x9c38e2;
+  CreateEffectDraw(&local_1070,iVar11,&local_1644,0xb,local_590,iVar18,&local_15d8);
+  pEVar12 = (EFFECT_DRAW_PARAM *)(this + 0x1e8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1640;
+  if (local_1640 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1640 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1640 + 8))(local_1640);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_164c = local_1604;
+  local_1648 = local_1600;
+  iVar11 = extraout_r1_02;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar11,&local_164c,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1648;
+  if (local_1648 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1648 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1648 + 8))(local_1648);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1654 = local_1604;
+  local_1650 = local_1600;
+  iVar11 = extraout_r1_03;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar11,&local_1654,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1650;
+  if (local_1650 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1650 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1650 + 8))(local_1650);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_165c = local_1604;
+  local_1658 = local_1600;
+  iVar11 = extraout_r1_04;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar11,&local_165c,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1658;
+  if (local_1658 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1658 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1658 + 8))(local_1658);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1664 = local_1604;
+  local_1660 = local_1600;
+  iVar11 = extraout_r1_05;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar11,&local_1664,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1660;
+  if (local_1660 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1660 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1660 + 8))(local_1660);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_166c = local_1604;
+  local_1668 = local_1600;
+  iVar11 = extraout_r1_06;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar11,&local_166c,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1668;
+  if (local_1668 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1668 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar11 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1668 + 8))(local_1668);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  local_1674 = local_1604;
+  local_1670 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  piVar6 = (int *)*puVar17;
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  iVar11 = DAT_009c3e04 + 0x9c3df0;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_1674,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1670;
+  if (local_1670 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1670 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_1670 + 8))(local_1670);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_167c = local_1604;
+  local_1678 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_167c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1678;
+  if (local_1678 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1678 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_1678 + 8))(local_1678);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1684 = local_1604;
+  local_1680 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_1684,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1680;
+  iVar13 = extraout_r1_07;
+  if (local_1680 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1680 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_1680 + 8))(local_1680);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      iVar13 = extraout_r1_08;
+    }
+  }
+  GetDashRes(&local_15d0,iVar13,3,1,1);
+  local_168c = local_1604;
+  local_1688 = local_1600;
+  iVar13 = extraout_r1_09;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar13,&local_168c,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1688;
+  if (local_1688 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1688 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_1688 + 8))(local_1688);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1694 = local_1604;
+  local_1690 = local_1600;
+  iVar13 = extraout_r1_10;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar13,&local_1694,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1690;
+  if (local_1690 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1690 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_1690 + 8))(local_1690);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_169c = local_1604;
+  local_1698 = local_1600;
+  iVar13 = extraout_r1_11;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar13,&local_169c,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1698;
+  if (local_1698 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1698 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_1698 + 8))(local_1698);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16a4 = local_1604;
+  local_16a0 = local_1600;
+  iVar13 = extraout_r1_12;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar13,&local_16a4,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16a0;
+  if (local_16a0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16a0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_16a0 + 8))(local_16a0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16ac = local_1604;
+  local_16a8 = local_1600;
+  iVar13 = extraout_r1_13;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar13,&local_16ac,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16a8;
+  if (local_16a8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16a8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar13 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_16a8 + 8))(local_16a8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16b4 = local_1604;
+  local_16b0 = local_1600;
+  iVar13 = extraout_r1_14;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar13,&local_16b4,0xb,local_590,iVar18,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16b0;
+  if (local_16b0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16b0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16b0 + 8))(local_16b0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16bc = local_1604;
+  local_16b8 = local_1600;
+  iVar18 = extraout_r1_15;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  iVar13 = DAT_009c4584 + 0x9c4570;
+  CreateEffectDraw(&local_1070,iVar18,&local_16bc,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16b8;
+  if (local_16b8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16b8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16b8 + 8))(local_16b8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16c4 = local_1604;
+  local_16c0 = local_1600;
+  iVar18 = extraout_r1_16;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16c4,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16c0;
+  if (local_16c0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16c0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16c0 + 8))(local_16c0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16cc = local_1604;
+  local_16c8 = local_1600;
+  iVar18 = extraout_r1_17;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16cc,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16c8;
+  if (local_16c8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16c8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16c8 + 8))(local_16c8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16d4 = local_1604;
+  local_16d0 = local_1600;
+  iVar18 = extraout_r1_18;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16d4,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16d0;
+  if (local_16d0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16d0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16d0 + 8))(local_16d0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16dc = local_1604;
+  local_16d8 = local_1600;
+  iVar18 = extraout_r1_19;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16dc,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16d8;
+  if (local_16d8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16d8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16d8 + 8))(local_16d8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16e4 = local_1604;
+  local_16e0 = local_1600;
+  iVar18 = extraout_r1_20;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16e4,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16e0;
+  if (local_16e0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16e0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16e0 + 8))(local_16e0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16ec = local_1604;
+  local_16e8 = local_1600;
+  iVar18 = extraout_r1_21;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16ec,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16e8;
+  if (local_16e8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16e8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16e8 + 8))(local_16e8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16f4 = local_1604;
+  local_16f0 = local_1600;
+  iVar18 = extraout_r1_22;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16f4,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16f0;
+  if (local_16f0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16f0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16f0 + 8))(local_16f0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_16fc = local_1604;
+  local_16f8 = local_1600;
+  iVar18 = extraout_r1_23;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_16fc,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_16f8;
+  if (local_16f8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_16f8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_16f8 + 8))(local_16f8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1704 = local_1604;
+  local_1700 = local_1600;
+  iVar18 = extraout_r1_24;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  iVar13 = DAT_009c4cf0 + 0x9c4cdc;
+  CreateEffectDraw(&local_1070,iVar18,&local_1704,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1700;
+  if (local_1700 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1700 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1700 + 8))(local_1700);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_170c = local_1604;
+  local_1708 = local_1600;
+  iVar18 = extraout_r1_25;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_170c,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1708;
+  if (local_1708 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1708 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1708 + 8))(local_1708);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1714 = local_1604;
+  local_1710 = local_1600;
+  iVar18 = extraout_r1_26;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_1714,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1710;
+  if (local_1710 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1710 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1710 + 8))(local_1710);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_171c = local_1604;
+  local_1718 = local_1600;
+  iVar18 = extraout_r1_27;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_171c,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1718;
+  if (local_1718 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1718 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1718 + 8))(local_1718);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1724 = local_1604;
+  local_1720 = local_1600;
+  iVar18 = extraout_r1_28;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_1724,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1720;
+  if (local_1720 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1720 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1720 + 8))(local_1720);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_172c = local_1604;
+  local_1728 = local_1600;
+  iVar18 = extraout_r1_29;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_172c,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1728;
+  if (local_1728 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1728 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1728 + 8))(local_1728);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1734 = local_1604;
+  local_1730 = local_1600;
+  iVar18 = extraout_r1_30;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_1734,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1730;
+  if (local_1730 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1730 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1730 + 8))(local_1730);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_173c = local_1604;
+  local_1738 = local_1600;
+  iVar18 = extraout_r1_31;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_173c,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1738;
+  if (local_1738 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1738 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1738 + 8))(local_1738);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  GetDashRes(&local_15d0);
+  local_1744 = local_1604;
+  local_1740 = local_1600;
+  iVar18 = extraout_r1_32;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar18 = *(int *)p_Var4 + 1;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar18;
+  }
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,iVar18,&local_1744,0xb,local_590,iVar13,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::
+  __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,CSRGameBase::EFFECT_DRAW_PARAM_const>
+            (local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  p_Var4 = local_1740;
+  if (local_1740 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1740 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1740 + 8))(local_1740);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if (((uint)local_15d0 & 1) != 0) {
+    operator_delete(local_15c8);
+  }
+  local_174c = local_1604;
+  local_1748 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_174c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1748;
+  if (local_1748 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1748 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1748 + 8))(local_1748);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1754 = local_1604;
+  local_1750 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_1754,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1750;
+  if (local_1750 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1750 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1750 + 8))(local_1750);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_175c = local_1604;
+  local_1758 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_175c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1758;
+  if (local_1758 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1758 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1758 + 8))(local_1758);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1764 = local_1604;
+  local_1760 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_1764,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1760;
+  if (local_1760 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1760 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1760 + 8))(local_1760);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_176c = local_1604;
+  local_1768 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_176c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1768;
+  if (local_1768 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1768 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1768 + 8))(local_1768);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1774 = local_1604;
+  local_1770 = local_1600;
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_1774,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1770;
+  if (local_1770 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1770 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1770 + 8))(local_1770);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_177c = local_160c;
+  local_1778 = local_1608;
+  if (local_1608 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1608 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_177c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[10],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1778;
+  if (local_1778 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1778 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1778 + 8))(local_1778);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1784 = local_160c;
+  local_1780 = local_1608;
+  if (local_1608 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1608 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_1784,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[10],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1780;
+  if (local_1780 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1780 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1780 + 8))(local_1780);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_178c = local_160c;
+  local_1788 = local_1608;
+  if (local_1608 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1608 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_178c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[10],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1788;
+  if (local_1788 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1788 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1788 + 8))(local_1788);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1794 = local_160c;
+  local_1790 = local_1608;
+  if (local_1608 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1608 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_3f400000;
+  puStack_15d4 = &DAT_3f400000;
+  CreateEffectDraw(&local_1070,&DAT_3f400000,&local_1794,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[10],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1790;
+  if (local_1790 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1790 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1790 + 8))(local_1790);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_179c = local_1624;
+  local_1798 = local_1620;
+  if (local_1620 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1620 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_179c,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[7],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1798;
+  if (local_1798 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1798 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1798 + 8))(local_1798);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17a4 = local_1624;
+  local_17a0 = local_1620;
+  if (local_1620 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1620 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17a4,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[7],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17a0;
+  if (local_17a0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17a0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17a0 + 8))(local_17a0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17ac = local_1624;
+  local_17a8 = local_1620;
+  if (local_1620 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1620 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17ac,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[7],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17a8;
+  if (local_17a8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17a8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17a8 + 8))(local_17a8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17b4 = local_1614;
+  local_17b0 = local_1610;
+  if (local_1610 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1610 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),0x13);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17b4,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[11],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17b0;
+  if (local_17b0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17b0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17b0 + 8))(local_17b0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17bc = local_1614;
+  local_17b8 = local_1610;
+  if (local_1610 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1610 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),0x13);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17bc,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[11],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17b8;
+  if (local_17b8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17b8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17b8 + 8))(local_17b8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17c4 = local_1614;
+  local_17c0 = local_1610;
+  if (local_1610 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1610 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),0x13);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17c4,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[11],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17c0;
+  if (local_17c0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17c0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17c0 + 8))(local_17c0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17cc = local_15fc;
+  local_17c8 = local_15f8;
+  if (local_15f8 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15f8 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,DAT_009c6224 + 0x9c6212,&local_17cc,0xb,uVar8,DAT_009c6224 + 0x9c6212
+                   ,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[6],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17c8;
+  if (local_17c8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17c8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17c8 + 8))(local_17c8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17d4 = local_15fc;
+  local_17d0 = local_15f8;
+  if (local_15f8 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15f8 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17d4,10,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[7],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17d0;
+  if (local_17d0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17d0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17d0 + 8))(local_17d0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17dc = local_15fc;
+  local_17d8 = local_15f8;
+  if (local_15f8 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15f8 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17dc,10,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17d8;
+  if (local_17d8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17d8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17d8 + 8))(local_17d8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17e4 = local_15fc;
+  local_17e0 = local_15f8;
+  if (local_15f8 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15f8 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_17e4,10,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[8],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17e0;
+  if (local_17e0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17e0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17e0 + 8))(local_17e0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17ec = local_1634;
+  local_17e8 = local_1630;
+  if (local_1630 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1630 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),0x1a);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,DAT_009c659c + 0x9c658a,&local_17ec,10,uVar8,DAT_009c659c + 0x9c658a,
+                   &local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[12],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17e8;
+  if (local_17e8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17e8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17e8 + 8))(local_17e8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17f4 = local_161c;
+  local_17f0 = local_1618;
+  if (local_1618 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1618 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,DAT_009c6680 + 0x9c666e,&local_17f4,10,uVar8,DAT_009c6680 + 0x9c666e,
+                   &local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[10],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17f0;
+  if (local_17f0 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17f0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17f0 + 8))(local_17f0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_17fc = local_162c;
+  local_17f8 = local_1628;
+  if (local_1628 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1628 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),0x1a);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = &DAT_400e147b;
+  puStack_15d4 = &DAT_400e147b;
+  CreateEffectDraw(&local_1070,&DAT_400e147b,&local_17fc,0xf,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[11],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_17f8;
+  if (local_17f8 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_17f8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_17f8 + 8))(local_17f8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1804 = local_163c;
+  local_1800 = local_1638;
+  if (local_1638 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1638 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_1804,10,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[6],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1800;
+  if (local_1800 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1800 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1800 + 8))(local_1800);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_180c = local_163c;
+  local_1808 = local_1638;
+  if (local_1638 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1638 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_180c,10,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[9],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1808;
+  if (local_1808 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1808 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1808 + 8))(local_1808);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  local_1814 = local_1634;
+  local_1810 = local_1630;
+  if (local_1630 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1630 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar7 = (CRMShader2 *)
+           (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                     ((int *)**(undefined4 **)(*piVar6 + 4),4);
+  uVar8 = CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+  local_15d8 = (undefined1 *)0x3f800000;
+  puStack_15d4 = (undefined1 *)0x3f800000;
+  CreateEffectDraw(&local_1070,0x3f800000,&local_1814,0xb,uVar8,iVar11,&local_15d8);
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+  ::__emplace_unique_impl<char_const(&)[11],CSRGameBase::EFFECT_DRAW_PARAM_const>
+            ((char *)local_15e4,pEVar12);
+  p_Var4 = local_afc;
+  if (local_afc != (__shared_weak_count *)0x0) {
+    p_Var5 = local_afc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_afc + 8))(local_afc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_b0c & 1) != 0) {
+    operator_delete(local_b04);
+  }
+  CRMRenderParam::~CRMRenderParam(aCStack_106c);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+  p_Var4 = local_1810;
+  if (local_1810 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_1810 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar18 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar18 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar18 == 0) {
+      (**(code **)(*(int *)local_1810 + 8))(local_1810);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  pvVar9 = (void *)((int)&local_15d0 + 1);
+  pvVar10 = (void *)((int)&local_1070 + 1);
+  iVar13 = 1;
+  iVar18 = DAT_009c6aa0 + 0x9c6a8e;
+  do {
+    std::__ndk1::to_string((__ndk1 *)&local_1070,iVar13);
+    pvVar19 = local_1068;
+    puVar2 = local_1070;
+    std::__ndk1::to_string((__ndk1 *)&local_15d0,2);
+    if (((uint)puVar2 & 1) == 0) {
+      pvVar19 = pvVar10;
+    }
+    pvVar15 = local_15c8;
+    if (((uint)local_15d0 & 1) == 0) {
+      pvVar15 = pvVar9;
+    }
+    CMFormat((char *)local_15e4,iVar18,pvVar19,pvVar15);
+    if (((uint)local_15d0 & 1) != 0) {
+      operator_delete(local_15c8);
+    }
+    if (((uint)local_1070 & 1) != 0) {
+      operator_delete(local_1068);
+    }
+    local_181c = local_161c;
+    local_1818 = local_1618;
+    if (local_1618 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_1618 + 4;
+      do {
+        ExclusiveAccess(p_Var4);
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = *(int *)p_Var4 + 1;
+    }
+    pCVar7 = (CRMShader2 *)
+             (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                       ((int *)**(undefined4 **)(*piVar6 + 4),4);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+    local_1824 = 0x3f800000;
+    uStack_1820 = 0x3f800000;
+    CreateEffectDraw((__ndk1 *)&local_1070,extraout_r1_33,&local_181c,10,
+                     (CRMRenderParam *)&local_15d0,iVar11,&local_1824);
+    std::__ndk1::
+    __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+    ::
+    __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&,CSRGameBase::EFFECT_DRAW_PARAM_const>
+              ((basic_string *)&local_15d8,pEVar12);
+    p_Var4 = local_afc;
+    if (local_afc != (__shared_weak_count *)0x0) {
+      p_Var5 = local_afc + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar14 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar14 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar14 == 0) {
+        (**(code **)(*(int *)local_afc + 8))(local_afc);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      }
+    }
+    if ((local_b0c & 1) != 0) {
+      operator_delete(local_b04);
+    }
+    CRMRenderParam::~CRMRenderParam(aCStack_106c);
+    CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+    p_Var4 = local_1818;
+    if (local_1818 != (__shared_weak_count *)0x0) {
+      p_Var5 = local_1818 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar14 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar14 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar14 == 0) {
+        (**(code **)(*(int *)local_1818 + 8))(local_1818);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      }
+    }
+    if (((byte)local_15e4[0] & 1) != 0) {
+      operator_delete(local_15dc);
+    }
+    iVar13 = iVar13 + 1;
+  } while (iVar13 != 3);
+  iVar13 = 1;
+  iVar18 = DAT_009c6eb8 + 0x9c6c02;
+  do {
+    std::__ndk1::to_string((__ndk1 *)&local_1070,iVar13);
+    pvVar19 = local_1068;
+    puVar2 = local_1070;
+    std::__ndk1::to_string((__ndk1 *)&local_15d0,3);
+    if (((uint)puVar2 & 1) == 0) {
+      pvVar19 = pvVar10;
+    }
+    pvVar15 = local_15c8;
+    if (((uint)local_15d0 & 1) == 0) {
+      pvVar15 = pvVar9;
+    }
+    CMFormat((char *)local_15e4,iVar18,pvVar19,pvVar15);
+    if (((uint)local_15d0 & 1) != 0) {
+      operator_delete(local_15c8);
+    }
+    if (((uint)local_1070 & 1) != 0) {
+      operator_delete(local_1068);
+    }
+    local_182c = local_161c;
+    local_1828 = local_1618;
+    if (local_1618 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_1618 + 4;
+      do {
+        ExclusiveAccess(p_Var4);
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = *(int *)p_Var4 + 1;
+    }
+    pCVar7 = (CRMShader2 *)
+             (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                       ((int *)**(undefined4 **)(*piVar6 + 4),4);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+    local_1824 = 0x3f800000;
+    uStack_1820 = 0x3f800000;
+    CreateEffectDraw((__ndk1 *)&local_1070,extraout_r1_34,&local_182c,10,
+                     (CRMRenderParam *)&local_15d0,iVar11,&local_1824);
+    std::__ndk1::
+    __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+    ::
+    __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&,CSRGameBase::EFFECT_DRAW_PARAM_const>
+              ((basic_string *)&local_15d8,pEVar12);
+    p_Var4 = local_afc;
+    if (local_afc != (__shared_weak_count *)0x0) {
+      p_Var5 = local_afc + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar14 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar14 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar14 == 0) {
+        (**(code **)(*(int *)local_afc + 8))(local_afc);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      }
+    }
+    if ((local_b0c & 1) != 0) {
+      operator_delete(local_b04);
+    }
+    CRMRenderParam::~CRMRenderParam(aCStack_106c);
+    CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+    p_Var4 = local_1828;
+    if (local_1828 != (__shared_weak_count *)0x0) {
+      p_Var5 = local_1828 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar14 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar14 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar14 == 0) {
+        (**(code **)(*(int *)local_1828 + 8))(local_1828);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      }
+    }
+    if (((byte)local_15e4[0] & 1) != 0) {
+      operator_delete(local_15dc);
+    }
+    iVar13 = iVar13 + 1;
+  } while (iVar13 != 4);
+  iVar13 = 1;
+  iVar18 = DAT_009c6ebc + 0x9c6d62;
+  do {
+    std::__ndk1::to_string((__ndk1 *)&local_1070,iVar13);
+    pvVar19 = local_1068;
+    puVar2 = local_1070;
+    std::__ndk1::to_string((__ndk1 *)&local_15d0,4);
+    if (((uint)puVar2 & 1) == 0) {
+      pvVar19 = pvVar10;
+    }
+    pvVar15 = local_15c8;
+    if (((uint)local_15d0 & 1) == 0) {
+      pvVar15 = pvVar9;
+    }
+    CMFormat((char *)local_15e4,iVar18,pvVar19,pvVar15);
+    if (((uint)local_15d0 & 1) != 0) {
+      operator_delete(local_15c8);
+    }
+    if (((uint)local_1070 & 1) != 0) {
+      operator_delete(local_1068);
+    }
+    local_1834 = local_161c;
+    local_1830 = local_1618;
+    if (local_1618 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_1618 + 4;
+      do {
+        ExclusiveAccess(p_Var4);
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = *(int *)p_Var4 + 1;
+    }
+    pCVar7 = (CRMShader2 *)
+             (**(code **)(*(int *)**(undefined4 **)(*piVar6 + 4) + 0x44))
+                       ((int *)**(undefined4 **)(*piVar6 + 4),4);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_15d0,pCVar7);
+    local_1824 = 0x3f800000;
+    uStack_1820 = 0x3f800000;
+    CreateEffectDraw((__ndk1 *)&local_1070,extraout_r1_35,&local_1834,10,
+                     (CRMRenderParam *)&local_15d0,iVar11,&local_1824);
+    std::__ndk1::
+    __tree<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::__map_value_compare<CMHashID,std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>,std::__ndk1::less<CMHashID>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<CMHashID,CSRGameBase::EFFECT_DRAW_PARAM>>>
+    ::
+    __emplace_unique_impl<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&,CSRGameBase::EFFECT_DRAW_PARAM_const>
+              ((basic_string *)&local_15d8,pEVar12);
+    p_Var4 = local_afc;
+    if (local_afc != (__shared_weak_count *)0x0) {
+      p_Var5 = local_afc + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar14 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar14 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar14 == 0) {
+        (**(code **)(*(int *)local_afc + 8))(local_afc);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      }
+    }
+    if ((local_b0c & 1) != 0) {
+      operator_delete(local_b04);
+    }
+    CRMRenderParam::~CRMRenderParam(aCStack_106c);
+    CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_15d0);
+    p_Var4 = local_1830;
+    if (local_1830 != (__shared_weak_count *)0x0) {
+      p_Var5 = local_1830 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar14 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar14 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar14 == 0) {
+        (**(code **)(*(int *)local_1830 + 8))(local_1830);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+      }
+    }
+    if (((byte)local_15e4[0] & 1) != 0) {
+      operator_delete(local_15dc);
+    }
+    iVar13 = iVar13 + 1;
+  } while (iVar13 != 5);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)local_af0);
+  CRMRenderParam::~CRMRenderParam((CRMRenderParam *)local_590);
+  if (local_1638 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1638 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1638 + 8))(local_1638);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1638);
+    }
+  }
+  if (local_1630 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1630 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1630 + 8))(local_1630);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1630);
+    }
+  }
+  if (local_1628 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1628 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1628 + 8))(local_1628);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1628);
+    }
+  }
+  if (local_1620 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1620 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1620 + 8))(local_1620);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1620);
+    }
+  }
+  if (local_1618 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1618 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1618 + 8))(local_1618);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1618);
+    }
+  }
+  if (local_1610 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1610 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1610 + 8))(local_1610);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1610);
+    }
+  }
+  if (local_1608 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1608 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1608 + 8))(local_1608);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1608);
+    }
+  }
+  if (local_1600 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_1600 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_1600 + 8))(local_1600);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1600);
+    }
+  }
+  if (local_15f8 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15f8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_15f8 + 8))(local_15f8);
+      std::__ndk1::__shared_weak_count::__release_weak(local_15f8);
+    }
+  }
+  if (local_15e8 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_15e8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar11 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar11 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar11 == 0) {
+      (**(code **)(*(int *)local_15e8 + 8))(local_15e8);
+      std::__ndk1::__shared_weak_count::__release_weak(local_15e8);
+    }
+  }
+  if (*piVar3 == iStack_2c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

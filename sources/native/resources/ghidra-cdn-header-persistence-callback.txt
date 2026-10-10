@@ -1,0 +1,135 @@
+===== proven Thumb 007d7b80 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_007d7b80(int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> bVar1;
+  bool bVar2;
+  int iVar3;
+  vector *pvVar4;
+  __shared_weak_count *p_Var5;
+  ulonglong *puVar6;
+  undefined4 uVar7;
+  CMLocalDB *this;
+  void *pvVar8;
+  int *piVar9;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_74 [8];
+  void *pvStack_6c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_68 [8];
+  void *pvStack_60;
+  undefined4 uStack_5c;
+  undefined8 uStack_58;
+  void *pvStack_50;
+  CPVCDN2 aCStack_48 [8];
+  undefined4 uStack_40;
+  undefined4 uStack_3c;
+  void *pvStack_34;
+  void *pvStack_30;
+  int iStack_28;
+
+  piVar9 = *(int **)(_DAT_007d7e90 + 0x7d7b94);
+  iStack_28 = *piVar9;
+  this = *(CMLocalDB **)(param_1 + 0x18);
+  iVar3 = CPVHTTPResponse::GetResultCode((CPVHTTPResponse *)*param_3);
+  if (iVar3 == 1) {
+    pvVar4 = (vector *)CPVHTTPResponse::GetBody((CPVHTTPResponse *)*param_3);
+    std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>::vector
+              ((vector<unsigned_char,std::__ndk1::allocator<unsigned_char>> *)&pvStack_34,pvVar4);
+    CPVCDN2::ParseHeader(aCStack_48,(vector *)&pvStack_34);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_68,(char *)(_DAT_007d7e94 + 0x7d7bcc));
+    iVar3 = (**(code **)(**(int **)(this + 0x18) + 0x2c))(*(int **)(this + 0x18),abStack_68);
+    if (((byte)abStack_68[0] & 1) != 0) {
+      operator_delete(pvStack_60);
+    }
+    if (iVar3 == 1) {
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>(abStack_68,(char *)(_DAT_007d7e98 + 0x7d7bf8));
+      CMLocalDB::Delete(this,(basic_string *)abStack_68);
+      if (((byte)abStack_68[0] & 1) != 0) {
+        operator_delete(pvStack_60);
+      }
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>
+              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &uStack_58,(char *)(_DAT_007d7e9c + 0x7d7c18));
+    CMLocalDB::Put(this,(basic_string *)&uStack_58,(basic_json *)aCStack_48);
+    if (((byte)uStack_58._0_1_ & 1) != 0) {
+      operator_delete(pvStack_50);
+    }
+    uStack_5c = uStack_3c;
+    pvStack_60 = (void *)uStack_40;
+    abStack_68[0] =
+         (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>)
+         aCStack_48[0];
+    uStack_40 = 0;
+    uStack_3c = 0;
+    aCStack_48[0] = (CPVCDN2)0x0;
+    uStack_58._0_4_ = *(undefined4 *)(param_1 + 0x10);
+    uStack_58._4_4_ = *(__shared_weak_count **)(param_1 + 0x14);
+    if (uStack_58._4_4_ != (__shared_weak_count *)0x0) {
+      p_Var5 = uStack_58._4_4_ + 8;
+      do {
+        ExclusiveAccess(p_Var5);
+        bVar2 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar2);
+      *(int *)p_Var5 = *(int *)p_Var5 + 1;
+    }
+    iVar3 = CMContextWeak<CPVCDN2::CONTEXT_DATA>::operator->
+                      ((CMContextWeak<CPVCDN2::CONTEXT_DATA> *)&uStack_58);
+    bVar1 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             (iVar3 + 0x18);
+    *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+     (iVar3 + 0x18) = abStack_68[0];
+    pvVar8 = *(void **)(iVar3 + 0x20);
+    uVar7 = *(undefined4 *)(iVar3 + 0x24);
+    *(void **)(iVar3 + 0x20) = pvStack_60;
+    *(undefined4 *)(iVar3 + 0x24) = uStack_5c;
+    abStack_68[0] = bVar1;
+    pvStack_60 = pvVar8;
+    uStack_5c = uVar7;
+    if (uStack_58._4_4_ != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(uStack_58._4_4_);
+    }
+    nlohmann::
+    basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+    ::json_value::destroy((json_value *)&pvStack_60,abStack_68[0]);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_74,(char *)(_DAT_007d7ea0 + 0x7d7caa));
+    puVar6 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (abStack_74,(char *)(_DAT_007d7ea4 + 0x7d7cb4),0x23);
+    uStack_58 = *puVar6;
+    pvStack_50 = *(void **)(puVar6 + 1);
+    *(undefined4 *)puVar6 = 0;
+    *(undefined4 *)((int)puVar6 + 4) = 0;
+    *(undefined4 *)(puVar6 + 1) = 0;
+    pvVar8 = pvStack_50;
+    if ((uStack_58 & 1) == 0) {
+      pvVar8 = (void *)((int)&uStack_58 + 1);
+    }
+    RMTrace(0,pvVar8,_DAT_007d7ea8 + 0x7d7ce0);
+    if ((uStack_58 & 1) != 0) {
+      operator_delete(pvStack_50);
+    }
+    if (((byte)abStack_74[0] & 1) != 0) {
+      operator_delete(pvStack_6c);
+    }
+    nlohmann::
+    basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+    ::json_value::destroy((json_value *)&uStack_40,aCStack_48[0]);
+    if (pvStack_34 != (void *)0x0) {
+      pvStack_30 = pvStack_34;
+      operator_delete(pvStack_34);
+    }
+  }
+  if (*piVar9 != iStack_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

@@ -1,0 +1,99 @@
+===== b2951c ResetFishing @ 00b2951c =====
+
+/* CSRMFishing::ResetFishing() */
+
+void __thiscall CSRMFishing::ResetFishing(CSRMFishing *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  int iVar3;
+  __shared_weak_count *p_Var4;
+  int *piVar5;
+  int iVar6;
+  __shared_weak_count *this_00;
+  int *piVar7;
+  ulonglong uVar8;
+
+  if (*(int *)(this + 0x48) != 0 || *(int *)(this + 0x4c) != 0) {
+    uVar8 = CMFramework::get();
+    CMFramework::RemoveTask(uVar8);
+    *(undefined4 *)(this + 0x48) = 0;
+    *(undefined4 *)(this + 0x4c) = 0;
+  }
+  this_00 = *(__shared_weak_count **)(this + 0x2c);
+  this[0x44] = (CSRMFishing)0x0;
+  *(undefined4 *)(this + 0x28) = 0;
+  *(undefined4 *)(this + 0x2c) = 0;
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var4 = this_00 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar6 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      std::__ndk1::__shared_weak_count::__release_weak(this_00);
+    }
+  }
+  piVar5 = operator_new(0xa0);
+  *piVar5 = *(int *)(DAT_00b29620 + 0xb2958a) + 8;
+  piVar5[1] = 0;
+  piVar5[2] = 0;
+  __aeabi_memclr4(piVar5 + 3,0x94);
+  iVar6 = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  iVar2 = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  iVar3 = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  piVar5[0xe] = 0;
+  piVar5[0xf] = iVar6;
+  piVar5[0x10] = iVar2;
+  piVar5[0x11] = iVar3;
+  piVar5[0x11] = 0;
+  piVar5[0x12] = iVar6;
+  piVar5[0x13] = iVar2;
+  piVar5[0x14] = iVar3;
+  piVar5[0x17] = 0;
+  piVar5[0x18] = iVar6;
+  piVar5[0x19] = iVar2;
+  piVar5[0x1a] = iVar3;
+  piVar5[0x1b] = 0;
+  piVar5[0x1c] = iVar6;
+  piVar5[0x1d] = iVar2;
+  piVar5[0x1e] = iVar3;
+  piVar5[0x1f] = 0;
+  piVar5[0x20] = iVar6;
+  piVar5[0x21] = iVar2;
+  piVar5[0x22] = iVar3;
+  piVar5[0x23] = 0;
+  piVar5[0x24] = iVar6;
+  piVar5[0x25] = iVar2;
+  piVar5[0x26] = iVar3;
+  piVar5[0xc] = 1;
+  piVar5[0xd] = 1;
+  piVar5[0x15] = 0x3f800000;
+  piVar5[0x16] = 0x42c80000;
+  piVar7 = *(int **)(this + 0x2c);
+  *(int **)(this + 0x28) = piVar5 + 3;
+  *(int **)(this + 0x2c) = piVar5;
+  if (piVar7 != (int *)0x0) {
+    piVar5 = piVar7 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(piVar5);
+      iVar6 = *piVar5;
+      bVar1 = (bool)hasExclusiveAccess(piVar5);
+    } while (!bVar1);
+    *piVar5 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*piVar7 + 8))(piVar7);
+      (*(code *)((int)&DAT_00e0b3a4 + DAT_00e0b3a4))(piVar7);
+      return;
+    }
+  }
+  return;
+}

@@ -1,0 +1,372 @@
+===== 10bea44 GenerateInputEvent @ 010bea44 =====
+
+/* CRMApp::GenerateInputEvent() */
+
+void __thiscall CRMApp::GenerateInputEvent(CRMApp *this)
+
+{
+  int iVar1;
+  int iVar2;
+  bool bVar3;
+  ProducerBase *pPVar4;
+  ProducerBase *pPVar5;
+  ProducerBase *pPVar6;
+  ProducerBase *pPVar7;
+  int iVar8;
+  int *piVar9;
+  uint uVar10;
+  uint uVar11;
+  uint uVar12;
+  undefined4 *puVar13;
+  float *pfVar14;
+  RMTOUCHINPUT *pRVar15;
+  ProducerBase *this_00;
+  code *pcVar16;
+  ProducerBase *this_01;
+  RMKEYINPUT *pRVar17;
+  uint uVar18;
+  int *piVar19;
+  float fVar20;
+  undefined4 local_3c;
+  undefined4 uStack_38;
+  int local_34;
+
+  iVar1 = DAT_010bed34;
+  piVar9 = *(int **)(DAT_010bed2c + 0x10bea5c);
+  local_34 = *piVar9;
+  DataMemoryBarrier(0x1b);
+  puVar13 = (undefined4 *)(DAT_010bed34 + 0x10bea72);
+  if (((*(byte *)(DAT_010bed30 + 0x10bea66) & 1) == 0) &&
+     (iVar8 = __cxa_guard_acquire(DAT_010bed38 + 0x10becea), iVar2 = DAT_010bed3c, iVar8 != 0)) {
+    *puVar13 = 0xffffffff;
+    *(undefined4 *)(iVar1 + 0x10bea76) = 0xffffffff;
+    *(undefined4 *)(iVar1 + 0x10bea7a) = 0;
+    *(undefined4 *)(iVar1 + 0x10bea7e) = 0;
+    *(undefined4 *)(iVar1 + 0x10bea82) = 0;
+    __cxa_guard_release(iVar2 + 0x10bed02);
+  }
+  if (*(float *)(iVar1 + 0x10bea7e) != 0.0) {
+    if (*(int *)(iVar1 + 0x10bea7a) == 2) {
+      local_3c = *puVar13;
+      uStack_38 = *(undefined4 *)(iVar1 + 0x10bea76);
+      pcVar16 = *(code **)(*(int *)this + 0x2c);
+    }
+    else {
+      local_3c = *puVar13;
+      uStack_38 = *(undefined4 *)(iVar1 + 0x10bea76);
+      pcVar16 = *(code **)(*(int *)this + 0x28);
+    }
+    (*pcVar16)(this,*(undefined4 *)(iVar1 + 0x10bea82),*(float *)(iVar1 + 0x10bea7e),&local_3c);
+    *(undefined4 *)(iVar1 + 0x10bea7e) = 0;
+  }
+  piVar19 = *(int **)(this + 0x1f8);
+  pPVar4 = (ProducerBase *)*piVar19;
+  DataMemoryBarrier(0x1b);
+  if (pPVar4 != (ProducerBase *)0x0) {
+    uVar18 = 0;
+    fVar20 = DAT_010bed28;
+    do {
+      iVar2 = DAT_010bed40;
+      uVar10 = 0;
+      this_01 = (ProducerBase *)0x0;
+      uVar11 = 0;
+      do {
+        uVar12 = *(int *)(pPVar4 + 0x10) - *(int *)(pPVar4 + 0x14);
+        if (((uVar12 != 0) &&
+            (0x80000000 < (uint)(*(int *)(pPVar4 + 0x14) - *(int *)(pPVar4 + 0x10)))) &&
+           (uVar11 = uVar11 + 1, uVar10 < uVar12)) {
+          uVar10 = uVar12;
+          this_01 = pPVar4;
+        }
+        pPVar4 = *(ProducerBase **)(pPVar4 + 4);
+        if (pPVar4 != (ProducerBase *)0x0) {
+          pPVar4 = pPVar4 + -4;
+        }
+      } while ((uVar11 < 3) && (pPVar4 != (ProducerBase *)0x0));
+      if (uVar11 == 0) break;
+      pRVar15 = (RMTOUCHINPUT *)(DAT_010bed40 + 0x10beb1e);
+      bVar3 = moodycamel::ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+              ProducerBase::dequeue<RMTOUCHINPUT>(this_01,pRVar15);
+      if (!bVar3) {
+        pPVar4 = (ProducerBase *)*piVar19;
+        DataMemoryBarrier(0x1b);
+        pPVar5 = pPVar4;
+        while( true ) {
+          if (pPVar5 == (ProducerBase *)0x0) goto LAB_010bebba;
+          if ((pPVar4 != this_01) &&
+             (bVar3 = moodycamel::
+                      ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+                      ProducerBase::dequeue<RMTOUCHINPUT>
+                                (pPVar4,(RMTOUCHINPUT *)(DAT_010bed44 + 0x10beb44)), bVar3)) break;
+          pPVar5 = *(ProducerBase **)(pPVar4 + 4);
+          pPVar4 = pPVar5 + -4;
+        }
+      }
+      if (((fVar20 != 0.0) && (10 < uVar18)) && (fVar20 != *(float *)(iVar2 + 0x10beb2a)))
+      goto LAB_010bebc0;
+      if (*(int *)(iVar2 + 0x10beb26) == 2) {
+        local_3c = *(undefined4 *)pRVar15;
+        uStack_38 = *(undefined4 *)(iVar2 + 0x10beb22);
+        pcVar16 = *(code **)(*(int *)this + 0x2c);
+      }
+      else {
+        local_3c = *(undefined4 *)pRVar15;
+        uStack_38 = *(undefined4 *)(iVar2 + 0x10beb22);
+        pcVar16 = *(code **)(*(int *)this + 0x28);
+      }
+      (*pcVar16)(this,*(undefined4 *)(iVar2 + 0x10beb2e),*(float *)(iVar2 + 0x10beb2a),&local_3c);
+      piVar19 = *(int **)(this + 0x1f8);
+      uVar18 = uVar18 + 1;
+      fVar20 = *(float *)(iVar2 + 0x10beb2a);
+      pPVar4 = (ProducerBase *)*piVar19;
+      DataMemoryBarrier(0x1b);
+    } while (pPVar4 != (ProducerBase *)0x0);
+  }
+LAB_010bebba:
+  *(undefined4 *)(iVar1 + 0x10bea7e) = 0;
+LAB_010bebc0:
+  iVar1 = DAT_010bed4c;
+  DataMemoryBarrier(0x1b);
+  pfVar14 = (float *)(DAT_010bed4c + 0x10bebd0);
+  if (((*(byte *)(DAT_010bed48 + 0x10bebc6) & 1) == 0) &&
+     (iVar8 = __cxa_guard_acquire(DAT_010bed50 + 0x10bed12), iVar2 = DAT_010bed54, iVar8 != 0)) {
+    *pfVar14 = 0.0;
+    __cxa_guard_release(iVar2 + 0x10bed24);
+  }
+  if (*pfVar14 != 0.0) {
+    (**(code **)(*(int *)this + 0x24))
+              (this,*pfVar14,*(undefined1 *)(iVar1 + 0x10bebd4),*(undefined1 *)(iVar1 + 0x10bebd5));
+    *pfVar14 = 0.0;
+  }
+  piVar19 = *(int **)(this + 500);
+  pPVar6 = (ProducerBase *)*piVar19;
+  DataMemoryBarrier(0x1b);
+  if (pPVar6 != (ProducerBase *)0x0) {
+    uVar18 = 0;
+    fVar20 = DAT_010bed28;
+    do {
+      iVar1 = DAT_010bed58;
+      uVar10 = 0;
+      this_00 = (ProducerBase *)0x0;
+      uVar11 = 0;
+      do {
+        uVar12 = *(int *)(pPVar6 + 0x10) - *(int *)(pPVar6 + 0x14);
+        if (((uVar12 != 0) &&
+            (0x80000000 < (uint)(*(int *)(pPVar6 + 0x14) - *(int *)(pPVar6 + 0x10)))) &&
+           (uVar11 = uVar11 + 1, uVar10 < uVar12)) {
+          uVar10 = uVar12;
+          this_00 = pPVar6;
+        }
+        pPVar6 = *(ProducerBase **)(pPVar6 + 4);
+        if (pPVar6 != (ProducerBase *)0x0) {
+          pPVar6 = pPVar6 + -4;
+        }
+      } while ((uVar11 < 3) && (pPVar6 != (ProducerBase *)0x0));
+      if (uVar11 == 0) break;
+      pRVar17 = (RMKEYINPUT *)(DAT_010bed58 + 0x10bec76);
+      bVar3 = moodycamel::ConcurrentQueue<RMKEYINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+              ProducerBase::dequeue<RMKEYINPUT>(this_00,pRVar17);
+      if (!bVar3) {
+        pPVar6 = (ProducerBase *)*piVar19;
+        DataMemoryBarrier(0x1b);
+        pPVar7 = pPVar6;
+        while( true ) {
+          if (pPVar7 == (ProducerBase *)0x0) goto LAB_010becc0;
+          if ((pPVar6 != this_00) &&
+             (bVar3 = moodycamel::
+                      ConcurrentQueue<RMKEYINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+                      ProducerBase::dequeue<RMKEYINPUT>
+                                (pPVar6,(RMKEYINPUT *)(DAT_010bed5c + 0x10bec9a)), bVar3)) break;
+          pPVar7 = *(ProducerBase **)(pPVar6 + 4);
+          pPVar6 = pPVar7 + -4;
+        }
+      }
+      if (((fVar20 != 0.0) && (10 < uVar18)) && (fVar20 != *(float *)pRVar17)) goto LAB_010becc6;
+      (**(code **)(*(int *)this + 0x24))
+                (this,*(float *)pRVar17,*(undefined1 *)(iVar1 + 0x10bec7a),
+                 *(undefined1 *)(iVar1 + 0x10bec7b));
+      piVar19 = *(int **)(this + 500);
+      uVar18 = uVar18 + 1;
+      fVar20 = *(float *)pRVar17;
+      pPVar6 = (ProducerBase *)*piVar19;
+      DataMemoryBarrier(0x1b);
+    } while (pPVar6 != (ProducerBase *)0x0);
+  }
+LAB_010becc0:
+  *pfVar14 = 0.0;
+LAB_010becc6:
+  if (*piVar9 != local_34) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 10bcfa0 ResetInputBuffer @ 010bcfa0 =====
+
+/* CRMApp::ResetInputBuffer() */
+
+void __thiscall CRMApp::ResetInputBuffer(CRMApp *this)
+
+{
+  bool bVar1;
+  int *piVar2;
+  ProducerBase *pPVar3;
+  ProducerBase *pPVar4;
+  ProducerBase *pPVar5;
+  ProducerBase *pPVar6;
+  uint uVar7;
+  uint uVar8;
+  uint uVar9;
+  ProducerBase *this_00;
+  ProducerBase *this_01;
+  int *piVar10;
+  undefined4 local_44;
+  undefined4 uStack_40;
+  undefined4 local_3c;
+  undefined4 uStack_38;
+  undefined4 local_34;
+  undefined4 local_30 [2];
+  int local_28;
+
+  piVar2 = *(int **)(DAT_010bd108 + 0x10bcfb6);
+  local_28 = *piVar2;
+  local_30[0] = 0;
+  piVar10 = *(int **)(this + 500);
+  pPVar3 = (ProducerBase *)*piVar10;
+  DataMemoryBarrier(0x1b);
+  if (pPVar3 != (ProducerBase *)0x0) {
+    do {
+      uVar7 = 0;
+      this_00 = (ProducerBase *)0x0;
+      uVar8 = 0;
+      do {
+        uVar9 = *(int *)(pPVar3 + 0x10) - *(int *)(pPVar3 + 0x14);
+        if (((uVar9 != 0) &&
+            (0x80000000 < (uint)(*(int *)(pPVar3 + 0x14) - *(int *)(pPVar3 + 0x10)))) &&
+           (uVar8 = uVar8 + 1, uVar7 < uVar9)) {
+          uVar7 = uVar9;
+          this_00 = pPVar3;
+        }
+        pPVar3 = *(ProducerBase **)(pPVar3 + 4);
+        if (pPVar3 != (ProducerBase *)0x0) {
+          pPVar3 = pPVar3 + -4;
+        }
+      } while ((uVar8 < 3) && (pPVar3 != (ProducerBase *)0x0));
+      if (uVar8 == 0) break;
+      bVar1 = moodycamel::ConcurrentQueue<RMKEYINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+              ProducerBase::dequeue<RMKEYINPUT>(this_00,(RMKEYINPUT *)local_30);
+      if (!bVar1) {
+        pPVar3 = (ProducerBase *)*piVar10;
+        DataMemoryBarrier(0x1b);
+        pPVar4 = pPVar3;
+        while( true ) {
+          if (pPVar4 == (ProducerBase *)0x0) goto LAB_010bd046;
+          if ((pPVar3 != this_00) &&
+             (bVar1 = moodycamel::
+                      ConcurrentQueue<RMKEYINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+                      ProducerBase::dequeue<RMKEYINPUT>(pPVar3,(RMKEYINPUT *)local_30), bVar1))
+          break;
+          pPVar4 = *(ProducerBase **)(pPVar3 + 4);
+          pPVar3 = pPVar4 + -4;
+        }
+      }
+      piVar10 = *(int **)(this + 500);
+      pPVar3 = (ProducerBase *)*piVar10;
+      DataMemoryBarrier(0x1b);
+    } while (pPVar3 != (ProducerBase *)0x0);
+  }
+LAB_010bd046:
+  local_3c = 0;
+  uStack_38 = 0;
+  local_34 = 0;
+  local_44 = 0xffffffff;
+  uStack_40 = 0xffffffff;
+  piVar10 = *(int **)(this + 0x1f8);
+  pPVar5 = (ProducerBase *)*piVar10;
+  DataMemoryBarrier(0x1b);
+  if (pPVar5 != (ProducerBase *)0x0) {
+    do {
+      uVar7 = 0;
+      this_01 = (ProducerBase *)0x0;
+      uVar8 = 0;
+      do {
+        uVar9 = *(int *)(pPVar5 + 0x10) - *(int *)(pPVar5 + 0x14);
+        if (((uVar9 != 0) &&
+            (0x80000000 < (uint)(*(int *)(pPVar5 + 0x14) - *(int *)(pPVar5 + 0x10)))) &&
+           (uVar8 = uVar8 + 1, uVar7 < uVar9)) {
+          uVar7 = uVar9;
+          this_01 = pPVar5;
+        }
+        pPVar5 = *(ProducerBase **)(pPVar5 + 4);
+        if (pPVar5 != (ProducerBase *)0x0) {
+          pPVar5 = pPVar5 + -4;
+        }
+      } while ((uVar8 < 3) && (pPVar5 != (ProducerBase *)0x0));
+      if (uVar8 == 0) break;
+      bVar1 = moodycamel::ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+              ProducerBase::dequeue<RMTOUCHINPUT>(this_01,(RMTOUCHINPUT *)&local_44);
+      if (!bVar1) {
+        pPVar5 = (ProducerBase *)*piVar10;
+        DataMemoryBarrier(0x1b);
+        pPVar6 = pPVar5;
+        while( true ) {
+          if (pPVar6 == (ProducerBase *)0x0) goto LAB_010bd0d8;
+          if ((pPVar5 != this_01) &&
+             (bVar1 = moodycamel::
+                      ConcurrentQueue<RMTOUCHINPUT,moodycamel::ConcurrentQueueDefaultTraits>::
+                      ProducerBase::dequeue<RMTOUCHINPUT>(pPVar5,(RMTOUCHINPUT *)&local_44), bVar1))
+          break;
+          pPVar6 = *(ProducerBase **)(pPVar5 + 4);
+          pPVar5 = pPVar6 + -4;
+        }
+      }
+      piVar10 = *(int **)(this + 0x1f8);
+      pPVar5 = (ProducerBase *)*piVar10;
+      DataMemoryBarrier(0x1b);
+    } while (pPVar5 != (ProducerBase *)0x0);
+  }
+LAB_010bd0d8:
+  RMZeroMemory(this + 0x29,0x100);
+  RMZeroMemory(this + 300,200);
+  if (*piVar2 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 10bee20 OccurCursorPress @ 010bee20 =====
+
+/* CRMApp::OccurCursorPress(unsigned int, float, CRMPoint const&, unsigned char) */
+
+float CRMApp::OccurCursorPress(uint param_1,float param_2,CRMPoint *param_3,uchar param_4)
+
+{
+  int *piVar1;
+
+  piVar1 = *(int **)(param_1 + 8);
+  if (piVar1 != (int *)0x0) {
+    param_2 = (float)(**(code **)(*piVar1 + 0x14))(piVar1,param_3,param_4);
+  }
+  return param_2;
+}
+
+
+===== 10bee0e OccurCursorMove @ 010bee0e =====
+
+/* CRMApp::OccurCursorMove(unsigned int, float, CRMPoint const&) */
+
+void CRMApp::OccurCursorMove(uint param_1,float param_2,CRMPoint *param_3)
+
+{
+  if (*(int **)(param_1 + 8) == (int *)0x0) {
+    return;
+  }
+                    /* WARNING: Could not recover jumptable at 0x010bee1e. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (**(code **)(**(int **)(param_1 + 8) + 0x18))();
+  return;
+}

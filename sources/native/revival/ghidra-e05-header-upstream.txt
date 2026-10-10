@@ -1,0 +1,64 @@
+===== 007edca4 _OnHeaderReceived @ 007edca4 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CPVHTTPResponse::_OnHeaderReceived(unsigned char const*, unsigned long long, unsigned long long,
+   void*) */
+
+void CPVHTTPResponse::_OnHeaderReceived
+               (uchar *param_1,ulonglong param_2,ulonglong param_3,void *param_4)
+
+{
+  ulonglong uVar1;
+  void *pvVar2;
+  int iVar3;
+  int iVar4;
+  int *piVar5;
+  uint uVar6;
+  undefined4 local_38;
+  uint local_34;
+  void *local_30;
+  int local_28;
+
+  piVar5 = *(int **)(_LAB_007edd88 + 0x7edcbc);
+  local_28 = *piVar5;
+  if (param_1 == (uchar *)0x0) goto LAB_007edd48;
+  uVar1 = 0;
+  if (param_2 != 0) {
+    uVar1 = param_3;
+  }
+  if (uVar1 == 0) goto LAB_007edd48;
+  local_38 = 0;
+  local_34 = 0;
+  local_30 = (void *)0x0;
+  if (0xffffffef < (uint)param_3) {
+                    /* WARNING: Subroutine does not return */
+    std::__ndk1::__basic_string_common<true>::__throw_length_error();
+  }
+  if ((uint)param_3 < 0xb) {
+    local_38 = ((uint)param_3 & 0x7f) << 1;
+    pvVar2 = (void *)((int)&local_38 + 1);
+    if ((uint)param_3 != 0) goto LAB_007edd22;
+  }
+  else {
+    uVar6 = (uint)param_3 + 0x10 & 0xfffffff0;
+    pvVar2 = operator_new(uVar6);
+    local_34 = (uint)param_3;
+    local_38 = uVar6 + 1;
+    local_30 = pvVar2;
+LAB_007edd22:
+    __aeabi_memcpy(pvVar2,param_1,(uint)param_3);
+  }
+  *(undefined1 *)((int)pvVar2 + (uint)param_3) = 0;
+  OnHeaderReceived(param_4,(basic_string *)&local_38);
+  if ((local_38 & 1) != 0) {
+    operator_delete(local_30);
+  }
+LAB_007edd48:
+  iVar4 = *piVar5;
+  iVar3 = iVar4 - local_28;
+  if (iVar3 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar3,iVar4);
+}

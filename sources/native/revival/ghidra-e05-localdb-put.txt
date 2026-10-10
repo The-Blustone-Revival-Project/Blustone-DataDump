@@ -1,0 +1,185 @@
+===== 0071d3a4 Put @ 0071d3a4 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CMLocalDB::Put(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, nlohmann::basic_json<std::__ndk1::map,
+   std::__ndk1::vector, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> >, bool, long long, unsigned long long, double,
+   std::__ndk1::allocator, nlohmann::adl_serializer, std::__ndk1::vector<unsigned char,
+   std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall CMLocalDB::Put(CMLocalDB *this,basic_string *param_1,basic_json *param_2)
+
+{
+  basic_string bVar1;
+  ulonglong uVar2;
+  int *piVar3;
+  uint uVar4;
+  int iVar5;
+  char *pcVar6;
+  basic_string *pbVar7;
+  basic_string *pbVar8;
+  char *pcVar9;
+  ulonglong *puVar10;
+  uint uVar11;
+  basic_string *pbVar12;
+  uint uVar13;
+  uint uVar14;
+  basic_string *pbVar15;
+  bool bVar16;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_64 [4];
+  uint local_60;
+  void *local_5c;
+  ulonglong local_58;
+  undefined1 *local_50;
+  undefined4 local_48;
+  uint local_44;
+  char *local_40;
+  ulonglong local_38;
+  undefined1 *local_30;
+  int local_28;
+
+  piVar3 = *(int **)(_LAB_0071d64c + 0x71d3bc);
+  local_28 = *piVar3;
+  bVar1 = *(basic_string *)(this + 0x20);
+  bVar16 = ((byte)bVar1 & 1) == 0;
+  if (bVar16) {
+    bVar1 = (basic_string)((byte)bVar1 >> 1);
+  }
+  uVar4 = (uint)(byte)bVar1;
+  if (!bVar16) {
+    uVar4 = *(uint *)(this + 0x24);
+  }
+  if ((uVar4 == 0) || (iVar5 = (**(code **)(**(int **)(this + 0x18) + 0x20))(), iVar5 == 0)) {
+    _RMAssert('\0',(char *)(_LAB_0071d650 + 0x71d3e8),(char *)(_LAB_0071d654 + 0x71d3ea),0x8b,
+              _LAB_0071d658 + 0x71d3ec);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_38,(basic_string *)(this + 0x20));
+  uVar4 = 0;
+  pcVar6 = (char *)((int)&local_48 + 1);
+  do {
+    uVar14 = *(uint *)(param_1 + 4);
+    pbVar15 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      uVar14 = (uint)((byte)*param_1 >> 1);
+      pbVar15 = param_1 + 1;
+    }
+    if (uVar14 < uVar4) {
+      uVar11 = 0xffffffff;
+    }
+    else {
+      pbVar7 = pbVar15 + uVar4;
+      pbVar12 = pbVar15 + uVar14;
+      while (((pbVar8 = pbVar12, 0 < (int)pbVar12 - (int)pbVar7 &&
+              (pbVar7 = memchr(pbVar7,0x2f,(int)pbVar12 - (int)pbVar7),
+              pbVar7 != (basic_string *)0x0)) && (pbVar8 = pbVar7, *pbVar7 != (basic_string)0x2f)))
+      {
+        pbVar7 = pbVar7 + 1;
+      }
+      uVar11 = (int)pbVar8 - (int)pbVar15;
+      if (pbVar8 == pbVar12) {
+        uVar11 = 0xffffffff;
+      }
+    }
+    local_48 = 0;
+    local_44 = 0;
+    local_40 = (char *)0x0;
+    uVar13 = uVar11;
+    if (uVar11 != 0xffffffff) {
+      uVar13 = uVar11 - uVar4;
+    }
+    if (uVar14 < uVar4) {
+                    /* WARNING: Subroutine does not return */
+      std::__ndk1::__basic_string_common<true>::__throw_out_of_range();
+    }
+    if (uVar14 - uVar4 < uVar13) {
+      uVar13 = uVar14 - uVar4;
+    }
+    if (0xffffffef < uVar13) {
+                    /* WARNING: Subroutine does not return */
+      std::__ndk1::__basic_string_common<true>::__throw_length_error();
+    }
+    if (uVar13 < 0xb) {
+      local_48 = (uVar13 & 0x7f) << 1;
+      pcVar9 = pcVar6;
+      if (uVar13 != 0) goto LAB_0071d4ec;
+    }
+    else {
+      uVar14 = uVar13 + 0x10 & 0xfffffff0;
+      pcVar9 = operator_new(uVar14);
+      local_48 = uVar14 | 1;
+      local_44 = uVar13;
+      local_40 = pcVar9;
+LAB_0071d4ec:
+      __aeabi_memcpy(pcVar9,pbVar15 + uVar4,uVar13);
+    }
+    pcVar9[uVar13] = '\0';
+    FUN_006daa2c(local_64,(basic_string *)&local_38,_LAB_0071d65c + 0x71d508);
+    uVar14 = local_44;
+    pcVar9 = local_40;
+    if ((local_48 & 1) == 0) {
+      uVar14 = local_48 >> 1 & 0x7f;
+      pcVar9 = pcVar6;
+    }
+    puVar10 = (ulonglong *)
+              std::__ndk1::
+              basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                        (local_64,pcVar9,uVar14);
+    local_58 = *puVar10;
+    local_50 = *(undefined1 **)(puVar10 + 1);
+    *(undefined4 *)puVar10 = 0;
+    *(undefined4 *)((int)puVar10 + 4) = 0;
+    *(undefined4 *)(puVar10 + 1) = 0;
+    if (((byte)local_64[0] & 1) != 0) {
+      operator_delete(local_5c);
+    }
+    MakeDir(this,(basic_string *)&local_38,(basic_string *)&local_58);
+    uVar2 = local_38;
+    if ((local_38 & 1) != 0) {
+      *local_30 = 0;
+      local_38 = local_38 & 0xffffffff;
+      if ((uVar2 & 1) != 0) {
+        operator_delete(local_30);
+      }
+    }
+    local_38 = local_58;
+    local_30 = local_50;
+    bVar16 = false;
+    local_58 = 0;
+    local_50 = (void *)0x0;
+    if (uVar11 != 0xffffffff) {
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>(local_64,(char *)(_LAB_0071d660 + 0x71d5a2));
+      uVar4 = local_60;
+      if (((byte)local_64[0] & 1) == 0) {
+        uVar4 = (uint)((byte)local_64[0] >> 1);
+      }
+      else {
+        operator_delete(local_5c);
+      }
+      uVar4 = uVar4 + uVar11;
+      if ((local_58 & 1) != 0) {
+        operator_delete(local_50);
+      }
+      bVar16 = true;
+    }
+    if ((local_48 & 1) != 0) {
+      operator_delete(local_40);
+    }
+    if (!bVar16) {
+      PutJson(this,(basic_string *)&local_38,param_2);
+      Flush(this);
+      if ((local_38 & 1) != 0) {
+        operator_delete(local_30);
+      }
+      iVar5 = *piVar3 - local_28;
+      if (iVar5 != 0) {
+                    /* WARNING: Subroutine does not return */
+        __stack_chk_fail(iVar5);
+      }
+      return;
+    }
+  } while( true );
+}

@@ -1,0 +1,118 @@
+===== 0x9d3648 OpenMission @ 009d3648 =====
+
+/* CSRGameBase::OpenMission() */
+
+void __thiscall CSRGameBase::OpenMission(CSRGameBase *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  code *pcVar5;
+  __shared_weak_count *p_Var6;
+  CSRGameUIBase *this_00;
+  int *piVar7;
+  float extraout_s0;
+  float fVar8;
+  float extraout_s0_00;
+  uint local_48;
+  CSRGameBase *local_44;
+  json_value ajStack_40 [8];
+  int *local_38;
+  int local_2c;
+  
+  piVar7 = *(int **)(DAT_009d3830 + 0x9d365e);
+  local_2c = *piVar7;
+  (**(code **)(*(int *)this + 100))(this);
+  OpenCamp(this);
+  this_00 = *(CSRGameUIBase **)(this + 0x20c);
+  iVar2 = CSRDataMgr::get();
+  iVar4 = *(int *)(iVar2 + 0xa850);
+  p_Var6 = *(__shared_weak_count **)(iVar2 + 0xa854);
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var6 + 4;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+  }
+  local_48 = DAT_009d3834 + 0x9d36b0;
+  local_44 = this;
+  local_38 = (int *)&local_48;
+  fVar8 = (float)CSRGameUIBase::AddTimerEvent(this_00,extraout_s0,*(function **)(iVar4 + 0x1dc));
+  if (&local_48 == (uint *)local_38) {
+    pcVar5 = *(code **)(*local_38 + 0x10);
+LAB_009d36c6:
+    fVar8 = (float)(*pcVar5)();
+  }
+  else if (local_38 != (int *)0x0) {
+    pcVar5 = *(code **)(*local_38 + 0x14);
+    goto LAB_009d36c6;
+  }
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar2 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar2 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar2 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      fVar8 = (float)std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  local_48 = DAT_009d3838 + 0x9d3708;
+  local_44 = this;
+  local_38 = (int *)&local_48;
+  CSRGameUIBase::AddTimerEvent(*(CSRGameUIBase **)(this + 0x20c),fVar8,(function *)0x0);
+  if (&local_48 == (uint *)local_38) {
+    pcVar5 = *(code **)(*local_38 + 0x10);
+  }
+  else {
+    if (local_38 == (int *)0x0) goto LAB_009d3720;
+    pcVar5 = *(code **)(*local_38 + 0x14);
+  }
+  (*pcVar5)();
+LAB_009d3720:
+  iVar2 = CSRDataMgr::get();
+  p_Var6 = *(__shared_weak_count **)(iVar2 + 0xa854);
+  fVar8 = extraout_s0_00;
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var6 + 4;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar2 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar2 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar2 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      fVar8 = (float)std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  CSRGameUIBase::SetTimeOver(*(CSRGameUIBase **)(this + 0x20c),fVar8);
+  MakeFrontGroup();
+  (**(code **)(*(int *)this + 0x98))(this,0,&local_48);
+  nlohmann::
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  ::json_value::destroy(ajStack_40,local_48 & 0xff);
+  if (*piVar7 != local_2c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

@@ -1,0 +1,229 @@
+===== 0xb4a7a8 FUN_00b4a7a8 @ 00b4a7a8 =====
+
+/* WARNING: Type propagation algorithm not settling */
+
+void FUN_00b4a7a8(int param_1,int *param_2)
+
+{
+  undefined4 *puVar1;
+  bool bVar2;
+  undefined4 *puVar3;
+  undefined4 *puVar4;
+  int iVar5;
+  CSRGameMob *pCVar6;
+  int iVar7;
+  int *******pppppppiVar8;
+  __shared_weak_count *p_Var9;
+  int *piVar10;
+  function *pfVar11;
+  undefined4 uVar12;
+  byte *pbVar13;
+  byte *pbVar14;
+  code *pcVar15;
+  int ******ppppppiVar16;
+  byte *pbVar17;
+  basic_string *pbVar18;
+  int *******pppppppiVar19;
+  CSRSyncMStage *this;
+  basic_string *pbVar20;
+  int *piVar21;
+  undefined4 *local_84;
+  undefined4 *local_80;
+  basic_string *local_78;
+  basic_string *local_74;
+  int *******local_6c;
+  int *******local_68;
+  int local_64;
+  int local_60;
+  __shared_weak_count *p_Stack_5c;
+  int aiStack_58 [4];
+  int *local_48;
+  function afStack_40 [16];
+  function *local_30;
+  int local_28;
+  
+  piVar21 = *(int **)(DAT_00b4aafc + 0xb4a7ba);
+  local_28 = *piVar21;
+  if (*param_2 != 1) goto LAB_00b4aa48;
+  iVar5 = *(int *)(param_1 + 8);
+  local_64 = 0;
+  local_6c = (int *******)&local_6c;
+  local_68 = (int *******)&local_6c;
+  CSRGameMob::get();
+  CSRGameMob::GetStageMonsterLinkData((basic_string *)&local_84);
+  pbVar20 = local_74;
+  puVar3 = local_80;
+  for (pbVar18 = local_78; local_80 = puVar3, puVar4 = local_84, pbVar18 != pbVar20;
+      pbVar18 = pbVar18 + 0xc) {
+    pCVar6 = (CSRGameMob *)CSRGameMob::get();
+    iVar7 = CSRGameMob::HasMonsterData(pCVar6,pbVar18);
+    if (iVar7 == 0) {
+      pppppppiVar8 = operator_new(0x14);
+      *pppppppiVar8 = (int ******)0x0;
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )(pppppppiVar8 + 2),pbVar18);
+      *pppppppiVar8 = (int ******)local_6c;
+      pppppppiVar8[1] = (int ******)&local_6c;
+      local_6c[1] = (int ******)pppppppiVar8;
+      local_64 = local_64 + 1;
+      local_6c = pppppppiVar8;
+    }
+    puVar3 = local_80;
+  }
+  for (; puVar4 != puVar3; puVar4 = puVar4 + 3) {
+    pbVar20 = (basic_string *)puVar4[1];
+    for (pbVar18 = (basic_string *)*puVar4; pbVar18 != pbVar20; pbVar18 = pbVar18 + 0x14) {
+      pCVar6 = (CSRGameMob *)CSRGameMob::get();
+      iVar7 = CSRGameMob::HasMonsterData(pCVar6,pbVar18);
+      if (iVar7 == 0) {
+        pppppppiVar8 = operator_new(0x14);
+        *pppppppiVar8 = (int ******)0x0;
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)(pppppppiVar8 + 2),pbVar18);
+        *pppppppiVar8 = (int ******)local_6c;
+        pppppppiVar8[1] = (int ******)&local_6c;
+        local_6c[1] = (int ******)pppppppiVar8;
+        local_64 = local_64 + 1;
+        local_6c = pppppppiVar8;
+      }
+    }
+  }
+  if (local_64 == 0) {
+    if (*(int **)(param_1 + 0x28) == (int *)0x0) {
+                    /* WARNING: Subroutine does not return */
+      FUN_006e0344();
+    }
+    (**(code **)(**(int **)(param_1 + 0x28) + 0x18))();
+  }
+  else {
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_60);
+    if (p_Stack_5c != (__shared_weak_count *)0x0) {
+      p_Var9 = p_Stack_5c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var9);
+        iVar7 = *(int *)p_Var9;
+        bVar2 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar2);
+      *(int *)p_Var9 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Stack_5c + 8))(p_Stack_5c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Stack_5c);
+      }
+    }
+    this = *(CSRSyncMStage **)(local_60 + 8);
+    piVar10 = *(int **)(param_1 + 0x28);
+    local_60 = iVar5;
+    if (piVar10 == (int *)0x0) {
+      local_48 = (int *)0x0;
+    }
+    else if ((int *)(param_1 + 0x18) == piVar10) {
+      local_48 = aiStack_58;
+      (**(code **)(*piVar10 + 0xc))(piVar10,aiStack_58);
+    }
+    else {
+      local_48 = (int *)(**(code **)(*piVar10 + 8))();
+    }
+    local_30 = (function *)0x0;
+    pfVar11 = operator_new(0x28);
+    *(int *)pfVar11 = DAT_00b4ab8c + 0xb4a92c;
+    *(int *)(pfVar11 + 8) = local_60;
+    if (local_48 == (int *)0x0) {
+      uVar12 = 0;
+LAB_00b4a93c:
+      *(undefined4 *)(pfVar11 + 0x20) = uVar12;
+    }
+    else {
+      if (aiStack_58 != local_48) {
+        uVar12 = (**(code **)(*local_48 + 8))();
+        goto LAB_00b4a93c;
+      }
+      *(function **)(pfVar11 + 0x20) = pfVar11 + 0x10;
+      (**(code **)(*local_48 + 0xc))();
+    }
+    local_30 = pfVar11;
+    CSRSyncMStage::GetMonster(this,(list *)&local_6c,afStack_40);
+    if (afStack_40 == local_30) {
+      pcVar15 = *(code **)(*(int *)local_30 + 0x10);
+LAB_00b4a96c:
+      (*pcVar15)();
+    }
+    else if (local_30 != (function *)0x0) {
+      pcVar15 = *(code **)(*(int *)local_30 + 0x14);
+      goto LAB_00b4a96c;
+    }
+    if (aiStack_58 == local_48) {
+      pcVar15 = *(code **)(*local_48 + 0x10);
+    }
+    else {
+      if (local_48 == (int *)0x0) goto LAB_00b4a982;
+      pcVar15 = *(code **)(*local_48 + 0x14);
+    }
+    (*pcVar15)();
+  }
+LAB_00b4a982:
+  pbVar18 = local_78;
+  if (local_78 != (basic_string *)0x0) {
+    while (pbVar20 = local_74, pbVar20 != pbVar18) {
+      local_74 = pbVar20 + -0xc;
+      if (((byte)*local_74 & 1) != 0) {
+        operator_delete(*(void **)(pbVar20 + -4));
+      }
+    }
+    local_74 = pbVar18;
+    operator_delete(local_78);
+  }
+  puVar3 = local_84;
+  if (local_84 != (undefined4 *)0x0) {
+    while (puVar4 = local_80, puVar4 != puVar3) {
+      puVar1 = puVar4 + -3;
+      pbVar17 = (byte *)*puVar1;
+      local_80 = puVar1;
+      if (pbVar17 != (byte *)0x0) {
+        pbVar14 = (byte *)puVar4[-2];
+        pbVar13 = pbVar17;
+        if (pbVar14 != pbVar17) {
+          do {
+            pbVar13 = pbVar14 + -0x14;
+            if ((*pbVar13 & 1) != 0) {
+              operator_delete(*(void **)(pbVar14 + -0xc));
+            }
+            pbVar14 = pbVar13;
+          } while (pbVar17 != pbVar13);
+          pbVar13 = (byte *)*puVar1;
+        }
+        puVar4[-2] = pbVar17;
+        operator_delete(pbVar13);
+      }
+    }
+    local_80 = puVar3;
+    operator_delete(local_84);
+  }
+  if (local_64 != 0) {
+    ppppppiVar16 = *local_68;
+    ppppppiVar16[1] = (int *****)local_6c[1];
+    *local_6c[1] = (int *****)ppppppiVar16;
+    local_64 = 0;
+    pppppppiVar8 = local_68;
+    while ((int ********)pppppppiVar8 != &local_6c) {
+      pppppppiVar19 = (int *******)pppppppiVar8[1];
+      if (((uint)pppppppiVar8[2] & 1) != 0) {
+        operator_delete(pppppppiVar8[4]);
+      }
+      operator_delete(pppppppiVar8);
+      pppppppiVar8 = pppppppiVar19;
+    }
+  }
+LAB_00b4aa48:
+  if (*piVar21 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

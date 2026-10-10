@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Blustone field or record evidence provenance",
+  "type": "object",
+  "required": ["source_id", "path", "sha256", "locator", "label"],
+  "properties": {
+    "source_id": {"type": "string", "pattern": "^src-[0-9a-f]{16}$"},
+    "path": {"type": "string", "minLength": 1},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "locator": {"type": "string", "minLength": 1},
+    "label": {"enum": ["RECOVERED", "COMMUNITY-SOURCED", "INFERRED", "INFERRED-FIXTURE", "UNKNOWN"]}
+  },
+  "additionalProperties": true
+}

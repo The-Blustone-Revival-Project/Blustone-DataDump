@@ -1,0 +1,49 @@
+===== f4e43c FUN_00f4e43c @ 00f4e43c =====
+
+void FUN_00f4e43c(int param_1,undefined4 param_2,undefined4 *param_3)
+
+{
+  int iVar1;
+  basic_json *pbVar2;
+  CSRAchieve *this;
+  int *piVar3;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *this_00;
+  CSRSupply *this_01;
+  int *piVar4;
+  SRREWARD_INFO aSStack_6c [68];
+  int local_28;
+  int local_24;
+
+  piVar4 = *(int **)(DAT_00f4e4d8 + 0xf4e44e);
+  local_24 = *piVar4;
+  this_00 = *(basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+              **)(param_1 + 8);
+  this_01 = *(CSRSupply **)(param_1 + 0x10);
+  iVar1 = CPVHTTPResponse::GetResultCode((CPVHTTPResponse *)*param_3);
+  if ((iVar1 == 1) &&
+     (pbVar2 = nlohmann::
+               basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+               ::operator[]<char_const>(this_00,(char *)(DAT_00f4e4dc + 0xf4e470)),
+     *pbVar2 != (basic_json)0x0)) {
+    CSRSupply::ParseLoginBonusReward(this_01,pbVar2);
+    this = (CSRAchieve *)CSRAchieve::get();
+    CSRAchieve::ParseLobbyEnter(this,pbVar2);
+  }
+  if (*(int *)(param_1 + 0x28) != 0) {
+    SRREWARD_INFO::SRREWARD_INFO(aSStack_6c,(SRREWARD_INFO *)(param_1 + 0x30));
+    piVar3 = *(int **)(param_1 + 0x28);
+    local_28 = iVar1;
+    if (piVar3 == (int *)0x0) {
+                    /* WARNING: Subroutine does not return */
+      FUN_006e0344();
+    }
+    (**(code **)(*piVar3 + 0x18))(piVar3,&local_28,aSStack_6c);
+    SRREWARD_INFO::~SRREWARD_INFO(aSStack_6c);
+  }
+  if (*piVar4 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

@@ -1,0 +1,24 @@
+===== 0097e6fc IsSupporter @ 0097e6fc =====
+
+/* CSRGameActor::IsSupporter() const */
+
+void __thiscall CSRGameActor::IsSupporter(CSRGameActor *this)
+
+{
+  undefined4 *puVar1;
+
+  puVar1 = (undefined4 *)CSRGameActorBaseDraw::GetRole((CSRGameActorBaseDraw *)this);
+  SRCanUseSkillAirShip(*puVar1);
+  return;
+}
+
+
+===== 010ae4b0 SRCanUseSkillAirShip @ 010ae4b0 =====
+
+/* SRCanUseSkillAirShip(CHAR_ROLE) */
+
+bool SRCanUseSkillAirShip(int param_1)
+
+{
+  return param_1 - 3U < 2;
+}

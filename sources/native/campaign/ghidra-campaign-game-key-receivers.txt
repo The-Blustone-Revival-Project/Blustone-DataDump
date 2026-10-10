@@ -1,0 +1,61 @@
+===== 9db1b8 ProcessKeyInput @ 009db1b8 =====
+
+/* CSRGameBase::ProcessKeyInput(float, int, unsigned char) */
+
+longlong CSRGameBase::ProcessKeyInput(float param_1,int param_2,uchar param_3)
+
+{
+  return (ulonglong)param_3 << 0x20;
+}
+
+
+===== f1d726 OnProcessKeyInput @ 00f1d726 =====
+
+/* CSRFramedScene::OnProcessKeyInput(float, int, unsigned char) */
+
+int CSRFramedScene::OnProcessKeyInput(float param_1,int param_2,uchar param_3)
+
+{
+  bool bVar1;
+  int iVar2;
+  int *piVar3;
+  int iVar4;
+  uint uVar5;
+  int in_r2;
+  float extraout_s0;
+  float extraout_s0_00;
+
+  uVar5 = (uint)param_3;
+  if ((*(CMUpdatable **)(param_2 + 0xa0) == (CMUpdatable *)0x0) ||
+     (iVar2 = CMUpdatable::ProcessKeyInput(*(CMUpdatable **)(param_2 + 0xa0),uVar5),
+     param_1 = extraout_s0, iVar2 != 1)) {
+    piVar3 = *(int **)(param_2 + 0x98);
+    if (piVar3 == (int *)0x0) {
+      iVar2 = 0;
+    }
+    else {
+      iVar2 = (**(code **)(*piVar3 + 0x20))(piVar3,uVar5);
+      param_1 = extraout_s0_00;
+    }
+    if (in_r2 == 4) {
+      if ((*(int *)(param_2 + 0xa0) != 0) &&
+         ((int)((uint)*(byte *)(*(int *)(param_2 + 0xa0) + 0x860) << 0x1e) < 0)) {
+        (**(code **)(*(int *)param_2 + 0x34))(param_2);
+        iVar2 = 1;
+      }
+    }
+    else {
+      iVar4 = CSRScene::OnProcessKeyInput((CSRScene *)param_2,param_1,uVar5,(uchar)in_r2);
+      bVar1 = iVar2 != 0;
+      iVar2 = 0;
+      if (bVar1 || iVar4 != 0) {
+        iVar2 = 1;
+      }
+    }
+  }
+  else {
+    CSRScene::OnProcessKeyInput((CSRScene *)param_2,extraout_s0,uVar5,(uchar)in_r2);
+    iVar2 = 1;
+  }
+  return iVar2;
+}

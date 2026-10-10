@@ -1,0 +1,914 @@
+===== 8f92d4 GoToScene @ 008f92d4 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CSRDlgScriptPlayer::GoToScene(CSRDlgScriptPlayer::GOTO_SCENE const&) */
+
+void __thiscall CSRDlgScriptPlayer::GoToScene(CSRDlgScriptPlayer *this,GOTO_SCENE *param_1)
+
+{
+  bool bVar1;
+  ulonglong uVar2;
+  __shared_weak_count *p_Var3;
+  __shared_weak_count *p_Var4;
+  void *pvVar5;
+  GOTO_SCENE *pGVar6;
+  CSRExploreMirageInfo *this_00;
+  CSRAutoCombatBase *pCVar7;
+  CSRDlgScriptPlayer *pCVar8;
+  CSRDataMgr *this_01;
+  CSRUserDB *this_02;
+  __shared_weak_count *p_Var9;
+  CSRDlgPlayer *this_03;
+  void *pvVar10;
+  undefined4 uVar11;
+  uint uVar12;
+  code *pcVar13;
+  GOTO_SCENE *pGVar14;
+  int iVar15;
+  uint uVar16;
+  GOTO_SCENE *pGVar17;
+  int *piVar18;
+  undefined8 local_74;
+  void *local_6c;
+  uint local_68;
+  uint uStack_64;
+  void *local_60;
+  uint local_58;
+  undefined4 uStack_54;
+  void *local_50;
+  uint local_48;
+  CSRDlgScriptPlayer *pCStack_44;
+  __shared_weak_count *local_40;
+  __shared_weak_count *local_3c;
+  void *local_38;
+  function *local_30;
+  int local_28;
+  
+  piVar18 = *(int **)(DAT_008f9640 + 0x8f92ea);
+  local_28 = *piVar18;
+  local_48 = 0;
+  pCStack_44 = (CSRDlgScriptPlayer *)0x0;
+  local_58 = 0;
+  uStack_54 = 0;
+  local_50 = (void *)0x0;
+  CMHashID::Set((CMHashID *)&local_58,(basic_string *)param_1);
+  pCVar8 = pCStack_44;
+  if ((int)(-(uint)(0x9d8cc391 < local_48) - (int)pCStack_44) < 0 ==
+      (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0x9d8cc391 < local_48)))) {
+    if ((int)(-(uint)(0x3afafd6c < local_48) - (int)pCStack_44) < 0 ==
+        (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0x3afafd6c < local_48)))) {
+      iVar15 = 0x2b36786a - local_48;
+      if ((int)(-(uint)(0x2b36786a < local_48) - (int)pCStack_44) < 0 ==
+          (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0x2b36786a < local_48))))
+      {
+        if (local_48 == 0x4224d95 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+          uVar11 = 0x68;
+        }
+        else if (local_48 == 0x1ea4bb5e && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+          uVar11 = 9;
+        }
+        else {
+          if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0x26b31df2) goto LAB_008f95b0;
+          uVar11 = 0x26;
+          pCVar8 = (CSRDlgScriptPlayer *)0x0;
+        }
+      }
+      else if (local_48 == 0x2b36786b && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 7;
+      }
+      else if (local_48 == 0x2f69d4c9 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 0x67;
+      }
+      else {
+        if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0x393c326f) goto LAB_008f95b0;
+        uVar11 = 0x5d;
+        pCVar8 = (CSRDlgScriptPlayer *)0x0;
+      }
+    }
+    else {
+      iVar15 = 0x75bfffbc - local_48;
+      if ((int)(-(uint)(0x75bfffbc < local_48) - (int)pCStack_44) < 0 ==
+          (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0x75bfffbc < local_48))))
+      {
+        if (local_48 == 0x3afafd6d && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+          uVar11 = 0x98;
+        }
+        else if (local_48 == 0x4a7714d3 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+          uVar11 = 0x83;
+        }
+        else {
+          if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0x51b41997) goto LAB_008f95b0;
+          uVar11 = 0x9f;
+          pCVar8 = (CSRDlgScriptPlayer *)0x0;
+        }
+      }
+      else {
+        iVar15 = -0x7d8ad804 - local_48;
+        if ((int)(-(uint)(0x827527fc < local_48) - (int)pCStack_44) < 0 ==
+            (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0x827527fc < local_48))
+            )) {
+          if (local_48 == 0x75bfffbd && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+            uVar11 = 0x46;
+          }
+          else {
+            if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0x79b757f5) {
+LAB_008f95b0:
+              uVar16 = *(uint *)(param_1 + 4);
+              pGVar14 = *(GOTO_SCENE **)(param_1 + 8);
+              if (((byte)*param_1 & 1) == 0) {
+                uVar16 = (uint)((byte)*param_1 >> 1);
+                pGVar14 = param_1 + 1;
+              }
+              pGVar17 = pGVar14 + uVar16;
+              if (0xb < (int)uVar16) {
+                pvVar5 = (void *)(DAT_008f9644 + 0x8f95d4);
+                pGVar6 = pGVar14;
+                uVar12 = uVar16;
+                do {
+                  if ((uVar12 - 0xb == 0) ||
+                     (pGVar6 = memchr(pGVar6,0x6d,uVar12 - 0xb), pGVar6 == (GOTO_SCENE *)0x0))
+                  break;
+                  iVar15 = memcmp(pGVar6,pvVar5,0xc);
+                  if (iVar15 == 0) {
+                    iVar15 = 0;
+                    if (pGVar6 != pGVar17) {
+                      iVar15 = (int)pGVar6 - (int)pGVar14;
+                    }
+                    if (pGVar6 != pGVar17 && iVar15 != -1) {
+                      pCVar7 = (CSRAutoCombatBase *)CSRAutoCombatBase::get();
+                      pCVar8 = (CSRDlgScriptPlayer *)CSRAutoCombatBase::CheckShortcutsScene(pCVar7);
+                      GoToScene(pCVar8,pCVar8,param_1);
+                      goto LAB_008f958c;
+                    }
+                    break;
+                  }
+                  pGVar6 = pGVar6 + 1;
+                  uVar12 = (int)pGVar17 - (int)pGVar6;
+                } while (0xb < (int)uVar12);
+              }
+              if (10 < (int)uVar16) {
+                pvVar5 = (void *)(DAT_008f9648 + 0x8f9618);
+                pGVar6 = pGVar14;
+                uVar12 = uVar16;
+                do {
+                  if ((uVar12 - 10 == 0) ||
+                     (pGVar6 = memchr(pGVar6,0x6d,uVar12 - 10), pGVar6 == (GOTO_SCENE *)0x0)) break;
+                  iVar15 = memcmp(pGVar6,pvVar5,0xb);
+                  if (iVar15 == 0) {
+                    iVar15 = 0;
+                    if (pGVar6 != pGVar17) {
+                      iVar15 = (int)pGVar6 - (int)pGVar14;
+                    }
+                    if (pGVar6 != pGVar17 && iVar15 != -1) {
+                      pCVar7 = (CSRAutoCombatBase *)CSRAutoCombatBase::get();
+                      iVar15 = CSRAutoCombatBase::CheckShortcutsScene(pCVar7);
+                      if (iVar15 != 0x1c) {
+                        iVar15 = 0x84;
+                      }
+                      split((basic_string *)&local_40,(char)param_1);
+                      pCVar8 = (CSRDlgScriptPlayer *)
+                               (((int)local_3c - (int)local_40 >> 2) * -0x55555555);
+                      if ((CSRDlgScriptPlayer *)0x1 < pCVar8) {
+                        this_01 = (CSRDataMgr *)CSRDataMgr::get();
+                        this_02 = (CSRUserDB *)CSRDataMgr::GetUserLocalDB(this_01);
+                        pCVar8 = (CSRDlgScriptPlayer *)
+                                 CSRUserDB::PutCurAreaID(this_02,(basic_string *)(local_40 + 0xc));
+                      }
+                      GoToScene(pCVar8,iVar15,param_1);
+                      p_Var3 = local_40;
+                      if (local_40 != (__shared_weak_count *)0x0) {
+                        while (p_Var4 = local_3c, p_Var4 != p_Var3) {
+                          local_3c = p_Var4 + -0xc;
+                          if (((byte)*local_3c & 1) != 0) {
+                            operator_delete(*(void **)(p_Var4 + -4));
+                          }
+                        }
+                        local_3c = p_Var3;
+                        operator_delete(local_40);
+                      }
+                      goto LAB_008f958c;
+                    }
+                    break;
+                  }
+                  pGVar6 = pGVar6 + 1;
+                  uVar12 = (int)pGVar17 - (int)pGVar6;
+                } while (10 < (int)uVar12);
+              }
+              if (8 < (int)uVar16) {
+                pvVar5 = (void *)(_LAB_008f99b0 + 0x8f9666);
+                pGVar6 = pGVar14;
+                uVar12 = uVar16;
+                do {
+                  if ((uVar12 - 8 == 0) ||
+                     (pGVar6 = memchr(pGVar6,0x67,uVar12 - 8), pGVar6 == (GOTO_SCENE *)0x0)) break;
+                  iVar15 = memcmp(pGVar6,pvVar5,9);
+                  if (iVar15 == 0) {
+                    iVar15 = 0;
+                    if (pGVar6 != pGVar17) {
+                      iVar15 = (int)pGVar6 - (int)pGVar14;
+                    }
+                    if (pGVar6 != pGVar17 && iVar15 != -1) {
+                      CSRDlgParser::SetRollbackBGM((CSRDlgParser *)(this + 0x90),'\0');
+                      CMSingleton::
+                      get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                                ((CMSingleton *)&local_40);
+                      p_Var4 = local_3c;
+                      p_Var3 = local_40;
+                      if (local_3c != (__shared_weak_count *)0x0) {
+                        p_Var9 = local_3c + 4;
+                        DataMemoryBarrier(0x1b);
+                        do {
+                          ExclusiveAccess(p_Var9);
+                          iVar15 = *(int *)p_Var9;
+                          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+                        } while (!bVar1);
+                        *(int *)p_Var9 = iVar15 + -1;
+                        DataMemoryBarrier(0x1b);
+                        if (iVar15 == 0) {
+                          (**(code **)(*(int *)local_3c + 8))(local_3c);
+                          std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+                        }
+                      }
+                      iVar15 = CSRSyncTutorial::GetState
+                                         (*(CSRSyncTutorial **)(p_Var3 + 0x24),0x26,0);
+                      if (iVar15 < 2) {
+                        std::__ndk1::
+                        basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        ::basic_string<decltype(nullptr)>
+                                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                                    *)&local_40,(char *)(_LAB_008f99b8 + 0x8f97f0));
+                        this_03 = *(CSRDlgPlayer **)(this + 200);
+                        if (this_03 == (CSRDlgPlayer *)0x0) {
+                          _RMAssert('\0',(char *)(_LAB_008f99c4 + 0x8f980c),
+                                    (char *)(_LAB_008f99c8 + 0x8f980e),0x23d,
+                                    _LAB_008f99c0 + 0x8f9808,_LAB_008f99bc + 0x8f9804,
+                                    _LAB_008f99cc + 0x8f9810);
+                          this_03 = *(CSRDlgPlayer **)(this + 200);
+                        }
+                        CSRDlgPlayer::GoToDialog(this_03,(basic_string *)&local_40);
+                        if (((byte)local_40._0_1_ & 1) != 0) {
+                          operator_delete(local_38);
+                        }
+                      }
+                      else {
+                        CSRSceneMgr::SceneGoTo
+                                  (*(CSRSceneMgr **)(**(int **)(DAT_008f99d4 + 0x8f9840) + 8),0x6f);
+                      }
+                      goto LAB_008f958c;
+                    }
+                    break;
+                  }
+                  pGVar6 = pGVar6 + 1;
+                  uVar12 = (int)pGVar17 - (int)pGVar6;
+                } while (8 < (int)uVar12);
+              }
+              if (5 < (int)uVar16) {
+                pvVar5 = (void *)(_LAB_008f99b4 + 0x8f96aa);
+                pGVar6 = pGVar14;
+                do {
+                  if ((uVar16 - 5 == 0) ||
+                     (pGVar6 = memchr(pGVar6,0x6d,uVar16 - 5), pGVar6 == (GOTO_SCENE *)0x0)) break;
+                  iVar15 = memcmp(pGVar6,pvVar5,6);
+                  if (iVar15 == 0) {
+                    iVar15 = 0;
+                    if (pGVar6 != pGVar17) {
+                      iVar15 = (int)pGVar6 - (int)pGVar14;
+                    }
+                    if (pGVar6 != pGVar17 && iVar15 != -1) {
+                      std::__ndk1::
+                      basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      ::basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                                      *)&local_68,(basic_string *)param_1);
+                      this_00 = (CSRExploreMirageInfo *)CSRExploreMirageInfo::get();
+                      pvVar5 = local_60;
+                      local_74 = 0;
+                      local_6c = (void *)0x0;
+                      if ((local_68 & 1) == 0) {
+                        local_74 = CONCAT44(uStack_64,local_68);
+                        local_6c = local_60;
+                      }
+                      else {
+                        if (0xffffffef < uStack_64) {
+                    /* WARNING: Subroutine does not return */
+                          std::__ndk1::__basic_string_common<true>::__throw_length_error();
+                        }
+                        if (uStack_64 < 0xb) {
+                          pvVar10 = (void *)((int)&local_74 + 1);
+                          local_74 = (ulonglong)(byte)(uStack_64 << 1);
+                          if (uStack_64 != 0) goto LAB_008f988c;
+                        }
+                        else {
+                          pvVar10 = operator_new(uStack_64 + 0x10 & 0xfffffff0);
+                          local_74 = CONCAT44(uStack_64,uStack_64 + 0x10) & 0xfffffffffffffff0 | 1;
+                          local_6c = pvVar10;
+LAB_008f988c:
+                          __aeabi_memcpy(pvVar10,pvVar5,uStack_64);
+                        }
+                        *(undefined1 *)((int)pvVar10 + uStack_64) = 0;
+                      }
+                      local_30 = (function *)0x0;
+                      local_30 = operator_new(0x14);
+                      uVar2 = local_74;
+                      *(int *)local_30 = DAT_008f99d0 + 0x8f98b4;
+                      *(CSRDlgScriptPlayer **)(local_30 + 4) = this;
+                      local_74 = 0;
+                      *(void **)(local_30 + 0x10) = local_6c;
+                      *(ulonglong *)(local_30 + 8) = uVar2;
+                      local_6c = (void *)0x0;
+                      CSRExploreMirageInfo::RequestInfo
+                                (this_00,'\0','\0',0x1f,(function *)&local_40,'\0');
+                      if ((function *)&local_40 == local_30) {
+                        pcVar13 = *(code **)(*(int *)local_30 + 0x10);
+LAB_008f98e8:
+                        (*pcVar13)();
+                      }
+                      else if (local_30 != (function *)0x0) {
+                        pcVar13 = *(code **)(*(int *)local_30 + 0x14);
+                        goto LAB_008f98e8;
+                      }
+                      if ((local_74 & 1) != 0) {
+                        operator_delete(local_6c);
+                      }
+                      if (((byte)local_68._0_1_ & 1) != 0) {
+                        operator_delete(local_60);
+                      }
+                    }
+                    break;
+                  }
+                  pGVar6 = pGVar6 + 1;
+                  uVar16 = (int)pGVar17 - (int)pGVar6;
+                } while (5 < (int)uVar16);
+              }
+              goto LAB_008f958c;
+            }
+            uVar11 = 6;
+            pCVar8 = (CSRDlgScriptPlayer *)0x0;
+          }
+        }
+        else if (local_48 == 0x827527fd && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+          uVar11 = 0x76;
+        }
+        else {
+          if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0x891a1a0b) goto LAB_008f95b0;
+          uVar11 = 0x75;
+          pCVar8 = (CSRDlgScriptPlayer *)0x0;
+        }
+      }
+    }
+  }
+  else if ((int)(-(uint)(0xd98de1c5 < local_48) - (int)pCStack_44) < 0 ==
+           (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0xd98de1c5 < local_48)))
+          ) {
+    iVar15 = -0x3202b9d1 - local_48;
+    if ((int)(-(uint)(0xcdfd462f < local_48) - (int)pCStack_44) < 0 ==
+        (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0xcdfd462f < local_48)))) {
+      if (local_48 == 0x9d8cc392 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 0x28;
+      }
+      else if (local_48 == 0x9fb0b1c0 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 0x14;
+      }
+      else {
+        if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0xb2b6d5e2) goto LAB_008f95b0;
+        uVar11 = 0x34;
+        pCVar8 = (CSRDlgScriptPlayer *)0x0;
+      }
+    }
+    else if (local_48 == 0xcdfd4630 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+      uVar11 = 0x9a;
+    }
+    else if (local_48 == 0xd5128a8f && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+      uVar11 = 0xaf;
+    }
+    else {
+      if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0xd6064df9) goto LAB_008f95b0;
+      uVar11 = 0x9e;
+      pCVar8 = (CSRDlgScriptPlayer *)0x0;
+    }
+  }
+  else {
+    iVar15 = -0xf655e1d - local_48;
+    if ((int)(-(uint)(0xf09aa1e3 < local_48) - (int)pCStack_44) < 0 ==
+        (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0xf09aa1e3 < local_48)))) {
+      if (local_48 == 0xd98de1c6 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 0x3a;
+      }
+      else if (local_48 == 0xe2cda6ae && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 0x36;
+      }
+      else {
+        if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0xec2d5ce8) goto LAB_008f95b0;
+        uVar11 = 0xa3;
+        pCVar8 = (CSRDlgScriptPlayer *)0x0;
+      }
+    }
+    else {
+      iVar15 = -0x32a718b - local_48;
+      if ((int)(-(uint)(0xfcd58e75 < local_48) - (int)pCStack_44) < 0 ==
+          (SBORROW4(0,(int)pCStack_44) != SBORROW4(-(int)pCStack_44,(uint)(0xfcd58e75 < local_48))))
+      {
+        if (local_48 == 0xf09aa1e4 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+          uVar11 = 0x86;
+        }
+        else {
+          if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0xf58f1b09) goto LAB_008f95b0;
+          uVar11 = 0xab;
+          pCVar8 = (CSRDlgScriptPlayer *)0x0;
+        }
+      }
+      else if (local_48 == 0xfcd58e76 && pCStack_44 == (CSRDlgScriptPlayer *)0x0) {
+        uVar11 = 0x19;
+      }
+      else {
+        if (pCStack_44 != (CSRDlgScriptPlayer *)0x0 || local_48 != 0xffb16002) goto LAB_008f95b0;
+        uVar11 = 0x96;
+        pCVar8 = (CSRDlgScriptPlayer *)0x0;
+      }
+    }
+  }
+  GoToScene(pCVar8,uVar11,param_1,iVar15);
+LAB_008f958c:
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  if (*piVar18 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 8f99d8 GoToScene @ 008f99d8 =====
+
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+/* CSRDlgScriptPlayer::GoToScene(CSRScene::TYPE, std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRDlgScriptPlayer::GoToScene(undefined4 param_1,int param_2,byte *param_3)
+
+{
+  byte bVar1;
+  CSRSceneMgr *pCVar2;
+  uint uVar3;
+  byte *pbVar4;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this;
+  ulonglong *puVar5;
+  void *pvVar6;
+  int iVar7;
+  int iVar8;
+  int *piVar9;
+  CSRSceneMgr *pCVar10;
+  CSRSceneMgr *pCVar11;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34 [8];
+  void *local_2c;
+  undefined8 local_28;
+  void *local_20;
+  int local_1c;
+  
+  piVar9 = *(int **)(DAT_008f9afc + 0x8f99e8);
+  local_1c = *piVar9;
+  if (param_2 == 0) {
+    bVar1 = *param_3;
+    uVar3 = *(uint *)(param_3 + 4);
+    if ((bVar1 & 1) == 0) {
+      uVar3 = (uint)(bVar1 >> 1);
+    }
+    if (uVar3 == 10) {
+      pbVar4 = *(byte **)(param_3 + 8);
+      if ((bVar1 & 1) == 0) {
+        pbVar4 = param_3 + 1;
+      }
+      iVar7 = memcmp(pbVar4,(void *)(DAT_008f9b04 + 0x8f9a36),10);
+      if (iVar7 == 0) goto LAB_008f9abe;
+    }
+    this = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string<decltype(nullptr)>(local_34,(char *)(DAT_008f9b08 + 0x8f9a44));
+    puVar5 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (this,(char *)(DAT_008f9b0c + 0x8f9a4c),0x15);
+    local_28 = *puVar5;
+    local_20 = *(void **)(puVar5 + 1);
+    *(undefined4 *)puVar5 = 0;
+    *(undefined4 *)((int)puVar5 + 4) = 0;
+    *(undefined4 *)(puVar5 + 1) = 0;
+    pbVar4 = *(byte **)(param_3 + 8);
+    if ((*param_3 & 1) == 0) {
+      pbVar4 = param_3 + 1;
+    }
+    pvVar6 = local_20;
+    if ((local_28 & 1) == 0) {
+      pvVar6 = (void *)((int)&local_28 + 1);
+    }
+    _RMAssert('\0',(char *)(DAT_008f9b14 + 0x8f9a72),(char *)(DAT_008f9b1c + 0x8f9a96),0x238,
+              DAT_008f9b10 + 0x8f9a78,pvVar6,DAT_008f9b18 + 0x8f9a84,pbVar4);
+    if ((local_28 & 1) != 0) {
+      operator_delete(local_20);
+    }
+    if (((byte)local_34[0] & 1) != 0) {
+      operator_delete(local_2c);
+    }
+LAB_008f9abe:
+    if (*piVar9 == local_1c) {
+      return;
+    }
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  pCVar2 = *(CSRSceneMgr **)(**(int **)(DAT_008f9b00 + 0x8f99f4) + 8);
+  if (*piVar9 != local_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  pCVar10 = pCVar2 + 0x67c;
+  switch(param_2) {
+  case 9:
+    *(undefined4 *)(pCVar2 + 0x69c) = 2;
+    CWIPSFader::Reset((CWIPSFader *)(pCVar2 + 0x58));
+    CWIPSFader::SetColor((CWIPSFader *)(pCVar2 + 0x58),0xff000000);
+    pCVar2[0x673] = (CSRSceneMgr)0x0;
+    *(undefined2 *)(pCVar2 + 0x671) = 0x100;
+    *(undefined4 *)pCVar10 = 0x3dcccccd;
+    *(undefined4 *)(pCVar2 + 0x680) = 0;
+    pCVar2[0x674] = (CSRSceneMgr)0x0;
+    if (*(int *)(pCVar2 + 0x4c) != 0) {
+      iVar7 = *(int *)(pCVar2 + 0x44);
+      pCVar10 = *(CSRSceneMgr **)(pCVar2 + 0x48);
+      iVar8 = *(int *)pCVar10;
+      *(undefined4 *)(iVar8 + 4) = *(undefined4 *)(iVar7 + 4);
+      **(int **)(iVar7 + 4) = iVar8;
+      *(undefined4 *)(pCVar2 + 0x4c) = 0;
+      while (pCVar10 != pCVar2 + 0x44) {
+        pCVar11 = *(CSRSceneMgr **)(pCVar10 + 4);
+        operator_delete(pCVar10);
+        pCVar10 = pCVar11;
+      }
+    }
+    param_2 = 9;
+    break;
+  default:
+    *(undefined4 *)(pCVar2 + 0x69c) = 2;
+    CWIPSFader::Reset((CWIPSFader *)(pCVar2 + 0x58));
+    CWIPSFader::SetColor((CWIPSFader *)(pCVar2 + 0x58),0xff000000);
+    pCVar2[0x673] = (CSRSceneMgr)0x0;
+    *(undefined2 *)(pCVar2 + 0x671) = 0x100;
+    *(undefined4 *)pCVar10 = 0x3dcccccd;
+    *(undefined4 *)(pCVar2 + 0x680) = 0;
+    pCVar2[0x674] = (CSRSceneMgr)0x0;
+    if (*(int *)(pCVar2 + 0x4c) != 0) {
+      iVar7 = *(int *)(pCVar2 + 0x44);
+      pCVar10 = *(CSRSceneMgr **)(pCVar2 + 0x48);
+      iVar8 = *(int *)pCVar10;
+      *(undefined4 *)(iVar8 + 4) = *(undefined4 *)(iVar7 + 4);
+      **(int **)(iVar7 + 4) = iVar8;
+      *(undefined4 *)(pCVar2 + 0x4c) = 0;
+      while (pCVar10 != pCVar2 + 0x44) {
+        pCVar11 = *(CSRSceneMgr **)(pCVar10 + 4);
+        operator_delete(pCVar10);
+        pCVar10 = pCVar11;
+      }
+    }
+    *(undefined4 *)(pCVar2 + 0x50) = *(undefined4 *)(pCVar2 + 0x54);
+    *(undefined4 *)(pCVar2 + 0x54) = 9;
+    piVar9 = operator_new(0xc);
+    iVar7 = *(int *)(pCVar2 + 0x44);
+    *piVar9 = iVar7;
+    piVar9[1] = (int)(pCVar2 + 0x44);
+    piVar9[2] = 9;
+    goto LAB_00eb4c60;
+  case 0x10:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x11);
+    param_2 = 0x10;
+    break;
+  case 0x11:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x14);
+    param_2 = 0x11;
+    break;
+  case 0x14:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xb9);
+    param_2 = 0x14;
+    break;
+  case 0x19:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xb9);
+    param_2 = 0x19;
+    break;
+  case 0x20:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0x20;
+    break;
+  case 0x26:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x20);
+    param_2 = 0x26;
+    break;
+  case 0x28:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x20);
+    param_2 = 0x28;
+    break;
+  case 0x34:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x57);
+    param_2 = 0x34;
+    break;
+  case 0x36:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x57);
+    param_2 = 0x36;
+    break;
+  case 0x3a:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x83);
+    param_2 = 0x3a;
+    break;
+  case 0x42:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xb9);
+    param_2 = 0x42;
+    break;
+  case 0x46:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x83);
+    param_2 = 0x46;
+    break;
+  case 0x52:
+    *(undefined4 *)(pCVar2 + 0x69c) = 2;
+    CWIPSFader::Reset((CWIPSFader *)(pCVar2 + 0x58));
+    CWIPSFader::SetColor((CWIPSFader *)(pCVar2 + 0x58),0xff000000);
+    pCVar2[0x673] = (CSRSceneMgr)0x0;
+    *(undefined2 *)(pCVar2 + 0x671) = 0x100;
+    *(undefined4 *)pCVar10 = 0x3dcccccd;
+    *(undefined4 *)(pCVar2 + 0x680) = 0;
+    pCVar2[0x674] = (CSRSceneMgr)0x0;
+    if (*(int *)(pCVar2 + 0x4c) != 0) {
+      iVar7 = *(int *)(pCVar2 + 0x44);
+      pCVar10 = *(CSRSceneMgr **)(pCVar2 + 0x48);
+      iVar8 = *(int *)pCVar10;
+      *(undefined4 *)(iVar8 + 4) = *(undefined4 *)(iVar7 + 4);
+      **(int **)(iVar7 + 4) = iVar8;
+      *(undefined4 *)(pCVar2 + 0x4c) = 0;
+      while (pCVar10 != pCVar2 + 0x44) {
+        pCVar11 = *(CSRSceneMgr **)(pCVar10 + 4);
+        operator_delete(pCVar10);
+        pCVar10 = pCVar11;
+      }
+    }
+    *(undefined4 *)(pCVar2 + 0x50) = *(undefined4 *)(pCVar2 + 0x54);
+    *(undefined4 *)(pCVar2 + 0x54) = 9;
+    piVar9 = operator_new(0xc);
+    iVar7 = *(int *)(pCVar2 + 0x44);
+    *piVar9 = iVar7;
+    piVar9[1] = (int)(pCVar2 + 0x44);
+    piVar9[2] = 9;
+    param_2 = 0x52;
+LAB_00eb4c60:
+    *(int **)(iVar7 + 4) = piVar9;
+LAB_00eb4c62:
+    *(int **)(pCVar2 + 0x44) = piVar9;
+    *(int *)(pCVar2 + 0x4c) = *(int *)(pCVar2 + 0x4c) + 1;
+    break;
+  case 0x57:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0x57;
+    break;
+  case 0x59:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0x59;
+    break;
+  case 0x5d:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x57);
+    param_2 = 0x5d;
+    break;
+  case 0x66:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0x66;
+    break;
+  case 0x68:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x66);
+    param_2 = 0x68;
+    break;
+  case 0x6f:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x66);
+    param_2 = 0x6f;
+    break;
+  case 0x75:
+  case 0x76:
+    *(undefined4 *)(pCVar2 + 0x50) = *(undefined4 *)(pCVar2 + 0x54);
+    *(undefined4 *)(pCVar2 + 0x54) = 0x71;
+    piVar9 = operator_new(0xc);
+    iVar7 = *(int *)(pCVar2 + 0x44);
+    *piVar9 = iVar7;
+    piVar9[1] = (int)(pCVar2 + 0x44);
+    piVar9[2] = 0x71;
+    *(int **)(iVar7 + 4) = piVar9;
+    goto LAB_00eb4c62;
+  case 0x7d:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xb9);
+    param_2 = 0x7d;
+    break;
+  case 0x82:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x83);
+    param_2 = 0x82;
+    break;
+  case 0x83:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    *(undefined4 *)(pCVar2 + 0x50) = *(undefined4 *)(pCVar2 + 0x54);
+    *(undefined4 *)(pCVar2 + 0x54) = 0x83;
+    piVar9 = operator_new(0xc);
+    iVar7 = *(int *)(pCVar2 + 0x44);
+    *piVar9 = iVar7;
+    piVar9[1] = (int)(pCVar2 + 0x44);
+    piVar9[2] = 0x83;
+    *(int **)(iVar7 + 4) = piVar9;
+    *(int **)(pCVar2 + 0x44) = piVar9;
+    *(int *)(pCVar2 + 0x4c) = *(int *)(pCVar2 + 0x4c) + 1;
+    return;
+  case 0x84:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x83);
+    param_2 = 0x84;
+    break;
+  case 0x85:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x82);
+    param_2 = 0x85;
+    break;
+  case 0x86:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x84);
+    param_2 = 0x86;
+    break;
+  case 0x87:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x84);
+    param_2 = 0x87;
+    break;
+  case 0x94:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0x94;
+    break;
+  case 0x98:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x94);
+    param_2 = 0x97;
+    break;
+  case 0x9a:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x94);
+    param_2 = 0x9a;
+    break;
+  case 0x9c:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0x9c;
+    break;
+  case 0x9e:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x9c);
+    param_2 = 0x9e;
+    break;
+  case 0x9f:
+    CSRSceneMgr::SceneGoTo(pCVar2,0x9c);
+    param_2 = 0x9f;
+    break;
+  case 0xa2:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0xa2;
+    break;
+  case 0xa3:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xa2);
+    param_2 = 0xa3;
+    break;
+  case 0xa8:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0xa8;
+    break;
+  case 0xaa:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xaf);
+    param_2 = 0xaa;
+    break;
+  case 0xaf:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xa8);
+    param_2 = 0xaf;
+    break;
+  case 0xb6:
+    CSRSceneMgr::SceneGoTo(pCVar2,0xaa);
+    param_2 = 0xb6;
+    break;
+  case 0xb9:
+    CSRSceneMgr::SceneGoTo(pCVar2,9);
+    param_2 = 0xb9;
+  }
+  CSRSceneMgr::PushSceneFadeOutIn(pCVar2,param_2,0xff000000);
+  return;
+}
+
+
+===== 8cb8e4 InsertGoToScene @ 008cb8e4 =====
+
+/* CSRDlgParser::InsertGoToScene(std::__ndk1::vector<std::__ndk1::pair<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >, std::__ndk1::vector<type::any,
+   std::__ndk1::allocator<type::any> > >,
+   std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >, std::__ndk1::vector<type::any,
+   std::__ndk1::allocator<type::any> > > > > const&) */
+
+void __thiscall CSRDlgParser::InsertGoToScene(CSRDlgParser *this,vector *param_1)
+
+{
+  basic_string bVar1;
+  CSRDlgParser *this_00;
+  int iVar2;
+  undefined4 uVar3;
+  bad_cast *this_01;
+  uint uVar4;
+  basic_string *pbVar5;
+  char *pcVar6;
+  int *piVar7;
+  basic_string *pbVar8;
+  basic_string *pbVar9;
+  undefined4 *puVar10;
+  char *pcVar11;
+  int *local_44 [2];
+  void *local_3c;
+  uint local_38 [2];
+  void *local_30;
+  int local_28;
+  
+  piVar7 = *(int **)(DAT_008cba50 + 0x8cb8f6);
+  local_28 = *piVar7;
+  if (this[0xe] != (CSRDlgParser)0x1) {
+    local_38[0] = 0;
+    local_38[1] = 0;
+    local_30 = (void *)0x0;
+    pbVar9 = *(basic_string **)param_1;
+    pbVar8 = *(basic_string **)(param_1 + 4);
+    if (pbVar9 != pbVar8) {
+      pcVar11 = (char *)(DAT_008cba54 + 0x8cb926);
+      do {
+        bVar1 = *pbVar9;
+        uVar4 = *(uint *)(pbVar9 + 4);
+        if (((byte)bVar1 & 1) == 0) {
+          uVar4 = (uint)((byte)bVar1 >> 1);
+        }
+        if (uVar4 == 2) {
+          pbVar5 = *(basic_string **)(pbVar9 + 8);
+          if (((byte)bVar1 & 1) == 0) {
+            pbVar5 = pbVar9 + 1;
+          }
+          if (*(short *)pbVar5 != 0x6469) goto LAB_008cb94a;
+          iVar2 = **(int **)(pbVar9 + 0xc);
+          if (iVar2 == 0) {
+            this_01 = (bad_cast *)__cxa_allocate_exception(4);
+            uVar3 = std::bad_cast::bad_cast(this_01);
+                    /* WARNING: Subroutine does not return */
+            __cxa_throw(uVar3,*(undefined4 *)(DAT_008cba58 + 0x8cb9fe),
+                        *(undefined4 *)(DAT_008cba5c + 0x8cba00));
+          }
+          if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              local_38 !=
+              (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              (iVar2 + 4)) {
+            uVar4 = *(uint *)(iVar2 + 8);
+            pcVar6 = *(char **)(iVar2 + 0xc);
+            if ((*(byte *)(iVar2 + 4) & 1) == 0) {
+              pcVar6 = (char *)(iVar2 + 5);
+              uVar4 = (uint)(*(byte *)(iVar2 + 4) >> 1);
+            }
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                      ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)local_38,pcVar6,uVar4);
+          }
+        }
+        else {
+LAB_008cb94a:
+          this_00 = (CSRDlgParser *)
+                    std::__ndk1::
+                    basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+                    basic_string<decltype(nullptr)>
+                              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                                *)local_44,pcVar11);
+          LogUnknownParam(this_00,(basic_string *)local_44,pbVar9);
+          if (((uint)local_44[0] & 1) != 0) {
+            operator_delete(local_3c);
+          }
+        }
+        pbVar9 = pbVar9 + 0x18;
+      } while (pbVar9 != pbVar8);
+    }
+    ::type::any::any<CSRDlgScriptPlayer::GOTO_SCENE>((any *)local_44,(GOTO_SCENE *)local_38);
+    puVar10 = *(undefined4 **)(this + 4);
+    if (puVar10 < *(undefined4 **)(this + 8)) {
+      uVar3 = (**(code **)(*local_44[0] + 8))();
+      *puVar10 = uVar3;
+      *(undefined4 **)(this + 4) = puVar10 + 1;
+    }
+    else {
+      std::__ndk1::vector<type::any,std::__ndk1::allocator<type::any>>::
+      __push_back_slow_path<type::any>
+                ((vector<type::any,std::__ndk1::allocator<type::any>> *)this,(any *)local_44);
+    }
+    if (local_44[0] != (int *)0x0) {
+      (**(code **)(*local_44[0] + 4))();
+    }
+    if ((local_38[0] & 1) != 0) {
+      operator_delete(local_30);
+    }
+  }
+  if (*piVar7 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

@@ -1,0 +1,77 @@
+===== proven Thumb 00ef2eec =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00ef2eec(int param_1)
+
+{
+  CSRDataMgr *pCVar1;
+  CSRStaticData *pCVar2;
+  int iVar3;
+  basic_string *pbVar4;
+  CSRPopUpTutorialBase *pCVar5;
+  int iVar6;
+  int *piVar7;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_40 [8];
+  void *pvStack_38;
+  basic_string abStack_34 [8];
+  void *pvStack_2c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_28 [8];
+  void *pvStack_20;
+  int iStack_1c;
+
+  piVar7 = *(int **)(_DAT_00ef3058 + 0xef2efc);
+  iStack_1c = *piVar7;
+  iVar6 = *(int *)(param_1 + 4);
+  pCVar5 = *(CSRPopUpTutorialBase **)(iVar6 + 0x830);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(abStack_28,(char *)(_DAT_00ef305c + 0xef2f12));
+  CGMDataMgr::get();
+  CGMDataMgr::GetLocalizedText((char *)abStack_34);
+  pCVar1 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar2 = (CSRStaticData *)CSRDataMgr::GetStaticData(pCVar1);
+  iVar3 = CSRStaticData::GetFishTutoHeight(pCVar2,10);
+  pbVar4 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string<decltype(nullptr)>(abStack_40,(char *)(_DAT_00ef3064 + 0xef2f3a));
+  CSRPopUpTutorialBase::SetComment(pCVar5,(basic_string *)abStack_28,abStack_34,iVar3,'\0',pbVar4);
+  if (((byte)abStack_40[0] & 1) != 0) {
+    operator_delete(pvStack_38);
+  }
+  if (((byte)abStack_34[0] & 1) != 0) {
+    operator_delete(pvStack_2c);
+  }
+  if (((byte)abStack_28[0] & 1) != 0) {
+    operator_delete(pvStack_20);
+  }
+  pCVar5 = *(CSRPopUpTutorialBase **)(iVar6 + 0x830);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(abStack_28,(char *)(_DAT_00ef3068 + 0xef2f86));
+  CGMDataMgr::get();
+  CGMDataMgr::GetLocalizedText((char *)abStack_34);
+  pCVar1 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar2 = (CSRStaticData *)CSRDataMgr::GetStaticData(pCVar1);
+  iVar3 = CSRStaticData::GetFishTutoHeight(pCVar2,0xb);
+  pbVar4 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string<decltype(nullptr)>(abStack_40,(char *)(_DAT_00ef3070 + 0xef2fae));
+  CSRPopUpTutorialBase::AddComment(pCVar5,(basic_string *)abStack_28,abStack_34,iVar3,'\0',pbVar4);
+  if (((byte)abStack_40[0] & 1) != 0) {
+    operator_delete(pvStack_38);
+  }
+  if (((byte)abStack_34[0] & 1) != 0) {
+    operator_delete(pvStack_2c);
+  }
+  if (((byte)abStack_28[0] & 1) != 0) {
+    operator_delete(pvStack_20);
+  }
+  CSRPopUpTutorialBase::SetNextEvent
+            (*(CSRPopUpTutorialBase **)(iVar6 + 0x830),(function *)(iVar6 + 0x800));
+  if (*piVar7 != iStack_1c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

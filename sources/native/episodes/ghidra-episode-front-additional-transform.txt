@@ -1,0 +1,133 @@
+===== 0070c560 CalcAdditionalTrans @ 0070c560 =====
+
+/* WARNING: Restarted to delay deadcode elimination for space: register */
+/* CMDrawable::CalcAdditionalTrans() */
+
+void __thiscall CMDrawable::CalcAdditionalTrans(CMDrawable *this)
+
+{
+  float fVar1;
+  float fVar2;
+  float fVar3;
+  int iVar4;
+  undefined4 uVar5;
+  int *piVar6;
+  CRMTransfQV *this_00;
+  CMDrawable *pCVar7;
+  uint in_fpscr;
+  float fVar8;
+  uint uVar9;
+  float fVar10;
+  float fVar11;
+  undefined8 uVar12;
+  float fVar13;
+  float fVar14;
+  undefined8 uVar15;
+  undefined8 local_c0;
+  undefined8 local_b8;
+  int local_ac;
+  float local_a8;
+  float local_a4;
+  float local_a0;
+  undefined4 local_9c;
+  undefined4 uStack_98;
+  undefined4 local_94;
+  undefined8 local_90;
+  undefined8 local_88;
+  undefined8 local_80;
+  undefined8 uStack_78;
+  int local_6c;
+
+  fVar1 = DAT_0070c800;
+  piVar6 = *(int **)(DAT_0070c808 + 0x70c57e);
+  local_6c = *piVar6;
+  if (-1 < (int)((uint)(byte)this[0x60] << 0x1b)) goto LAB_0070c7b8;
+  uVar12 = 0;
+  local_80 = DAT_0070c7f0;
+  uStack_78 = DAT_0070c7f8;
+  pCVar7 = *(CMDrawable **)(this + 0x200);
+  fVar11 = DAT_0070c804;
+  fVar14 = DAT_0070c804;
+  fVar10 = DAT_0070c800;
+  fVar13 = DAT_0070c804;
+  if (this + 0x1fc != pCVar7) {
+    fVar11 = DAT_0070c804;
+    fVar14 = DAT_0070c804;
+    fVar13 = DAT_0070c804;
+    do {
+      iVar4 = CMComponentPlayable::IsPlaying(*(CMComponentPlayable **)(pCVar7 + 8));
+      if (iVar4 == 0) {
+        fVar8 = (float)(**(code **)(**(int **)(pCVar7 + 8) + 0x5c))();
+        in_fpscr = in_fpscr & 0xfffffff | (uint)(fVar8 == 0.0) << 0x1e;
+        if ((byte)(in_fpscr >> 0x1e) == 0) goto LAB_0070c5fa;
+      }
+      else {
+LAB_0070c5fa:
+        (**(code **)(**(int **)(pCVar7 + 8) + 0x54))((CRMTransf *)&local_ac);
+        fVar3 = local_a0;
+        fVar2 = local_a4;
+        fVar8 = local_a8;
+        uVar15 = CONCAT44(uStack_98,local_9c);
+        local_c0 = local_90;
+        local_b8 = local_88;
+        CRMQuaternion::Multiply((CRMQuaternion *)&local_80,(CRMQuaternion *)&local_c0);
+        uVar5 = (**(code **)(**(int **)(pCVar7 + 8) + 0x58))();
+        fVar11 = fVar11 + fVar3;
+        uVar15 = FloatVectorAdd(uVar15,0xbf800000bf800000,2);
+        fVar14 = fVar14 + fVar2;
+        fVar13 = fVar13 + fVar8;
+        uVar12 = FloatVectorAdd(uVar12,uVar15,2);
+        CRMTransf::~CRMTransf((CRMTransf *)&local_ac);
+        fVar8 = (float)VectorUnsignedToFloat(uVar5,(byte)(in_fpscr >> 0x16) & 3);
+        fVar10 = fVar10 * (fVar8 / fVar1);
+      }
+      pCVar7 = *(CMDrawable **)(pCVar7 + 4);
+    } while (this + 0x1fc != pCVar7);
+  }
+  local_a8 = fVar13;
+  local_a4 = fVar14;
+  local_a0 = fVar11;
+  uVar12 = FloatVectorAdd(uVar12,0x3f8000003f800000,2);
+  local_90 = local_80;
+  local_88 = uStack_78;
+  this_00 = (CRMTransfQV *)(this + 0x1cc);
+  uStack_98 = (undefined4)((ulonglong)uVar12 >> 0x20);
+  local_9c = (undefined4)uVar12;
+  local_ac = *(int *)(DAT_0070c80c + 0x70c68c) + 8;
+  local_94 = 0x3f800000;
+  if (0.0 < (*(float *)(this + 0x1d4) - local_a4) * (*(float *)(this + 0x1d4) - local_a4) +
+            (*(float *)(this + 0x1d0) - local_a8) * (*(float *)(this + 0x1d0) - local_a8) +
+            (*(float *)(this + 0x1d8) - local_a0) * (*(float *)(this + 0x1d8) - local_a0)) {
+LAB_0070c766:
+    CMUpdatable::SetFlagTransformDirtyChild((CMUpdatable *)this,10);
+    (**(code **)(*(int *)this + 100))(this,9);
+    CRMTransfQV::operator=(this_00,(CRMTransfQV *)&local_ac);
+  }
+  else {
+    uVar12 = FloatVectorSub(*(undefined8 *)(this + 0x1dc),uVar12,2,0x20);
+    uVar12 = FloatVectorMult(uVar12,uVar12,2,0x20);
+    if (0.0 < (float)uVar12 + (float)((ulonglong)uVar12 >> 0x20) +
+              (*(float *)(this + 0x1e4) + -1.0) * (*(float *)(this + 0x1e4) + -1.0))
+    goto LAB_0070c766;
+    (**(code **)(*(int *)this_00 + 0x10))(&local_c0,this_00);
+    if ((local_c0._4_4_ - local_90._4_4_) * (local_c0._4_4_ - local_90._4_4_) +
+        ((float)local_c0 - (float)local_90) * ((float)local_c0 - (float)local_90) +
+        ((float)local_b8 - (float)local_88) * ((float)local_b8 - (float)local_88) +
+        (local_b8._4_4_ - local_88._4_4_) * (local_b8._4_4_ - local_88._4_4_) != 0.0)
+    goto LAB_0070c766;
+  }
+  (**(code **)(*(int *)this + 0x68))(this,0x10);
+  uVar9 = (uint)(0.0 < fVar10) * (int)fVar10;
+  if ((byte)this[0x1f8] != uVar9) {
+    (**(code **)(*(int *)this + 100))(this,0x20);
+    CMUpdatable::SetFlagTransformDirtyChild((CMUpdatable *)this,0xa0);
+    this[0x1f8] = SUB41(uVar9,0);
+  }
+  CRMTransf::~CRMTransf((CRMTransf *)&local_ac);
+LAB_0070c7b8:
+  if (*piVar6 == local_6c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

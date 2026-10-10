@@ -1,0 +1,108 @@
+===== ec5b1c CSRSceneNPCDlg @ 00ec5b1c =====
+
+/* CSRSceneNPCDlg::CSRSceneNPCDlg() */
+
+void __thiscall CSRSceneNPCDlg::CSRSceneNPCDlg(CSRSceneNPCDlg *this)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int iVar5;
+  CSRDlgPlayer *this_00;
+  __shared_weak_count *p_Var6;
+  undefined4 uVar7;
+  __shared_weak_count *this_01;
+  int *piVar8;
+  undefined4 local_2c;
+  __shared_weak_count *local_28;
+  int local_24;
+  
+  piVar8 = *(int **)(DAT_00ec5d04 + 0xec5b2e);
+  local_24 = *piVar8;
+  CSRFramedScene::CSRFramedScene((CSRFramedScene *)this);
+  uVar7 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  piVar4 = (int *)(DAT_00ec5d08 + 0xec5b4e);
+  *(undefined4 *)(this + 0x65c) = 0;
+  *(undefined4 *)(this + 0x660) = uVar7;
+  *(undefined4 *)(this + 0x664) = uVar2;
+  *(undefined4 *)(this + 0x668) = uVar3;
+  *(undefined4 *)(this + 0x688) = 0;
+  *(undefined4 *)(this + 0x68c) = uVar7;
+  *(undefined4 *)(this + 0x690) = uVar2;
+  *(undefined4 *)(this + 0x694) = uVar3;
+  *(undefined4 *)(this + 0x698) = 0;
+  *(undefined4 *)(this + 0x69c) = uVar7;
+  *(undefined4 *)(this + 0x6a0) = uVar2;
+  *(undefined4 *)(this + 0x6a4) = uVar3;
+  iVar5 = *piVar4;
+  *(undefined4 *)(this + 0x6b0) = 0;
+  *(undefined4 *)(this + 0x6b4) = uVar7;
+  *(undefined4 *)(this + 0x6b8) = uVar2;
+  *(undefined4 *)(this + 0x6bc) = uVar3;
+  *(int *)(this + 0x654) = iVar5 + 0x84;
+  *(int *)this = iVar5 + 8;
+  *(CSRSceneNPCDlg **)(this + 0x67c) = this + 0x680;
+  *(undefined4 *)(this + 0x680) = 0;
+  *(undefined4 *)(this + 0x684) = 0;
+  *(undefined4 *)(this + 0x6a8) = 0;
+  *(undefined4 *)(this + 0x6c0) = 0;
+  *(undefined4 *)(this + 0x6c4) = 0;
+  *(CSRSceneNPCDlg **)(this + 0x6c8) = this + 0x6cc;
+  *(undefined4 *)(this + 0x6cc) = 0;
+  *(undefined4 *)(this + 0x6d0) = 0;
+  *(undefined4 *)(this + 0x668) = 0;
+  *(undefined4 *)(this + 0x66c) = uVar7;
+  *(undefined4 *)(this + 0x670) = uVar2;
+  *(undefined4 *)(this + 0x674) = uVar3;
+  *(undefined4 *)(this + 0x678) = 0x3f800000;
+  *(undefined4 *)(this + 0x6e4) = 0;
+  *(undefined4 *)(this + 0x6d4) = 0;
+  *(undefined4 *)(this + 0x6d8) = uVar7;
+  *(undefined4 *)(this + 0x6dc) = uVar2;
+  *(undefined4 *)(this + 0x6e0) = uVar3;
+  *(CSRSceneNPCDlg **)(this + 0x6e8) = this + 0x6ec;
+  *(undefined4 *)(this + 0x6ec) = 0;
+  *(undefined4 *)(this + 0x6f0) = 0;
+  *(undefined2 *)(this + 0x6f4) = 0x100;
+  this[0x6f6] = (CSRSceneNPCDlg)0x1;
+  *(undefined4 *)(this + 0x6f8) = 0;
+  *(undefined4 *)(this + 0x6fc) = 0;
+  *(undefined4 *)(this + 0x700) = 0;
+  this_00 = operator_new(0x568);
+  CSRDlgPlayer::CSRDlgPlayer(this_00);
+  std::__ndk1::shared_ptr<CSRDlgPlayer>::shared_ptr<CSRDlgPlayer>
+            ((shared_ptr<CSRDlgPlayer> *)&local_2c,this_00,0);
+  this_01 = *(__shared_weak_count **)(this + 0x6dc);
+  uVar7 = *(undefined4 *)(this + 0x6d8);
+  *(undefined4 *)(this + 0x6d8) = local_2c;
+  *(__shared_weak_count **)(this + 0x6dc) = local_28;
+  local_2c = uVar7;
+  local_28 = this_01;
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var6 = this_01 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar5 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this_01 + 8))(this_01);
+      std::__ndk1::__shared_weak_count::__release_weak(this_01);
+    }
+  }
+  iVar5 = *piVar8 - local_24;
+  if (iVar5 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar5);
+}
+
+

@@ -1,0 +1,14 @@
+===== 00a3bc00 SetAlpha @ 00a3bc00 =====
+
+/* CSRGameUIIconSkill::SetAlpha(unsigned char) */
+
+void __thiscall CSRGameUIIconSkill::SetAlpha(CSRGameUIIconSkill *this,uchar param_1)
+
+{
+  uint in_fpscr;
+  float fVar1;
+
+  fVar1 = (float)VectorUnsignedToFloat((uint)param_1,(byte)(in_fpscr >> 0x16) & 3);
+  CMUpdatable::SetOpacityf(*(CMUpdatable **)(this + 0x60),fVar1 / DAT_00a3bc1c);
+  return;
+}

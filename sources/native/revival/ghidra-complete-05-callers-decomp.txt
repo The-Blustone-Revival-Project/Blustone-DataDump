@@ -1,0 +1,453 @@
+===== 0x94a8ae FUN_0094a8ae @ 0094a8ae =====
+
+void FUN_0094a8ae(int param_1)
+
+{
+  bool bVar1;
+  int *piVar2;
+  int *piVar3;
+  int iVar4;
+  
+  if ((*(__shared_weak_count **)(param_1 + 8) == (__shared_weak_count *)0x0) ||
+     (piVar2 = (int *)std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8))
+     , piVar2 == (int *)0x0)) {
+    return;
+  }
+  if (*(CSRGameBase **)(param_1 + 4) != (CSRGameBase *)0x0) {
+    CSRGameBase::ProcessFinish(*(CSRGameBase **)(param_1 + 4),'\0');
+  }
+  piVar3 = piVar2 + 1;
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(piVar3);
+    iVar4 = *piVar3;
+    bVar1 = (bool)hasExclusiveAccess(piVar3);
+  } while (!bVar1);
+  *piVar3 = iVar4 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar4 != 0) {
+    return;
+  }
+  (**(code **)(*piVar2 + 8))(piVar2);
+  (*(code *)((int)&DAT_00a16624 + DAT_00a16624))(piVar2);
+  return;
+}
+
+
+===== 0x9fec82 FUN_009fec82 @ 009fec82 =====
+
+void FUN_009fec82(int param_1)
+
+{
+  CSRGameBase *this;
+  
+  this = *(CSRGameBase **)(param_1 + 4);
+  CSRGameBase::PauseGame(this,1);
+  CSRGameBase::ProcessFinish(this,'\0');
+  return;
+}
+
+
+===== 0xa975c6 FUN_00a975c6 @ 00a975c6 =====
+
+void FUN_00a975c6(int param_1)
+
+{
+  CSRGameBase *this;
+  
+  this = *(CSRGameBase **)(param_1 + 4);
+  CSRGameBase::PauseGame(this,1);
+  CSRGameBase::ProcessFinish(this,'\0');
+  return;
+}
+
+
+===== 0x9e37fa AddFinishCB @ 009e37fa =====
+
+/* CMComponentPlayable::AddFinishCB(CMEventSet<> const&) */
+
+void __thiscall CMComponentPlayable::AddFinishCB(CMComponentPlayable *this,CMEventSet *param_1)
+
+{
+  CMEventSet *pCVar1;
+  undefined4 uVar2;
+  undefined4 *puVar3;
+  
+  std::__ndk1::mutex::lock((mutex *)(this + 0x44));
+  puVar3 = *(undefined4 **)(this + 0x4c);
+  if (*(undefined4 **)(this + 0x50) <= puVar3) {
+    std::__ndk1::vector<CMEventSet<>,std::__ndk1::allocator<CMEventSet<>>>::
+    __emplace_back_slow_path<CMEventSet<>const&>
+              ((vector<CMEventSet<>,std::__ndk1::allocator<CMEventSet<>>> *)(this + 0x48),param_1);
+    goto LAB_009e385a;
+  }
+  uVar2 = *(undefined4 *)(param_1 + 4);
+  *puVar3 = *(undefined4 *)param_1;
+  puVar3[1] = uVar2;
+  pCVar1 = *(CMEventSet **)(param_1 + 0x18);
+  if (pCVar1 == (CMEventSet *)0x0) {
+    uVar2 = 0;
+LAB_009e3842:
+    puVar3[6] = uVar2;
+  }
+  else {
+    if (param_1 + 8 != pCVar1) {
+      uVar2 = (**(code **)(*(int *)pCVar1 + 8))();
+      goto LAB_009e3842;
+    }
+    puVar3[6] = puVar3 + 2;
+    (**(code **)(**(int **)(param_1 + 0x18) + 0xc))();
+  }
+  *(undefined4 **)(this + 0x4c) = puVar3 + 8;
+LAB_009e385a:
+  (*(code *)((int)&DAT_00a1678c + DAT_00a1678c))((mutex *)(this + 0x44));
+  return;
+}
+
+
+===== 0x9e503c GetCurRatioHP @ 009e503c =====
+
+/* CSRGameBase::GetCurRatioHP() */
+
+void CSRGameBase::GetCurRatioHP(void)
+
+{
+  bool bVar1;
+  int iVar2;
+  int iVar3;
+  float *in_r0;
+  __shared_weak_count *p_Var4;
+  float fVar5;
+  float fVar6;
+  float fVar7;
+  float fVar8;
+  int in_r1;
+  undefined4 extraout_r1;
+  int iVar9;
+  __shared_weak_count *p_Var10;
+  int *piVar11;
+  int *piVar12;
+  int iVar13;
+  undefined4 *puVar14;
+  undefined4 *puVar15;
+  int iVar16;
+  int iVar17;
+  longlong lVar18;
+  longlong lVar19;
+  uint local_80;
+  undefined4 uStack_7c;
+  void *local_78;
+  int local_70;
+  int iStack_6c;
+  uint local_68;
+  undefined4 uStack_64;
+  void *local_60;
+  int local_58;
+  int iStack_54;
+  int local_4c;
+  
+  piVar11 = *(int **)(DAT_009e52f4 + 0x9e5056);
+  local_4c = *piVar11;
+  CPVDataMgr::get();
+  std::__ndk1::to_string(CONCAT44(extraout_r1,(basic_string *)&local_80));
+  local_58 = 0;
+  iStack_54 = 0;
+  local_68 = 0;
+  uStack_64 = 0;
+  local_60 = (void *)0x0;
+  CMHashID::Set((CMHashID *)&local_68,(basic_string *)&local_80);
+  if ((local_80 & 1) != 0) {
+    operator_delete(local_78);
+  }
+  piVar12 = *(int **)(in_r1 + 0x168);
+  fVar5 = DAT_009e52f0;
+  fVar6 = DAT_009e52f0;
+  fVar7 = DAT_009e52f0;
+  fVar8 = DAT_009e52f0;
+  if (piVar12 != (int *)0x0) {
+    iVar16 = in_r1 + 0x17c;
+    do {
+      iVar9 = piVar12[5];
+      local_70 = 0;
+      iStack_6c = 0;
+      local_80 = 0;
+      uStack_7c = 0;
+      local_78 = (void *)0x0;
+      CMHashID::Set((CMHashID *)&local_80,(basic_string *)(piVar12 + 2));
+      iVar3 = iStack_54;
+      iVar2 = local_58;
+      iVar13 = iStack_6c;
+      iVar17 = local_70;
+      if ((local_80 & 1) != 0) {
+        operator_delete(local_78);
+      }
+      puVar15 = *(undefined4 **)(iVar9 + 0x3c);
+      puVar14 = *(undefined4 **)(iVar9 + 0x40);
+      if (iVar17 == iVar2 && iVar13 == iVar3) {
+        for (; puVar15 != puVar14; puVar15 = puVar15 + 2) {
+          lVar18 = CSRGameActorBaseDraw::GetSerial((CSRGameActorBaseDraw *)*puVar15);
+          for (iVar17 = *(int *)(in_r1 + 0x180); iVar16 != iVar17; iVar17 = *(int *)(iVar17 + 4)) {
+            lVar19 = CSRGameActorBaseDraw::GetSerial(*(CSRGameActorBaseDraw **)(iVar17 + 8));
+            if (lVar18 == lVar19) {
+              if (iVar16 != iVar17) {
+                iVar13 = *(int *)(iVar17 + 8);
+                p_Var10 = *(__shared_weak_count **)(iVar17 + 0xc);
+                if (p_Var10 != (__shared_weak_count *)0x0) {
+                  p_Var4 = p_Var10 + 4;
+                  do {
+                    ExclusiveAccess(p_Var4);
+                    bVar1 = (bool)hasExclusiveAccess(p_Var4);
+                  } while (!bVar1);
+                  *(int *)p_Var4 = *(int *)p_Var4 + 1;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var4);
+                    iVar17 = *(int *)p_Var4;
+                    bVar1 = (bool)hasExclusiveAccess(p_Var4);
+                  } while (!bVar1);
+                  *(int *)p_Var4 = iVar17 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar17 == 0) {
+                    (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+                  }
+                }
+                if (iVar13 != 0) {
+                  fVar5 = (float)CSRGameActorBaseDraw::GetHP((CSRGameActorBaseDraw *)*puVar15);
+                  fVar6 = (float)CSRGameActorBaseDraw::GetHPMax((CSRGameActorBaseDraw *)*puVar15);
+                }
+              }
+              break;
+            }
+          }
+        }
+      }
+      else {
+        for (; puVar15 != puVar14; puVar15 = puVar15 + 2) {
+          lVar18 = CSRGameActorBaseDraw::GetSerial((CSRGameActorBaseDraw *)*puVar15);
+          for (iVar17 = *(int *)(in_r1 + 0x180); iVar16 != iVar17; iVar17 = *(int *)(iVar17 + 4)) {
+            lVar19 = CSRGameActorBaseDraw::GetSerial(*(CSRGameActorBaseDraw **)(iVar17 + 8));
+            if (lVar18 == lVar19) {
+              if (iVar16 != iVar17) {
+                iVar13 = *(int *)(iVar17 + 8);
+                p_Var10 = *(__shared_weak_count **)(iVar17 + 0xc);
+                if (p_Var10 != (__shared_weak_count *)0x0) {
+                  p_Var4 = p_Var10 + 4;
+                  do {
+                    ExclusiveAccess(p_Var4);
+                    bVar1 = (bool)hasExclusiveAccess(p_Var4);
+                  } while (!bVar1);
+                  *(int *)p_Var4 = *(int *)p_Var4 + 1;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var4);
+                    iVar17 = *(int *)p_Var4;
+                    bVar1 = (bool)hasExclusiveAccess(p_Var4);
+                  } while (!bVar1);
+                  *(int *)p_Var4 = iVar17 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar17 == 0) {
+                    (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+                  }
+                }
+                if (iVar13 != 0) {
+                  fVar7 = (float)CSRGameActorBaseDraw::GetHP((CSRGameActorBaseDraw *)*puVar15);
+                  fVar8 = (float)CSRGameActorBaseDraw::GetHPMax((CSRGameActorBaseDraw *)*puVar15);
+                }
+              }
+              break;
+            }
+          }
+        }
+      }
+      piVar12 = (int *)*piVar12;
+    } while (piVar12 != (int *)0x0);
+  }
+  *in_r0 = fVar5 / fVar6;
+  in_r0[1] = fVar7 / fVar8;
+  if ((local_68 & 1) != 0) {
+    operator_delete(local_60);
+  }
+  if (*piVar11 != local_4c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 0x9e52f8 GetTotalRatioHP @ 009e52f8 =====
+
+/* CSRGameBase::GetTotalRatioHP() */
+
+void CSRGameBase::GetTotalRatioHP(void)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  float *in_r0;
+  float fVar5;
+  float fVar6;
+  int in_r1;
+  undefined4 extraout_r1;
+  int iVar7;
+  int *piVar8;
+  undefined4 *puVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  float fVar12;
+  float fVar13;
+  float fVar14;
+  float fVar15;
+  uint local_80;
+  undefined4 uStack_7c;
+  void *local_78;
+  int local_70;
+  int iStack_6c;
+  uint local_68;
+  undefined4 uStack_64;
+  void *local_60;
+  int local_58;
+  int iStack_54;
+  int local_4c;
+  
+  piVar8 = *(int **)(DAT_009e54bc + 0x9e5312);
+  local_4c = *piVar8;
+  CPVDataMgr::get();
+  std::__ndk1::to_string(CONCAT44(extraout_r1,(basic_string *)&local_80));
+  local_58 = 0;
+  iStack_54 = 0;
+  local_68 = 0;
+  uStack_64 = 0;
+  local_60 = (void *)0x0;
+  CMHashID::Set((CMHashID *)&local_68,(basic_string *)&local_80);
+  if ((local_80 & 1) != 0) {
+    operator_delete(local_78);
+  }
+  fVar12 = DAT_009e54b8;
+  fVar14 = DAT_009e54b8;
+  fVar15 = DAT_009e54b8;
+  fVar13 = DAT_009e54b8;
+  for (piVar11 = *(int **)(in_r1 + 0x168); piVar11 != (int *)0x0; piVar11 = (int *)*piVar11) {
+    iVar7 = piVar11[5];
+    local_70 = 0;
+    iStack_6c = 0;
+    local_80 = 0;
+    uStack_7c = 0;
+    local_78 = (void *)0x0;
+    CMHashID::Set((CMHashID *)&local_80,(basic_string *)(piVar11 + 2));
+    iVar4 = iStack_54;
+    iVar3 = local_58;
+    iVar2 = iStack_6c;
+    iVar1 = local_70;
+    if ((local_80 & 1) != 0) {
+      operator_delete(local_78);
+    }
+    if (iVar1 == iVar3 && iVar2 == iVar4) {
+      puVar9 = *(undefined4 **)(iVar7 + 0x40);
+      for (puVar10 = *(undefined4 **)(iVar7 + 0x3c); puVar10 != puVar9; puVar10 = puVar10 + 2) {
+        fVar5 = (float)CSRGameActorBaseDraw::GetHP((CSRGameActorBaseDraw *)*puVar10);
+        fVar6 = (float)CSRGameActorBaseDraw::GetHPMax((CSRGameActorBaseDraw *)*puVar10);
+        fVar12 = fVar12 + fVar5;
+        fVar14 = fVar14 + fVar6;
+      }
+    }
+    else {
+      (**(code **)(**(int **)(in_r1 + 0x20c) + 0x78))();
+      puVar9 = *(undefined4 **)(iVar7 + 0x40);
+      for (puVar10 = *(undefined4 **)(iVar7 + 0x3c); puVar10 != puVar9; puVar10 = puVar10 + 2) {
+        fVar5 = (float)CSRGameActorBaseDraw::GetHP((CSRGameActorBaseDraw *)*puVar10);
+        fVar6 = (float)CSRGameActorBaseDraw::GetHPMax((CSRGameActorBaseDraw *)*puVar10);
+        fVar15 = fVar15 + fVar5;
+        fVar13 = fVar13 + fVar6;
+      }
+    }
+  }
+  *in_r0 = fVar12 / fVar14;
+  in_r0[1] = fVar15 / fVar13;
+  if ((local_68 & 1) != 0) {
+    operator_delete(local_60);
+  }
+  if (*piVar8 == local_4c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 0x9e54c0 GetTotalRatioStage @ 009e54c0 =====
+
+/* CSRGameBase::GetTotalRatioStage() */
+
+void __thiscall CSRGameBase::GetTotalRatioStage(CSRGameBase *this)
+
+{
+  int iVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+  undefined4 extraout_r1;
+  int *piVar5;
+  int *piVar6;
+  uint local_68 [2];
+  void *local_60;
+  int local_58;
+  int iStack_54;
+  uint local_50 [2];
+  void *local_48;
+  int local_40;
+  int iStack_3c;
+  int local_34;
+  
+  piVar6 = *(int **)(DAT_009e55f0 + 0x9e54d8);
+  local_34 = *piVar6;
+  CPVDataMgr::get();
+  std::__ndk1::to_string(CONCAT44(extraout_r1,(basic_string *)local_68));
+  local_40 = 0;
+  iStack_3c = 0;
+  local_50[0] = 0;
+  local_50[1] = 0;
+  local_48 = (void *)0x0;
+  CMHashID::Set((CMHashID *)local_50,(basic_string *)local_68);
+  if ((local_68[0] & 1) != 0) {
+    operator_delete(local_60);
+  }
+  piVar5 = *(int **)(this + 0x168);
+  if (piVar5 != (int *)0x0) {
+    do {
+      local_58 = 0;
+      iStack_54 = 0;
+      local_68[0] = 0;
+      local_68[1] = 0;
+      local_60 = (void *)0x0;
+      CMHashID::Set((CMHashID *)local_68,(basic_string *)(piVar5 + 2));
+      iVar3 = iStack_3c;
+      iVar2 = local_40;
+      iVar1 = iStack_54;
+      iVar4 = local_58;
+      if ((local_68[0] & 1) != 0) {
+        operator_delete(local_60);
+      }
+      if (iVar4 != iVar2 || iVar1 != iVar3) {
+        (**(code **)(**(int **)(this + 0x20c) + 0x78))();
+        break;
+      }
+      piVar5 = (int *)*piVar5;
+    } while (piVar5 != (int *)0x0);
+  }
+  if ((local_50[0] & 1) != 0) {
+    operator_delete(local_48);
+  }
+  iVar4 = *piVar6 - local_34;
+  if (iVar4 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar4);
+}
+
+

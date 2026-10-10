@@ -1,0 +1,20 @@
+PROGRAM	libnative_core.so
+===== range 00c49584 .. 00c495b0 =====
+00c49586  adds r2,#0x1
+00c49588  strex r3,r2,[r1,#0x0]
+00c4958c  cmp r3,#0x0
+00c4958e  bne 0x00c49582
+00c49590  ldr r1,[0x00c49870]
+00c49592  str r5,[sp,#0x70]
+00c49594  add r1,pc
+00c49596  strd r11,r6,[sp,#0x64]
+00c4959a  adds r1,#0x8
+00c4959c  str r1,[sp,#0x60]
+00c4959e  mov r1,r5
+00c495a0  bl 0x00c49a90
+00c495a4  ldr r0,[sp,#0x70]
+00c495a6  cmp r5,r0
+00c495a8  beq 0x00c495e4
+00c495aa  cbz r0,0x00c495ea
+00c495ac  ldr r1,[r0,#0x0]
+00c495ae  ldr r1,[r1,#0x14]

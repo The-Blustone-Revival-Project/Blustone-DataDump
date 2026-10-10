@@ -1,0 +1,15 @@
+# In-process Gym observer — instrumented build +7
+
+The previous JDWP approach could stall Activity input during single-threaded Java method invocation with other VM threads suspended. The instrumented heartbeat now performs bounded reads of its own native memory off the UI thread, with no debugger attachment or native function call.
+
+`NativeGymSnapshot.java` accepts only package `com.vshower.prd_sr.instrumented`, code28010. It reads `/proc/self/maps` (maximum1MiB/8192 lines) and `/proc/self/mem` in read mode, requiring mapped readable spans and reads no larger than4096 bytes. All handles close. The base mapping must uniquely identify `libnative_core.so` at file offset0.
+
+The known chain is g_pApp→app primary vptr ELF2140cb0→manager primary21735a4→current scene+34/control+38. Only TutorialLevelUp2176e20 and TableLevelUp218278c permit target+ d48 and vector reads. Candidate65c/660/664 and selected668/66c/670 are uint64 spans, maximum32 entries, ordered/aligned capacity bounds, IDs within JavaScript-safe range. Application/manager/current scene/control/vptr, target, headers and contents are repeated, with final ownership/header checks after content reads. Observed inconsistencies are discarded. This cannot freeze a scene or exclude ABA reuse; a later UI action must still be checked against the intended live state.
+
+Local event: `native_gym_state`. Query `/v1/events/search?event=native_gym_state&limit=30` on collector8099. Supported snapshots report `status:stable`, scene class, target, candidates and selected IDs only. Other scenes report `unsupported_scene` and a bounded ELF vptr; unavailable reads report no raw memory, exception text, paths or account data. Changed snapshots emit on the five-second background heartbeat.
+
+The observer writes no native memory, markers, tutorial state, credentials or gameplay fields. No candidate scan or unguarded fallback is used. A training transaction still requires the intended target and exactly the approved disposable source, no original/locked/in-use hunter. It does not complete pending onboarding or establish original EXP/price rules.
+
+Java/D8 compilation, existing native-patch checks and APK signature validation passed. Independent read-only review closed a missing app guard and final-reread race. Corrected build +7 was published with matching GitHub/local SHA256. Runtime guard chain emitted startup/Village scene vptrs after correcting a Windows CRLF CURRENT packaging defect. Selection accuracy and post-sampling responsiveness are the next checks; scene transitions alone are not a training PASS.
+
+Runtime control passed on PID27038: stable TableLevelUp target5, candidates[2,1,4,0], selected[] at1791117590760. Screenshot65 shows the same Tyltyl LV2/57, empty source slots and preserved gold11130; normal Back immediately returned its detail panel (66). No debugger, material selection or paid action was used. This validates the observed empty-selection case and responsive sampling, not an automatically selected tutorial donor or all future races/classes.

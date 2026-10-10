@@ -1,0 +1,206 @@
+===== ec6c88 OnReset @ 00ec6c88 =====
+
+/* CSRSceneNPCDlg::OnReset() */
+
+void __thiscall CSRSceneNPCDlg::OnReset(CSRSceneNPCDlg *this)
+
+{
+  CSRSceneNPCDlg CVar1;
+  bool bVar2;
+  CSRUITextbox *this_00;
+  int iVar3;
+  __tree_node_base *p_Var4;
+  CSRDataMgr *pCVar5;
+  __shared_weak_count *p_Var6;
+  CSRPlayData *this_01;
+  ulonglong *puVar7;
+  uint uVar8;
+  CSRSceneNPCDlg *pCVar9;
+  char *pcVar10;
+  CSRSceneNPCDlg *pCVar11;
+  CSRSceneNPCDlg *pCVar12;
+  CSRSceneNPCDlg *pCVar13;
+  int *piVar14;
+  byte local_5c;
+  char acStack_5b [3];
+  uint local_58;
+  char *local_54;
+  byte local_50 [8];
+  void *local_48;
+  CSRUITextbox *local_44;
+  __shared_weak_count *local_40;
+  void *local_3c;
+  CSRUITextbox *local_38;
+  __shared_weak_count *local_34;
+  ulonglong local_30;
+  void *local_28;
+  int local_24;
+  
+  piVar14 = *(int **)(DAT_00ec6fe4 + 0xec6c9a);
+  local_24 = *piVar14;
+  CVar1 = this[0x6f8];
+  if (((byte)CVar1 & 1) == 0) {
+    uVar8 = (uint)((byte)CVar1 >> 1);
+  }
+  else {
+    uVar8 = *(uint *)(this + 0x6fc);
+  }
+  if (uVar8 != 0) {
+    if (((byte)CVar1 & 1) == 0) {
+      pCVar9 = this + 0x6f9;
+    }
+    else {
+      pCVar9 = *(CSRSceneNPCDlg **)(this + 0x700);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>
+              ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_30,(char *)pCVar9);
+    Load(this,(basic_string *)&local_30);
+    if ((local_30 & 1) != 0) {
+      operator_delete(local_28);
+    }
+  }
+  pCVar9 = this + 0x6ec;
+  pCVar11 = *(CSRSceneNPCDlg **)(this + 0x6ec);
+  pCVar12 = pCVar9;
+  while (pCVar13 = pCVar12, pCVar11 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar12 = pCVar11, iVar3 = *(int *)(pCVar12 + 0x10), iVar3 < 2) {
+      pCVar11 = (CSRSceneNPCDlg *)0x1;
+      if (iVar3 != 1) {
+        pCVar13 = pCVar12 + 4;
+        pCVar11 = *(CSRSceneNPCDlg **)pCVar13;
+      }
+      if (iVar3 == 1 || pCVar11 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec6d16;
+    }
+    pCVar11 = *(CSRSceneNPCDlg **)pCVar12;
+  }
+LAB_00ec6d16:
+  if (*(int *)pCVar13 == 0) {
+    p_Var4 = operator_new(0x18);
+    *(undefined4 *)(p_Var4 + 0x10) = 1;
+    *(undefined4 *)(p_Var4 + 0x14) = 0;
+    *(undefined4 *)p_Var4 = 0;
+    *(undefined4 *)(p_Var4 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var4 + 8) = pCVar12;
+    *(__tree_node_base **)pCVar13 = p_Var4;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var4 = *(__tree_node_base **)pCVar13;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var4);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  CSRUIScrollView::GetTextbox((char *)&local_44);
+  this_00 = local_44;
+  pCVar5 = (CSRDataMgr *)CSRDataMgr::get();
+  CSRDataMgr::GetPlayData(pCVar5);
+  SRGetNumberKMB((uint)&local_30);
+  CSRUITextbox::SetText(this_00,(basic_string *)&local_30,'\0');
+  if (((byte)local_30._0_1_ & 1) != 0) {
+    operator_delete(local_28);
+  }
+  if (local_40 != (__shared_weak_count *)0x0) {
+    p_Var6 = local_40 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar3 = *(int *)p_Var6;
+      bVar2 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar2);
+    *(int *)p_Var6 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)local_40 + 8))(local_40);
+      std::__ndk1::__shared_weak_count::__release_weak(local_40);
+    }
+  }
+  pCVar11 = *(CSRSceneNPCDlg **)pCVar9;
+  while (pCVar12 = pCVar9, pCVar11 != (CSRSceneNPCDlg *)0x0) {
+    while (pCVar12 = pCVar11, (int)*(uint *)(pCVar12 + 0x10) < 1) {
+      if (*(uint *)(pCVar12 + 0x10) < 0x80000000) goto LAB_00ec6df0;
+      pCVar9 = pCVar12 + 4;
+      pCVar11 = *(CSRSceneNPCDlg **)pCVar9;
+      if (*(CSRSceneNPCDlg **)pCVar9 == (CSRSceneNPCDlg *)0x0) goto LAB_00ec6df0;
+    }
+    pCVar9 = pCVar12;
+    pCVar11 = *(CSRSceneNPCDlg **)pCVar12;
+  }
+LAB_00ec6df0:
+  if (*(int *)pCVar9 == 0) {
+    p_Var4 = operator_new(0x18);
+    *(undefined4 *)(p_Var4 + 0x10) = 0;
+    *(undefined4 *)(p_Var4 + 0x14) = 0;
+    *(undefined4 *)p_Var4 = 0;
+    *(undefined4 *)(p_Var4 + 4) = 0;
+    *(CSRSceneNPCDlg **)(p_Var4 + 8) = pCVar12;
+    *(__tree_node_base **)pCVar9 = p_Var4;
+    if (**(int **)(this + 0x6e8) != 0) {
+      *(int *)(this + 0x6e8) = **(int **)(this + 0x6e8);
+      p_Var4 = *(__tree_node_base **)pCVar9;
+    }
+    std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+              (*(__tree_node_base **)(this + 0x6ec),p_Var4);
+    *(int *)(this + 0x6f0) = *(int *)(this + 0x6f0) + 1;
+  }
+  CSRUIScrollView::GetTextbox((char *)&local_38);
+  pCVar5 = (CSRDataMgr *)CSRDataMgr::get();
+  this_01 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar5);
+  CSRPlayData::CalcTotalAP(this_01);
+  SRGetNumberKMB((uint)local_50);
+  FUN_006daa2c(&local_44,local_50,DAT_00ec6ff0 + 0xec6e56);
+  pCVar5 = (CSRDataMgr *)CSRDataMgr::get();
+  CSRDataMgr::GetPlayData(pCVar5);
+  SRGetNumberKMB((uint)&local_5c);
+  pcVar10 = local_54;
+  if ((local_5c & 1) == 0) {
+    pcVar10 = acStack_5b;
+    local_58 = (uint)(local_5c >> 1);
+  }
+  puVar7 = (ulonglong *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                     ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                       *)&local_44,pcVar10,local_58);
+  local_30 = *puVar7;
+  local_28 = *(void **)(puVar7 + 1);
+  *(undefined4 *)puVar7 = 0;
+  *(undefined4 *)((int)puVar7 + 4) = 0;
+  *(undefined4 *)(puVar7 + 1) = 0;
+  CSRUITextbox::SetText(local_38,(basic_string *)&local_30,'\0');
+  if ((local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+  if ((local_5c & 1) != 0) {
+    operator_delete(local_54);
+  }
+  if (((uint)local_44 & 1) != 0) {
+    operator_delete(local_3c);
+  }
+  if ((local_50[0] & 1) != 0) {
+    operator_delete(local_48);
+  }
+  if (local_34 != (__shared_weak_count *)0x0) {
+    p_Var6 = local_34 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar3 = *(int *)p_Var6;
+      bVar2 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar2);
+    *(int *)p_Var6 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)local_34 + 8))(local_34);
+      std::__ndk1::__shared_weak_count::__release_weak(local_34);
+    }
+  }
+  if (*piVar14 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

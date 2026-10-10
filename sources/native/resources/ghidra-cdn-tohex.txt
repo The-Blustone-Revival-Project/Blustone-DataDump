@@ -1,0 +1,86 @@
+===== 0x78e46c CMToHex @ 0078e46c =====
+
+/* CMToHex(unsigned char const*, unsigned int) */
+
+void CMToHex(uchar *param_1,uint param_2)
+
+{
+  int iVar1;
+  Algorithm *this;
+  int *piVar2;
+  int iVar3;
+  basic_string *pbVar4;
+  int *piVar5;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_84 [8];
+  void *local_7c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_78 [8];
+  void *local_70;
+  int local_6c;
+  int local_68;
+  int *local_60;
+  int local_40;
+  void *pvStack_3c;
+  int *local_28;
+  int local_24;
+
+  piVar5 = *(int **)(DAT_0078e644 + 0x78e482);
+  local_24 = *piVar5;
+  param_1[0] = '\0';
+  param_1[1] = '\0';
+  param_1[2] = '\0';
+  param_1[3] = '\0';
+  param_1[4] = '\0';
+  param_1[5] = '\0';
+  param_1[6] = '\0';
+  param_1[7] = '\0';
+  param_1[8] = '\0';
+  param_1[9] = '\0';
+  param_1[10] = '\0';
+  param_1[0xb] = '\0';
+  this = operator_new(0x10);
+  CryptoPP::Algorithm::Algorithm(this,false);
+  iVar1 = DAT_0078e64c;
+  piVar2 = (int *)(DAT_0078e648 + 0x78e4a8);
+  *(uchar **)(this + 0xc) = param_1;
+  iVar3 = *piVar2;
+  *(int *)this = iVar3 + 8;
+  *(int *)(this + 4) = iVar3 + 0xcc;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_78,(char *)(iVar1 + 0x78e4ac));
+  pbVar4 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string<decltype(nullptr)>(local_84,(char *)(DAT_0078e650 + 0x78e4c4));
+  CryptoPP::HexEncoder::HexEncoder
+            ((HexEncoder *)&local_6c,(BufferedTransformation *)this,true,0,(basic_string *)local_78,
+             pbVar4);
+  if (((byte)local_84[0] & 1) != 0) {
+    operator_delete(local_7c);
+  }
+  if (((byte)local_78[0] & 1) != 0) {
+    operator_delete(local_70);
+  }
+  (**(code **)(local_6c + 0x18))(&local_6c,param_2);
+  (**(code **)(local_6c + 0x18))(&local_6c,0,0,0xffffffff,1);
+  local_68 = *(int *)(DAT_0078e654 + 0x78e51e) + 0x10c;
+  local_6c = *(int *)(DAT_0078e654 + 0x78e51e) + 8;
+  if (local_28 != (int *)0x0) {
+    (**(code **)(*local_28 + 4))();
+  }
+  local_68 = *(int *)(DAT_0078e658 + 0x78e53c) + 0x10c;
+  local_6c = *(int *)(DAT_0078e658 + 0x78e53c) + 8;
+  for (; local_40 != 0; local_40 = local_40 + -1) {
+    *(undefined1 *)((int)pvStack_3c + local_40 + -1) = 0;
+  }
+  CryptoPP::UnalignedDeallocate(pvStack_3c);
+  local_68 = *(int *)(DAT_0078e65c + 0x78e562) + 0xd8;
+  local_6c = *(int *)(DAT_0078e65c + 0x78e562) + 8;
+  if (local_60 != (int *)0x0) {
+    (**(code **)(*local_60 + 4))();
+  }
+  if (*piVar5 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

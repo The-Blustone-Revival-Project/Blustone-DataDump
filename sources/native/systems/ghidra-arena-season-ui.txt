@@ -1,0 +1,125 @@
+===== proven Thumb 00c0c5cc =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CSRPopUpFC::RemainTimeTextRenewal() */
+
+void CSRPopUpFC::RemainTimeTextRenewal(int param_1)
+
+{
+  bool bVar1;
+  CGMTime *pCVar2;
+  int iVar3;
+  __shared_weak_count *p_Var4;
+  uint uVar5;
+  __shared_weak_count *p_Var6;
+  int iVar7;
+  uint uVar8;
+  uint uVar9;
+  CSRUIImageText *pCVar10;
+  int *piVar11;
+  undefined8 uVar12;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_4c [8];
+  void *pvStack_44;
+  basic_string abStack_40 [8];
+  void *pvStack_38;
+  CGMTime *pCStack_34;
+  __shared_weak_count *p_Stack_30;
+  void *pvStack_2c;
+  int iStack_28;
+  
+  piVar11 = *(int **)(_DAT_00c0c7a0 + 0xc0c5de);
+  iStack_28 = *piVar11;
+  iVar3 = CSRFCPlayData::get();
+  uVar8 = *(uint *)(iVar3 + 0xf0);
+  uVar9 = *(uint *)(iVar3 + 0xf4);
+  CMSingleton::get<CGMTime,CMSingleton::DefaultAlloc<CGMTime>,CMSpinLock>
+            ((CMSingleton *)&pCStack_34);
+  p_Var6 = p_Stack_30;
+  pCVar2 = pCStack_34;
+  if (p_Stack_30 != (__shared_weak_count *)0x0) {
+    p_Var4 = p_Stack_30 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar3 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Stack_30 + 8))(p_Stack_30);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  uVar5 = CGMTime::GetCurServerTime(pCVar2);
+  if ((uint)((int)uVar5 >> 0x1f) <= uVar9 && (uint)(uVar8 <= uVar5) <= ((int)uVar5 >> 0x1f) - uVar9)
+  {
+    iVar3 = CSRFCPlayData::get();
+    uVar8 = *(uint *)(iVar3 + 0xf0);
+    iVar3 = *(int *)(iVar3 + 0xf4);
+    CMSingleton::get<CGMTime,CMSingleton::DefaultAlloc<CGMTime>,CMSpinLock>
+              ((CMSingleton *)&pCStack_34);
+    pCVar2 = pCStack_34;
+    if (p_Stack_30 != (__shared_weak_count *)0x0) {
+      p_Var6 = p_Stack_30 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar7 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Stack_30 + 8))(p_Stack_30);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Stack_30);
+      }
+    }
+    uVar9 = CGMTime::GetCurServerTime(pCVar2);
+    iVar7 = CSRFCPlayData::get();
+    uVar5 = uVar8 - uVar9;
+    uVar8 = (iVar3 - ((int)uVar9 >> 0x1f)) - (uint)(uVar8 < uVar9);
+    if (uVar8 < *(uint *)(iVar7 + 0xf4) ||
+        *(uint *)(iVar7 + 0xf4) - uVar8 < (uint)(uVar5 <= *(uint *)(iVar7 + 0xf0))) {
+      pCVar10 = *(CSRUIImageText **)(param_1 + 0x660);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>
+                ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &pCStack_34,(char *)(_DAT_00c0c7a4 + 0xc0c69c));
+      uVar12 = FUN_01be3474(uVar5,uVar8,0x15180,0);
+      std::__ndk1::to_string(CONCAT44((int)((ulonglong)uVar12 >> 0x20),abStack_40));
+      CSRUIImageText::SetText(pCVar10,(basic_string *)&pCStack_34,abStack_40);
+      if (((byte)abStack_40[0] & 1) != 0) {
+        operator_delete(pvStack_38);
+      }
+      if (((uint)pCStack_34 & 1) != 0) {
+        operator_delete(pvStack_2c);
+      }
+      pCVar10 = *(CSRUIImageText **)(param_1 + 0x660);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>
+                ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &pCStack_34,(char *)(_DAT_00c0c7a8 + 0xc0c6f4));
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>(abStack_4c,(char *)(_DAT_00c0c7ac + 0xc0c6fc));
+      CMTimeToStrOnlyHMS(abStack_40,uVar5 + (int)uVar12 * -0x15180,abStack_4c);
+      CSRUIImageText::SetText(pCVar10,(basic_string *)&pCStack_34,abStack_40);
+      if (((byte)abStack_40[0] & 1) != 0) {
+        operator_delete(pvStack_38);
+      }
+      if (((byte)abStack_4c[0] & 1) != 0) {
+        operator_delete(pvStack_44);
+      }
+      if (((uint)pCStack_34 & 1) != 0) {
+        operator_delete(pvStack_2c);
+      }
+    }
+  }
+  if (*piVar11 == iStack_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

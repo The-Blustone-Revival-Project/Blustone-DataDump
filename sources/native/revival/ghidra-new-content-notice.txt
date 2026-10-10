@@ -1,0 +1,576 @@
+===== 9d8fdc PopUpNewContent @ 009d8fdc =====
+
+/* CSRGameBase::PopUpNewContent() */
+
+void __thiscall CSRGameBase::PopUpNewContent(CSRGameBase *this)
+
+{
+  bool bVar1;
+  CSRDataMgr *pCVar2;
+  CSRPlayData *pCVar3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  CSRUIModalHandler *pCVar6;
+  int iVar7;
+  code *pcVar8;
+  __shared_weak_count *p_Var9;
+  int *piVar10;
+  CSRPopUpNewContent *local_78;
+  __shared_weak_count *local_74;
+  CSRPopUpNewContent *local_70;
+  __shared_weak_count *local_6c;
+  CSRPopUpNewContent *local_68;
+  __shared_weak_count *local_64;
+  CSRPopUpNewContent *local_60;
+  __shared_weak_count *local_5c;
+  CSRPopUpNewContent *local_58;
+  __shared_weak_count *local_54;
+  CSRPopUpNewContent *local_50;
+  __shared_weak_count *local_4c;
+  CSRPopUpNewContent *local_48;
+  __shared_weak_count *local_44;
+  int local_40;
+  __shared_weak_count *local_3c;
+  CMSingleton *local_30;
+  int local_24;
+  
+  piVar10 = *(int **)(DAT_009d9304 + 0x9d8fee);
+  local_24 = *piVar10;
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+  iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0xc);
+  if (iVar4 == 0) {
+LAB_009d9092:
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0xb);
+    if (iVar4 != 0) {
+      CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                ((CMSingleton *)&local_40);
+      p_Var9 = local_3c;
+      iVar4 = local_40;
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var5 = local_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar7 = *(int *)p_Var5;
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)local_3c + 8))(local_3c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(iVar4 + 0x24),3,0);
+      if (iVar4 < 2) {
+        std::__ndk1::shared_ptr<CSRPopUpNewContent>::make_shared<>
+                  ((shared_ptr<CSRPopUpNewContent> *)&local_48);
+        (**(code **)(*(int *)local_48 + 8))(local_48,0);
+        CSRPopUpNewContent::SetType(local_48,0);
+        local_40 = DAT_009d930c + 0x9d9110;
+        local_3c = (__shared_weak_count *)this;
+        local_30 = (CMSingleton *)&local_40;
+        CMEventPool<>::operator+=((CMEventPool<> *)(local_48 + 0x9c),(function *)&local_40);
+        if ((CMSingleton *)&local_40 == local_30) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x10);
+LAB_009d9436:
+          (*pcVar8)();
+        }
+        else if (local_30 != (CMSingleton *)0x0) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x14);
+          goto LAB_009d9436;
+        }
+        pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+        local_58 = local_48;
+        local_54 = local_44;
+        if (local_44 != (__shared_weak_count *)0x0) {
+          p_Var9 = local_44 + 4;
+          do {
+            ExclusiveAccess(p_Var9);
+            bVar1 = (bool)hasExclusiveAccess(p_Var9);
+          } while (!bVar1);
+          *(int *)p_Var9 = *(int *)p_Var9 + 1;
+        }
+        CSRUIModalHandler::Push(pCVar6,&local_58,0);
+        p_Var9 = local_54;
+        if (local_54 != (__shared_weak_count *)0x0) {
+          p_Var5 = local_54 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar4 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar4 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar4 == 0) {
+            (**(code **)(*(int *)local_54 + 8))(local_54);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+          }
+        }
+        if (local_44 == (__shared_weak_count *)0x0) goto LAB_009d968c;
+        p_Var9 = local_44 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var9);
+          iVar4 = *(int *)p_Var9;
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = iVar4 + -1;
+        p_Var9 = local_44;
+        goto LAB_009d9678;
+      }
+    }
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x1a);
+    if (iVar4 != 0) {
+      CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                ((CMSingleton *)&local_40);
+      p_Var9 = local_3c;
+      iVar4 = local_40;
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var5 = local_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar7 = *(int *)p_Var5;
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)local_3c + 8))(local_3c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(iVar4 + 0x24),0x19,0);
+      if (iVar4 < 2) {
+        std::__ndk1::shared_ptr<CSRPopUpNewContent>::make_shared<>
+                  ((shared_ptr<CSRPopUpNewContent> *)&local_48);
+        (**(code **)(*(int *)local_48 + 8))(local_48,0);
+        CSRPopUpNewContent::SetType(local_48,6);
+        local_40 = DAT_009d9310 + 0x9d91ac;
+        local_3c = (__shared_weak_count *)this;
+        local_30 = (CMSingleton *)&local_40;
+        CMEventPool<>::operator+=((CMEventPool<> *)(local_48 + 0x9c),(function *)&local_40);
+        if ((CMSingleton *)&local_40 == local_30) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x10);
+LAB_009d94ac:
+          (*pcVar8)();
+        }
+        else if (local_30 != (CMSingleton *)0x0) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x14);
+          goto LAB_009d94ac;
+        }
+        pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+        local_60 = local_48;
+        local_5c = local_44;
+        if (local_44 != (__shared_weak_count *)0x0) {
+          p_Var9 = local_44 + 4;
+          do {
+            ExclusiveAccess(p_Var9);
+            bVar1 = (bool)hasExclusiveAccess(p_Var9);
+          } while (!bVar1);
+          *(int *)p_Var9 = *(int *)p_Var9 + 1;
+        }
+        CSRUIModalHandler::Push(pCVar6,&local_60,0);
+        p_Var9 = local_5c;
+        if (local_5c != (__shared_weak_count *)0x0) {
+          p_Var5 = local_5c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar4 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar4 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar4 == 0) {
+            (**(code **)(*(int *)local_5c + 8))(local_5c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+          }
+        }
+        if (local_44 == (__shared_weak_count *)0x0) goto LAB_009d968c;
+        p_Var9 = local_44 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var9);
+          iVar4 = *(int *)p_Var9;
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = iVar4 + -1;
+        p_Var9 = local_44;
+        goto LAB_009d9678;
+      }
+    }
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x1c);
+    if (iVar4 != 0) {
+      CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                ((CMSingleton *)&local_40);
+      p_Var9 = local_3c;
+      iVar4 = local_40;
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var5 = local_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar7 = *(int *)p_Var5;
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)local_3c + 8))(local_3c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(iVar4 + 0x24),0x1b,0);
+      if (iVar4 < 2) {
+        std::__ndk1::shared_ptr<CSRPopUpNewContent>::make_shared<>
+                  ((shared_ptr<CSRPopUpNewContent> *)&local_48);
+        (**(code **)(*(int *)local_48 + 8))(local_48,0);
+        CSRPopUpNewContent::SetType(local_48,7);
+        local_40 = DAT_009d9314 + 0x9d9248;
+        local_3c = (__shared_weak_count *)this;
+        local_30 = (CMSingleton *)&local_40;
+        CMEventPool<>::operator+=((CMEventPool<> *)(local_48 + 0x9c),(function *)&local_40);
+        if ((CMSingleton *)&local_40 == local_30) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x10);
+LAB_009d9522:
+          (*pcVar8)();
+        }
+        else if (local_30 != (CMSingleton *)0x0) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x14);
+          goto LAB_009d9522;
+        }
+        pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+        local_68 = local_48;
+        local_64 = local_44;
+        if (local_44 != (__shared_weak_count *)0x0) {
+          p_Var9 = local_44 + 4;
+          do {
+            ExclusiveAccess(p_Var9);
+            bVar1 = (bool)hasExclusiveAccess(p_Var9);
+          } while (!bVar1);
+          *(int *)p_Var9 = *(int *)p_Var9 + 1;
+        }
+        CSRUIModalHandler::Push(pCVar6,&local_68,0);
+        p_Var9 = local_64;
+        if (local_64 != (__shared_weak_count *)0x0) {
+          p_Var5 = local_64 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar4 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar4 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar4 == 0) {
+            (**(code **)(*(int *)local_64 + 8))(local_64);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+          }
+        }
+        if (local_44 == (__shared_weak_count *)0x0) goto LAB_009d968c;
+        p_Var9 = local_44 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var9);
+          iVar4 = *(int *)p_Var9;
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = iVar4 + -1;
+        p_Var9 = local_44;
+        goto LAB_009d9678;
+      }
+    }
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0x24);
+    if (iVar4 != 0) {
+      CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                ((CMSingleton *)&local_40);
+      p_Var9 = local_3c;
+      iVar4 = local_40;
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var5 = local_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var5);
+          iVar7 = *(int *)p_Var5;
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = iVar7 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar7 == 0) {
+          (**(code **)(*(int *)local_3c + 8))(local_3c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+        }
+      }
+      iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(iVar4 + 0x24),0x24,0);
+      if (iVar4 < 2) {
+        std::__ndk1::shared_ptr<CSRPopUpNewContent>::make_shared<>
+                  ((shared_ptr<CSRPopUpNewContent> *)&local_48);
+        (**(code **)(*(int *)local_48 + 8))(local_48,0);
+        CSRPopUpNewContent::SetType(local_48,8);
+        local_40 = DAT_009d9318 + 0x9d92e4;
+        local_3c = (__shared_weak_count *)this;
+        local_30 = (CMSingleton *)&local_40;
+        CMEventPool<>::operator+=((CMEventPool<> *)(local_48 + 0x9c),(function *)&local_40);
+        if ((CMSingleton *)&local_40 == local_30) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x10);
+LAB_009d9598:
+          (*pcVar8)();
+        }
+        else if (local_30 != (CMSingleton *)0x0) {
+          pcVar8 = *(code **)(*(int *)local_30 + 0x14);
+          goto LAB_009d9598;
+        }
+        pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+        local_70 = local_48;
+        local_6c = local_44;
+        if (local_44 != (__shared_weak_count *)0x0) {
+          p_Var9 = local_44 + 4;
+          do {
+            ExclusiveAccess(p_Var9);
+            bVar1 = (bool)hasExclusiveAccess(p_Var9);
+          } while (!bVar1);
+          *(int *)p_Var9 = *(int *)p_Var9 + 1;
+        }
+        CSRUIModalHandler::Push(pCVar6,&local_70,0);
+        p_Var9 = local_6c;
+        if (local_6c != (__shared_weak_count *)0x0) {
+          p_Var5 = local_6c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar4 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar4 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar4 == 0) {
+            (**(code **)(*(int *)local_6c + 8))(local_6c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+          }
+        }
+        if (local_44 == (__shared_weak_count *)0x0) goto LAB_009d968c;
+        p_Var9 = local_44 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var9);
+          iVar4 = *(int *)p_Var9;
+          bVar1 = (bool)hasExclusiveAccess(p_Var9);
+        } while (!bVar1);
+        *(int *)p_Var9 = iVar4 + -1;
+        p_Var9 = local_44;
+        goto LAB_009d9678;
+      }
+    }
+    pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar3 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar2);
+    iVar4 = CSRPlayData::GetStageAchieveCnt(pCVar3,0xe);
+    if (iVar4 == 0) goto LAB_009d968c;
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_40);
+    p_Var9 = local_3c;
+    iVar4 = local_40;
+    if (local_3c != (__shared_weak_count *)0x0) {
+      p_Var5 = local_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)local_3c + 8))(local_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+      }
+    }
+    iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(iVar4 + 0x24),6,0);
+    if (1 < iVar4) goto LAB_009d968c;
+    std::__ndk1::shared_ptr<CSRPopUpNewContent>::make_shared<>
+              ((shared_ptr<CSRPopUpNewContent> *)&local_48);
+    (**(code **)(*(int *)local_48 + 8))(local_48,0);
+    CSRPopUpNewContent::SetType(local_48,3);
+    local_40 = DAT_009d96f4 + 0x9d939e;
+    local_3c = (__shared_weak_count *)this;
+    local_30 = (CMSingleton *)&local_40;
+    CMEventPool<>::operator+=((CMEventPool<> *)(local_48 + 0x9c),(function *)&local_40);
+    if ((CMSingleton *)&local_40 == local_30) {
+      pcVar8 = *(code **)(*(int *)local_30 + 0x10);
+LAB_009d960c:
+      (*pcVar8)();
+    }
+    else if (local_30 != (CMSingleton *)0x0) {
+      pcVar8 = *(code **)(*(int *)local_30 + 0x14);
+      goto LAB_009d960c;
+    }
+    pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+    local_78 = local_48;
+    local_74 = local_44;
+    if (local_44 != (__shared_weak_count *)0x0) {
+      p_Var9 = local_44 + 4;
+      do {
+        ExclusiveAccess(p_Var9);
+        bVar1 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar1);
+      *(int *)p_Var9 = *(int *)p_Var9 + 1;
+    }
+    CSRUIModalHandler::Push(pCVar6,&local_78,0);
+    p_Var9 = local_74;
+    if (local_74 != (__shared_weak_count *)0x0) {
+      p_Var5 = local_74 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar4 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_74 + 8))(local_74);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+      }
+    }
+    if (local_44 == (__shared_weak_count *)0x0) goto LAB_009d968c;
+    p_Var9 = local_44 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar4 = *(int *)p_Var9;
+      bVar1 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar1);
+    *(int *)p_Var9 = iVar4 + -1;
+    p_Var9 = local_44;
+  }
+  else {
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_40);
+    p_Var9 = local_3c;
+    iVar4 = local_40;
+    if (local_3c != (__shared_weak_count *)0x0) {
+      p_Var5 = local_3c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)local_3c + 8))(local_3c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+      }
+    }
+    iVar4 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(iVar4 + 0x24),4,0);
+    if (1 < iVar4) goto LAB_009d9092;
+    std::__ndk1::shared_ptr<CSRPopUpNewContent>::make_shared<>
+              ((shared_ptr<CSRPopUpNewContent> *)&local_48);
+    (**(code **)(*(int *)local_48 + 8))(local_48,0);
+    CSRPopUpNewContent::SetType(local_48,5);
+    local_40 = DAT_009d9308 + 0x9d9074;
+    local_3c = (__shared_weak_count *)this;
+    local_30 = (CMSingleton *)&local_40;
+    CMEventPool<>::operator+=((CMEventPool<> *)(local_48 + 0x9c),(function *)&local_40);
+    if ((CMSingleton *)&local_40 == local_30) {
+      pcVar8 = *(code **)(*(int *)local_30 + 0x10);
+LAB_009d93c0:
+      (*pcVar8)();
+    }
+    else if (local_30 != (CMSingleton *)0x0) {
+      pcVar8 = *(code **)(*(int *)local_30 + 0x14);
+      goto LAB_009d93c0;
+    }
+    pCVar6 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+    local_50 = local_48;
+    local_4c = local_44;
+    if (local_44 != (__shared_weak_count *)0x0) {
+      p_Var9 = local_44 + 4;
+      do {
+        ExclusiveAccess(p_Var9);
+        bVar1 = (bool)hasExclusiveAccess(p_Var9);
+      } while (!bVar1);
+      *(int *)p_Var9 = *(int *)p_Var9 + 1;
+    }
+    CSRUIModalHandler::Push(pCVar6,&local_50,0);
+    p_Var9 = local_4c;
+    if (local_4c != (__shared_weak_count *)0x0) {
+      p_Var5 = local_4c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar4 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_4c + 8))(local_4c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+      }
+    }
+    if (local_44 == (__shared_weak_count *)0x0) goto LAB_009d968c;
+    p_Var9 = local_44 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar4 = *(int *)p_Var9;
+      bVar1 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar1);
+    *(int *)p_Var9 = iVar4 + -1;
+    p_Var9 = local_44;
+  }
+LAB_009d9678:
+  DataMemoryBarrier(0x1b);
+  if (iVar4 == 0) {
+    (**(code **)(*(int *)p_Var9 + 8))(p_Var9);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var9);
+  }
+LAB_009d968c:
+  if (*piVar10 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== cfa40c OnButtonClick @ 00cfa40c =====
+
+/* CSRPopUpNewContent::OnButtonClick(CMUIView*, CMUIBase*) */
+
+void CSRPopUpNewContent::OnButtonClick(CMUIView *param_1,CMUIBase *param_2)
+
+{
+  uint uVar1;
+  int in_r2;
+  undefined4 in_r3;
+  uint uVar2;
+  int iVar3;
+  char *unaff_r11;
+  
+  uVar2 = *(uint *)(in_r2 + 0x268);
+  iVar3 = *(int *)(in_r2 + 0x26c);
+  uVar1 = CMHashID::Crc32((CMHashID *)&DAT_00000006,CONCAT44(in_r3,DAT_00cfa450 + 0xcfa424),
+                          unaff_r11);
+  if (iVar3 == 0 && (uVar1 ^ uVar2) == 0xffffffff) {
+    (**(code **)(*(int *)param_1 + 0x4c))(param_1);
+    CMEventPool<>::Call((CMEventPool<> *)(param_1 + 0x9c));
+    return;
+  }
+  return;
+}
+
+

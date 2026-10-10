@@ -1,0 +1,110 @@
+===== 008b185c CSRDataMgr @ 008b185c =====
+
+/* CSRDataMgr::CSRDataMgr() */
+
+void __thiscall CSRDataMgr::CSRDataMgr(CSRDataMgr *this)
+
+{
+  bool bVar1;
+  int *piVar2;
+  int iVar3;
+  ulonglong *puVar4;
+  undefined4 uVar5;
+  __shared_weak_count *p_Var6;
+  void *pvVar7;
+  int iVar8;
+  __shared_weak_count *this_00;
+  int *piVar9;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_3c [8];
+  void *local_34;
+  undefined8 local_30;
+  void *local_28;
+  int local_24;
+
+  piVar9 = *(int **)(DAT_008b1ab4 + 0x8b186e);
+  local_24 = *piVar9;
+  CGMDataMgr::CGMDataMgr((CGMDataMgr *)this);
+  iVar8 = DAT_008b1abc;
+  piVar2 = (int *)(DAT_008b1ab8 + 0x8b188e);
+  *(undefined2 *)(this + 0xa830) = 0;
+  *(undefined4 *)(this + 0xa85c) = 0;
+  *(undefined4 *)(this + 0xa858) = 0;
+  iVar3 = *piVar2;
+  *(undefined4 *)(this + 0xa838) = 0;
+  *(undefined4 *)(this + 0xa83c) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 0xa840) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0xa844) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  *(undefined4 *)(this + 0xa848) = 0;
+  *(undefined4 *)(this + 0xa84c) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 0xa850) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0xa854) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  *(undefined4 *)(this + 0xa834) = 0x3f800000;
+  *(int *)this = iVar3 + 8;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_3c,(char *)(iVar8 + 0x8b189e));
+  puVar4 = (ulonglong *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                     (local_3c,(char *)(DAT_008b1ac0 + 0x8b18ce),0x2a);
+  local_30 = *puVar4;
+  local_28 = *(void **)(puVar4 + 1);
+  *(undefined4 *)puVar4 = 0;
+  *(undefined4 *)((int)puVar4 + 4) = 0;
+  *(undefined4 *)(puVar4 + 1) = 0;
+  pvVar7 = local_28;
+  if ((local_30 & 1) == 0) {
+    pvVar7 = (void *)((int)&local_30 + 1);
+  }
+  RMTrace(0,pvVar7,DAT_008b1ac4 + 0x8b18fc);
+  if ((local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+  if (((byte)local_3c[0] & 1) != 0) {
+    operator_delete(local_34);
+  }
+  **(undefined4 **)(DAT_008b1ac8 + 0x8b1922) = this;
+  piVar2 = operator_new(0x1c);
+  *piVar2 = *(int *)(DAT_008b1acc + 0x8b1934) + 8;
+  piVar2[1] = 0;
+  piVar2[2] = 0;
+  uVar5 = USER_INFO::USER_INFO((USER_INFO *)(piVar2 + 3));
+  *(undefined4 *)(this + 0xa858) = uVar5;
+  this_00 = *(__shared_weak_count **)(this + 0xa85c);
+  *(int **)(this + 0xa85c) = piVar2;
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var6 = this_00 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar8 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      std::__ndk1::__shared_weak_count::__release_weak(this_00);
+    }
+  }
+  iVar8 = *piVar9 - local_24;
+  if (iVar8 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar8);
+}
+
+
+===== 008b59e8 __on_zero_shared @ 008b59e8 =====
+
+/* std::__ndk1::__shared_ptr_emplace<CSRLevelData, std::__ndk1::allocator<CSRLevelData>
+   >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::__shared_ptr_emplace<CSRLevelData,std::__ndk1::allocator<CSRLevelData>>::
+__on_zero_shared(__shared_ptr_emplace<CSRLevelData,std::__ndk1::allocator<CSRLevelData>> *this)
+
+{
+  CSRLevelData::~CSRLevelData((CSRLevelData *)(this + 0xc));
+  return;
+}

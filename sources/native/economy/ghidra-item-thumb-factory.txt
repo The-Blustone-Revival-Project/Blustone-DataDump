@@ -1,0 +1,70 @@
+===== 0xafa900 factory @ 00afa900 =====
+
+/* CSRItemThumb::factory(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRItemThumb::factory(CSRItemThumb *this,basic_string *param_1)
+
+{
+  basic_string *pbVar1;
+  uint uVar2;
+  int *piVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  void *pvVar6;
+  undefined4 uVar7;
+  uint local_48;
+  undefined4 uStack_44;
+  void *local_40;
+  undefined4 local_3c;
+  undefined4 uStack_38;
+  void *pvStack_34;
+  undefined4 uStack_30;
+  int local_2c;
+  
+  piVar3 = *(int **)(DAT_00afa9e4 + 0xafa918);
+  local_2c = *piVar3;
+  std::__ndk1::shared_ptr<CSRItemThumb>::make_shared<>((shared_ptr<CSRItemThumb> *)this);
+  uVar4 = 0;
+  uVar5 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  pvVar6 = *(void **)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar7 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  local_48 = 0;
+  local_3c = 0;
+  uStack_44 = uVar5;
+  local_40 = pvVar6;
+  uStack_38 = uVar5;
+  pvStack_34 = pvVar6;
+  uStack_30 = uVar7;
+  pbVar1 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+           basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                         *)&local_48,*(basic_string **)(DAT_00afa9e8 + 0xafa92e));
+  *(undefined4 *)(pbVar1 + 0xc) = uVar4;
+  *(undefined4 *)(pbVar1 + 0x10) = uVar5;
+  *(void **)(pbVar1 + 0x14) = pvVar6;
+  *(undefined4 *)(pbVar1 + 0x18) = uVar7;
+  if (pbVar1 != param_1) {
+    uVar2 = *(uint *)(param_1 + 4);
+    pbVar1 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar1 = param_1 + 1;
+      uVar2 = (uint)((byte)*param_1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           &local_48,(char *)pbVar1,uVar2);
+  }
+  Init(*(CSRItemThumb **)this,(CREATE_INFO *)&local_48);
+  SetContents(*(CSRItemThumb **)this,0x11);
+  *(undefined1 *)(*(int *)this + 0x866) = 0;
+  if ((local_48 & 1) != 0) {
+    operator_delete(local_40);
+  }
+  if (*piVar3 != local_2c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

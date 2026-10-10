@@ -1,0 +1,30 @@
+===== 0x92e868 MakeRandResPostFix @ 0092e868 =====
+
+/* CSRExploreMirageInfo::MakeRandResPostFix() */
+
+void __thiscall CSRExploreMirageInfo::MakeRandResPostFix(CSRExploreMirageInfo *this)
+
+{
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar1;
+  int iVar2;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar3;
+  uint uVar4;
+
+  iVar2 = CMRand<int>(0,(*(int *)(this + 0x84) - *(int *)(this + 0x80) >> 2) * -0x55555555 + -1);
+  pbVar3 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (*(int *)(this + 0x80) + iVar2 * 0xc);
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (this + 0xc4) != pbVar3) {
+    uVar4 = *(uint *)(pbVar3 + 4);
+    pbVar1 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+              (pbVar3 + 8);
+    if (((byte)*pbVar3 & 1) == 0) {
+      uVar4 = (uint)((byte)*pbVar3 >> 1);
+      pbVar1 = pbVar3 + 1;
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 0xc4),(char *)pbVar1,uVar4);
+  }
+  return;
+}

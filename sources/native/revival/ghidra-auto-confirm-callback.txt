@@ -1,0 +1,122 @@
+===== proven Thumb 00e8c150 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00e8c150(int param_1,undefined4 param_2,int param_3)
+
+{
+  bool bVar1;
+  __shared_weak_count *this;
+  uint uVar2;
+  CSRSceneStageConfirm *pCVar3;
+  __shared_weak_count *p_Var4;
+  __tree_node_base *p_Var5;
+  int iVar6;
+  undefined4 extraout_r3;
+  CSRSceneStageConfirm *pCVar7;
+  CSRSceneStageConfirm *pCVar8;
+  __tree_node_base *p_Var9;
+  CSRSceneStageConfirm *this_00;
+  int *piVar10;
+  char *in_stack_ffffffc8;
+  void *pvStack_30;
+  CMUpdatable *pCStack_2c;
+  __shared_weak_count *p_Stack_28;
+  int iStack_24;
+
+  piVar10 = *(int **)(_DAT_00e8c33c + 0xe8c162);
+  iStack_24 = *piVar10;
+  if ((*(__shared_weak_count **)(param_1 + 8) != (__shared_weak_count *)0x0) &&
+     (this = (__shared_weak_count *)
+             std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8)),
+     this != (__shared_weak_count *)0x0)) {
+    this_00 = *(CSRSceneStageConfirm **)(param_1 + 4);
+    if ((this_00 != (CSRSceneStageConfirm *)0x0) &&
+       (uVar2 = CMHashID::Crc32((CMHashID *)&DAT_00000008,
+                                CONCAT44(extraout_r3,_DAT_00e8c340 + 0xe8c190),in_stack_ffffffc8),
+       *(int *)(param_3 + 0x14) == 0 && (uVar2 ^ *(uint *)(param_3 + 0x10)) == 0xffffffff)) {
+      pCVar7 = this_00 + 0x708;
+      pCVar3 = *(CSRSceneStageConfirm **)(this_00 + 0x708);
+      pCVar8 = pCVar7;
+      if (*(CSRSceneStageConfirm **)(this_00 + 0x708) != (CSRSceneStageConfirm *)0x0) {
+        do {
+          while (pCVar7 = pCVar3, iVar6 = *(int *)(pCVar7 + 0x10), 1 < iVar6) {
+            pCVar3 = *(CSRSceneStageConfirm **)pCVar7;
+            pCVar8 = pCVar7;
+            if (*(CSRSceneStageConfirm **)pCVar7 == (CSRSceneStageConfirm *)0x0) goto LAB_00e8c1d4;
+          }
+          pCVar3 = (CSRSceneStageConfirm *)0x1;
+          if (iVar6 != 1) {
+            pCVar8 = pCVar7 + 4;
+            pCVar3 = *(CSRSceneStageConfirm **)pCVar8;
+          }
+        } while (iVar6 != 1 && pCVar3 != (CSRSceneStageConfirm *)0x0);
+      }
+LAB_00e8c1d4:
+      p_Var9 = *(__tree_node_base **)pCVar8;
+      if (p_Var9 == (__tree_node_base *)0x0) {
+        p_Var9 = operator_new(0x1c);
+        *(undefined4 *)(p_Var9 + 0x10) = 1;
+        *(undefined4 *)(p_Var9 + 0x14) = 0;
+        *(undefined4 *)(p_Var9 + 0x18) = 0;
+        *(undefined4 *)p_Var9 = 0;
+        *(undefined4 *)(p_Var9 + 4) = 0;
+        *(CSRSceneStageConfirm **)(p_Var9 + 8) = pCVar7;
+        *(__tree_node_base **)pCVar8 = p_Var9;
+        p_Var5 = p_Var9;
+        if (**(int **)(this_00 + 0x704) != 0) {
+          *(int *)(this_00 + 0x704) = **(int **)(this_00 + 0x704);
+          p_Var5 = *(__tree_node_base **)pCVar8;
+        }
+        std::__ndk1::__tree_balance_after_insert<std::__ndk1::__tree_node_base<void*>*>
+                  (*(__tree_node_base **)(this_00 + 0x708),p_Var5);
+        *(int *)(this_00 + 0x70c) = *(int *)(this_00 + 0x70c) + 1;
+      }
+      if (*(char *)(*(int *)(p_Var9 + 0x14) + 0x270) == '\0') {
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>
+                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&stack0xffffffc8,(char *)(_DAT_00e8c344 + 0xe8c224));
+        CSRFramedScene::FindCastByName<CMUIBase>((basic_string *)&pCStack_2c);
+        CMUpdatable::SetVisible(pCStack_2c,'\0');
+        if (p_Stack_28 != (__shared_weak_count *)0x0) {
+          p_Var4 = p_Stack_28 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var4);
+            iVar6 = *(int *)p_Var4;
+            bVar1 = (bool)hasExclusiveAccess(p_Var4);
+          } while (!bVar1);
+          *(int *)p_Var4 = iVar6 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar6 == 0) {
+            (**(code **)(*(int *)p_Stack_28 + 8))(p_Stack_28);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Stack_28);
+          }
+        }
+        if (((uint)in_stack_ffffffc8 & 1) != 0) {
+          operator_delete(pvStack_30);
+        }
+        CSRSceneStageConfirm::RequestStartMission(this_00);
+      }
+    }
+    p_Var4 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar6 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  if (*piVar10 != iStack_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

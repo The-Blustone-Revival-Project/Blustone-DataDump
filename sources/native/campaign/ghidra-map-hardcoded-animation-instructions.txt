@@ -1,0 +1,32 @@
+PROGRAM	libnative_core.so
+===== range 00e92488 .. 00e924dc =====
+00e92488  movs r2,#0x1
+00e9248a  bl 0x0078a8b0
+00e9248e  ldr r4,[sp,#0x64]
+00e92490  ldr r1,[0x00e927fc]
+00e92492  add r1,pc
+00e92494  add r0,sp,#0xe0
+00e92496  bl 0x006de260
+00e9249a  add.w r3,r4,#0x258
+00e9249e  cmp r3,r0
+00e924a0  beq 0x00e924ba
+00e924a2  ldrb.w r6,[sp,#0xe0]
+00e924a6  ldrd r2,r1,[sp,#0xe4]
+00e924aa  ands r5,r6,#0x1
+00e924ae  itt eq
+00e924b0  add.eq r1,r0,#0x1
+00e924b2  lsr.eq r2,r6,#0x1
+00e924b4  mov r0,r3
+00e924b6  bl 0x006d82f4
+00e924ba  ldrd r0,r1,[sp,#0xf0]
+00e924be  strd r0,r1,[r4,#0x268]
+00e924c2  ldrb.w r0,[sp,#0xe0]
+00e924c6  lsls r0,r0,#0x1f
+00e924c8  itt ne
+00e924ca  ldr.ne r0,[sp,#0xe8]
+00e924cc  bl.ne 0x01bd2440
+00e924d0  ldr r1,[0x00e92800]
+00e924d2  ldr r4,[sp,#0x64]
+00e924d4  add r1,pc
+00e924d6  add r0,sp,#0xe0
+00e924d8  bl 0x006de260

@@ -1,0 +1,70 @@
+===== proven Thumb 00e9bffc =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00e9bffc(int param_1,undefined4 param_2,int param_3,undefined4 param_4)
+
+{
+  bool bVar1;
+  uint uVar2;
+  int iVar3;
+  CSRDataMgr *this;
+  CSRPlayData *this_00;
+  __shared_weak_count *this_01;
+  __shared_weak_count *p_Var4;
+  int *piVar5;
+  char *in_stack_ffffffc8;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_34 [8];
+  void *pvStack_2c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> abStack_28 [8];
+  void *pvStack_20;
+  int iStack_1c;
+
+  piVar5 = *(int **)(_DAT_00e9c134 + 0xe9c012);
+  iStack_1c = *piVar5;
+  uVar2 = CMHashID::Crc32((CMHashID *)0xa,CONCAT44(param_4,_DAT_00e9c138 + 0xe9c01e),
+                          in_stack_ffffffc8);
+  if ((*(int *)(param_3 + 0x14) == 0 && (uVar2 ^ *(uint *)(param_3 + 0x10)) == 0xffffffff) &&
+     (iVar3 = CSRUIModalHandler::get(), *(int *)(iVar3 + 0xc) == 0)) {
+    this = (CSRDataMgr *)CSRDataMgr::get();
+    this_00 = (CSRPlayData *)CSRDataMgr::GetPlayData(this);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_28,(char *)(_DAT_00e9c13c + 0xe9c05a));
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(abStack_34,(char *)(_DAT_00e9c140 + 0xe9c062));
+    CSRPlayData::SetMarker(this_00,(basic_string *)abStack_28,(basic_string *)abStack_34,1);
+    if (((byte)abStack_34[0] & 1) != 0) {
+      operator_delete(pvStack_2c);
+    }
+    if (((byte)abStack_28[0] & 1) != 0) {
+      operator_delete(pvStack_20);
+    }
+    if ((*(__shared_weak_count **)(param_1 + 8) != (__shared_weak_count *)0x0) &&
+       (this_01 = (__shared_weak_count *)
+                  std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(param_1 + 8)),
+       this_01 != (__shared_weak_count *)0x0)) {
+      if (*(CSRSceneMStageMap **)(param_1 + 4) != (CSRSceneMStageMap *)0x0) {
+        CSRSceneMStageMap::SelectStage(*(CSRSceneMStageMap **)(param_1 + 4),*(int *)(param_1 + 0xc))
+        ;
+      }
+      p_Var4 = this_01 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar3 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar3 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar3 == 0) {
+        (**(code **)(*(int *)this_01 + 8))(this_01);
+        std::__ndk1::__shared_weak_count::__release_weak(this_01);
+      }
+    }
+  }
+  if (*piVar5 == iStack_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

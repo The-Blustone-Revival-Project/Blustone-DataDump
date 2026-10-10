@@ -1,0 +1,138 @@
+===== 1b84948 ReadBlock @ 01b84948 =====
+
+/* leveldb::ReadBlock(leveldb::RandomAccessFile*, leveldb::ReadOptions const&, leveldb::BlockHandle
+   const&, leveldb::BlockContents*) */
+
+void __thiscall
+leveldb::ReadBlock(leveldb *this,RandomAccessFile *param_1,ReadOptions *param_2,BlockHandle *param_3
+                  ,BlockContents *param_4)
+
+{
+  char cVar1;
+  int *piVar2;
+  char *pcVar3;
+  undefined4 uVar4;
+  uint uVar5;
+  char *pcVar6;
+  uint uVar7;
+  char *pcVar8;
+  char *pcVar9;
+  int iVar10;
+  int iVar11;
+  BlockContents BVar12;
+  char *local_48;
+  char *local_44;
+  undefined4 local_40;
+  int local_3c;
+  undefined4 local_38;
+  char *local_34;
+  char *local_30;
+  uint local_2c;
+  int local_28;
+
+  piVar2 = *(int **)(DAT_01b84afc + 0x1b84968);
+  pcVar8 = (char *)(DAT_01b84b00 + 0x1b8496e);
+  local_28 = *piVar2;
+  *(char **)param_4 = pcVar8;
+  *(undefined4 *)(param_4 + 4) = 0;
+  *(undefined2 *)(param_4 + 8) = 0;
+  iVar10 = *(int *)(param_3 + 8);
+  uVar7 = iVar10 + 5;
+  pcVar3 = operator_new__(uVar7);
+  local_2c = 0;
+  local_30 = pcVar8;
+  (**(code **)(*(int *)param_1 + 8))
+            (&local_34,param_1,*(undefined4 *)param_3,*(undefined4 *)(param_3 + 4),uVar7,&local_30,
+             pcVar3);
+  pcVar6 = local_30;
+  if (local_34 == (char *)0x0) {
+    if (local_2c == uVar7) {
+      pcVar9 = local_30 + iVar10;
+      if ((*param_2 != (ReadOptions)0x0) &&
+         (iVar11 = *(int *)(pcVar9 + 1), uVar7 = crc32c::Extend(0,local_30,iVar10 + 1),
+         uVar5 = iVar11 + 0x5d7d1528, uVar7 != (uVar5 >> 0x11 | uVar5 * 0x8000))) {
+        operator_delete__(pcVar3);
+        local_3c = DAT_01b84b08 + 0x1b84a5a;
+        local_38 = 0x17;
+        local_40 = 0;
+        local_44 = pcVar8;
+        Status::Status((Status *)&local_48,2,&local_3c,&local_44);
+        pcVar6 = local_34;
+        if (local_34 != local_48) {
+          if (local_34 != (char *)0x0) {
+            operator_delete__(local_34);
+          }
+          if (local_48 == (char *)0x0) {
+            pcVar6 = (char *)0x0;
+            local_34 = (char *)0x0;
+          }
+          else {
+            local_34 = (char *)Status::CopyState(local_48);
+            pcVar6 = local_48;
+          }
+        }
+        if (pcVar6 != (char *)0x0) {
+          operator_delete__(pcVar6);
+        }
+        if (local_34 == (char *)0x0) {
+LAB_01b84ad6:
+          uVar4 = 0;
+        }
+        else {
+          uVar4 = Status::CopyState(local_34);
+        }
+        goto LAB_01b84ad8;
+      }
+      cVar1 = *pcVar9;
+      if (cVar1 == '\x01') {
+        operator_delete__(pcVar3);
+        local_38 = 0x23;
+        local_3c = DAT_01b84b0c + 0x1b84a96;
+      }
+      else {
+        if (cVar1 == '\0') {
+          BVar12 = (BlockContents)(pcVar6 == pcVar3);
+          if (!(bool)BVar12) {
+            operator_delete__(pcVar3);
+            pcVar3 = pcVar6;
+          }
+          *(char **)param_4 = pcVar3;
+          *(int *)(param_4 + 4) = iVar10;
+          param_4[9] = BVar12;
+          param_4[8] = BVar12;
+          goto LAB_01b84ad6;
+        }
+        operator_delete__(pcVar3);
+        local_38 = 0xe;
+        local_3c = DAT_01b84b10 + 0x1b84aa4;
+      }
+    }
+    else {
+      operator_delete__(pcVar3);
+      local_38 = 0x14;
+      local_3c = DAT_01b84b04 + 0x1b84a2e;
+    }
+    local_40 = 0;
+    local_44 = pcVar8;
+    Status::Status((Status *)this,2,&local_3c,&local_44);
+  }
+  else {
+    operator_delete__(pcVar3);
+    if (local_34 == (char *)0x0) {
+      uVar4 = 0;
+    }
+    else {
+      uVar4 = Status::CopyState(local_34);
+    }
+LAB_01b84ad8:
+    *(undefined4 *)this = uVar4;
+  }
+  if (local_34 != (char *)0x0) {
+    operator_delete__(local_34);
+  }
+  if (*piVar2 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

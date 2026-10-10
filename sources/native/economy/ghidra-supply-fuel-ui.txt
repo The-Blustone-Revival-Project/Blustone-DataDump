@@ -1,0 +1,2534 @@
+===== d719f0 OnButtonClick @ 00d719f0 =====
+
+/* WARNING (jumptable): Heritage AFTER dead removal. Revisit: 0xffffff2c */
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+/* CSRPopUpSupplyFuel::OnButtonClick(CMUIView*, CMUIBase*) */
+
+void __thiscall
+CSRPopUpSupplyFuel::OnButtonClick(CSRPopUpSupplyFuel *this,CMUIView *param_1,CMUIBase *param_2)
+
+{
+  CSRPopUpPurchaseConfirm CVar1;
+  bool bVar2;
+  bool bVar3;
+  undefined8 uVar4;
+  uint uVar5;
+  void *pvVar6;
+  CSRPopUpPurchaseConfirm *pCVar7;
+  CSRSceneVIP *this_00;
+  bool bVar8;
+  int iVar9;
+  CSRUIModalHandler *pCVar10;
+  __shared_weak_count *p_Var11;
+  CSRGuild *this_01;
+  INFO *pIVar12;
+  CGMLocalDB *pCVar13;
+  CSRPlayData *this_02;
+  __shared_weak_count *p_Var14;
+  __shared_weak_count *p_Var15;
+  CSRSupply *pCVar16;
+  CSRDataMgr *pCVar17;
+  CSRRefData *this_03;
+  undefined4 uVar18;
+  CMHashID *pCVar19;
+  undefined *puVar20;
+  __shared_weak_count *p_Var21;
+  __shared_weak_count *p_Var22;
+  code *pcVar23;
+  int iVar24;
+  CMHashID *pCVar25;
+  uint uVar26;
+  int *piVar27;
+  int iVar28;
+  int *piVar29;
+  basic_string *pbVar30;
+  float fVar31;
+  ulonglong uVar32;
+  __shared_weak_count *local_f0;
+  CSRPopUpPurchaseConfirm *local_e0;
+  __shared_weak_count *local_dc;
+  int local_d8;
+  uint local_d4;
+  uint uStack_d0;
+  void *local_cc;
+  uint local_c8;
+  uint uStack_c4;
+  void *local_c0;
+  uint local_bc;
+  uint uStack_b8;
+  void *local_b4;
+  undefined8 local_b0;
+  int local_a8;
+  int local_a4;
+  __shared_weak_count *p_Stack_a0;
+  int local_9c;
+  __shared_weak_count *local_98;
+  int local_94;
+  __shared_weak_count *local_90;
+  CMHashID *local_8c;
+  __shared_weak_count *local_88;
+  CSRPopUpPurchaseConfirm *local_84;
+  __shared_weak_count *local_80;
+  __shared_weak_count *local_7c;
+  __shared_weak_count *local_78;
+  __shared_weak_count *local_70;
+  __shared_weak_count *local_6c;
+  CSRSceneVIP *local_68;
+  __shared_weak_count *local_64;
+  __shared_weak_count *local_60;
+  __shared_weak_count *local_5c;
+  int aiStack_58 [4];
+  int *local_48;
+  CSRSceneVIP *local_40;
+  __shared_weak_count *local_3c;
+  void *local_38;
+  CMHashID *local_30;
+  int iStack_2c;
+  int local_28;
+  
+  piVar29 = *(int **)(DAT_00d71ccc + 0xd71a04);
+  local_28 = *piVar29;
+  if (param_2 == (CMUIBase *)0x0) {
+    _RMAssert('\0',(char *)(DAT_00d71cd0 + 0xd71a1a),(char *)(DAT_00d71cd4 + 0xd71a1c),0x3c);
+  }
+  puVar20 = *(undefined **)(param_2 + 0x268);
+  iVar9 = *(int *)(param_2 + 0x26c);
+  iVar24 = -(uint)((undefined *)0x321d7a51 < puVar20) - iVar9;
+  if (iVar24 < 0 ==
+      (SBORROW4(0,iVar9) != SBORROW4(-iVar9,(uint)((undefined *)0x321d7a51 < puVar20)))) {
+    if (puVar20 == &UNK_01f28a38 && iVar9 == 0) {
+      piVar27 = *(int **)(DAT_00d71ce0 + 0xd71c28);
+      pCVar13 = (CGMLocalDB *)*piVar27;
+      if (pCVar13 == (CGMLocalDB *)0x0) {
+        CMSingleton::get<CSRLocalDB,CMSingleton::DefaultAlloc<CSRLocalDB>,CMSpinLock>
+                  ((CMSingleton *)&local_40);
+        p_Var21 = local_3c;
+        *piVar27 = (int)local_40;
+        if (local_3c != (__shared_weak_count *)0x0) {
+          p_Var11 = local_3c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var11);
+            iVar9 = *(int *)p_Var11;
+            bVar2 = (bool)hasExclusiveAccess(p_Var11);
+          } while (!bVar2);
+          *(int *)p_Var11 = iVar9 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar9 == 0) {
+            (**(code **)(*(int *)local_3c + 8))(local_3c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+          }
+        }
+        pCVar13 = (CGMLocalDB *)*piVar27;
+      }
+      pbVar30 = (basic_string *)(DAT_00d71ce4 + 0xd71c82);
+      iVar9 = CGMLocalDB::GetLocaNotification(pCVar13,pbVar30);
+      pCVar13 = (CGMLocalDB *)*piVar27;
+      if (pCVar13 == (CGMLocalDB *)0x0) {
+        CMSingleton::get<CSRLocalDB,CMSingleton::DefaultAlloc<CSRLocalDB>,CMSpinLock>
+                  ((CMSingleton *)&local_40);
+        p_Var21 = local_3c;
+        *piVar27 = (int)local_40;
+        if (local_3c != (__shared_weak_count *)0x0) {
+          p_Var11 = local_3c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var11);
+            iVar24 = *(int *)p_Var11;
+            bVar2 = (bool)hasExclusiveAccess(p_Var11);
+          } while (!bVar2);
+          *(int *)p_Var11 = iVar24 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar24 == 0) {
+            (**(code **)(*(int *)local_3c + 8))(local_3c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+          }
+        }
+        pCVar13 = (CGMLocalDB *)*piVar27;
+      }
+      CGMLocalDB::PutLocaNotification(pCVar13,pbVar30,iVar9 == 0);
+      InitNoti();
+    }
+    else {
+      bVar2 = puVar20 != (undefined *)0x6afd916;
+      if (bVar2 || iVar9 != 0) {
+        puVar20 = (undefined *)((uint)puVar20 ^ 0x146ab1fa);
+      }
+      if (iVar9 == 0 && (!bVar2 || puVar20 == (undefined *)0x0)) goto LAB_00d71b3c;
+    }
+LAB_00d71d8c:
+    CSRSupply::get();
+    CSRSupply::GetFuelSupply((CSRSupply *)&local_7c);
+    p_Var21 = local_78;
+    if (local_7c != local_78) {
+      p_Var11 = local_7c;
+      do {
+        pbVar30 = (basic_string *)(p_Var11 + 4);
+        local_30 = (CMHashID *)0x0;
+        iStack_2c = 0;
+        local_40 = (CSRSceneVIP *)0x0;
+        local_3c = (__shared_weak_count *)0x0;
+        local_38 = (void *)0x0;
+        CMHashID::Set((CMHashID *)&local_40,pbVar30);
+        iVar9 = iStack_2c;
+        pCVar19 = local_30;
+        pCVar25 = *(CMHashID **)(param_2 + 0x268);
+        iVar24 = *(int *)(param_2 + 0x26c);
+        if (((uint)local_40 & 1) != 0) {
+          operator_delete(local_38);
+        }
+        if (pCVar25 == pCVar19 && iVar24 == iVar9) {
+          if (*(int *)p_Var11 == 0) {
+            CGMDataMgr::get();
+            fVar31 = (float)CGMDataMgr::GetLocalizedText((char *)&local_40);
+            Toast((basic_string *)&local_40,'\0',fVar31);
+          }
+          else {
+            if (*(int *)p_Var11 != 2) {
+              CMNode<CMUpdatable>::GetRoot();
+              pCVar19 = local_8c;
+              local_30 = (CMHashID *)0x0;
+              iStack_2c = 0;
+              local_40 = (CSRSceneVIP *)0x0;
+              local_3c = (__shared_weak_count *)0x0;
+              local_38 = (void *)0x0;
+              CMHashID::Set((CMHashID *)&local_40,pbVar30);
+              CMUpdatable::FindByName((CMUpdatable *)&local_84,pCVar19);
+              if ((local_84 == (CSRPopUpPurchaseConfirm *)0x0) ||
+                 (iVar9 = __dynamic_cast(local_84,*(undefined4 *)(DAT_00d72158 + 0xd71eb2),
+                                         *(undefined4 *)(DAT_00d7215c + 0xd71eb4),0),
+                 p_Var15 = local_80, iVar9 == 0)) {
+                iVar9 = 0;
+                bVar2 = true;
+                local_f0 = (__shared_weak_count *)0x0;
+LAB_00d71f26:
+                p_Var15 = local_80;
+                if (local_80 != (__shared_weak_count *)0x0) {
+                  p_Var14 = local_80 + 4;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var14);
+                    iVar24 = *(int *)p_Var14;
+                    bVar8 = (bool)hasExclusiveAccess(p_Var14);
+                  } while (!bVar8);
+                  *(int *)p_Var14 = iVar24 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar24 == 0) {
+                    (**(code **)(*(int *)local_80 + 8))(local_80);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                  }
+                }
+              }
+              else {
+                if (local_80 != (__shared_weak_count *)0x0) {
+                  p_Var14 = local_80 + 4;
+                  do {
+                    ExclusiveAccess(p_Var14);
+                    bVar2 = (bool)hasExclusiveAccess(p_Var14);
+                  } while (!bVar2);
+                  *(int *)p_Var14 = *(int *)p_Var14 + 1;
+                  p_Var22 = local_80 + 8;
+                  do {
+                    ExclusiveAccess(p_Var22);
+                    bVar2 = (bool)hasExclusiveAccess(p_Var22);
+                  } while (!bVar2);
+                  *(int *)p_Var22 = *(int *)p_Var22 + 1;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var14);
+                    iVar24 = *(int *)p_Var14;
+                    bVar2 = (bool)hasExclusiveAccess(p_Var14);
+                  } while (!bVar2);
+                  *(int *)p_Var14 = iVar24 + -1;
+                  DataMemoryBarrier(0x1b);
+                  local_f0 = local_80;
+                  if (iVar24 == 0) {
+                    (**(code **)(*(int *)local_80 + 8))(local_80);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                  }
+                  bVar2 = false;
+                  goto LAB_00d71f26;
+                }
+                local_f0 = (__shared_weak_count *)0x0;
+                bVar2 = true;
+              }
+              if (((uint)local_40 & 1) != 0) {
+                operator_delete(local_38);
+              }
+              p_Var15 = local_88;
+              if (local_88 != (__shared_weak_count *)0x0) {
+                p_Var14 = local_88 + 4;
+                DataMemoryBarrier(0x1b);
+                do {
+                  ExclusiveAccess(p_Var14);
+                  iVar24 = *(int *)p_Var14;
+                  bVar8 = (bool)hasExclusiveAccess(p_Var14);
+                } while (!bVar8);
+                *(int *)p_Var14 = iVar24 + -1;
+                DataMemoryBarrier(0x1b);
+                if (iVar24 == 0) {
+                  (**(code **)(*(int *)local_88 + 8))(local_88);
+                  std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                }
+              }
+              if (*(__shared_weak_count **)(this + 0x28) == (__shared_weak_count *)0x0) {
+LAB_00d72602:
+                    /* WARNING: Subroutine does not return */
+                FUN_006e9a4c();
+              }
+              iVar24 = *(int *)(this + 0x24);
+              p_Var15 = (__shared_weak_count *)
+                        std::__ndk1::__shared_weak_count::lock
+                                  (*(__shared_weak_count **)(this + 0x28));
+              if (p_Var15 == (__shared_weak_count *)0x0) goto LAB_00d72602;
+              if (iVar24 == 0) {
+                bVar8 = true;
+                p_Var14 = (__shared_weak_count *)0x0;
+                iVar28 = 0;
+              }
+              else {
+                iVar28 = 0;
+                iVar24 = __dynamic_cast(iVar24,*(undefined4 *)(DAT_00d72160 + 0xd71fb6),
+                                        *(undefined4 *)(DAT_00d72164 + 0xd71fb8),0);
+                if (iVar24 == 0) {
+                  bVar8 = true;
+                  p_Var14 = (__shared_weak_count *)0x0;
+                }
+                else {
+                  p_Var14 = p_Var15 + 4;
+                  do {
+                    ExclusiveAccess(p_Var14);
+                    bVar8 = (bool)hasExclusiveAccess(p_Var14);
+                  } while (!bVar8);
+                  *(int *)p_Var14 = *(int *)p_Var14 + 1;
+                  p_Var22 = p_Var15 + 8;
+                  do {
+                    ExclusiveAccess(p_Var22);
+                    bVar8 = (bool)hasExclusiveAccess(p_Var22);
+                  } while (!bVar8);
+                  *(int *)p_Var22 = *(int *)p_Var22 + 1;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var14);
+                    iVar28 = *(int *)p_Var14;
+                    bVar8 = (bool)hasExclusiveAccess(p_Var14);
+                  } while (!bVar8);
+                  *(int *)p_Var14 = iVar28 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar28 == 0) {
+                    (**(code **)(*(int *)p_Var15 + 8))(p_Var15);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                  }
+                  bVar8 = false;
+                  p_Var14 = p_Var15;
+                  iVar28 = iVar24;
+                }
+              }
+              p_Var22 = p_Var15 + 4;
+              DataMemoryBarrier(0x1b);
+              do {
+                ExclusiveAccess(p_Var22);
+                iVar24 = *(int *)p_Var22;
+                bVar3 = (bool)hasExclusiveAccess(p_Var22);
+              } while (!bVar3);
+              *(int *)p_Var22 = iVar24 + -1;
+              DataMemoryBarrier(0x1b);
+              if (iVar24 == 0) {
+                (**(code **)(*(int *)p_Var15 + 8))(p_Var15);
+                std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+              }
+              if (!bVar8) {
+                p_Var15 = p_Var14 + 8;
+                do {
+                  ExclusiveAccess(p_Var15);
+                  bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                } while (!bVar3);
+                *(int *)p_Var15 = *(int *)p_Var15 + 1;
+              }
+              if (!bVar2) {
+                p_Var15 = local_f0 + 8;
+                do {
+                  ExclusiveAccess(p_Var15);
+                  bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                } while (!bVar3);
+                *(int *)p_Var15 = *(int *)p_Var15 + 1;
+              }
+              CMHashID::CMHashID((CMHashID *)&local_40,(char *)(DAT_00d72168 + 0xd72080));
+              CMNode<CMUpdatable>::
+              FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+                        (&local_84,param_2 + 4,(CMHashID *)&local_40);
+              p_Var15 = local_80;
+              CVar1 = local_84[0x270];
+              if (local_80 != (__shared_weak_count *)0x0) {
+                p_Var22 = local_80 + 4;
+                DataMemoryBarrier(0x1b);
+                do {
+                  ExclusiveAccess(p_Var22);
+                  iVar24 = *(int *)p_Var22;
+                  bVar3 = (bool)hasExclusiveAccess(p_Var22);
+                } while (!bVar3);
+                *(int *)p_Var22 = iVar24 + -1;
+                DataMemoryBarrier(0x1b);
+                if (iVar24 == 0) {
+                  (**(code **)(*(int *)local_80 + 8))(local_80);
+                  std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                }
+              }
+              if (((uint)local_40 & 1) != 0) {
+                operator_delete(local_38);
+              }
+              if (CVar1 == (CSRPopUpPurchaseConfirm)0x0) {
+                std::__ndk1::shared_ptr<CSRPopUpPurchaseConfirm>::make_shared<>
+                          ((shared_ptr<CSRPopUpPurchaseConfirm> *)&local_84);
+                pCVar7 = local_84;
+                CMHashID::CMHashID((CMHashID *)&local_40,(char *)(DAT_00d72438 + 0xd72182));
+                (**(code **)(*(int *)pCVar7 + 0x48))(pCVar7,(CMHashID *)&local_40);
+                if (((uint)local_40 & 1) != 0) {
+                  operator_delete(local_38);
+                }
+                (**(code **)(*(int *)pCVar7 + 8))(pCVar7,0);
+                pCVar7 = local_84;
+                pCVar17 = (CSRDataMgr *)CSRDataMgr::get();
+                this_03 = (CSRRefData *)CSRDataMgr::GetReferenceData(pCVar17);
+                uVar18 = CSRRefData::GetReservedRewardMandaPrice(this_03);
+                local_d8 = *(int *)p_Var11;
+                std::__ndk1::
+                basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+                basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                              *)&local_d4,pbVar30);
+                std::__ndk1::
+                basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+                basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                              *)&local_c8,(basic_string *)(p_Var11 + 0x10));
+                std::__ndk1::
+                basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+                basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                              *)&local_bc,(basic_string *)(p_Var11 + 0x1c));
+                local_b0 = *(undefined8 *)(p_Var11 + 0x28);
+                local_a8 = *(int *)(p_Var11 + 0x30);
+                if (!bVar8) {
+                  p_Var15 = p_Var14 + 8;
+                  do {
+                    ExclusiveAccess(p_Var15);
+                    bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                  } while (!bVar3);
+                  *(int *)p_Var15 = *(int *)p_Var15 + 1;
+                }
+                local_98 = local_f0;
+                if (!bVar2) {
+                  p_Var15 = local_f0 + 8;
+                  do {
+                    ExclusiveAccess(p_Var15);
+                    bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                  } while (!bVar3);
+                  *(int *)p_Var15 = *(int *)p_Var15 + 1;
+                }
+                if (!bVar8) {
+                  p_Var15 = p_Var14 + 8;
+                  do {
+                    ExclusiveAccess(p_Var15);
+                    bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                  } while (!bVar3);
+                  *(int *)p_Var15 = *(int *)p_Var15 + 1;
+                }
+                local_30 = (CMHashID *)0x0;
+                local_a4 = iVar28;
+                p_Stack_a0 = p_Var14;
+                local_9c = iVar9;
+                local_94 = iVar28;
+                local_90 = p_Var14;
+                pCVar19 = operator_new(0x50);
+                pvVar6 = local_cc;
+                uVar5 = uStack_d0;
+                *(int *)pCVar19 = DAT_00d7243c + 0xd7225a;
+                *(undefined4 *)(pCVar19 + 8) = 0;
+                *(int *)(pCVar19 + 4) = local_d8;
+                *(undefined4 *)(pCVar19 + 0xc) = 0;
+                *(undefined4 *)(pCVar19 + 0x10) = 0;
+                if ((local_d4 & 1) == 0) {
+                  *(void **)(pCVar19 + 0x10) = local_cc;
+                  *(ulonglong *)(pCVar19 + 8) = CONCAT44(uStack_d0,local_d4);
+                }
+                else {
+                  if (0xffffffef < uStack_d0) {
+                    /* WARNING: Subroutine does not return */
+                    std::__ndk1::__basic_string_common<true>::__throw_length_error();
+                  }
+                  if (uStack_d0 < 0xb) {
+                    pCVar25 = pCVar19 + 9;
+                    pCVar19[8] = SUB41(uStack_d0 << 1,0);
+                    if (uStack_d0 != 0) goto LAB_00d722e2;
+                  }
+                  else {
+                    uVar26 = uStack_d0 + 0x10 & 0xfffffff0;
+                    pCVar25 = operator_new(uVar26);
+                    *(uint *)(pCVar19 + 8) = uVar26 | 1;
+                    *(uint *)(pCVar19 + 0xc) = uVar5;
+                    *(CMHashID **)(pCVar19 + 0x10) = pCVar25;
+LAB_00d722e2:
+                    __aeabi_memcpy(pCVar25,pvVar6,uVar5);
+                  }
+                  pCVar25[uVar5] = (CMHashID)0x0;
+                }
+                pvVar6 = local_c0;
+                uVar5 = uStack_c4;
+                *(undefined4 *)(pCVar19 + 0x14) = 0;
+                *(undefined4 *)(pCVar19 + 0x18) = 0;
+                *(undefined4 *)(pCVar19 + 0x1c) = 0;
+                if ((local_c8 & 1) == 0) {
+                  *(void **)(pCVar19 + 0x1c) = local_c0;
+                  *(ulonglong *)(pCVar19 + 0x14) = CONCAT44(uStack_c4,local_c8);
+                }
+                else {
+                  if (0xffffffef < uStack_c4) {
+                    /* WARNING: Subroutine does not return */
+                    std::__ndk1::__basic_string_common<true>::__throw_length_error();
+                  }
+                  if (uStack_c4 < 0xb) {
+                    pCVar25 = pCVar19 + 0x15;
+                    pCVar19[0x14] = SUB41(uStack_c4 << 1,0);
+                    if (uStack_c4 != 0) goto LAB_00d7235c;
+                  }
+                  else {
+                    uVar26 = uStack_c4 + 0x10 & 0xfffffff0;
+                    pCVar25 = operator_new(uVar26);
+                    *(uint *)(pCVar19 + 0x14) = uVar26 | 1;
+                    *(uint *)(pCVar19 + 0x18) = uVar5;
+                    *(CMHashID **)(pCVar19 + 0x1c) = pCVar25;
+LAB_00d7235c:
+                    __aeabi_memcpy(pCVar25,pvVar6,uVar5);
+                  }
+                  pCVar25[uVar5] = (CMHashID)0x0;
+                }
+                pvVar6 = local_b4;
+                uVar5 = uStack_b8;
+                *(undefined4 *)(pCVar19 + 0x20) = 0;
+                *(undefined4 *)(pCVar19 + 0x24) = 0;
+                *(undefined4 *)(pCVar19 + 0x28) = 0;
+                if ((local_bc & 1) == 0) {
+                  *(void **)(pCVar19 + 0x28) = local_b4;
+                  *(ulonglong *)(pCVar19 + 0x20) = CONCAT44(uStack_b8,local_bc);
+                }
+                else {
+                  if (0xffffffef < uStack_b8) {
+                    /* WARNING: Subroutine does not return */
+                    std::__ndk1::__basic_string_common<true>::__throw_length_error();
+                  }
+                  if (uStack_b8 < 0xb) {
+                    pCVar25 = pCVar19 + 0x21;
+                    pCVar19[0x20] = SUB41(uStack_b8 << 1,0);
+                    if (uStack_b8 != 0) goto LAB_00d723d8;
+                  }
+                  else {
+                    uVar26 = uStack_b8 + 0x10 & 0xfffffff0;
+                    pCVar25 = operator_new(uVar26);
+                    *(uint *)(pCVar19 + 0x20) = uVar26 | 1;
+                    *(uint *)(pCVar19 + 0x24) = uVar5;
+                    *(CMHashID **)(pCVar19 + 0x28) = pCVar25;
+LAB_00d723d8:
+                    __aeabi_memcpy(pCVar25,pvVar6,uVar5);
+                  }
+                  pCVar25[uVar5] = (CMHashID)0x0;
+                }
+                p_Var15 = local_90;
+                iVar9 = local_94;
+                *(int *)(pCVar19 + 0x34) = local_a8;
+                *(undefined8 *)(pCVar19 + 0x2c) = local_b0;
+                uVar4 = CONCAT44(p_Stack_a0,local_a4);
+                local_a4 = 0;
+                p_Stack_a0 = (__shared_weak_count *)0x0;
+                *(undefined8 *)(pCVar19 + 0x38) = uVar4;
+                *(ulonglong *)(pCVar19 + 0x40) = CONCAT44(local_98,local_9c);
+                local_9c = 0;
+                local_98 = (__shared_weak_count *)0x0;
+                local_94 = 0;
+                local_90 = (__shared_weak_count *)0x0;
+                *(int *)(pCVar19 + 0x48) = iVar9;
+                *(__shared_weak_count **)(pCVar19 + 0x4c) = p_Var15;
+                local_30 = pCVar19;
+                CSRPopUpPurchaseConfirm::SetData(pCVar7,6,uVar18,(CMHashID *)&local_40);
+                if ((CMHashID *)&local_40 == local_30) {
+                  pcVar23 = *(code **)(*(int *)local_30 + 0x10);
+LAB_00d72444:
+                  (*pcVar23)();
+                }
+                else if (local_30 != (CMHashID *)0x0) {
+                  pcVar23 = *(code **)(*(int *)local_30 + 0x14);
+                  goto LAB_00d72444;
+                }
+                if (local_90 != (__shared_weak_count *)0x0) {
+                  std::__ndk1::__shared_weak_count::__release_weak(local_90);
+                }
+                if (local_98 != (__shared_weak_count *)0x0) {
+                  std::__ndk1::__shared_weak_count::__release_weak(local_98);
+                }
+                if (p_Stack_a0 != (__shared_weak_count *)0x0) {
+                  std::__ndk1::__shared_weak_count::__release_weak(p_Stack_a0);
+                }
+                if ((local_bc & 1) != 0) {
+                  operator_delete(local_b4);
+                }
+                if ((local_c8 & 1) != 0) {
+                  operator_delete(local_c0);
+                }
+                if ((local_d4 & 1) != 0) {
+                  operator_delete(local_cc);
+                }
+                pCVar10 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+                local_e0 = local_84;
+                local_dc = local_80;
+                if (local_80 != (__shared_weak_count *)0x0) {
+                  p_Var15 = local_80 + 4;
+                  do {
+                    ExclusiveAccess(p_Var15);
+                    bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                  } while (!bVar3);
+                  *(int *)p_Var15 = *(int *)p_Var15 + 1;
+                }
+                CSRUIModalHandler::Push(pCVar10,&local_e0,0);
+                p_Var15 = local_dc;
+                if (local_dc != (__shared_weak_count *)0x0) {
+                  p_Var22 = local_dc + 4;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var22);
+                    iVar9 = *(int *)p_Var22;
+                    bVar3 = (bool)hasExclusiveAccess(p_Var22);
+                  } while (!bVar3);
+                  *(int *)p_Var22 = iVar9 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar9 == 0) {
+                    (**(code **)(*(int *)local_dc + 8))(local_dc);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                  }
+                }
+                p_Var15 = local_80;
+                if (local_80 != (__shared_weak_count *)0x0) {
+                  p_Var22 = local_80 + 4;
+                  DataMemoryBarrier(0x1b);
+                  do {
+                    ExclusiveAccess(p_Var22);
+                    iVar9 = *(int *)p_Var22;
+                    bVar3 = (bool)hasExclusiveAccess(p_Var22);
+                  } while (!bVar3);
+                  *(int *)p_Var22 = iVar9 + -1;
+                  DataMemoryBarrier(0x1b);
+                  if (iVar9 == 0) {
+                    (**(code **)(*(int *)local_80 + 8))(local_80);
+                    std::__ndk1::__shared_weak_count::__release_weak(p_Var15);
+                  }
+                }
+                if (bVar2) goto LAB_00d7228a;
+LAB_00d72518:
+                std::__ndk1::__shared_weak_count::__release_weak(local_f0);
+                if (!bVar8) {
+                  std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+                  std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+                }
+              }
+              else {
+                pCVar16 = (CSRSupply *)CSRSupply::get();
+                if (!bVar8) {
+                  p_Var15 = p_Var14 + 8;
+                  do {
+                    ExclusiveAccess(p_Var15);
+                    bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                  } while (!bVar3);
+                  *(int *)p_Var15 = *(int *)p_Var15 + 1;
+                }
+                if (!bVar2) {
+                  p_Var15 = local_f0 + 8;
+                  do {
+                    ExclusiveAccess(p_Var15);
+                    bVar3 = (bool)hasExclusiveAccess(p_Var15);
+                  } while (!bVar3);
+                  *(int *)p_Var15 = *(int *)p_Var15 + 1;
+                }
+                local_48 = (int *)0x0;
+                local_48 = operator_new(0x14);
+                *local_48 = DAT_00d7216c + 0xd72126;
+                local_48[1] = iVar28;
+                local_48[2] = (int)p_Var14;
+                local_48[3] = iVar9;
+                local_48[4] = (int)local_f0;
+                CSRSupply::RequestActivityReward(pCVar16,pbVar30,aiStack_58);
+                if (aiStack_58 == local_48) {
+                  pcVar23 = *(code **)(*local_48 + 0x10);
+LAB_00d72280:
+                  (*pcVar23)();
+                }
+                else if (local_48 != (int *)0x0) {
+                  pcVar23 = *(code **)(*local_48 + 0x14);
+                  goto LAB_00d72280;
+                }
+                if (!bVar2) goto LAB_00d72518;
+LAB_00d7228a:
+                if (bVar8) goto LAB_00d71ddc;
+                std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+                local_f0 = p_Var14;
+              }
+              std::__ndk1::__shared_weak_count::__release_weak(local_f0);
+              goto LAB_00d71ddc;
+            }
+            CGMDataMgr::get();
+            fVar31 = (float)CGMDataMgr::GetLocalizedText((char *)&local_40);
+            Toast((basic_string *)&local_40,'\0',fVar31);
+          }
+          if (((uint)local_40 & 1) != 0) {
+            operator_delete(local_38);
+          }
+        }
+LAB_00d71ddc:
+        p_Var11 = p_Var11 + 0x34;
+      } while (p_Var11 != p_Var21);
+    }
+    p_Var21 = local_7c;
+    if (local_7c != (__shared_weak_count *)0x0) {
+      while (p_Var11 = local_78, p_Var11 != p_Var21) {
+        if (((byte)p_Var11[-0x18] & 1) != 0) {
+          operator_delete(*(void **)(p_Var11 + -0x10));
+        }
+        if (((byte)p_Var11[-0x24] & 1) != 0) {
+          operator_delete(*(void **)(p_Var11 + -0x1c));
+        }
+        local_78 = p_Var11 + -0x34;
+        if (((byte)p_Var11[-0x30] & 1) != 0) {
+          operator_delete(*(void **)(p_Var11 + -0x28));
+        }
+      }
+      local_78 = p_Var21;
+      operator_delete(local_7c);
+    }
+  }
+  else {
+    iVar24 = -0x5e98526b - (int)puVar20;
+    if ((int)(-(uint)((undefined *)0xa167ad95 < puVar20) - iVar9) < 0 ==
+        (SBORROW4(0,iVar9) != SBORROW4(-iVar9,(uint)((undefined *)0xa167ad95 < puVar20)))) {
+      if (puVar20 == (undefined *)0x321d7a52 && iVar9 == 0) {
+LAB_00d71b3c:
+        if (*piVar29 == local_28) {
+                    /* WARNING: Could not recover jumptable at 0x00d71b5a. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+          (**(code **)(*(int *)this + 0x4c))(this,*(code **)(*(int *)this + 0x4c),*piVar29,iVar24);
+          return;
+        }
+        goto LAB_00d725a4;
+      }
+      if (iVar9 == 0 && puVar20 == (undefined *)0x7cf2c7d1) {
+        std::__ndk1::shared_ptr<CSRPopUpHelp>::make_shared<>((shared_ptr<CSRPopUpHelp> *)&local_7c);
+        (**(code **)(*(int *)local_7c + 8))(local_7c,0);
+        p_Var21 = local_7c;
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>
+                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )&local_40,(char *)(DAT_00d71cdc + 0xd71a80));
+        CSRPopUpHelp::ShortcutState((CSRPopUpHelp *)p_Var21,1,&local_40);
+        if (((uint)local_40 & 1) != 0) {
+          operator_delete(local_38);
+        }
+        pCVar10 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+        local_60 = local_7c;
+        local_5c = local_78;
+        if (local_78 != (__shared_weak_count *)0x0) {
+          p_Var21 = local_78 + 4;
+          do {
+            ExclusiveAccess(p_Var21);
+            bVar2 = (bool)hasExclusiveAccess(p_Var21);
+          } while (!bVar2);
+          *(int *)p_Var21 = *(int *)p_Var21 + 1;
+        }
+        CSRUIModalHandler::Push(pCVar10,&local_60,0);
+        p_Var21 = local_5c;
+        if (local_5c != (__shared_weak_count *)0x0) {
+          p_Var11 = local_5c + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var11);
+            iVar9 = *(int *)p_Var11;
+            bVar2 = (bool)hasExclusiveAccess(p_Var11);
+          } while (!bVar2);
+          *(int *)p_Var11 = iVar9 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar9 == 0) {
+            (**(code **)(*(int *)local_5c + 8))(local_5c);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+          }
+        }
+        if (local_78 != (__shared_weak_count *)0x0) {
+          p_Var21 = local_78 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var21);
+            iVar9 = *(int *)p_Var21;
+            bVar2 = (bool)hasExclusiveAccess(p_Var21);
+          } while (!bVar2);
+          *(int *)p_Var21 = iVar9 + -1;
+          p_Var21 = local_78;
+          goto LAB_00d71d78;
+        }
+      }
+      goto LAB_00d71d8c;
+    }
+    if (puVar20 == (undefined *)0xa167ad96 && iVar9 == 0) {
+      std::__ndk1::shared_ptr<CSRSceneVIP>::make_shared<>((shared_ptr<CSRSceneVIP> *)&local_40);
+      (**(code **)(*(int *)local_40 + 8))(local_40,0);
+      this_00 = local_40;
+      pCVar17 = (CSRDataMgr *)CSRDataMgr::get();
+      this_02 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar17);
+      iVar9 = CSRPlayData::GetUserVIPLevel(this_02);
+      CSRSceneVIP::SetCurVipInfo(this_00,iVar9);
+      pCVar10 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+      local_68 = local_40;
+      local_64 = local_3c;
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var21 = local_3c + 4;
+        do {
+          ExclusiveAccess(p_Var21);
+          bVar2 = (bool)hasExclusiveAccess(p_Var21);
+        } while (!bVar2);
+        *(int *)p_Var21 = *(int *)p_Var21 + 1;
+      }
+      CSRUIModalHandler::Push(pCVar10,&local_68,0);
+      p_Var21 = local_64;
+      if (local_64 != (__shared_weak_count *)0x0) {
+        p_Var11 = local_64 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var11);
+          iVar9 = *(int *)p_Var11;
+          bVar2 = (bool)hasExclusiveAccess(p_Var11);
+        } while (!bVar2);
+        *(int *)p_Var11 = iVar9 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar9 == 0) {
+          (**(code **)(*(int *)local_64 + 8))(local_64);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+        }
+      }
+      if (local_3c != (__shared_weak_count *)0x0) {
+        p_Var21 = local_3c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var21);
+          iVar9 = *(int *)p_Var21;
+          bVar2 = (bool)hasExclusiveAccess(p_Var21);
+        } while (!bVar2);
+        *(int *)p_Var21 = iVar9 + -1;
+        p_Var21 = local_3c;
+LAB_00d71d78:
+        DataMemoryBarrier(0x1b);
+        if (iVar9 == 0) {
+          (**(code **)(*(int *)p_Var21 + 8))(p_Var21);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+        }
+      }
+      goto LAB_00d71d8c;
+    }
+    if (iVar9 != 0 || puVar20 != (undefined *)0xb7600a3b) goto LAB_00d71d8c;
+    std::__ndk1::shared_ptr<CSRPopupGuildRankBonus>::make_shared<>
+              ((shared_ptr<CSRPopupGuildRankBonus> *)&local_7c);
+    (**(code **)(*(int *)local_7c + 8))(local_7c,0);
+    this_01 = (CSRGuild *)CSRGuild::get();
+    iVar9 = CSRGuild::GetMyGuildPlayData(this_01);
+    if (*(int *)(iVar9 + 4) == 3) {
+      uVar32 = CSRGuild::get();
+      pIVar12 = (INFO *)CSRGuild::Find(uVar32);
+      CSRPopupGuildRankBonus::SetGuildInfo((CSRPopupGuildRankBonus *)local_7c,pIVar12);
+      pCVar10 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+      local_70 = local_7c;
+      local_6c = local_78;
+      if (local_78 != (__shared_weak_count *)0x0) {
+        p_Var21 = local_78 + 4;
+        do {
+          ExclusiveAccess(p_Var21);
+          bVar2 = (bool)hasExclusiveAccess(p_Var21);
+        } while (!bVar2);
+        *(int *)p_Var21 = *(int *)p_Var21 + 1;
+      }
+      CSRUIModalHandler::Push(pCVar10,&local_70,0);
+      p_Var21 = local_6c;
+      if (local_6c != (__shared_weak_count *)0x0) {
+        p_Var11 = local_6c + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var11);
+          iVar9 = *(int *)p_Var11;
+          bVar2 = (bool)hasExclusiveAccess(p_Var11);
+        } while (!bVar2);
+        *(int *)p_Var11 = iVar9 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar9 == 0) {
+          (**(code **)(*(int *)local_6c + 8))(local_6c);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+        }
+      }
+      if (local_78 != (__shared_weak_count *)0x0) {
+        p_Var21 = local_78 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var21);
+          iVar9 = *(int *)p_Var21;
+          bVar2 = (bool)hasExclusiveAccess(p_Var21);
+        } while (!bVar2);
+        *(int *)p_Var21 = iVar9 + -1;
+        p_Var21 = local_78;
+        goto LAB_00d71d78;
+      }
+      goto LAB_00d71d8c;
+    }
+    CGMDataMgr::get();
+    fVar31 = (float)CGMDataMgr::GetLocalizedText((char *)&local_40);
+    Toast((basic_string *)&local_40,'\0',fVar31);
+    if (((uint)local_40 & 1) != 0) {
+      operator_delete(local_38);
+    }
+    p_Var21 = local_78;
+    if (local_78 != (__shared_weak_count *)0x0) {
+      p_Var11 = local_78 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar9 = *(int *)p_Var11;
+        bVar2 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar2);
+      *(int *)p_Var11 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)local_78 + 8))(local_78);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var21);
+      }
+    }
+  }
+  if (*piVar29 == local_28) {
+    return;
+  }
+LAB_00d725a4:
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== d7331c Load @ 00d7331c =====
+
+/* CSRCellSupplyFuel::Load(CSRCellSupplyFuel::INFO const&) */
+
+void __thiscall CSRCellSupplyFuel::Load(CSRCellSupplyFuel *this,INFO *param_1)
+
+{
+  bool bVar1;
+  CSRUITextbox *pCVar2;
+  CMDrawable *pCVar3;
+  __shared_weak_count *p_Var4;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_00;
+  basic_string *pbVar5;
+  int *piVar6;
+  CRMShader2 *pCVar7;
+  char *pcVar8;
+  int iVar9;
+  INFO *pIVar10;
+  __shared_weak_count *p_Var11;
+  uint uVar12;
+  CSRCellSupplyFuel *pCVar13;
+  int *piVar14;
+  undefined4 local_5b4;
+  __shared_weak_count *local_5b0;
+  char *local_5ac;
+  CSRUITextbox *local_5a8;
+  __shared_weak_count *local_5a4;
+  undefined4 local_5a0;
+  __shared_weak_count *local_59c;
+  char *local_598;
+  undefined4 local_590;
+  undefined4 uStack_58c;
+  CMHashID local_588 [8];
+  void *local_580;
+  int iStack_28;
+  
+  piVar14 = *(int **)(DAT_00d736d0 + 0xd73336);
+  iStack_28 = *piVar14;
+  CMHashID::CMHashID(local_588,(char *)(DAT_00d736d4 + 0xd73348));
+  pCVar13 = this + 4;
+  CMNode<CMUpdatable>::
+  FindCast<CMUIButton,CMUpdatable::FindCastByName<CMUIButton>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_5b4,pCVar13,local_588);
+  pCVar2 = local_5b4;
+  local_590 = 0;
+  uStack_58c = 0;
+  local_5a0 = (CMUpdatable *)0x0;
+  local_59c = (__shared_weak_count *)0x0;
+  local_598 = (char *)0x0;
+  CMHashID::Set((CMHashID *)&local_5a0,(basic_string *)(param_1 + 4));
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (pCVar2 + 600) !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)&local_5a0)
+  {
+    p_Var11 = local_59c;
+    pcVar8 = local_598;
+    if (((uint)local_5a0 & 1) == 0) {
+      pcVar8 = (char *)((int)&local_5a0 + 1);
+      p_Var11 = (__shared_weak_count *)((uint)local_5a0 >> 1 & 0x7f);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (pCVar2 + 600),pcVar8,(uint)p_Var11);
+  }
+  *(undefined4 *)(pCVar2 + 0x268) = local_590;
+  *(undefined4 *)(pCVar2 + 0x26c) = uStack_58c;
+  if (((uint)local_5a0 & 1) != 0) {
+    operator_delete(local_598);
+  }
+  p_Var11 = local_5b0;
+  if (local_5b0 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_5b0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar9 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*(int *)local_5b0 + 8))(local_5b0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+    }
+  }
+  if (((byte)local_588[0] & 1) != 0) {
+    operator_delete(local_580);
+  }
+  CMHashID::CMHashID(local_588,(char *)(DAT_00d736d8 + 0xd733e8));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_5b4,pCVar13,local_588);
+  pCVar2 = local_5b4;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               &local_5a0,(basic_string *)(param_1 + 0x10));
+  this_00 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                      ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)&local_5a0,(char *)(DAT_00d736dc + 0xd73408),3);
+  uVar12 = *(uint *)(param_1 + 0x20);
+  pIVar10 = *(INFO **)(param_1 + 0x24);
+  if (((byte)param_1[0x1c] & 1) == 0) {
+    pIVar10 = param_1 + 0x1d;
+    uVar12 = (uint)((byte)param_1[0x1c] >> 1);
+  }
+  pbVar5 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                     (this_00,(char *)pIVar10,uVar12);
+  CSRUITextbox::SetText(pCVar2,pbVar5,'\0');
+  if (((uint)local_5a0 & 1) != 0) {
+    operator_delete(local_598);
+  }
+  p_Var11 = local_5b0;
+  if (local_5b0 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_5b0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar9 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*(int *)local_5b0 + 8))(local_5b0);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+    }
+  }
+  if (((byte)local_588[0] & 1) != 0) {
+    operator_delete(local_580);
+  }
+  CMHashID::CMHashID(local_588,(char *)(DAT_00d736e0 + 0xd73480));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_5a8,pCVar13,local_588);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_5a0,(char *)(DAT_00d736e4 + 0xd73496));
+  std::__ndk1::to_string((__ndk1 *)&local_5b4,*(uint *)(param_1 + 0x28));
+  p_Var11 = local_5b0;
+  pcVar8 = local_5ac;
+  if (((uint)local_5b4 & 1) == 0) {
+    pcVar8 = (char *)((int)&local_5b4 + 1);
+    p_Var11 = (__shared_weak_count *)((uint)local_5b4 >> 1 & 0x7f);
+  }
+  pbVar5 = (basic_string *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                     ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                       *)&local_5a0,pcVar8,(uint)p_Var11);
+  CSRUITextbox::SetText(local_5a8,pbVar5,'\0');
+  if (((uint)local_5b4 & 1) != 0) {
+    operator_delete(local_5ac);
+  }
+  if (((uint)local_5a0 & 1) != 0) {
+    operator_delete(local_598);
+  }
+  if (local_5a4 != (__shared_weak_count *)0x0) {
+    p_Var11 = local_5a4 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var11);
+      iVar9 = *(int *)p_Var11;
+      bVar1 = (bool)hasExclusiveAccess(p_Var11);
+    } while (!bVar1);
+    *(int *)p_Var11 = iVar9 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar9 == 0) {
+      (**(code **)(*(int *)local_5a4 + 8))(local_5a4);
+      std::__ndk1::__shared_weak_count::__release_weak(local_5a4);
+    }
+  }
+  if (((byte)local_588[0] & 1) != 0) {
+    operator_delete(local_580);
+  }
+  switch(*(undefined4 *)param_1) {
+  case 0:
+    CMHashID::CMHashID(local_588,(char *)(DAT_00d736e8 + 0xd7353c));
+    CMNode<CMUpdatable>::
+    FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5a0,pCVar13,local_588);
+    CMUpdatable::SetVisible(local_5a0,'\0');
+    if (local_59c != (__shared_weak_count *)0x0) {
+      p_Var11 = local_59c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar9 = *(int *)p_Var11;
+        bVar1 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar1);
+      *(int *)p_Var11 = iVar9 + -1;
+LAB_00d737c6:
+      p_Var11 = local_59c;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)local_59c + 8))(local_59c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+      }
+    }
+    break;
+  case 1:
+    CMHashID::CMHashID(local_588,(char *)(DAT_00d73a18 + 0xd73798));
+    CMNode<CMUpdatable>::
+    FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5a0,pCVar13,local_588);
+    CMUpdatable::SetVisible(local_5a0,'\0');
+    if (local_59c != (__shared_weak_count *)0x0) {
+      p_Var11 = local_59c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar9 = *(int *)p_Var11;
+        bVar1 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar1);
+      *(int *)p_Var11 = iVar9 + -1;
+      goto LAB_00d737c6;
+    }
+    break;
+  case 2:
+    local_5a0 = (CMUpdatable *)&DAT_3f19999a;
+    local_59c = (__shared_weak_count *)&LAB_3f800000;
+    CMShader::CM_GRAYSCALE::Dump((CM_GRAYSCALE *)local_588);
+    CMDrawable::SetRenderOption((CMDrawable *)this,(CM_GRAYSCALE *)local_588,0);
+    CRMRenderParam::~CRMRenderParam((CRMRenderParam *)local_588);
+    CMHashID::CMHashID((CMHashID *)&local_5a0,(char *)(DAT_00d736ec + 0xd735a2));
+    CMNode<CMUpdatable>::
+    FindCast<CSRUIImageNode,CMUpdatable::FindCastByName<CSRUIImageNode>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5b4,pCVar13,(CMHashID *)&local_5a0);
+    pCVar3 = (CMDrawable *)local_5b4;
+    piVar6 = (int *)**(undefined4 **)(**(int **)(DAT_00d736f0 + 0xd735b8) + 4);
+    pCVar7 = (CRMShader2 *)(**(code **)(*piVar6 + 0x44))(piVar6,4);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)local_588,pCVar7);
+    CMDrawable::SetRenderOption(pCVar3,local_588,1);
+    CRMRenderParam::~CRMRenderParam((CRMRenderParam *)local_588);
+    p_Var11 = local_5b0;
+    if (local_5b0 != (__shared_weak_count *)0x0) {
+      p_Var4 = local_5b0 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar9 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)local_5b0 + 8))(local_5b0);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+      }
+    }
+    if (((uint)local_5a0 & 1) != 0) {
+      operator_delete(local_598);
+    }
+    CMHashID::CMHashID(local_588,(char *)(DAT_00d736f4 + 0xd73620));
+    CMNode<CMUpdatable>::
+    FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5b4,pCVar13,local_588);
+    CGMDataMgr::get();
+    CGMDataMgr::GetLocalizedText((char *)&local_5a0);
+    CSRUITextbox::SetText(local_5b4,(basic_string *)&local_5a0,'\0');
+    if (((uint)local_5a0 & 1) != 0) {
+      operator_delete(local_598);
+    }
+    if (local_5b0 != (__shared_weak_count *)0x0) {
+      p_Var11 = local_5b0 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar9 = *(int *)p_Var11;
+        bVar1 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar1);
+      *(int *)p_Var11 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)local_5b0 + 8))(local_5b0);
+        std::__ndk1::__shared_weak_count::__release_weak(local_5b0);
+      }
+    }
+    if (((byte)local_588[0] & 1) != 0) {
+      operator_delete(local_580);
+    }
+    CMHashID::CMHashID(local_588,(char *)(DAT_00d736fc + 0xd7369a));
+    CMNode<CMUpdatable>::
+    FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5a0,pCVar13,local_588);
+    CMUpdatable::SetVisible(local_5a0,'\x01');
+    if (local_59c != (__shared_weak_count *)0x0) {
+      p_Var11 = local_59c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar9 = *(int *)p_Var11;
+        bVar1 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar1);
+      *(int *)p_Var11 = iVar9 + -1;
+      goto LAB_00d737c6;
+    }
+    break;
+  case 3:
+    CMHashID::CMHashID(local_588,(char *)(DAT_00d73a1c + 0xd73708));
+    CMNode<CMUpdatable>::
+    FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5a0,pCVar13,local_588);
+    CMUpdatable::SetVisible(local_5a0,'\0');
+    p_Var11 = local_59c;
+    if (local_59c != (__shared_weak_count *)0x0) {
+      p_Var4 = local_59c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar9 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar9 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar9 == 0) {
+        (**(code **)(*(int *)local_59c + 8))(local_59c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var11);
+      }
+    }
+    if (((byte)local_588[0] & 1) != 0) {
+      operator_delete(local_580);
+    }
+    CMHashID::CMHashID(local_588,(char *)(DAT_00d73a20 + 0xd73760));
+    CMNode<CMUpdatable>::
+    FindCast<CMDrawable,CMUpdatable::FindCastByName<CMDrawable>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+              (&local_5a0,pCVar13,local_588);
+    CMUpdatable::SetVisible(local_5a0,'\x01');
+    if (local_59c != (__shared_weak_count *)0x0) {
+      p_Var11 = local_59c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var11);
+        iVar9 = *(int *)p_Var11;
+        bVar1 = (bool)hasExclusiveAccess(p_Var11);
+      } while (!bVar1);
+      *(int *)p_Var11 = iVar9 + -1;
+      goto LAB_00d737c6;
+    }
+    break;
+  default:
+    goto switchD_00d73528_default;
+  }
+  if (((byte)local_588[0] & 1) != 0) {
+    operator_delete(local_580);
+  }
+switchD_00d73528_default:
+  if (*piVar14 != iStack_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== d729bc InitNoti @ 00d729bc =====
+
+/* CSRPopUpSupplyFuel::InitNoti() */
+
+void CSRPopUpSupplyFuel::InitNoti(void)
+
+{
+  bool bVar1;
+  CGMLocalDB *this;
+  __shared_weak_count *p_Var2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  int iVar5;
+  uint *puVar6;
+  int *piVar7;
+  uint local_30;
+  __shared_weak_count *p_Stack_2c;
+  void *local_28;
+  CMUpdatable *local_24;
+  __shared_weak_count *local_20;
+  int local_1c;
+  
+  puVar6 = *(uint **)(DAT_00d72b54 + 0xd729d0);
+  piVar7 = *(int **)(DAT_00d72b58 + 0xd729d2);
+  this = (CGMLocalDB *)*puVar6;
+  local_1c = *piVar7;
+  if (this == (CGMLocalDB *)0x0) {
+    CMSingleton::get<CSRLocalDB,CMSingleton::DefaultAlloc<CSRLocalDB>,CMSpinLock>
+              ((CMSingleton *)&local_30);
+    *puVar6 = local_30;
+    if (p_Stack_2c != (__shared_weak_count *)0x0) {
+      p_Var2 = p_Stack_2c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var2);
+        iVar4 = *(int *)p_Var2;
+        bVar1 = (bool)hasExclusiveAccess(p_Var2);
+      } while (!bVar1);
+      *(int *)p_Var2 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)p_Stack_2c + 8))(p_Stack_2c);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Stack_2c);
+      }
+    }
+    this = (CGMLocalDB *)*puVar6;
+  }
+  iVar4 = CGMLocalDB::GetLocaNotification(this,(basic_string *)(DAT_00d72b5c + 0xd72a36));
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_30,(char *)(DAT_00d72b60 + 0xd72a2e));
+  CSRFramedScene::FindCastByName<CMDrawable>((basic_string *)&local_24);
+  CMUpdatable::SetVisible(local_24,iVar4 == 0);
+  p_Var2 = local_20;
+  if (local_20 != (__shared_weak_count *)0x0) {
+    p_Var3 = local_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_20 + 8))(local_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var2);
+    }
+  }
+  if ((local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>
+            ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_30,(char *)(DAT_00d72b64 + 0xd72a8a));
+  CSRFramedScene::FindCastByName<CMDrawable>((basic_string *)&local_24);
+  CMUpdatable::SetVisible(local_24,(uchar)iVar4);
+  if (local_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = local_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar4 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar4 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar4 == 0) {
+      (**(code **)(*(int *)local_20 + 8))(local_20);
+      std::__ndk1::__shared_weak_count::__release_weak(local_20);
+    }
+  }
+  if ((local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+  if (*piVar7 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== f4ac0c ParseLoginBonusInst @ 00f4ac0c =====
+
+/* CSRSupply::ParseLoginBonusInst(nlohmann::basic_json<std::__ndk1::map, std::__ndk1::vector,
+   std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   bool, long long, unsigned long long, double, std::__ndk1::allocator, nlohmann::adl_serializer,
+   std::__ndk1::vector<unsigned char, std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall CSRSupply::ParseLoginBonusInst(CSRSupply *this,basic_json *param_1)
+
+{
+  vector<unsigned_int,std::__ndk1::allocator<unsigned_int>> *this_00;
+  uint *puVar1;
+  basic_json bVar2;
+  int iVar3;
+  basic_json *pbVar4;
+  uint uVar5;
+  byte *pbVar6;
+  undefined4 extraout_r0;
+  undefined4 extraout_r0_00;
+  uint uVar7;
+  undefined1 *puVar8;
+  undefined4 extraout_r0_01;
+  uint *puVar9;
+  undefined4 extraout_r1;
+  undefined4 extraout_r1_00;
+  undefined4 extraout_r1_01;
+  uint *puVar10;
+  uint *puVar11;
+  char *pcVar12;
+  uint *puVar13;
+  int *piVar14;
+  double dVar15;
+  uint local_2c;
+  int local_28;
+  
+  iVar3 = DAT_00f4ae70;
+  piVar14 = *(int **)(DAT_00f4ae6c + 0xf4ac22);
+  local_28 = *piVar14;
+  this_00 = (vector<unsigned_int,std::__ndk1::allocator<unsigned_int>> *)(this + 0xc);
+  *(undefined4 *)(this + 0x10) = *(undefined4 *)this_00;
+  pbVar4 = nlohmann::
+           basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+           ::operator[]<char_const>
+                     ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                       *)param_1,(char *)(iVar3 + 0xf4ac3a));
+  switch(*pbVar4) {
+  case (basic_json)0x3:
+    pbVar6 = *(byte **)(pbVar4 + 8);
+    if ((*pbVar6 & 1) == 0) {
+      pbVar6 = pbVar6 + 1;
+    }
+    else {
+      pbVar6 = *(byte **)(pbVar6 + 8);
+    }
+    strtod((char *)pbVar6,(char **)0x0);
+    dVar15 = (double)CONCAT44(extraout_r1,extraout_r0);
+    goto LAB_00f4ac76;
+  case (basic_json)0x4:
+    uVar5 = (uint)(byte)pbVar4[8];
+    break;
+  case (basic_json)0x5:
+  case (basic_json)0x6:
+    uVar5 = *(uint *)(pbVar4 + 8);
+    break;
+  case (basic_json)0x7:
+    dVar15 = *(double *)(pbVar4 + 8);
+LAB_00f4ac76:
+    uVar5 = (uint)(0.0 < dVar15) * (int)(longlong)dVar15;
+    break;
+  default:
+    uVar5 = 0;
+  }
+  iVar3 = DAT_00f4ae74;
+  *(uint *)(this + 4) = uVar5;
+  pbVar4 = nlohmann::
+           basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+           ::operator[]<char_const>
+                     ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                       *)param_1,(char *)(iVar3 + 0xf4ac88));
+  switch(*pbVar4) {
+  case (basic_json)0x3:
+    pbVar6 = *(byte **)(pbVar4 + 8);
+    if ((*pbVar6 & 1) == 0) {
+      pbVar6 = pbVar6 + 1;
+    }
+    else {
+      pbVar6 = *(byte **)(pbVar6 + 8);
+    }
+    strtod((char *)pbVar6,(char **)0x0);
+    dVar15 = (double)CONCAT44(extraout_r1_00,extraout_r0_00);
+    goto LAB_00f4acc4;
+  case (basic_json)0x4:
+    uVar5 = (uint)(byte)pbVar4[8];
+    break;
+  case (basic_json)0x5:
+  case (basic_json)0x6:
+    uVar5 = *(uint *)(pbVar4 + 8);
+    break;
+  case (basic_json)0x7:
+    dVar15 = *(double *)(pbVar4 + 8);
+LAB_00f4acc4:
+    uVar5 = (uint)(0.0 < dVar15) * (int)(longlong)dVar15;
+    break;
+  default:
+    uVar5 = 0;
+  }
+  *(uint *)(this + 8) = uVar5;
+  uVar5 = 0;
+  pcVar12 = (char *)(DAT_00f4ae78 + 0xf4acda);
+  while( true ) {
+    pbVar4 = nlohmann::
+             basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             ::operator[]<char_const>
+                       ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                         *)param_1,pcVar12);
+    bVar2 = *pbVar4;
+    if (bVar2 == (basic_json)0x0) break;
+    if (bVar2 == (basic_json)0x1) {
+      uVar7 = *(uint *)(*(int *)(pbVar4 + 8) + 8);
+joined_r0x00f4ad14:
+      if (uVar7 <= uVar5) break;
+    }
+    else {
+      if (bVar2 == (basic_json)0x2) {
+        uVar7 = (*(int **)(pbVar4 + 8))[1] - **(int **)(pbVar4 + 8) >> 4;
+        goto joined_r0x00f4ad14;
+      }
+      if (uVar5 != 0) break;
+    }
+    pbVar4 = nlohmann::
+             basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             ::operator[]<char_const>
+                       ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                         *)param_1,pcVar12);
+    puVar8 = (undefined1 *)
+             nlohmann::
+             basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             ::operator[]((uint)pbVar4);
+    switch(*puVar8) {
+    case 3:
+      pbVar6 = *(byte **)(puVar8 + 8);
+      if ((*pbVar6 & 1) == 0) {
+        pbVar6 = pbVar6 + 1;
+      }
+      else {
+        pbVar6 = *(byte **)(pbVar6 + 8);
+      }
+      strtod((char *)pbVar6,(char **)0x0);
+      dVar15 = (double)CONCAT44(extraout_r1_01,extraout_r0_01);
+      goto LAB_00f4ad66;
+    case 4:
+      local_2c = (uint)(byte)puVar8[8];
+      break;
+    case 5:
+    case 6:
+      local_2c = *(uint *)(puVar8 + 8);
+      break;
+    case 7:
+      dVar15 = *(double *)(puVar8 + 8);
+LAB_00f4ad66:
+      local_2c = (uint)(0.0 < dVar15) * (int)(longlong)dVar15;
+      break;
+    default:
+      local_2c = 0;
+    }
+    puVar9 = *(uint **)(this + 0x10);
+    if (puVar9 < *(uint **)(this + 0x14)) {
+      *puVar9 = local_2c;
+      uVar5 = uVar5 + 1;
+      *(uint **)(this + 0x10) = puVar9 + 1;
+    }
+    else {
+      std::__ndk1::vector<unsigned_int,std::__ndk1::allocator<unsigned_int>>::
+      __push_back_slow_path<unsigned_int>(this_00,&local_2c);
+      uVar5 = uVar5 + 1;
+    }
+  }
+  puVar9 = *(uint **)(this + 0xc);
+  puVar11 = *(uint **)(this + 0x10);
+  if ((int)puVar11 - (int)puVar9 == 0) {
+    if ((*(int *)(this + 4) != 1) && (local_2c = 1, *(int *)(this + 4) != 0)) {
+      while( true ) {
+        if (puVar11 == *(uint **)(this + 0x14)) {
+          std::__ndk1::vector<unsigned_int,std::__ndk1::allocator<unsigned_int>>::
+          __push_back_slow_path<unsigned_int_const&>(this_00,&local_2c);
+        }
+        else {
+          *puVar11 = local_2c;
+          *(uint **)(this + 0x10) = puVar11 + 1;
+        }
+        local_2c = local_2c + 1;
+        if (*(uint *)(this + 4) <= local_2c) break;
+        puVar11 = *(uint **)(this + 0x10);
+      }
+    }
+  }
+  else {
+    uVar5 = *(uint *)(this + 4);
+    puVar13 = puVar9;
+    if ((puVar9 != puVar11) && (*puVar9 != uVar5)) {
+      puVar10 = puVar9;
+      do {
+        puVar13 = puVar11;
+        if (puVar11 + -1 == puVar10) break;
+        puVar13 = puVar10 + 1;
+        puVar1 = puVar10 + 1;
+        puVar10 = puVar13;
+      } while (*puVar1 != uVar5);
+    }
+    if ((uint)((int)puVar11 - (int)puVar9 >> 2) < uVar5) {
+      *(uint **)(this + 0x10) = puVar9;
+      if (puVar13 == puVar11) {
+        local_2c = 1;
+        if (1 < uVar5) {
+          while( true ) {
+            if (puVar9 == *(uint **)(this + 0x14)) {
+              std::__ndk1::vector<unsigned_int,std::__ndk1::allocator<unsigned_int>>::
+              __push_back_slow_path<unsigned_int_const&>(this_00,&local_2c);
+            }
+            else {
+              *puVar9 = local_2c;
+              *(uint **)(this + 0x10) = puVar9 + 1;
+            }
+            local_2c = local_2c + 1;
+            if (*(uint *)(this + 4) <= local_2c) break;
+            puVar9 = *(uint **)(this + 0x10);
+          }
+        }
+      }
+      else {
+        local_2c = 1;
+        while( true ) {
+          if (puVar9 == *(uint **)(this + 0x14)) {
+            std::__ndk1::vector<unsigned_int,std::__ndk1::allocator<unsigned_int>>::
+            __push_back_slow_path<unsigned_int_const&>(this_00,&local_2c);
+          }
+          else {
+            *puVar9 = local_2c;
+            *(uint **)(this + 0x10) = puVar9 + 1;
+          }
+          local_2c = local_2c + 1;
+          if (*(uint *)(this + 4) < local_2c) break;
+          puVar9 = *(uint **)(this + 0x10);
+        }
+      }
+    }
+  }
+  if (*piVar14 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== f4ae7c ParseLoginBonusRef @ 00f4ae7c =====
+
+/* WARNING (jumptable): Heritage AFTER dead removal. Revisit: 0xfffffe91 */
+/* WARNING: Restarted to delay deadcode elimination for space: stack */
+/* CSRSupply::ParseLoginBonusRef(nlohmann::basic_json<std::__ndk1::map, std::__ndk1::vector,
+   std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >,
+   bool, long long, unsigned long long, double, std::__ndk1::allocator, nlohmann::adl_serializer,
+   std::__ndk1::vector<unsigned char, std::__ndk1::allocator<unsigned char> > > const&) */
+
+void __thiscall CSRSupply::ParseLoginBonusRef(CSRSupply *this,basic_json *param_1)
+
+{
+  uint *puVar1;
+  basic_json bVar2;
+  ulonglong *puVar3;
+  ulonglong uVar4;
+  int *piVar5;
+  int iVar6;
+  char *pcVar7;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *this_00;
+  basic_json *pbVar8;
+  byte *pbVar9;
+  undefined4 extraout_r0;
+  undefined4 extraout_r0_00;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *pbVar10;
+  undefined4 extraout_r0_01;
+  uint uVar11;
+  void *pvVar12;
+  int *piVar13;
+  undefined4 extraout_r0_02;
+  undefined4 extraout_r0_03;
+  ulonglong *puVar14;
+  int *piVar15;
+  undefined4 extraout_r1;
+  undefined4 extraout_r1_00;
+  code *pcVar16;
+  undefined4 extraout_r1_01;
+  undefined4 extraout_r1_02;
+  undefined4 extraout_r1_03;
+  char *pcVar17;
+  uint uVar18;
+  int iVar19;
+  ulonglong *puVar20;
+  void *pvVar21;
+  uint uVar22;
+  uint *puVar23;
+  bool bVar24;
+  ulonglong *puVar25;
+  ulonglong *puVar26;
+  ulonglong *puVar27;
+  ulonglong *puVar28;
+  double dVar29;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *local_178;
+  ulonglong *puStack_174;
+  ulonglong *local_170;
+  ulonglong *puStack_16c;
+  ulonglong *local_168;
+  undefined8 uStack_164;
+  ulonglong *local_15c;
+  undefined8 local_158;
+  void *local_150;
+  uint uStack_14c;
+  uint local_148;
+  uint uStack_144;
+  void *local_140;
+  uint local_138;
+  undefined4 uStack_134;
+  void *local_130;
+  undefined8 local_128;
+  void *local_120;
+  uint local_11c;
+  undefined8 local_118;
+  void *local_110;
+  uint local_10c;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  *local_108;
+  int *local_104;
+  int *local_100;
+  undefined4 local_fc;
+  basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+  local_f8 [8];
+  int *local_f0 [2];
+  uint local_e8;
+  undefined4 uStack_e4;
+  void *local_e0;
+  ulonglong *local_d8;
+  ulonglong *puStack_d4;
+  ulonglong *puStack_d0;
+  ulonglong *local_cc;
+  ulonglong *local_c8;
+  ulonglong *puStack_c4;
+  ulonglong *puStack_c0;
+  ulonglong *local_bc;
+  ulonglong *local_b8;
+  ulonglong *puStack_b4;
+  ulonglong *puStack_b0;
+  ulonglong *local_ac;
+  ulonglong *local_a8;
+  ulonglong *puStack_a4;
+  ulonglong *puStack_a0;
+  ulonglong *puStack_9c;
+  undefined4 local_98;
+  basic_json *local_90;
+  int *piStack_8c;
+  int local_88;
+  undefined4 local_84;
+  basic_json *local_80;
+  int *local_7c;
+  int local_78;
+  uint local_74;
+  int aiStack_70 [4];
+  int *local_60;
+  int aiStack_58 [4];
+  int *local_48;
+  int local_3c;
+  
+  piVar15 = *(int **)(DAT_00f4b1e4 + 0xf4ae94);
+  local_3c = *piVar15;
+  iVar19 = *(int *)(this + 0x18);
+  iVar6 = *(int *)(this + 0x1c);
+  while (iVar6 != iVar19) {
+    if ((*(byte *)(iVar6 + -0xc) & 1) != 0) {
+      operator_delete(*(void **)(iVar6 + -4));
+    }
+    if ((*(byte *)(iVar6 + -0x18) & 1) != 0) {
+      operator_delete(*(void **)(iVar6 + -0x10));
+    }
+    iVar6 = iVar6 + -0x20;
+  }
+  *(int *)(this + 0x1c) = iVar19;
+  local_74 = 0x80000000;
+  local_78 = 0;
+  local_7c = (int *)0x0;
+  bVar2 = *param_1;
+  if (bVar2 == (basic_json)0x2) {
+    local_78 = **(int **)(param_1 + 8);
+    local_84 = 0x80000000;
+    piStack_8c = (int *)0x0;
+    local_88 = (*(int **)(param_1 + 8))[1];
+  }
+  else {
+    if (bVar2 == (basic_json)0x1) {
+      piStack_8c = *(int **)(param_1 + 8) + 1;
+      local_7c = (int *)**(int **)(param_1 + 8);
+      local_84 = 0x80000000;
+    }
+    else {
+      local_74 = (uint)(bVar2 == (basic_json)0x0);
+      local_84 = 1;
+      piStack_8c = (int *)0x0;
+    }
+    local_88 = 0;
+  }
+  local_90 = param_1;
+  local_80 = param_1;
+  iVar6 = nlohmann::detail::
+          iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+          ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                        *)&local_80,(iter_impl *)&local_90);
+  if (iVar6 == 0) {
+    puVar25 = (ulonglong *)0x0;
+    puVar26 = *(ulonglong **)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    puVar27 = *(ulonglong **)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    puVar28 = *(ulonglong **)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    pcVar7 = (char *)(DAT_00f4b1e8 + 0xf4af8c);
+    do {
+      this_00 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                 *)nlohmann::detail::
+                   iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                   ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                *)&local_80);
+      local_98 = 0;
+      local_d8 = puVar25;
+      puStack_d4 = puVar26;
+      puStack_d0 = puVar27;
+      local_cc = puVar28;
+      local_c8 = puVar25;
+      puStack_c4 = puVar26;
+      puStack_c0 = puVar27;
+      local_bc = puVar28;
+      local_b8 = puVar25;
+      puStack_b4 = puVar26;
+      puStack_b0 = puVar27;
+      local_ac = puVar28;
+      local_a8 = puVar25;
+      puStack_a4 = puVar26;
+      puStack_a0 = puVar27;
+      puStack_9c = puVar28;
+      pbVar8 = nlohmann::
+               basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+               ::operator[]<char_const>(this_00,pcVar7);
+      switch(*pbVar8) {
+      case (basic_json)0x3:
+        pbVar9 = *(byte **)(pbVar8 + 8);
+        if ((*pbVar9 & 1) == 0) {
+          pbVar9 = pbVar9 + 1;
+        }
+        else {
+          pbVar9 = *(byte **)(pbVar9 + 8);
+        }
+        strtod((char *)pbVar9,(char **)0x0);
+        dVar29 = (double)CONCAT44(extraout_r1,extraout_r0);
+        goto LAB_00f4b00c;
+      case (basic_json)0x4:
+        local_cc = (ulonglong *)(uint)(byte)pbVar8[8];
+        break;
+      case (basic_json)0x5:
+      case (basic_json)0x6:
+        local_cc = *(ulonglong **)(pbVar8 + 8);
+        break;
+      case (basic_json)0x7:
+        dVar29 = *(double *)(pbVar8 + 8);
+LAB_00f4b00c:
+        local_cc = (ulonglong *)((uint)(0.0 < dVar29) * (int)(longlong)dVar29);
+        break;
+      default:
+        local_cc = (ulonglong *)0x0;
+      }
+      pbVar8 = nlohmann::
+               basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+               ::operator[]<char_const>(this_00,(char *)(DAT_00f4b1ec + 0xf4b024));
+      switch(*pbVar8) {
+      case (basic_json)0x3:
+        pbVar9 = *(byte **)(pbVar8 + 8);
+        if ((*pbVar9 & 1) == 0) {
+          pbVar9 = pbVar9 + 1;
+        }
+        else {
+          pbVar9 = *(byte **)(pbVar9 + 8);
+        }
+        strtod((char *)pbVar9,(char **)0x0);
+        dVar29 = (double)CONCAT44(extraout_r1_00,extraout_r0_00);
+        goto LAB_00f4b05a;
+      case (basic_json)0x4:
+        local_bc = (ulonglong *)(uint)(byte)pbVar8[8];
+        break;
+      case (basic_json)0x5:
+      case (basic_json)0x6:
+        local_bc = *(ulonglong **)(pbVar8 + 8);
+        break;
+      case (basic_json)0x7:
+        dVar29 = *(double *)(pbVar8 + 8);
+LAB_00f4b05a:
+        local_bc = (ulonglong *)((uint)(0.0 < dVar29) * (int)(longlong)dVar29);
+        break;
+      default:
+        local_bc = (ulonglong *)0x0;
+      }
+      pbVar8 = nlohmann::
+               basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+               ::operator[]<char_const>(this_00,(char *)(DAT_00f4b1f0 + 0xf4b072));
+      local_e8 = 0;
+      uStack_e4 = 0;
+      local_e0 = (void *)0x0;
+      nlohmann::detail::
+      from_json<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>>
+                (pbVar8,(string_t *)&local_e8);
+      local_48 = (int *)0x0;
+      nlohmann::
+      basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+      ::
+      parse<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+                (local_f8,(string_t *)&local_e8,aiStack_58,1,0);
+      if (aiStack_58 == local_48) {
+        pcVar16 = *(code **)(*local_48 + 0x10);
+LAB_00f4b0ac:
+        (*pcVar16)();
+      }
+      else if (local_48 != (int *)0x0) {
+        pcVar16 = *(code **)(*local_48 + 0x14);
+        goto LAB_00f4b0ac;
+      }
+      puStack_16c = (ulonglong *)0x80000000;
+      local_178 = local_f8;
+      puStack_174 = (ulonglong *)0x0;
+      local_170 = (ulonglong *)0x0;
+      if (local_f8[0] ==
+          (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+           )0x2) {
+        local_170 = (ulonglong *)*local_f0[0];
+        local_fc = 0x80000000;
+        local_108 = local_f8;
+        local_104 = (int *)0x0;
+        local_100 = (int *)local_f0[0][1];
+      }
+      else if (local_f8[0] ==
+               (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                )0x1) {
+        local_104 = local_f0[0] + 1;
+        local_100 = (int *)0x0;
+        local_fc = 0x80000000;
+        local_108 = local_f8;
+        puStack_174 = (ulonglong *)*local_f0[0];
+      }
+      else {
+        puStack_16c = (ulonglong *)
+                      (uint)(local_f8[0] ==
+                            (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                             )0x0);
+        local_fc = 1;
+        local_108 = local_f8;
+        local_104 = (int *)0x0;
+        local_100 = (int *)0x0;
+      }
+      while( true ) {
+        iVar6 = nlohmann::detail::
+                iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                              *)&local_178,(iter_impl *)&local_108);
+        if (iVar6 != 0) break;
+        pbVar10 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                   *)nlohmann::detail::
+                     iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                     ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                  *)&local_178);
+        pbVar8 = nlohmann::
+                 basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                 ::operator[]<char_const>(pbVar10,(char *)(DAT_00f4b1f4 + 0xf4b132));
+        local_158 = 0;
+        local_150 = (void *)0x0;
+        nlohmann::detail::
+        from_json<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>>
+                  (pbVar8,(string_t *)&local_158);
+        pbVar8 = nlohmann::
+                 basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                 ::operator[]<char_const>(pbVar10,(char *)(DAT_00f4b1f8 + 0xf4b148));
+        switch(*pbVar8) {
+        case (basic_json)0x3:
+          pbVar9 = *(byte **)(pbVar8 + 8);
+          if ((*pbVar9 & 1) == 0) {
+            pbVar9 = pbVar9 + 1;
+          }
+          else {
+            pbVar9 = *(byte **)(pbVar9 + 8);
+          }
+          strtod((char *)pbVar9,(char **)0x0);
+          dVar29 = (double)CONCAT44(extraout_r1_01,extraout_r0_01);
+          goto LAB_00f4b18c;
+        case (basic_json)0x4:
+          uVar22 = (uint)(byte)pbVar8[8];
+          break;
+        case (basic_json)0x5:
+        case (basic_json)0x6:
+          uVar22 = *(uint *)(pbVar8 + 8);
+          break;
+        case (basic_json)0x7:
+          dVar29 = *(double *)(pbVar8 + 8);
+LAB_00f4b18c:
+          uVar22 = (uint)(longlong)dVar29;
+          break;
+        default:
+          uVar22 = 0;
+        }
+        pvVar21 = local_150;
+        local_128 = 0;
+        local_120 = (void *)0x0;
+        if ((local_158 & 1) == 0) {
+          local_120 = local_150;
+          local_128 = local_158;
+        }
+        else {
+          uVar18 = local_158._4_4_;
+          if (0xffffffef < local_158._4_4_) {
+                    /* WARNING: Subroutine does not return */
+            std::__ndk1::__basic_string_common<true>::__throw_length_error();
+          }
+          if (local_158._4_4_ < 0xb) {
+            local_128 = (ulonglong)((local_158._4_4_ & 0x7f) << 1);
+            pvVar12 = (void *)((int)&local_128 + 1);
+            if (local_158._4_4_ != 0) goto LAB_00f4b216;
+          }
+          else {
+            uVar11 = local_158._4_4_ + 0x10;
+            pvVar12 = operator_new(uVar11 & 0xfffffff0);
+            local_128 = CONCAT44(uVar18,uVar11) & 0xfffffffffffffff0 | 1;
+            local_120 = pvVar12;
+LAB_00f4b216:
+            __aeabi_memcpy(pvVar12,pvVar21,uVar18);
+          }
+          *(undefined1 *)((int)pvVar12 + uVar18) = 0;
+        }
+        pvVar21 = local_120;
+        local_118 = local_128;
+        local_128 = 0;
+        local_110 = local_120;
+        local_120 = (void *)0x0;
+        local_11c = uVar22;
+        local_10c = uVar22;
+        if (puStack_b4 < puStack_b0) {
+          *(void **)(puStack_b4 + 1) = pvVar21;
+          *puStack_b4 = local_118;
+          local_118 = 0;
+          local_110 = (void *)0x0;
+          *(uint *)((int)puStack_b4 + 0xc) = uVar22;
+          puStack_b4 = puStack_b4 + 2;
+        }
+        else {
+          std::__ndk1::
+          vector<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>,std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>>>
+          ::
+          __push_back_slow_path<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>>
+                    ((vector<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>,std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>>>
+                      *)&local_b8,(pair *)&local_118);
+          if ((local_118 & 1) != 0) {
+            operator_delete(local_110);
+          }
+        }
+        if ((local_128 & 1) != 0) {
+          operator_delete(local_120);
+        }
+        if ((local_158 & 1) != 0) {
+          operator_delete(local_150);
+        }
+        if (*local_178 ==
+            (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+             )0x2) {
+          local_170 = (ulonglong *)((int)local_170 + 0x10);
+        }
+        else if (*local_178 ==
+                 (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                  )0x1) {
+          piVar5 = *(int **)((int)puStack_174 + 4);
+          if (*(int **)((int)puStack_174 + 4) == (int *)0x0) {
+            while( true ) {
+              piVar5 = (int *)((int)puStack_174 + 8);
+              piVar13 = (int *)*piVar5;
+              bVar24 = (ulonglong *)*piVar13 == puStack_174;
+              puStack_174 = (ulonglong *)piVar13;
+              if (bVar24) break;
+              puStack_174 = (ulonglong *)*piVar5;
+            }
+          }
+          else {
+            do {
+              puStack_174 = (ulonglong *)piVar5;
+              piVar5 = *(int **)puStack_174;
+            } while (*(int **)puStack_174 != (int *)0x0);
+          }
+        }
+        else {
+          puStack_16c = (ulonglong *)((int)puStack_16c + 1);
+        }
+      }
+      pbVar8 = nlohmann::
+               basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+               ::operator[]<char_const>(this_00,(char *)(DAT_00f4b614 + 0xf4b2e2));
+      local_138 = 0;
+      uStack_134 = 0;
+      local_130 = (void *)0x0;
+      nlohmann::detail::
+      from_json<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>>
+                (pbVar8,(string_t *)&local_138);
+      local_60 = (int *)0x0;
+      nlohmann::
+      basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+      ::
+      parse<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const&>
+                ((basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                  *)&local_108,(string_t *)&local_138,aiStack_70,1,0);
+      if (aiStack_70 == local_60) {
+        pcVar16 = *(code **)(*local_60 + 0x10);
+LAB_00f4b31a:
+        (*pcVar16)();
+      }
+      else if (local_60 != (int *)0x0) {
+        pcVar16 = *(code **)(*local_60 + 0x14);
+        goto LAB_00f4b31a;
+      }
+      uVar22 = (uint)local_108 & 0xff;
+      puStack_16c = (ulonglong *)0x80000000;
+      local_178 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                   *)&local_108;
+      puStack_174 = (ulonglong *)0x0;
+      local_170 = (ulonglong *)0x0;
+      if (uVar22 == 2) {
+        local_170 = (ulonglong *)*local_100;
+        local_10c = 0x80000000;
+        local_118 = ZEXT48(&local_108);
+        local_110 = (void *)local_100[1];
+      }
+      else if (uVar22 == 1) {
+        local_110 = (void *)0x0;
+        local_10c = 0x80000000;
+        local_118 = CONCAT44(local_100 + 1,&local_108);
+        puStack_174 = (ulonglong *)*local_100;
+      }
+      else {
+        puStack_16c = (ulonglong *)(uint)(uVar22 == 0);
+        local_10c = 1;
+        local_110 = (void *)0x0;
+        local_118 = ZEXT48(&local_108);
+      }
+      while (iVar6 = nlohmann::detail::
+                     iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                     ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                   *)&local_178,(iter_impl *)&local_118), iVar6 == 0) {
+        pbVar10 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                   *)nlohmann::detail::
+                     iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                     ::operator*((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                                  *)&local_178);
+        pbVar8 = nlohmann::
+                 basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                 ::operator[]<char_const>(pbVar10,(char *)(DAT_00f4b618 + 0xf4b3a0));
+        local_148 = 0;
+        uStack_144 = 0;
+        local_140 = (void *)0x0;
+        nlohmann::detail::
+        from_json<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>>
+                  (pbVar8,(string_t *)&local_148);
+        pbVar8 = nlohmann::
+                 basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                 ::operator[]<char_const>(pbVar10,(char *)(DAT_00f4b61c + 0xf4b3b6));
+        switch(*pbVar8) {
+        case (basic_json)0x3:
+          pbVar9 = *(byte **)(pbVar8 + 8);
+          if ((*pbVar9 & 1) == 0) {
+            pbVar9 = pbVar9 + 1;
+          }
+          else {
+            pbVar9 = *(byte **)(pbVar9 + 8);
+          }
+          strtod((char *)pbVar9,(char **)0x0);
+          dVar29 = (double)CONCAT44(extraout_r1_02,extraout_r0_02);
+          goto LAB_00f4b3fa;
+        case (basic_json)0x4:
+          uVar22 = (uint)(byte)pbVar8[8];
+          break;
+        case (basic_json)0x5:
+        case (basic_json)0x6:
+          uVar22 = *(uint *)(pbVar8 + 8);
+          break;
+        case (basic_json)0x7:
+          dVar29 = *(double *)(pbVar8 + 8);
+LAB_00f4b3fa:
+          uVar22 = (uint)(longlong)dVar29;
+          break;
+        default:
+          uVar22 = 0;
+        }
+        pvVar21 = local_140;
+        uVar18 = uStack_144;
+        local_158 = 0;
+        local_150 = (void *)0x0;
+        if ((local_148 & 1) == 0) {
+          local_158 = CONCAT44(uStack_144,local_148);
+          local_150 = local_140;
+        }
+        else {
+          if (0xffffffef < uStack_144) {
+                    /* WARNING: Subroutine does not return */
+            std::__ndk1::__basic_string_common<true>::__throw_length_error();
+          }
+          if (uStack_144 < 0xb) {
+            local_158 = (ulonglong)((uStack_144 & 0x7f) << 1);
+            pvVar12 = (void *)((int)&local_158 + 1);
+            if (uStack_144 != 0) goto LAB_00f4b46c;
+          }
+          else {
+            uVar11 = uStack_144 + 0x10;
+            pvVar12 = operator_new(uVar11 & 0xfffffff0);
+            local_158 = CONCAT44(uVar18,uVar11) & 0xfffffffffffffff0 | 1;
+            local_150 = pvVar12;
+LAB_00f4b46c:
+            __aeabi_memcpy(pvVar12,pvVar21,uVar18);
+          }
+          *(undefined1 *)((int)pvVar12 + uVar18) = 0;
+        }
+        pvVar21 = local_150;
+        local_128 = local_158;
+        local_158 = 0;
+        local_120 = local_150;
+        local_150 = (void *)0x0;
+        uStack_14c = uVar22;
+        local_11c = uVar22;
+        if (local_a8 < puStack_a4) {
+          *(void **)(local_a8 + 1) = pvVar21;
+          *local_a8 = local_128;
+          local_128 = 0;
+          local_120 = (void *)0x0;
+          *(uint *)((int)local_a8 + 0xc) = uVar22;
+          local_a8 = local_a8 + 2;
+        }
+        else {
+          std::__ndk1::
+          vector<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>,std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>>>
+          ::
+          __push_back_slow_path<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>>
+                    ((vector<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>,std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,unsigned_int>>>
+                      *)&local_ac,(pair *)&local_128);
+          if ((local_128 & 1) != 0) {
+            operator_delete(local_120);
+          }
+        }
+        if ((local_158 & 1) != 0) {
+          operator_delete(local_150);
+        }
+        if ((local_148 & 1) != 0) {
+          operator_delete(local_140);
+        }
+        if (*(char *)local_178 == '\x02') {
+          local_170 = (ulonglong *)((int)local_170 + 0x10);
+        }
+        else if (*(char *)local_178 == '\x01') {
+          piVar5 = *(int **)((int)puStack_174 + 4);
+          if (*(int **)((int)puStack_174 + 4) == (int *)0x0) {
+            while( true ) {
+              piVar5 = (int *)((int)puStack_174 + 8);
+              piVar13 = (int *)*piVar5;
+              bVar24 = (ulonglong *)*piVar13 == puStack_174;
+              puStack_174 = (ulonglong *)piVar13;
+              if (bVar24) break;
+              puStack_174 = (ulonglong *)*piVar5;
+            }
+          }
+          else {
+            do {
+              puStack_174 = (ulonglong *)piVar5;
+              piVar5 = *(int **)puStack_174;
+            } while (*(int **)puStack_174 != (int *)0x0);
+          }
+        }
+        else {
+          puStack_16c = (ulonglong *)((int)puStack_16c + 1);
+        }
+      }
+      uStack_164 = CONCAT44(puVar27,puVar26);
+      local_178 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                   *)puVar25;
+      puStack_174 = puVar26;
+      local_170 = puVar27;
+      puStack_16c = puVar28;
+      local_168 = puVar25;
+      local_15c = puVar28;
+      pbVar8 = nlohmann::
+               basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+               ::operator[]<char_const>(this_00,(char *)(DAT_00f4b620 + 0xf4b540));
+      switch(*pbVar8) {
+      case (basic_json)0x3:
+        pbVar9 = *(byte **)(pbVar8 + 8);
+        if ((*pbVar9 & 1) == 0) {
+          pbVar9 = pbVar9 + 1;
+        }
+        else {
+          pbVar9 = *(byte **)(pbVar9 + 8);
+        }
+        strtod((char *)pbVar9,(char **)0x0);
+        dVar29 = (double)CONCAT44(extraout_r1_03,extraout_r0_03);
+        goto LAB_00f4b57a;
+      case (basic_json)0x4:
+        local_178 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                     *)(uint)(byte)pbVar8[8];
+        break;
+      case (basic_json)0x5:
+      case (basic_json)0x6:
+        local_178 = *(basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                      **)(pbVar8 + 8);
+        break;
+      case (basic_json)0x7:
+        dVar29 = *(double *)(pbVar8 + 8);
+LAB_00f4b57a:
+        local_178 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                     *)((uint)(0.0 < dVar29) * (int)(longlong)dVar29);
+        break;
+      default:
+        local_178 = (basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+                     *)0x0;
+      }
+      if (local_ac == local_a8) {
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_170,(char *)(DAT_00f4b628 + 0xf4b5d2),4);
+        if (local_cc == (ulonglong *)0x0) {
+          if (local_bc == (ulonglong *)0x0) {
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+            basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                          *)&local_118,*(basic_string **)(DAT_00f4b634 + 0xf4b5fe));
+          }
+          else {
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+            basic_string<decltype(nullptr)>
+                      ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)&local_118,(char *)(DAT_00f4b630 + 0xf4b5f2));
+          }
+        }
+        else {
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+          basic_string<decltype(nullptr)>
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&local_118,(char *)(DAT_00f4b62c + 0xf4b5e2));
+        }
+        uVar4 = uStack_164;
+        if ((uStack_164 & 1) == 0) {
+          uStack_164 = uStack_164 & 0xffffffff00000000;
+        }
+        else {
+          *(undefined1 *)local_15c = 0;
+          uStack_164 = uStack_164 & 0xffffffff;
+          if ((uVar4 & 1) != 0) {
+            operator_delete(local_15c);
+            uStack_164 = uStack_164 & 0xffffffff00000000;
+          }
+        }
+        uVar4 = uStack_164;
+        uVar18 = uStack_164._4_4_;
+        uVar22 = (uint)uStack_164;
+        uStack_164 = local_118;
+        puStack_174 = local_bc;
+        if (local_cc != (ulonglong *)0x0) {
+          puStack_174 = local_cc;
+        }
+        if ((uVar4 & 1) == 0) {
+          uVar18 = uVar22 >> 1 & 0x7f;
+        }
+        if (uVar18 == 0 && puStack_174 == (ulonglong *)0x0) {
+          if (local_b8 != puStack_b4) {
+            puVar20 = puStack_b4;
+            if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                &uStack_164 !=
+                (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                (puStack_b4 + -2)) {
+              uVar22 = *(uint *)((int)puStack_b4 + -0xc);
+              pcVar17 = *(char **)(puStack_b4 + -1);
+              if (((byte)puStack_b4[-2] & 1) == 0) {
+                pcVar17 = (char *)((int)puStack_b4 + -0xf);
+                uVar22 = (uint)(byte)((byte)puStack_b4[-2] >> 1);
+              }
+              std::__ndk1::
+              basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                        ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                          *)&uStack_164,pcVar17,uVar22);
+              puVar20 = puStack_b4;
+            }
+            goto LAB_00f4b5c4;
+          }
+          if (local_b8 == puStack_b4) {
+            std::__ndk1::
+            basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                      ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                        *)&uStack_164,(char *)(DAT_00f4b9d8 + 0xf4b850),5);
+          }
+        }
+      }
+      else {
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_170,(char *)(DAT_00f4b624 + 0xf4b59a),4);
+        puVar20 = local_a8;
+        if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            &uStack_164 !=
+            (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            (local_a8 + -2)) {
+          uVar22 = *(uint *)((int)local_a8 + -0xc);
+          pcVar17 = *(char **)(local_a8 + -1);
+          if (((byte)local_a8[-2] & 1) == 0) {
+            pcVar17 = (char *)((int)local_a8 + -0xf);
+            uVar22 = (uint)(byte)((byte)local_a8[-2] >> 1);
+          }
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)&uStack_164,pcVar17,uVar22);
+          puVar20 = local_a8;
+        }
+LAB_00f4b5c4:
+        puStack_174 = *(ulonglong **)((int)puVar20 + -4);
+      }
+      puVar3 = local_168;
+      puVar20 = puStack_16c;
+      puVar23 = *(uint **)(this + 0x1c);
+      if (puVar23 == *(uint **)(this + 0x20)) {
+        std::__ndk1::vector<CSRCellSupply7D::INFO,std::__ndk1::allocator<CSRCellSupply7D::INFO>>::
+        __push_back_slow_path<CSRCellSupply7D::INFO_const&>
+                  ((vector<CSRCellSupply7D::INFO,std::__ndk1::allocator<CSRCellSupply7D::INFO>> *)
+                   (this + 0x18),(INFO *)&local_178);
+      }
+      else {
+        *puVar23 = (uint)local_178;
+        puVar23[1] = (uint)puStack_174;
+        puVar23[3] = 0;
+        puVar23[4] = 0;
+        puVar1 = puVar23 + 2;
+        *puVar1 = 0;
+        if (((uint)local_170 & 1) == 0) {
+          puVar23[4] = (uint)local_168;
+          *(ulonglong *)puVar1 = CONCAT44(puStack_16c,local_170);
+        }
+        else {
+          if ((ulonglong *)0xffffffef < puStack_16c) {
+                    /* WARNING: Subroutine does not return */
+            std::__ndk1::__basic_string_common<true>::__throw_length_error();
+          }
+          if (puStack_16c < (ulonglong *)0xb) {
+            pvVar21 = (void *)((int)puVar23 + 9);
+            *(char *)puVar1 = (char)((int)puStack_16c << 1);
+            if (puStack_16c != (ulonglong *)0x0) goto LAB_00f4b6fc;
+          }
+          else {
+            puVar14 = puStack_16c + 2;
+            pvVar21 = operator_new((uint)puVar14 & 0xfffffff0);
+            puVar23[2] = (uint)puVar14 & 0xfffffff0 | 1;
+            puVar23[3] = (uint)puVar20;
+            puVar23[4] = (uint)pvVar21;
+LAB_00f4b6fc:
+            __aeabi_memcpy(pvVar21,puVar3,puVar20);
+          }
+          *(undefined1 *)((int)pvVar21 + (int)puVar20) = 0;
+        }
+        puVar3 = local_15c;
+        uVar22 = uStack_164._4_4_;
+        puVar20 = (ulonglong *)(puVar23 + 5);
+        *(uint *)puVar20 = 0;
+        puVar23[6] = 0;
+        puVar23[7] = 0;
+        if ((uStack_164 & 1) == 0) {
+          puVar23[7] = (uint)local_15c;
+          *puVar20 = uStack_164;
+        }
+        else {
+          if (0xffffffef < uStack_164._4_4_) {
+                    /* WARNING: Subroutine does not return */
+            std::__ndk1::__basic_string_common<true>::__throw_length_error();
+          }
+          if (uStack_164._4_4_ < 0xb) {
+            pvVar21 = (void *)((int)puVar23 + 0x15);
+            *(char *)puVar20 = (char)(uStack_164._4_4_ << 1);
+            if (uStack_164._4_4_ != 0) goto LAB_00f4b764;
+          }
+          else {
+            uVar18 = uStack_164._4_4_ + 0x10 & 0xfffffff0;
+            pvVar21 = operator_new(uVar18);
+            puVar23[5] = uVar18 | 1;
+            puVar23[6] = uVar22;
+            puVar23[7] = (uint)pvVar21;
+LAB_00f4b764:
+            __aeabi_memcpy(pvVar21,puVar3,uVar22);
+          }
+          *(undefined1 *)((int)pvVar21 + uVar22) = 0;
+        }
+        *(uint **)(this + 0x1c) = puVar23 + 8;
+      }
+      if ((uStack_164 & 1) != 0) {
+        operator_delete(local_15c);
+      }
+      if (((uint)local_170 & 1) != 0) {
+        operator_delete(local_168);
+      }
+      nlohmann::
+      basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+      ::json_value::destroy((json_value *)&local_100,(uint)local_108 & 0xff);
+      if ((local_138 & 1) != 0) {
+        operator_delete(local_130);
+      }
+      nlohmann::
+      basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>
+      ::json_value::destroy((json_value *)local_f0,local_f8[0]);
+      if ((local_e8 & 1) != 0) {
+        operator_delete(local_e0);
+      }
+      SRREWARD_INFO::~SRREWARD_INFO((SRREWARD_INFO *)&local_d8);
+      if (*local_80 == (basic_json)0x2) {
+        local_78 = local_78 + 0x10;
+      }
+      else if (*local_80 == (basic_json)0x1) {
+        piVar5 = (int *)local_7c[1];
+        if ((int *)local_7c[1] == (int *)0x0) {
+          while( true ) {
+            piVar5 = local_7c + 2;
+            piVar13 = (int *)*piVar5;
+            bVar24 = (int *)*piVar13 == local_7c;
+            local_7c = piVar13;
+            if (bVar24) break;
+            local_7c = (int *)*piVar5;
+          }
+        }
+        else {
+          do {
+            local_7c = piVar5;
+            piVar5 = (int *)*local_7c;
+          } while ((int *)*local_7c != (int *)0x0);
+        }
+      }
+      else {
+        local_74 = local_74 + 1;
+      }
+      iVar6 = nlohmann::detail::
+              iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+              ::operator==((iter_impl<nlohmann::basic_json<std::__ndk1::map,std::__ndk1::vector,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,bool,long_long,unsigned_long_long,double,std::__ndk1::allocator,nlohmann::adl_serializer,std::__ndk1::vector<unsigned_char,std::__ndk1::allocator<unsigned_char>>>const>
+                            *)&local_80,(iter_impl *)&local_90);
+    } while (iVar6 == 0);
+  }
+  if (*piVar15 != local_3c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

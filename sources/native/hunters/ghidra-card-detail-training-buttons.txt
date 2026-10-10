@@ -1,0 +1,170 @@
+===== proven Thumb 00dcc75c =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CSRPopUpCardDetail::OnInit() */
+
+void CSRPopUpCardDetail::OnInit(int param_1)
+
+{
+  bool bVar1;
+  undefined4 uVar2;
+  __shared_weak_count *p_Var3;
+  size_t sVar4;
+  char *__s;
+  int iVar5;
+  __shared_weak_count *p_Var6;
+  int *piVar7;
+  undefined4 uStack_2c;
+  __shared_weak_count *p_Stack_28;
+  int iStack_24;
+  
+  __s = (char *)(_DAT_00dcc768 + 0xdcc766);
+  piVar7 = *(int **)(DAT_00f1cd04 + 0xf1cc62);
+  iStack_24 = *piVar7;
+  CMUIView::LoadView((CMUIView *)&uStack_2c,__s,(Listener *)(param_1 + 0x654));
+  p_Var3 = p_Stack_28;
+  uVar2 = uStack_2c;
+  uStack_2c = 0;
+  p_Stack_28 = (__shared_weak_count *)0x0;
+  p_Var6 = *(__shared_weak_count **)(param_1 + 0x9c);
+  *(undefined4 *)(param_1 + 0x98) = uVar2;
+  *(__shared_weak_count **)(param_1 + 0x9c) = p_Var3;
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var3 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  p_Var3 = p_Stack_28;
+  if (p_Stack_28 != (__shared_weak_count *)0x0) {
+    p_Var6 = p_Stack_28 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var6);
+      iVar5 = *(int *)p_Var6;
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Stack_28 + 8))(p_Stack_28);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  sVar4 = strlen(__s);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+         (param_1 + 0xc0),__s,sVar4);
+  *(Listener **)(param_1 + 0xb0) = (Listener *)(param_1 + 0x654);
+  if (*piVar7 == iStack_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== proven Thumb 00dcd5a0 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CSRPopUpCardDetail::OnSelectedTrainingButton(unsigned int, unsigned int) */
+
+void CSRPopUpCardDetail::OnSelectedTrainingButton(int param_1)
+
+{
+  int iVar1;
+  CMSoundMgr *this;
+  int *piVar2;
+  int iVar3;
+  int iVar4;
+  int *piVar5;
+  float fVar6;
+  CMHashID aCStack_40 [8];
+  void *pvStack_38;
+  int iStack_24;
+  uint in_stack_ffffffe0;
+  void *in_stack_ffffffe8;
+  
+  piVar5 = *(int **)(_DAT_00dcd664 + 0xdcd5ac);
+  iVar3 = *piVar5;
+  switch(*(undefined4 *)(param_1 + 0x65c)) {
+  case 1:
+  case 3:
+    iVar1 = *(int *)(**(int **)(&UNK_00dcd5ca + _UNK_00dcd66c) + 8);
+    if (*piVar5 == iVar3) {
+      iVar3 = 0xb3;
+code_r0x00dcd604:
+      piVar5 = *(int **)(DAT_00eb4128 + 0xeb4062);
+      iStack_24 = *piVar5;
+      this = (CMSoundMgr *)CMSoundMgr::get();
+      fVar6 = (float)CMHashID::CMHashID(aCStack_40,(char *)(DAT_00eb412c + 0xeb407a));
+      CMSoundMgr::PlaySFX(this,aCStack_40,fVar6,'\0');
+      if (((byte)aCStack_40[0] & 1) != 0) {
+        operator_delete(pvStack_38);
+      }
+      *(undefined4 *)(iVar1 + 0x69c) = 3;
+      CWIPSFader::Reset((CWIPSFader *)(iVar1 + 0x58));
+      *(undefined4 *)(iVar1 + 0x67c) = 0x3dcccccd;
+      CWIPSFader::SetColor((CWIPSFader *)(iVar1 + 0x58),0xff000000);
+      *(undefined1 *)(iVar1 + 0x673) = 0;
+      *(undefined2 *)(iVar1 + 0x671) = 0x100;
+      *(undefined4 *)(iVar1 + 0x680) = 0;
+      *(undefined1 *)(iVar1 + 0x674) = 0;
+      *(undefined4 *)(iVar1 + 0x50) = *(undefined4 *)(iVar1 + 0x54);
+      *(int *)(iVar1 + 0x54) = iVar3;
+      piVar2 = operator_new(0xc);
+      iVar4 = *(int *)(iVar1 + 0x44);
+      *piVar2 = iVar4;
+      piVar2[1] = iVar1 + 0x44;
+      piVar2[2] = iVar3;
+      *(int **)(iVar4 + 4) = piVar2;
+      *(undefined1 *)(iVar1 + 0x33) = 1;
+      *(int **)(iVar1 + 0x44) = piVar2;
+      *(int *)(iVar1 + 0x4c) = *(int *)(iVar1 + 0x4c) + 1;
+      if (*piVar5 == iStack_24) {
+        return;
+      }
+                    /* WARNING: Subroutine does not return */
+      __stack_chk_fail();
+    }
+    break;
+  case 2:
+    iVar1 = *(int *)(**(int **)(&UNK_00dcd5e0 + _UNK_00dcd670) + 8);
+    if (*piVar5 == iVar3) {
+      iVar3 = 0xb6;
+      goto code_r0x00dcd604;
+    }
+    break;
+  case 4:
+    iVar1 = *(int *)(**(int **)(&UNK_00dcd5f6 + _UNK_00dcd668) + 8);
+    if (*piVar5 == iVar3) {
+      iVar3 = 0xa6;
+      goto code_r0x00dcd604;
+    }
+    break;
+  case 5:
+    CGMDataMgr::get();
+    fVar6 = (float)CGMDataMgr::GetLocalizedText(&stack0xffffffe0);
+    Toast((basic_string *)&stack0xffffffe0,'\0',fVar6);
+    if ((in_stack_ffffffe0 & 1) != 0) {
+      operator_delete(in_stack_ffffffe8);
+    }
+  default:
+    if (*piVar5 == iVar3) {
+      return;
+    }
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

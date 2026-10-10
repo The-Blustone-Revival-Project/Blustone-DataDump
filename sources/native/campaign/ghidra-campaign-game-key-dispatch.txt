@@ -1,0 +1,48 @@
+===== e3d278 OnProcessKeyInput @ 00e3d278 =====
+
+/* CSRSceneGame::OnProcessKeyInput(float, int, unsigned char) */
+
+bool __thiscall
+CSRSceneGame::OnProcessKeyInput(CSRSceneGame *this,float param_1,int param_2,uchar param_3)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int in_r3;
+  bool bVar4;
+  float extraout_s0;
+
+  piVar1 = *(int **)(this + 0x658);
+  if (piVar1 == (int *)0x0) {
+    param_1 = (float)_RMAssert('\0',(char *)(DAT_00e3d324 + 0xe3d29e),
+                               (char *)(DAT_00e3d328 + 0xe3d2a2),0xae,DAT_00e3d320 + 0xe3d29a,
+                               DAT_00e3d32c + 0xe3d2a4,DAT_00e3d330 + 0xe3d2a6);
+    piVar1 = *(int **)(this + 0x658);
+  }
+  iVar2 = (**(code **)(*piVar1 + 0x18))(param_1,piVar1,param_2,param_3);
+  if (in_r3 == 0) {
+    if (param_3 == '\x04') {
+      if (*(int **)(this + 0x658) != (int *)0x0) {
+        (**(code **)(**(int **)(this + 0x658) + 0x30))();
+      }
+    }
+    else {
+      if (param_3 == 'D') {
+        iVar2 = *(int *)(this + 0x658);
+      }
+      else {
+        if (param_3 != 'A') goto LAB_00e3d2c8;
+        iVar2 = *(int *)(this + 0x658);
+      }
+      CMUpdatable::SetTimerFactor(*(CMUpdatable **)(iVar2 + 0x2c),extraout_s0);
+    }
+    bVar4 = true;
+  }
+  else {
+LAB_00e3d2c8:
+    iVar3 = CSRFramedScene::OnProcessKeyInput(extraout_s0,(int)this,(uchar)param_2);
+    bVar4 = iVar3 != 0 || iVar2 != 0;
+  }
+  return bVar4;
+}

@@ -1,0 +1,118 @@
+===== 00754438 AlignBy @ 00754438 =====
+
+/* CMRelationRect::AlignBy(CMVec4Rect const&) */
+
+void __thiscall CMRelationRect::AlignBy(CMRelationRect *this,CMVec4Rect *param_1)
+
+{
+  *(undefined4 *)(this + 0x18) = *(undefined4 *)param_1;
+  *(undefined4 *)(this + 0x1c) = *(undefined4 *)(param_1 + 4);
+  *(undefined4 *)(this + 0x20) = *(undefined4 *)(param_1 + 8);
+  *(undefined4 *)(this + 0x24) = *(undefined4 *)(param_1 + 0xc);
+  return;
+}
+
+
+===== 00754488 Update @ 00754488 =====
+
+/* CMRelationRect::Update() */
+
+void __thiscall CMRelationRect::Update(CMRelationRect *this)
+
+{
+  int iVar1;
+  float fVar2;
+
+  iVar1 = *(int *)this;
+  if (iVar1 == 0) {
+    fVar2 = *(float *)(this + 0x18);
+    *(float *)(this + 0x28) = fVar2;
+  }
+  else {
+    if (iVar1 == 1) {
+      fVar2 = *(float *)(this + 0x20) - *(float *)(this + 0x10);
+    }
+    else {
+      if (iVar1 != 2) {
+        fVar2 = *(float *)(this + 0x28);
+        goto LAB_007544d2;
+      }
+      fVar2 = (*(float *)(this + 0x18) + *(float *)(this + 0x20)) * 0.5 -
+              *(float *)(this + 0x10) * 0.5;
+    }
+    *(float *)(this + 0x28) = fVar2;
+  }
+LAB_007544d2:
+  iVar1 = *(int *)(this + 4);
+  *(float *)(this + 0x28) = *(float *)(this + 8) + fVar2;
+  *(float *)(this + 0x30) = *(float *)(this + 8) + fVar2 + *(float *)(this + 0x10);
+  if (iVar1 == 0) {
+    fVar2 = *(float *)(this + 0x1c);
+    *(float *)(this + 0x2c) = fVar2;
+  }
+  else {
+    if (iVar1 == 1) {
+      fVar2 = *(float *)(this + 0x24) - *(float *)(this + 0x14);
+    }
+    else {
+      if (iVar1 != 2) {
+        fVar2 = *(float *)(this + 0x2c);
+        goto LAB_00754534;
+      }
+      fVar2 = (*(float *)(this + 0x1c) + *(float *)(this + 0x24)) * 0.5 -
+              *(float *)(this + 0x14) * 0.5;
+    }
+    *(float *)(this + 0x2c) = fVar2;
+  }
+LAB_00754534:
+  *(float *)(this + 0x2c) = *(float *)(this + 0xc) + fVar2;
+  *(float *)(this + 0x34) = *(float *)(this + 0xc) + fVar2 + *(float *)(this + 0x14);
+  return;
+}
+
+
+===== 00754464 Result @ 00754464 =====
+
+/* CMRelationRect::Result() const */
+
+CMRelationRect * __thiscall CMRelationRect::Result(CMRelationRect *this)
+
+{
+  return this + 0x28;
+}
+
+
+===== 0078c9b4 CMTestIntersection @ 0078c9b4 =====
+
+/* CMTestIntersection(CMVec4Rect const&, CRMRect const&) */
+
+void CMTestIntersection(CMVec4Rect *param_1,CRMRect *param_2)
+
+{
+  bool bVar1;
+  int *piVar2;
+  float local_24;
+  float local_20;
+  float local_1c;
+  float local_18;
+  int local_14;
+
+  piVar2 = *(int **)(DAT_0078ca2c + 0x78c9c2);
+  local_14 = *piVar2;
+  CMVec4Rect::CMVec4Rect((CMVec4Rect *)&local_24,param_2);
+  if (((int)((uint)(*(float *)(param_1 + 0xc) < local_20) << 0x1f) < 0) ||
+     ((int)((uint)(local_18 < *(float *)(param_1 + 4)) << 0x1f) < 0)) {
+    bVar1 = false;
+  }
+  else {
+    bVar1 = false;
+    if (-1 < (int)((uint)(*(float *)(param_1 + 8) < local_24) << 0x1f)) {
+      bVar1 = -1 < (int)((uint)(local_1c < *(float *)param_1) << 0x1f);
+    }
+  }
+  if (*piVar2 == local_14) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(bVar1);
+}

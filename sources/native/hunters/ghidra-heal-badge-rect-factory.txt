@@ -1,0 +1,90 @@
+===== 007a98cc make_shared<decltype(nullptr)> @ 007a98cc =====
+
+/* std::__ndk1::shared_ptr<CSRUIRect>
+   std::__ndk1::shared_ptr<CSRUIRect>::make_shared<decltype(nullptr)>(decltype(nullptr)&&) */
+
+void std::__ndk1::shared_ptr<CSRUIRect>::make_shared<decltype(nullptr)>
+               (_func_decltype_nullptr **param_1)
+
+{
+  __shared_weak_count *p_Var1;
+  __shared_weak_count *p_Var2;
+  bool bVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  undefined4 uVar6;
+  __shared_weak_count *this;
+  int *piVar7;
+  int iVar8;
+  _func_decltype_nullptr *p_Var9;
+  __shared_weak_count *this_00;
+  __shared_weak_count *p_Var10;
+
+  this = operator_new(0x898);
+  piVar7 = (int *)(DAT_007a99b4 + 0x7a98ec);
+  p_Var1 = this + 8;
+  *(undefined4 *)p_Var1 = 0;
+  iVar8 = *piVar7;
+  p_Var2 = this + 4;
+  *(undefined4 *)p_Var2 = 0;
+  *(int *)this = iVar8 + 8;
+  p_Var9 = (_func_decltype_nullptr *)CMUIBase::CMUIBase((CMUIBase *)(this + 0x10),(Listener *)0x0);
+  iVar8 = DAT_007a99b8;
+  uVar4 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uVar5 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar6 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  *(undefined4 *)(this + 0x88c) = 0;
+  *(undefined4 *)(this + 0x890) = 0;
+  *(undefined4 *)(this + 0x85c) = 0;
+  *(undefined4 *)(this + 0x860) = uVar4;
+  *(undefined4 *)(this + 0x864) = uVar5;
+  *(undefined4 *)(this + 0x868) = uVar6;
+  iVar8 = *(int *)(iVar8 + 0x7a9918);
+  *(undefined4 *)(this + 0x86c) = 0;
+  *(undefined4 *)(this + 0x870) = uVar4;
+  *(undefined4 *)(this + 0x874) = uVar5;
+  *(undefined4 *)(this + 0x878) = uVar6;
+  p_Var10 = this + 0x87c;
+  *(undefined4 *)p_Var10 = 0;
+  *(undefined4 *)(this + 0x880) = uVar4;
+  *(undefined4 *)(this + 0x884) = uVar5;
+  *(undefined4 *)(this + 0x888) = uVar6;
+  *(int *)(this + 0x10) = iVar8 + 8;
+  this_00 = *(__shared_weak_count **)(this + 0x18);
+  *param_1 = p_Var9;
+  param_1[1] = (_func_decltype_nullptr *)this;
+  if (this_00 != (__shared_weak_count *)0x0) {
+    p_Var10 = *(__shared_weak_count **)(this_00 + 4);
+  }
+  if (this_00 == (__shared_weak_count *)0x0 || p_Var10 == (__shared_weak_count *)0xffffffff) {
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar3 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar3);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    *(_func_decltype_nullptr **)(this + 0x14) = p_Var9;
+    *(__shared_weak_count **)(this + 0x18) = this;
+    if (this_00 != (__shared_weak_count *)0x0) {
+      __shared_weak_count::__release_weak(this_00);
+    }
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar8 = *(int *)p_Var2;
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = iVar8 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar8 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      __shared_weak_count::__release_weak(this);
+      return;
+    }
+  }
+  return;
+}

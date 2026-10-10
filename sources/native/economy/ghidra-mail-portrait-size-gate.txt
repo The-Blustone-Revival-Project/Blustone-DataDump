@@ -1,0 +1,122 @@
+===== proven Thumb 010ac1ec =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_010ac1ec(int param_1,basic_string *param_2,int *param_3)
+
+{
+  bool bVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar2;
+  __shared_weak_count *p_Var3;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar4;
+  int iVar5;
+  int *piVar6;
+  __shared_weak_count *this;
+  int iStack_50;
+  __shared_weak_count *p_Stack_4c;
+  undefined4 uStack_48;
+  __shared_weak_count *p_Stack_44;
+  uint uStack_40;
+  uint uStack_3c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbStack_38;
+  undefined4 uStack_30;
+  undefined4 uStack_2c;
+  int iStack_24;
+
+  piVar6 = *(int **)(_DAT_010ac408 + 0x10ac1fe);
+  iStack_24 = *piVar6;
+  iVar5 = *param_3;
+  this = (__shared_weak_count *)param_3[1];
+  *param_3 = 0;
+  param_3[1] = 0;
+  if (((iVar5 != 0) && (*(float *)(iVar5 + 0x78) == _UNK_010ac404)) &&
+     (*(float *)(iVar5 + 0x7c) == _UNK_010ac404)) {
+    pbVar2 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             CMHashID::CMHashID((CMHashID *)&uStack_40,(char *)(_DAT_010ac40c + 0x10ac23a));
+    if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+        (iVar5 + 600) != pbVar2) {
+      pbVar4 = pbStack_38;
+      if ((uStack_40 & 1) == 0) {
+        pbVar4 = pbVar2 + 1;
+        uStack_3c = uStack_40 >> 1 & 0x7f;
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             (iVar5 + 600),(char *)pbVar4,uStack_3c);
+    }
+    *(undefined4 *)(iVar5 + 0x268) = uStack_30;
+    *(undefined4 *)(iVar5 + 0x26c) = uStack_2c;
+    if ((uStack_40 & 1) != 0) {
+      operator_delete(pbStack_38);
+    }
+    uStack_48 = *(undefined4 *)(param_1 + 4);
+    p_Stack_44 = *(__shared_weak_count **)(param_1 + 8);
+    if (p_Stack_44 != (__shared_weak_count *)0x0) {
+      p_Var3 = p_Stack_44 + 8;
+      do {
+        ExclusiveAccess(p_Var3);
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = *(int *)p_Var3 + 1;
+    }
+    uStack_30 = 0;
+    uStack_2c = 0;
+    uStack_40 = 0;
+    uStack_3c = 0;
+    pbStack_38 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 0x0;
+    CMHashID::Set((CMHashID *)&uStack_40,param_2);
+    if (this != (__shared_weak_count *)0x0) {
+      p_Var3 = this + 4;
+      do {
+        ExclusiveAccess(p_Var3);
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = *(int *)p_Var3 + 1;
+    }
+    iStack_50 = iVar5;
+    p_Stack_4c = this;
+    CSRUserProfileDraw::OnSync(&uStack_48,&uStack_40,&iStack_50);
+    if (this != (__shared_weak_count *)0x0) {
+      p_Var3 = this + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar5 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)this + 8))(this);
+        std::__ndk1::__shared_weak_count::__release_weak(this);
+      }
+    }
+    if ((uStack_40 & 1) != 0) {
+      operator_delete(pbStack_38);
+    }
+    if (p_Stack_44 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_44);
+    }
+  }
+  if (this != (__shared_weak_count *)0x0) {
+    p_Var3 = this + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var3);
+      iVar5 = *(int *)p_Var3;
+      bVar1 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar1);
+    *(int *)p_Var3 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  if (*piVar6 == iStack_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

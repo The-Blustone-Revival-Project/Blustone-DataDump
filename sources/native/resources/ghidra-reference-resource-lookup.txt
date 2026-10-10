@@ -1,0 +1,271 @@
+===== 71ba48 LoadStr @ 0071ba48 =====
+
+/* CMJetLoader::LoadStr(CMHashID const&) const */
+
+void CMJetLoader::LoadStr(CMHashID *param_1)
+
+{
+  undefined8 *puVar1;
+  byte *pbVar2;
+  uint uVar3;
+  undefined8 *puVar4;
+  undefined8 *puVar5;
+  undefined8 *puVar6;
+  byte *in_r2;
+  undefined1 auVar7 [4];
+  int iVar8;
+  CRMResMap *this;
+  CRMResourceMgr4 *this_00;
+  int iVar9;
+  uint uVar10;
+  undefined8 *puVar11;
+  int *piVar12;
+  int *piVar13;
+  uint uVar14;
+  undefined8 uVar15;
+  undefined8 uVar16;
+  undefined1 local_38 [4];
+  uint uStack_34;
+  undefined8 *puStack_30;
+  int local_28;
+
+  piVar12 = *(int **)(DAT_0071bc7c + 0x71ba5e);
+  piVar13 = *(int **)(DAT_0071bc80 + 0x71ba60);
+  iVar8 = *piVar12;
+  local_28 = *piVar13;
+  iVar9 = DAT_0071bc84 + 0x71ba76;
+  if (iVar8 == 0) {
+    _RMAssert('\0',(char *)(DAT_0071bc88 + 0x71ba82),(char *)(DAT_0071bc8c + 0x71ba86),0x4b,iVar9);
+  }
+  iVar8 = *(int *)(iVar8 + 4);
+  if (iVar8 == 0) {
+    _RMAssert('\0',(char *)(DAT_0071bc90 + 0x71ba98),(char *)(DAT_0071bc94 + 0x71ba9c),0x4b,iVar9);
+  }
+  this = *(CRMResMap **)(iVar8 + 4);
+  if (this == (CRMResMap *)0x0) {
+    _RMAssert('\0',(char *)(DAT_0071bc98 + 0x71baae),(char *)(DAT_0071bc9c + 0x71bab2),0x4b,iVar9);
+  }
+  pbVar2 = *(byte **)(in_r2 + 8);
+  if ((*in_r2 & 1) == 0) {
+    pbVar2 = in_r2 + 1;
+  }
+  iVar8 = CRMResMap::IsExistingRes(this,(char *)pbVar2);
+  if (iVar8 == 0) {
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 param_1,*(basic_string **)(DAT_0071bcb8 + 0x71bb5c));
+    goto LAB_0071bc48;
+  }
+  iVar8 = *piVar12;
+  if (iVar8 == 0) {
+    _RMAssert('\0',(char *)(DAT_0071bca0 + 0x71bade),(char *)(DAT_0071bca4 + 0x71bae4),0x4b,iVar9);
+  }
+  iVar8 = *(int *)(iVar8 + 4);
+  if (iVar8 == 0) {
+    _RMAssert('\0',(char *)(DAT_0071bca8 + 0x71baf6),(char *)(DAT_0071bcac + 0x71bafc),0x4b,iVar9);
+  }
+  this_00 = *(CRMResourceMgr4 **)(iVar8 + 4);
+  if (this_00 == (CRMResourceMgr4 *)0x0) {
+    _RMAssert('\0',(char *)(DAT_0071bcb0 + 0x71bb0e),(char *)(DAT_0071bcb4 + 0x71bb14),0x4b,iVar9);
+  }
+  pbVar2 = *(byte **)(in_r2 + 8);
+  if ((*in_r2 & 1) == 0) {
+    pbVar2 = in_r2 + 1;
+  }
+  iVar8 = CRMResourceMgr4::LoadRawData(this_00,(char *)pbVar2,'\0');
+  if (iVar8 == 0) {
+    *(undefined4 *)param_1 = 0;
+    *(undefined4 *)(param_1 + 4) = 0;
+    *(undefined4 *)(param_1 + 8) = 0;
+    goto LAB_0071bc48;
+  }
+  uVar10 = *(uint *)(iVar8 + 0x28);
+  local_38 = (undefined1  [4])0x0;
+  uStack_34 = 0;
+  puStack_30 = (undefined8 *)0x0;
+  if (0xffffffef < uVar10) {
+                    /* WARNING: Subroutine does not return */
+    std::__ndk1::__basic_string_common<true>::__throw_length_error();
+  }
+  if (uVar10 < 0xb) {
+    local_38 = (undefined1  [4])((uVar10 & 0x7f) << 1);
+    puVar11 = (undefined8 *)(local_38 + 1);
+    if (uVar10 != 0) goto LAB_0071bb88;
+  }
+  else {
+    uVar3 = uVar10 + 0x10 & 0xfffffff0;
+    puVar11 = operator_new(uVar3);
+    local_38 = (undefined1  [4])(uVar3 + 1);
+    uStack_34 = uVar10;
+    puStack_30 = puVar11;
+LAB_0071bb88:
+    __aeabi_memset(puVar11,uVar10,0x20);
+  }
+  *(undefined1 *)((int)puVar11 + uVar10) = 0;
+  auVar7 = (undefined1  [4])((uint)local_38 & 0xff);
+  puVar11 = *(undefined8 **)(iVar8 + 0x20);
+  uVar10 = *(uint *)(iVar8 + 0x28);
+  if (((uint)local_38 & 1) == 0) {
+    uVar3 = 10;
+    if (10 < uVar10) {
+LAB_0071bbba:
+      uVar14 = uStack_34;
+      if (((uint)local_38 & 1) == 0) {
+        uVar14 = (uint)local_38 >> 1 & 0x7f;
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      __grow_by((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                local_38,uVar3,uVar10 - uVar3,uVar14,0,uVar14,0);
+      auVar7 = (undefined1  [4])((uint)local_38 & 0xff);
+    }
+  }
+  else {
+    uVar3 = ((uint)local_38 & 0xfffffffe) - 1;
+    auVar7 = local_38;
+    if (uVar3 < uVar10) goto LAB_0071bbba;
+  }
+  puVar4 = (undefined8 *)local_38;
+  puVar6 = puStack_30;
+  if (((uint)auVar7 & 1) == 0) {
+    puVar6 = (undefined8 *)(local_38 + 1);
+  }
+  puVar5 = puVar6;
+  if (uVar10 != 0) {
+    puVar1 = (undefined8 *)((int)puVar11 + uVar10);
+    if (0xf < uVar10) {
+      if (puVar6 < puVar1) {
+        puVar4 = (undefined8 *)((int)puVar6 + uVar10);
+      }
+      if (puVar6 >= puVar1 || puVar4 <= puVar11) {
+        uVar14 = uVar10 & 0xfffffff0;
+        puVar4 = (undefined8 *)((int)puVar11 + uVar14);
+        puVar5 = (undefined8 *)((int)puVar6 + uVar14);
+        uVar3 = uVar14;
+        do {
+          uVar15 = *puVar11;
+          uVar16 = puVar11[1];
+          puVar11 = puVar11 + 2;
+          uVar3 = uVar3 - 0x10;
+          *puVar6 = uVar15;
+          puVar6[1] = uVar16;
+          puVar6 = puVar6 + 2;
+        } while (uVar3 != 0);
+        puVar6 = puVar5;
+        puVar11 = puVar4;
+        if (uVar14 == uVar10) goto LAB_0071bc26;
+      }
+    }
+    do {
+      puVar4 = (undefined8 *)((int)puVar11 + 1);
+      puVar5 = (undefined8 *)((int)puVar6 + 1);
+      *(undefined1 *)puVar6 = *(undefined1 *)puVar11;
+      puVar6 = puVar5;
+      puVar11 = puVar4;
+    } while (puVar1 != puVar4);
+  }
+LAB_0071bc26:
+  *(undefined1 *)puVar5 = 0;
+  if (((uint)local_38 & 1) == 0) {
+    local_38[0] = (char)(uVar10 << 1);
+    uVar10 = uStack_34;
+  }
+  uStack_34 = uVar10;
+  *(undefined8 **)(param_1 + 8) = puStack_30;
+  *(ulonglong *)param_1 = CONCAT44(uStack_34,local_38);
+LAB_0071bc48:
+  if (*piVar13 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 717e04 IsExistingRes @ 00717e04 =====
+
+/* CRMResMap::IsExistingRes(char const*) */
+
+void __thiscall CRMResMap::IsExistingRes(CRMResMap *this,char *param_1)
+
+{
+  int iVar1;
+  int *piVar2;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34 [8];
+  void *local_2c;
+  basic_string local_28 [8];
+  void *local_20;
+  int local_1c;
+
+  piVar2 = *(int **)(DAT_00717eac + 0x717e18);
+  local_1c = *piVar2;
+  std::__ndk1::mutex::lock((mutex *)this);
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_34,param_1);
+  strupper(local_28);
+  if (((byte)local_34[0] & 1) != 0) {
+    operator_delete(local_2c);
+  }
+  std::__ndk1::
+  __hash_table<std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>,std::__ndk1::__unordered_map_hasher<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>,std::__ndk1::hash<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::__unordered_map_equal<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>,std::__ndk1::equal_to<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>>>
+  ::
+  find<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>
+            ((__hash_table<std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>,std::__ndk1::__unordered_map_hasher<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>,std::__ndk1::hash<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::__unordered_map_equal<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>,std::__ndk1::equal_to<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::vector<RMRESINFO,std::__ndk1::allocator<RMRESINFO>>>>>
+              *)(this + 0x18),local_28);
+  if (((byte)local_28[0] & 1) != 0) {
+    operator_delete(local_20);
+  }
+  std::__ndk1::mutex::unlock((mutex *)this);
+  iVar1 = *piVar2 - local_1c;
+  if (iVar1 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar1);
+  }
+  return;
+}
+
+
+===== 10eac8c LoadRawData @ 010eac8c =====
+
+/* CRMResourceMgr4::LoadRawData(char const*, unsigned char) */
+
+CRMResource * __thiscall
+CRMResourceMgr4::LoadRawData(CRMResourceMgr4 *this,char *param_1,uchar param_2)
+
+{
+  int iVar1;
+  CRMRawData *this_00;
+  CRMResource *pCVar2;
+
+  if (param_1 == (char *)0x0) {
+    _RMAssert('\0',(char *)(DAT_010ead2c + 0x10eacb0),(char *)(DAT_010ead30 + 0x10eacb2),0x2da,
+              DAT_010ead34 + 0x10eacb4);
+    if (param_2 == '\0') goto LAB_010eacbc;
+LAB_010eace4:
+    pCVar2 = (CRMResource *)LoadResourceFromFile(this,param_1);
+    if (pCVar2 != (CRMResource *)0x0) {
+      if (*(int *)(pCVar2 + 0xc) == 0xd) {
+        iVar1 = *(int *)pCVar2;
+        goto LAB_010eacf8;
+      }
+      RMTrace(2,DAT_010ead40 + 0x10ead14,param_1,0xd,*(int *)(pCVar2 + 0xc));
+      ReleaseResource(this,pCVar2);
+    }
+    pCVar2 = (CRMResource *)0x0;
+  }
+  else {
+    if (param_2 != '\0') goto LAB_010eace4;
+LAB_010eacbc:
+    iVar1 = FindResource(this,param_1);
+    if ((iVar1 == 0) ||
+       (this_00 = (CRMRawData *)
+                  __dynamic_cast(iVar1,*(undefined4 *)(DAT_010ead38 + 0x10eacd0),
+                                 *(undefined4 *)(DAT_010ead3c + 0x10eacd2),0),
+       this_00 == (CRMRawData *)0x0)) goto LAB_010eace4;
+    pCVar2 = (CRMResource *)CRMRawData::CreateClone(this_00);
+    iVar1 = *(int *)pCVar2;
+LAB_010eacf8:
+    (**(code **)(iVar1 + 0x10))(pCVar2);
+    RegistResource(this,pCVar2);
+  }
+  return pCVar2;
+}

@@ -1,0 +1,405 @@
+===== 0087f3c0 get<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>,CMSpinLock> =====
+
+/* std::__ndk1::shared_ptr<CSRCardInfoContainer> CMSingleton::get<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer>, CMSpinLock>() */
+
+void __thiscall
+CMSingleton::get<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>,CMSpinLock>
+          (CMSingleton *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  undefined4 *puVar6;
+  int iVar7;
+  undefined4 *extraout_r1;
+  int *piVar8;
+  byte *pbVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  int *piVar12;
+  undefined8 uVar13;
+  int *local_2c;
+  __shared_weak_count *local_28;
+  
+  puVar6 = (undefined4 *)(DAT_0087f520 + 0x87f3d6);
+  piVar12 = *(int **)(DAT_0087f51c + 0x87f3d4);
+  pbVar9 = (byte *)*puVar6;
+  iVar2 = *piVar12;
+  DataMemoryBarrier(0x1b);
+  puVar10 = (undefined4 *)(DAT_0087f524 + 0x87f3ec);
+  if ((*pbVar9 & 1) == 0) {
+    uVar13 = __cxa_guard_acquire(pbVar9);
+    puVar6 = (undefined4 *)((ulonglong)uVar13 >> 0x20);
+    if ((int)uVar13 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_0087f528 + 0x87f50c),*puVar10,DAT_0087f52c + 0x87f510);
+      __cxa_guard_release(pbVar9);
+      puVar6 = extraout_r1;
+    }
+  }
+  piVar11 = (int *)*puVar10;
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    puVar6 = *(undefined4 **)(p_Var3 + 4);
+  }
+  if (p_Var3 != (__shared_weak_count *)0x0 && puVar6 != (undefined4 *)0xffffffff) {
+LAB_0087f464:
+    p_Var3 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(p_Var3);
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      iVar4 = *piVar11;
+      p_Var5 = p_Var3 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+      if (iVar4 != 0) goto LAB_0087f4b0;
+    }
+  }
+  else {
+    CMPoolMgr::
+    get<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMSpinLock>
+              ();
+    CMPool<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMSpinLock>
+    ::Alloc();
+    iVar4 = *local_2c;
+    iVar7 = local_2c[1];
+    if (iVar7 != 0) {
+      piVar8 = (int *)(iVar7 + 8);
+      do {
+        ExclusiveAccess(piVar8);
+        bVar1 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar1);
+      *piVar8 = *piVar8 + 1;
+    }
+    *piVar11 = iVar4;
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    piVar11[1] = iVar7;
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+    if (local_28 != (__shared_weak_count *)0x0) {
+      p_Var3 = local_28 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar4 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_28 + 8))(local_28);
+        std::__ndk1::__shared_weak_count::__release_weak(local_28);
+      }
+    }
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    if (p_Var3 != (__shared_weak_count *)0x0) goto LAB_0087f464;
+  }
+  _RMAssert('\0',(char *)(DAT_0087f534 + 0x87f49e),(char *)(DAT_0087f538 + 0x87f4a2),0xf4,
+            DAT_0087f530 + 0x87f49a,DAT_0087f53c + 0x87f4a4,DAT_0087f540 + 0x87f4a6);
+LAB_0087f4b0:
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = 0;
+  if (p_Var3 == (__shared_weak_count *)0x0) {
+    *(undefined4 *)(this + 4) = 0;
+  }
+  else {
+    iVar4 = std::__ndk1::__shared_weak_count::lock(p_Var3);
+    *(int *)(this + 4) = iVar4;
+    if (iVar4 != 0) {
+      *(int *)this = *piVar11;
+    }
+  }
+  if (*piVar12 != iVar2) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 008802e4 get<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMSpinLock> =====
+
+/* CMPool<CMSingleton::Holder<CSRCardInfoContainer, CMSingleton::DefaultAlloc<CSRCardInfoContainer>
+   >, CMSpinLock>& CMPoolMgr::get<CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >, CMSpinLock>() */
+
+CMPool * CMPoolMgr::
+         get<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMSpinLock>
+                   (void)
+
+{
+  __shared_weak_count *p_Var1;
+  bool bVar2;
+  undefined4 uVar3;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  int iVar6;
+  __shared_weak_count *this;
+  int *piVar7;
+  int iVar8;
+  __shared_weak_count *p_Var9;
+  int *piVar10;
+  byte *pbVar11;
+  CMPool *pCVar12;
+  undefined4 *puVar13;
+  __shared_weak_count *p_Var14;
+  mutex *this_00;
+  __shared_weak_count *p_Var15;
+  
+  pbVar11 = *(byte **)(DAT_008804c0 + 0x8802f2);
+  DataMemoryBarrier(0x1b);
+  puVar13 = (undefined4 *)(DAT_008804c4 + 0x8802fe);
+  iVar6 = (uint)*pbVar11 << 0x1f;
+  if (iVar6 == 0) {
+    iVar8 = __cxa_guard_acquire(pbVar11);
+    iVar6 = 0;
+    if (iVar8 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_008804c8 + 0x880452),*puVar13,DAT_008804cc + 0x880456);
+      iVar6 = __cxa_guard_release(pbVar11);
+    }
+  }
+  puVar13 = (undefined4 *)*puVar13;
+  p_Var14 = (__shared_weak_count *)puVar13[1];
+  if (p_Var14 != (__shared_weak_count *)0x0) {
+    iVar6 = *(int *)(p_Var14 + 4);
+  }
+  if (p_Var14 == (__shared_weak_count *)0x0 || iVar6 == -1) {
+    this = operator_new(0x58);
+    iVar6 = DAT_008804d4;
+    uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    uVar4 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    uVar5 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    p_Var15 = this + 0x10;
+    piVar7 = (int *)(DAT_008804d0 + 0x880332);
+    *(undefined4 *)(this + 0x20) = 0;
+    *(undefined4 *)(this + 0x24) = uVar3;
+    *(undefined4 *)(this + 0x28) = uVar4;
+    *(undefined4 *)(this + 0x2c) = uVar5;
+    iVar8 = *piVar7;
+    *(undefined4 *)(this + 0x40) = 0;
+    *(undefined4 *)(this + 0x44) = uVar3;
+    *(undefined4 *)(this + 0x48) = uVar4;
+    *(undefined4 *)(this + 0x4c) = uVar5;
+    *(undefined4 *)p_Var15 = 0;
+    *(undefined4 *)(this + 0x14) = uVar3;
+    *(undefined4 *)(this + 0x18) = uVar4;
+    *(undefined4 *)(this + 0x1c) = uVar5;
+    *(undefined4 *)(this + 0x50) = 0;
+    *(undefined4 *)(this + 0x54) = 0;
+    *(undefined4 *)(this + 0x30) = 0;
+    *(undefined4 *)(this + 0x34) = uVar3;
+    *(undefined4 *)(this + 0x38) = uVar4;
+    *(undefined4 *)(this + 0x3c) = uVar5;
+    iVar6 = *(int *)(iVar6 + 0x88033c);
+    *(undefined4 *)(this + 0x28) = 0;
+    *(undefined4 *)(this + 0x40) = 0;
+    *(__shared_weak_count **)(this + 0x48) = this + 0x48;
+    *(__shared_weak_count **)(this + 0x4c) = this + 0x48;
+    *(int *)this = iVar8 + 8;
+    *(int *)(this + 0x10) = iVar6 + 8;
+    p_Var9 = this + 8;
+    *(undefined4 *)p_Var9 = 0;
+    p_Var1 = this + 4;
+    *(undefined4 *)p_Var1 = 0;
+    do {
+      ExclusiveAccess(p_Var9);
+      bVar2 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar2);
+    *(int *)p_Var9 = *(int *)p_Var9 + 1;
+    *puVar13 = p_Var15;
+    puVar13[1] = this;
+    if (p_Var14 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+    }
+    this_00 = *(mutex **)(DAT_008804d8 + 0x880398);
+    std::__ndk1::mutex::lock(this_00);
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar2 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar2);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    piVar7 = operator_new(0x10);
+    piVar10 = *(int **)(DAT_008804dc + 0x8803b8);
+    iVar6 = *piVar10;
+    *piVar7 = iVar6;
+    piVar7[1] = (int)piVar10;
+    piVar7[2] = (int)p_Var15;
+    piVar7[3] = (int)this;
+    *(int **)(iVar6 + 4) = piVar7;
+    *piVar10 = (int)piVar7;
+    piVar10[2] = piVar10[2] + 1;
+    std::__ndk1::mutex::unlock(this_00);
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var1);
+      iVar6 = *(int *)p_Var1;
+      bVar2 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar2);
+    *(int *)p_Var1 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)this + 8))(this);
+      std::__ndk1::__shared_weak_count::__release_weak(this);
+    }
+  }
+  if (((__shared_weak_count *)puVar13[1] == (__shared_weak_count *)0x0) ||
+     (p_Var14 = (__shared_weak_count *)
+                std::__ndk1::__shared_weak_count::lock((__shared_weak_count *)puVar13[1]),
+     p_Var14 == (__shared_weak_count *)0x0)) {
+    pCVar12 = (CMPool *)0x0;
+  }
+  else {
+    pCVar12 = (CMPool *)*puVar13;
+    p_Var9 = p_Var14 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var9);
+      iVar6 = *(int *)p_Var9;
+      bVar2 = (bool)hasExclusiveAccess(p_Var9);
+    } while (!bVar2);
+    *(int *)p_Var9 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)p_Var14 + 8))(p_Var14);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var14);
+    }
+  }
+  return pCVar12;
+}
+
+
+===== 00880980 shared_ptr<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMPool<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMSpinLock>::Alloc()::{lambda(CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>*)#1}> =====
+
+/* std::__ndk1::shared_ptr<CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >
+   >::shared_ptr<CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >,
+   CMPool<CMSingleton::Holder<CSRCardInfoContainer, CMSingleton::DefaultAlloc<CSRCardInfoContainer>
+   >, CMSpinLock>::Alloc()::{lambda(CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >*)#1}>(CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >*,
+   CMPool<CMSingleton::Holder<CSRCardInfoContainer, CMSingleton::DefaultAlloc<CSRCardInfoContainer>
+   >, CMSpinLock>::Alloc()::{lambda(CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >*)#1},
+   std::__ndk1::enable_if<is_convertible<CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >*, CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> >*>::value,
+   std::__ndk1::shared_ptr<CMSingleton::Holder<CSRCardInfoContainer,
+   CMSingleton::DefaultAlloc<CSRCardInfoContainer> > >::__nat>::type) */
+
+int * std::__ndk1::
+      shared_ptr<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>>
+      ::
+      shared_ptr<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMPool<CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>,CMSpinLock>::Alloc()::_lambda(CMSingleton::Holder<CSRCardInfoContainer,CMSingleton::DefaultAlloc<CSRCardInfoContainer>>*)_1_>
+                (int *param_1,int param_2,int *param_3)
+
+{
+  bool bVar1;
+  int *piVar2;
+  int iVar3;
+  int *piVar4;
+  int iVar5;
+  
+  *param_1 = param_2;
+  piVar2 = operator_new(0x18);
+  iVar5 = *param_3;
+  iVar3 = param_3[1];
+  if (iVar3 != 0) {
+    piVar4 = (int *)(iVar3 + 8);
+    do {
+      ExclusiveAccess(piVar4);
+      bVar1 = (bool)hasExclusiveAccess(piVar4);
+    } while (!bVar1);
+    *piVar4 = *piVar4 + 1;
+  }
+  *piVar2 = *(int *)(DAT_008809f0 + 0x8809b6) + 8;
+  piVar2[1] = 0;
+  piVar2[2] = 0;
+  piVar2[3] = param_2;
+  piVar2[4] = iVar5;
+  piVar2[5] = iVar3;
+  param_1[1] = (int)piVar2;
+  return param_1;
+}
+
+
+===== 00880a3c ~CSRCardInfoContainer =====
+
+/* CSRCardInfoContainer::~CSRCardInfoContainer() */
+
+CSRCardInfoContainer * __thiscall
+CSRCardInfoContainer::~CSRCardInfoContainer(CSRCardInfoContainer *this)
+
+{
+  bool bVar1;
+  void *pvVar2;
+  __shared_weak_count *p_Var3;
+  void *pvVar4;
+  int iVar5;
+  void *pvVar6;
+  __shared_weak_count *this_00;
+  
+  pvVar2 = *(void **)(this + 0x30);
+  if (pvVar2 != (void *)0x0) {
+    *(void **)(this + 0x34) = pvVar2;
+    operator_delete(pvVar2);
+  }
+  pvVar2 = *(void **)(this + 0x24);
+  if (pvVar2 != (void *)0x0) {
+    *(void **)(this + 0x28) = pvVar2;
+    operator_delete(pvVar2);
+  }
+  pvVar2 = *(void **)(this + 0x18);
+  if (pvVar2 != (void *)0x0) {
+    pvVar6 = *(void **)(this + 0x1c);
+    pvVar4 = pvVar2;
+    if (pvVar6 != pvVar2) {
+      do {
+        this_00 = *(__shared_weak_count **)((int)pvVar6 + -4);
+        pvVar6 = (void *)((int)pvVar6 + -8);
+        if (this_00 != (__shared_weak_count *)0x0) {
+          p_Var3 = this_00 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var3);
+            iVar5 = *(int *)p_Var3;
+            bVar1 = (bool)hasExclusiveAccess(p_Var3);
+          } while (!bVar1);
+          *(int *)p_Var3 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*(int *)this_00 + 8))(this_00);
+            std::__ndk1::__shared_weak_count::__release_weak(this_00);
+          }
+        }
+      } while (pvVar6 != pvVar2);
+      pvVar4 = *(void **)(this + 0x18);
+    }
+    *(void **)(this + 0x1c) = pvVar2;
+    operator_delete(pvVar4);
+  }
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<unsigned_int,std::__ndk1::shared_ptr<CSRCardInfoContainer::_CARD_RANK_UP_const>>,std::__ndk1::__map_value_compare<unsigned_int,std::__ndk1::__value_type<unsigned_int,std::__ndk1::shared_ptr<CSRCardInfoContainer::_CARD_RANK_UP_const>>,std::__ndk1::less<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<unsigned_int,std::__ndk1::shared_ptr<CSRCardInfoContainer::_CARD_RANK_UP_const>>>>
+  ::destroy((__tree<std::__ndk1::__value_type<unsigned_int,std::__ndk1::shared_ptr<CSRCardInfoContainer::_CARD_RANK_UP_const>>,std::__ndk1::__map_value_compare<unsigned_int,std::__ndk1::__value_type<unsigned_int,std::__ndk1::shared_ptr<CSRCardInfoContainer::_CARD_RANK_UP_const>>,std::__ndk1::less<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<unsigned_int,std::__ndk1::shared_ptr<CSRCardInfoContainer::_CARD_RANK_UP_const>>>>
+             *)(this + 0xc),*(__tree_node **)(this + 0x10));
+  std::__ndk1::
+  __tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>>>
+  ::destroy((__tree<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::__map_value_compare<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>,std::__ndk1::less<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,true>,std::__ndk1::allocator<std::__ndk1::__value_type<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::shared_ptr<CSRCardInfo>>>>
+             *)this,*(__tree_node **)(this + 4));
+  return this;
+}
+
+

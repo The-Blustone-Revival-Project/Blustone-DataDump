@@ -1,0 +1,93 @@
+===== 0xaec5f4 RemoveItem @ 00aec5f4 =====
+
+/* CSRInventory::RemoveItem(unsigned long long, unsigned int) */
+
+void CSRInventory::RemoveItem(ulonglong param_1,uint param_2)
+
+{
+  bool bVar1;
+  int *piVar2;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this;
+  ulonglong *puVar3;
+  uint uVar4;
+  int *piVar5;
+  void *pvVar6;
+  int *piVar7;
+  uint in_r3;
+  int *piVar8;
+  undefined1 *puVar9;
+  int *piVar10;
+  ulonglong uVar11;
+  int in_stack_00000000;
+  byte local_48;
+  undefined1 auStack_47 [7];
+  undefined1 *local_40;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_3c [8];
+  void *local_34;
+  undefined8 local_30;
+  void *local_28;
+  int local_24;
+
+  piVar10 = *(int **)(DAT_00aec734 + 0xaec608);
+  local_24 = *piVar10;
+  piVar2 = (int *)((int)param_1 + 0x68);
+  piVar8 = (int *)*piVar2;
+  piVar7 = piVar2;
+  if (piVar8 != (int *)0x0) {
+    do {
+      uVar4 = piVar8[5];
+      bVar1 = (uint)(param_2 <= (uint)piVar8[4]) <= uVar4 - in_r3;
+      piVar5 = piVar8;
+      if (uVar4 <= in_r3 && bVar1) {
+        piVar5 = piVar8 + 1;
+      }
+      if (uVar4 > in_r3 || !bVar1) {
+        piVar7 = piVar8;
+      }
+      piVar8 = (int *)*piVar5;
+    } while ((int *)*piVar5 != (int *)0x0);
+    if ((piVar7 != piVar2) &&
+       ((uint)piVar7[5] < in_r3 || in_r3 - piVar7[5] < (uint)((uint)piVar7[4] <= param_2))) {
+      piVar7[6] = piVar7[6] - in_stack_00000000;
+      goto LAB_00aec6e2;
+    }
+  }
+  this = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+         std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+         ::basic_string<decltype(nullptr)>(local_3c,(char *)(DAT_00aec738 + 0xaec658));
+  puVar3 = (ulonglong *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                     (this,(char *)(DAT_00aec73c + 0xaec660),0x19);
+  uVar11 = *puVar3;
+  pvVar6 = *(void **)(puVar3 + 1);
+  *(undefined4 *)puVar3 = 0;
+  *(undefined4 *)((int)puVar3 + 4) = 0;
+  *(undefined4 *)(puVar3 + 1) = 0;
+  local_30 = uVar11;
+  local_28 = pvVar6;
+  std::__ndk1::to_string(ZEXT48(&local_48));
+  if ((uVar11 & 1) == 0) {
+    pvVar6 = (void *)((int)&local_30 + 1);
+  }
+  puVar9 = local_40;
+  if ((local_48 & 1) == 0) {
+    puVar9 = auStack_47;
+  }
+  RMTrace(1,pvVar6,DAT_00aec740 + 0xaec6a2,puVar9);
+  if ((local_48 & 1) != 0) {
+    operator_delete(local_40);
+  }
+  if ((local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+  if (((byte)local_3c[0] & 1) != 0) {
+    operator_delete(local_34);
+  }
+LAB_00aec6e2:
+  if (*piVar10 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

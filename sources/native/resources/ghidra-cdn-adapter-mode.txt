@@ -1,0 +1,236 @@
+===== 721c34 Open @ 00721c34 =====
+
+/* _CMDefaultDB::Open(char const*, RMF_DIR) */
+
+void _CMDefaultDB::Open(int param_1)
+
+{
+  CRMEmbeddedDB::Init((CRMEmbeddedDB *)(param_1 + 4));
+  return;
+}
+
+
+===== 721c46 Put @ 00721c46 =====
+
+/* _CMDefaultDB::Put(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&, std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&) */
+
+void __thiscall _CMDefaultDB::Put(_CMDefaultDB *this,basic_string *param_1,basic_string *param_2)
+
+{
+  int iVar1;
+
+  iVar1 = (**(code **)(*(int *)this + 0x20))(this);
+  if (iVar1 != 0) {
+    CRMEncryptedDB::Put((CRMEncryptedDB *)(this + 4),param_1,param_2);
+    return;
+  }
+  return;
+}
+
+
+===== 721c78 Get @ 00721c78 =====
+
+/* _CMDefaultDB::Get(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) const */
+
+void _CMDefaultDB::Get(basic_string *param_1)
+
+{
+  int iVar1;
+  int *in_r1;
+  basic_string *pbVar2;
+  basic_string *in_r2;
+  int *piVar3;
+  uint local_28 [2];
+  void *local_20;
+  int local_1c;
+
+  pbVar2 = (basic_string *)local_28;
+  piVar3 = *(int **)(DAT_00721cfc + 0x721c8e);
+  local_1c = *piVar3;
+  local_28[0] = 0;
+  local_28[1] = 0;
+  local_20 = (void *)0x0;
+  iVar1 = (**(code **)(*in_r1 + 0x24))();
+  if ((iVar1 != 1) ||
+     (iVar1 = CRMEncryptedDB::Get((CRMEncryptedDB *)(in_r1 + 1),in_r2,(basic_string *)local_28),
+     iVar1 != 1)) {
+    pbVar2 = *(basic_string **)(DAT_00721d00 + 0x721cbe);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+               param_1,pbVar2);
+  if ((local_28[0] & 1) != 0) {
+    operator_delete(local_20);
+  }
+  if (*piVar3 == local_1c) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 721d04 SetMode @ 00721d04 =====
+
+/* _CMDefaultDB::SetMode(CMLocalDB::MODE) */
+
+void __thiscall _CMDefaultDB::SetMode(_CMDefaultDB *this,undefined4 param_2)
+
+{
+  *(undefined4 *)(this + 0x1c) = param_2;
+  return;
+}
+
+
+===== 721d10 IsReadable @ 00721d10 =====
+
+/* _CMDefaultDB::IsReadable() const */
+
+uint __thiscall _CMDefaultDB::IsReadable(_CMDefaultDB *this)
+
+{
+  return *(uint *)(this + 0x1c) & 1;
+}
+
+
+===== 721d18 IsEmpty @ 00721d18 =====
+
+/* _CMDefaultDB::IsEmpty() const */
+
+void __thiscall _CMDefaultDB::IsEmpty(_CMDefaultDB *this)
+
+{
+  CRMEmbeddedDB::IsEmpty((CRMEmbeddedDB *)(this + 4));
+  return;
+}
+
+
+===== 7d3e90 get<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>,CMSpinLock> @ 007d3e90 =====
+
+/* std::__ndk1::shared_ptr<CPVCDN2> CMSingleton::get<CPVCDN2, CMSingleton::DefaultAlloc<CPVCDN2>,
+   CMSpinLock>() */
+
+void __thiscall
+CMSingleton::get<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>,CMSpinLock>(CMSingleton *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  undefined4 *puVar6;
+  int iVar7;
+  undefined4 *extraout_r1;
+  int *piVar8;
+  byte *pbVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  int *piVar12;
+  undefined8 uVar13;
+  int *local_2c;
+  __shared_weak_count *local_28;
+
+  puVar6 = (undefined4 *)(DAT_007d3ff0 + 0x7d3ea6);
+  piVar12 = *(int **)(DAT_007d3fec + 0x7d3ea4);
+  pbVar9 = (byte *)*puVar6;
+  iVar2 = *piVar12;
+  DataMemoryBarrier(0x1b);
+  puVar10 = (undefined4 *)(DAT_007d3ff4 + 0x7d3ebc);
+  if ((*pbVar9 & 1) == 0) {
+    uVar13 = __cxa_guard_acquire(pbVar9);
+    puVar6 = (undefined4 *)((ulonglong)uVar13 >> 0x20);
+    if ((int)uVar13 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_007d3ff8 + 0x7d3fdc),*puVar10,DAT_007d3ffc + 0x7d3fe0);
+      __cxa_guard_release(pbVar9);
+      puVar6 = extraout_r1;
+    }
+  }
+  piVar11 = (int *)*puVar10;
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    puVar6 = *(undefined4 **)(p_Var3 + 4);
+  }
+  if (p_Var3 != (__shared_weak_count *)0x0 && puVar6 != (undefined4 *)0xffffffff) {
+LAB_007d3f34:
+    p_Var3 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(p_Var3);
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      iVar4 = *piVar11;
+      p_Var5 = p_Var3 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+      if (iVar4 != 0) goto LAB_007d3f80;
+    }
+  }
+  else {
+    CMPoolMgr::get<CMSingleton::Holder<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>>,CMSpinLock>();
+    CMPool<CMSingleton::Holder<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>>,CMSpinLock>::Alloc();
+    iVar4 = *local_2c;
+    iVar7 = local_2c[1];
+    if (iVar7 != 0) {
+      piVar8 = (int *)(iVar7 + 8);
+      do {
+        ExclusiveAccess(piVar8);
+        bVar1 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar1);
+      *piVar8 = *piVar8 + 1;
+    }
+    *piVar11 = iVar4;
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    piVar11[1] = iVar7;
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+    if (local_28 != (__shared_weak_count *)0x0) {
+      p_Var3 = local_28 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar4 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_28 + 8))(local_28);
+        std::__ndk1::__shared_weak_count::__release_weak(local_28);
+      }
+    }
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    if (p_Var3 != (__shared_weak_count *)0x0) goto LAB_007d3f34;
+  }
+  _RMAssert('\0',(char *)(DAT_007d4004 + 0x7d3f6e),(char *)(DAT_007d4008 + 0x7d3f72),0xf4,
+            DAT_007d4000 + 0x7d3f6a,DAT_007d400c + 0x7d3f74,DAT_007d4010 + 0x7d3f76);
+LAB_007d3f80:
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = 0;
+  if (p_Var3 == (__shared_weak_count *)0x0) {
+    *(undefined4 *)(this + 4) = 0;
+  }
+  else {
+    iVar4 = std::__ndk1::__shared_weak_count::lock(p_Var3);
+    *(int *)(this + 4) = iVar4;
+    if (iVar4 != 0) {
+      *(int *)this = *piVar11;
+    }
+  }
+  if (*piVar12 != iVar2) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

@@ -1,0 +1,33 @@
+PROGRAM	libnative_core.so
+===== range 0075156c .. 007515bc =====
+0075156c  push {r4,r5,r6,r7,lr}
+0075156e  add r7,sp,#0xc
+00751570  push {r8,r9,r10,r11}
+00751574  sub sp,#0x1c
+00751576  mov r5,r0
+00751578  cmp r1,#0x0
+0075157a  beq 0x007515fe
+0075157c  mov r4,r1
+0075157e  cmp.w r1,#0x40000000
+00751582  bcs.w 0x0075174e
+00751586  lsls r0,r4,#0x2
+00751588  blx 0x00a16570
+0075158c  mov r1,r0
+0075158e  ldr r0,[r5,#0x0]
+00751590  str r1,[r5,#0x0]
+00751592  cmp r0,#0x0
+00751594  it ne
+00751596  blx.ne 0x00a16540
+0075159a  movs r0,#0x0
+0075159c  movs r1,#0x0
+0075159e  str r4,[r5,#0x4]
+007515a0  ldr r2,[r5,#0x0]
+007515a2  str.w r0,[r2,r1,lsl #0x2]
+007515a6  adds r1,#0x1
+007515a8  cmp r4,r1
+007515aa  bne 0x007515a0
+007515ac  mov r6,r5
+007515ae  ldr.w r8,[r6,#0x8]!
+007515b2  cmp.w r8,#0x0
+007515b6  beq.w 0x00751746
+007515ba  mov.w r0,#0x55555555

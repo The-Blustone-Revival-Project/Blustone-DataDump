@@ -1,0 +1,54 @@
+SHIPPED CLIENT CROSS-TITLE AUDIT
+  tables  : ADMIN_ID_RO, BADWORD_RO, CHAR_STR_RO, INGAME_TALK_RO, SKILL_DESC_RO, SKILL_EFFECT_RO, SKILL_REF_RO, SKILL_TAG_RO, TAG_REF_RO, UI_EPISODE_RO, UI_JSON_RO, UI_TEXT_RO, UI_XML_RO
+  records : 18105
+
+### A. every record containing a sister-title anchor
+  anchor 'BTB' -> 5 records
+     [UI_JSON_RO] 비주얼샤워 게임을 플레이하신 적이 있으신가요?|TX_ACC|EN
+        Have you ever played <color='195|130|2'>White Island</color> or <color='195|130|2'>BTB</color> before?
+     [UI_JSON_RO] 비주얼샤워 게임을 플레이하신 적이 있으신가요?|TX_ACC|JA
+        <color='195|130|2'>ホワイトアイランド</color>または<color='195|130|2'>BTB</color>をプレイされたことがありますか?
+     [UI_JSON_RO] 비주얼샤워 게임을 플레이하신 적이 있으신가요?|TX_ACC|KO
+        <color='195|130|2'>하얀섬</color> 또는 <color='195|130|2'>BTB</color>를 플레이하신 적이 있으신가요?
+     [UI_JSON_RO] 비주얼샤워 게임을 플레이하신 적이 있으신가요?|TX_ACC|SC
+        游玩过<color='195|130|2'>白岛</color>或<color='195|130|2'>BTB</color>吗？
+     [UI_JSON_RO] 비주얼샤워 게임을 플레이하신 적이 있으신가요?|TX_ACC|TC
+        遊玩過<color='195|130|2'>白島</color>或<color='195|130|2'>BTB</color>嗎？
+  anchor 'Beyond the Bounds' -> 4 records
+     [UI_JSON_RO] 비욘드 더 바운즈의 세계에 오신 것을 환영합니다.|TX_TITLE|EN
+        Welcome to the world of\nBeyond the Bounds.
+     [UI_JSON_RO] 비욘드 더 바운즈의 세계에 오신 것을 환영합니다.|TX_TITLE|JA
+        Beyond the Boundsの\n世界にようこそ
+     [UI_JSON_RO] 비욘드 더 바운즈의 세계에 오신 것을 환영합니다.|TX_TITLE|SC
+        欢迎来到 Beyond the Bounds的世界
+     [UI_JSON_RO] 비욘드 더 바운즈의 세계에 오신 것을 환영합니다.|TX_TITLE|TC
+        歡迎來到 Beyond the Bounds的世界
+
+  POSITIVE CONTROL: 9 records found -> the scan works.
+
+### B. titles revealed by the anchors (safe to reuse as needles)
+  ['または', 'をプレイされたことがありますか', 'ホワイトアイランド', '世界にようこそ', '欢迎来到', '歡迎來到', '游玩过', '的世界', '遊玩過']
+
+### C. sister-title proper nouns anywhere in the client tables
+  Lantern        -> 0 records
+  Nene           -> 0 records
+  Chichir        -> 0 records
+  Leonardo       -> 0 records
+  Amalgam        -> 0 records
+  Alfheimr       -> 0 records
+  Judecca        -> 0 records
+  Ornithopter    -> 4 records
+       [UI_JSON_RO] 동료 관리하기|UI_CM_IF_AT|EN :: Ornithopter Fuel
+       [UI_JSON_RO] 오르니톱터 연료 6|TXT_CHARGE_AP1|EN :: 6 Ornithopter fuel
+       [UI_JSON_RO] 오르니톱터 연료|TX_IT_SB|EN :: Ornithopter fuel
+       [UI_JSON_RO] 오르니톱터 연료|TX_IT_TL|EN :: Ornithopter fuel
+
+### D. balance vocabulary INSIDE the anchor records
+   (none - the anchor records contain NO balance vocabulary at all)
+
+================================================================================
+SUMMARY
+  sister-title records in the shipped client : 9
+  of which carry any stat/level/formula text : 0
+  sister-title CHARACTER names in the client : see C above
+================================================================================

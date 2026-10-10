@@ -1,0 +1,584 @@
+===== 0x9322d8 RequestNextFloor @ 009322d8 =====
+
+/* CSRExploreMirageInfo::RequestNextFloor(std::__ndk1::function<void
+   (std::__ndk1::shared_ptr<CPVHTTPRequest> const&, std::__ndk1::shared_ptr<CPVHTTPResponse> const&,
+   unsigned int)> const&) */
+
+void __thiscall CSRExploreMirageInfo::RequestNextFloor(CSRExploreMirageInfo *this,function *param_1)
+
+{
+  bool bVar1;
+  undefined4 *puVar2;
+  __shared_weak_count *p_Var3;
+  int *piVar4;
+  int iVar5;
+  function *pfVar6;
+  __shared_weak_count *this_00;
+  __shared_weak_count *p_Var7;
+  CPVHTTPManager *this_01;
+  __shared_weak_count *p_Var8;
+  undefined4 extraout_r1;
+  code *pcVar9;
+  undefined4 uVar10;
+  char *pcVar11;
+  void *pvVar12;
+  void *pvVar13;
+  int *piVar14;
+  undefined1 auStack_1e4 [4];
+  __shared_weak_count *local_1e0;
+  void *local_1dc [2];
+  undefined4 *local_1d4;
+  void *local_1c8;
+  undefined4 local_1c4;
+  void **local_1b8;
+  CSRExploreMirageInfo *local_1b0;
+  int aiStack_1a8 [4];
+  int *local_198;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_190 [8];
+  void *local_188;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_184 [4];
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *local_180;
+  void *local_17c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_178 [8];
+  void *local_170;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_16c [4];
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *local_168;
+  void *local_164;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_160 [8];
+  void *local_158;
+  TASK_ARGC local_154;
+  void *local_14c;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_148 [8];
+  void *local_140;
+  byte local_13c;
+  void *local_134;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_130 [8];
+  void *local_128;
+  undefined8 local_124;
+  void *local_11c;
+  void *local_118;
+  undefined4 uStack_114;
+  void **local_108;
+  __shared_weak_count *local_100;
+  __shared_weak_count *p_Stack_fc;
+  CSRExploreMirageInfo *local_f8;
+  int aiStack_f0 [4];
+  int *local_e0;
+  function afStack_d8 [16];
+  function *local_c8;
+  __shared_weak_count *local_c0;
+  __shared_weak_count *local_bc;
+  void *local_b8 [4];
+  void **local_a8;
+  function afStack_a0 [16];
+  function *local_90;
+  __shared_weak_count *local_88;
+  __shared_weak_count *p_Stack_84;
+  CSRExploreMirageInfo *local_80;
+  function *local_78 [4];
+  function **local_68;
+  __shared_weak_count *local_60;
+  __shared_weak_count *p_Stack_5c;
+  void *local_58;
+  undefined4 uStack_54;
+  void **local_48;
+  void *local_40;
+  undefined4 uStack_3c;
+  void **local_30;
+  int local_28;
+
+  piVar4 = *(int **)(DAT_0093269c + 0x9322ee);
+  piVar14 = *(int **)(DAT_009326a0 + 0x9322f0);
+  local_28 = *piVar4;
+  iVar5 = *piVar14;
+  if ((*(byte *)(iVar5 + 0xc) & 1) == 0) {
+    pcVar11 = (char *)(iVar5 + 0xd);
+  }
+  else {
+    pcVar11 = *(char **)(iVar5 + 0x14);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_190,(char *)(DAT_009326a4 + 0x93230e));
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_184,pcVar11);
+  iVar5 = *piVar14;
+  if ((*(byte *)(iVar5 + 0x18) & 1) == 0) {
+    pcVar11 = (char *)(iVar5 + 0x19);
+  }
+  else {
+    pcVar11 = *(char **)(iVar5 + 0x20);
+  }
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_178,(char *)(DAT_009326a8 + 0x932338));
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_16c,pcVar11);
+  iVar5 = CPVDataMgr::get();
+  std::to_string<PV_MARKET>(&local_88,*(undefined4 *)(iVar5 + 0x24));
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_160,(char *)(DAT_009326ac + 0x932356));
+  local_154 = local_88._0_1_;
+  local_88 = (__shared_weak_count *)0x0;
+  p_Stack_84 = (__shared_weak_count *)0x0;
+  local_14c = local_80;
+  local_80 = (void *)0x0;
+  CPVDataMgr::get();
+  std::__ndk1::to_string(CONCAT44(extraout_r1,&local_100));
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_148,(char *)(DAT_009326b0 + 0x932384));
+  local_13c = (byte)local_100;
+  local_100 = (__shared_weak_count *)0x0;
+  p_Stack_fc = (__shared_weak_count *)0x0;
+  local_134 = local_f8;
+  local_f8 = (void *)0x0;
+  CPVDataMgr::get();
+  CPVDataMgr::GetOTP();
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_130,(char *)(DAT_009326b4 + 0x9323b8));
+  pvVar12 = local_58;
+  local_124 = 0;
+  local_11c = (void *)0x0;
+  if (((uint)local_60 & 1) == 0) {
+    local_124 = CONCAT44(p_Stack_5c,local_60);
+    local_11c = local_58;
+  }
+  else {
+    if (0xffffffef < p_Stack_5c) {
+                    /* WARNING: Subroutine does not return */
+      std::__ndk1::__basic_string_common<true>::__throw_length_error();
+    }
+    if (p_Stack_5c < 0xb) {
+      pvVar13 = (void *)((int)&local_124 + 1);
+      local_124 = (ulonglong)(((uint)p_Stack_5c & 0x7f) << 1);
+      if (p_Stack_5c != (__shared_weak_count *)0x0) goto LAB_00932418;
+    }
+    else {
+      pvVar13 = operator_new((int)p_Stack_5c + 0x10U & 0xfffffff0);
+      local_124 = CONCAT44(p_Stack_5c,(int)p_Stack_5c + 0x10U) & 0xfffffffffffffff0 | 1;
+      local_11c = pvVar13;
+LAB_00932418:
+      __aeabi_memcpy(pvVar13,pvVar12,p_Stack_5c);
+    }
+    *(undefined1 *)((int)pvVar13 + (int)p_Stack_5c) = 0;
+  }
+  std::__ndk1::
+  unordered_map<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::hash<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,std::__ndk1::equal_to<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>>
+  ::unordered_map(local_1dc,local_190,5);
+  if ((local_124 & 1) != 0) {
+    operator_delete(local_11c);
+  }
+  if (((byte)local_130[0] & 1) != 0) {
+    operator_delete(local_128);
+  }
+  if ((local_13c & 1) != 0) {
+    operator_delete(local_134);
+  }
+  if (((byte)local_148[0] & 1) != 0) {
+    operator_delete(local_140);
+  }
+  if (((byte)local_154 & 1) != 0) {
+    operator_delete(local_14c);
+  }
+  if (((byte)local_160[0] & 1) != 0) {
+    operator_delete(local_158);
+  }
+  if (((byte)local_16c[0] & 1) != 0) {
+    operator_delete(local_164);
+  }
+  if (((byte)local_178[0] & 1) != 0) {
+    operator_delete(local_170);
+  }
+  if (((byte)local_184[0] & 1) != 0) {
+    operator_delete(local_17c);
+  }
+  if (((byte)local_190[0] & 1) != 0) {
+    operator_delete(local_188);
+  }
+  if (((uint)local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  if (((uint)local_100 & 1) != 0) {
+    operator_delete(local_f8);
+  }
+  if (((uint)local_88 & 1) != 0) {
+    operator_delete(local_80);
+  }
+  pfVar6 = *(function **)(param_1 + 0x10);
+  local_1b0 = this;
+  if (pfVar6 == (function *)0x0) {
+    local_198 = (int *)0x0;
+  }
+  else if (param_1 == pfVar6) {
+    local_198 = aiStack_1a8;
+    (**(code **)(*(int *)pfVar6 + 0xc))(pfVar6,aiStack_1a8);
+  }
+  else {
+    local_198 = (int *)(**(code **)(*(int *)pfVar6 + 8))();
+  }
+  iVar5 = CPVDataMgr::get();
+  if ((*(byte *)(iVar5 + 0xcc) & 1) == 0) {
+    iVar5 = iVar5 + 0xcd;
+  }
+  else {
+    iVar5 = *(int *)(iVar5 + 0xd4);
+  }
+  CPVHTTPRequest::
+  Create<CPVHTTPRequestBodyComplexTransformer<CPVHTTPMapToEncodedURLFormTransformer<std::__ndk1::unordered_map<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::hash<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,std::__ndk1::equal_to<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>,std::__ndk1::allocator<std::__ndk1::pair<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>const,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>>>,CPVHTTPRequestEncryptor,std::__ndk1::unordered_map<std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>,std::__ndk1:___onst,std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>>>>>
+            (auStack_1e4,iVar5,DAT_009326b8 + 0x932536,2,local_1dc,0);
+  uVar10 = *(undefined4 *)(DAT_009326c0 + 0x93254c);
+  local_1b8 = &local_1c8;
+  pvVar12 = (void *)(*(int *)(DAT_009326bc + 0x93254a) + 8);
+  local_108 = &local_118;
+  local_1c8 = pvVar12;
+  local_1c4 = uVar10;
+  local_118 = pvVar12;
+  uStack_114 = uVar10;
+  this_00 = operator_new(0x20);
+  piVar14 = (int *)(DAT_009326c4 + 0x932574);
+  *(undefined4 *)(this_00 + 8) = 0;
+  *(undefined4 *)(this_00 + 0x18) = 0;
+  *(int *)this_00 = *piVar14 + 8;
+  p_Var8 = this_00 + 4;
+  *(undefined4 *)p_Var8 = 0;
+  local_88 = this_00 + 0x10;
+  *local_88 = (__shared_weak_count)0x0;
+  local_30 = &local_40;
+  do {
+    ExclusiveAccess(p_Var8);
+    bVar1 = (bool)hasExclusiveAccess(p_Var8);
+  } while (!bVar1);
+  *(int *)p_Var8 = *(int *)p_Var8 + 1;
+  do {
+    ExclusiveAccess(p_Var8);
+    bVar1 = (bool)hasExclusiveAccess(p_Var8);
+  } while (!bVar1);
+  *(int *)p_Var8 = *(int *)p_Var8 + 1;
+  local_80 = local_1b0;
+  p_Stack_84 = this_00;
+  local_60 = local_88;
+  p_Stack_5c = this_00;
+  local_58 = pvVar12;
+  uStack_54 = uVar10;
+  local_48 = &local_58;
+  local_40 = pvVar12;
+  uStack_3c = uVar10;
+  if (local_198 == (int *)0x0) {
+    local_68 = (function **)0x0;
+  }
+  else if (aiStack_1a8 == local_198) {
+    local_68 = local_78;
+    (**(code **)(*local_198 + 0xc))();
+  }
+  else {
+    local_68 = (function **)(**(code **)(*local_198 + 8))();
+  }
+  local_c0 = local_60;
+  local_bc = p_Stack_5c;
+  local_60 = (__shared_weak_count *)0x0;
+  p_Stack_5c = (__shared_weak_count *)0x0;
+  if (local_48 == (void **)0x0) {
+    local_a8 = (void **)0x0;
+  }
+  else if (&local_58 == local_48) {
+    local_a8 = local_b8;
+    (**(code **)((int)*local_48 + 0xc))(local_48,local_b8);
+  }
+  else {
+    local_a8 = local_48;
+    local_48 = (void **)0x0;
+  }
+  local_90 = (function *)0x0;
+  pfVar6 = operator_new(0x28);
+  p_Var7 = local_bc;
+  p_Var3 = local_c0;
+  *(int *)pfVar6 = DAT_009326c8 + 0x932642;
+  local_c0 = (__shared_weak_count *)0x0;
+  local_bc = (__shared_weak_count *)0x0;
+  *(__shared_weak_count **)(pfVar6 + 8) = p_Var3;
+  *(__shared_weak_count **)(pfVar6 + 0xc) = p_Var7;
+  if (local_a8 == (void **)0x0) {
+    *(undefined4 *)(pfVar6 + 0x20) = 0;
+  }
+  else if (local_b8 == local_a8) {
+    *(function **)(pfVar6 + 0x20) = pfVar6 + 0x10;
+    (**(code **)((int)*local_a8 + 0xc))();
+  }
+  else {
+    *(void ***)(pfVar6 + 0x20) = local_a8;
+    local_a8 = (void **)0x0;
+  }
+  local_100 = local_88;
+  p_Stack_fc = p_Stack_84;
+  local_f8 = local_80;
+  local_88 = (__shared_weak_count *)0x0;
+  p_Stack_84 = (__shared_weak_count *)0x0;
+  local_90 = pfVar6;
+  if (local_68 == (function **)0x0) {
+    local_e0 = (int *)0x0;
+  }
+  else if (local_78 == local_68) {
+    local_e0 = aiStack_f0;
+    (**(code **)(*local_68 + 0xc))(local_68,aiStack_f0);
+  }
+  else {
+    local_e0 = (int *)(**(code **)(*local_68 + 8))();
+  }
+  local_c8 = (function *)0x0;
+  pfVar6 = operator_new(0x30);
+  p_Var7 = p_Stack_fc;
+  p_Var3 = local_100;
+  *(int *)pfVar6 = DAT_009329f4 + 0x9326f8;
+  local_100 = (__shared_weak_count *)0x0;
+  p_Stack_fc = (__shared_weak_count *)0x0;
+  *(__shared_weak_count **)(pfVar6 + 8) = p_Var3;
+  *(__shared_weak_count **)(pfVar6 + 0xc) = p_Var7;
+  *(CSRExploreMirageInfo **)(pfVar6 + 0x10) = local_f8;
+  if (local_e0 == (int *)0x0) {
+    iVar5 = 0;
+LAB_0093270c:
+    *(int *)(pfVar6 + 0x28) = iVar5;
+  }
+  else {
+    if (aiStack_f0 != local_e0) {
+      iVar5 = (**(code **)(*local_e0 + 8))();
+      goto LAB_0093270c;
+    }
+    *(function **)(pfVar6 + 0x28) = pfVar6 + 0x18;
+    (**(code **)(*local_e0 + 0xc))();
+  }
+  local_c8 = pfVar6;
+  PVHTTP::
+  TASK_ARGC<std::__ndk1::function<void(std::__ndk1::shared_ptr<CPVHTTPRequest>,std::__ndk1::shared_ptr<CPVHTTPResponse>)>>
+  ::TASK_ARGC((TASK_ARGC<std::__ndk1::function<void(std::__ndk1::shared_ptr<CPVHTTPRequest>,std::__ndk1::shared_ptr<CPVHTTPResponse>)>>
+               *)local_190,afStack_a0,afStack_d8);
+  if (afStack_d8 == local_c8) {
+    pcVar9 = *(code **)(*(int *)local_c8 + 0x10);
+LAB_00932740:
+    (*pcVar9)();
+  }
+  else if (local_c8 != (function *)0x0) {
+    pcVar9 = *(code **)(*(int *)local_c8 + 0x14);
+    goto LAB_00932740;
+  }
+  if (aiStack_f0 == local_e0) {
+    (**(code **)(*local_e0 + 0x10))();
+  }
+  else if (local_e0 != (int *)0x0) {
+    (**(code **)(*local_e0 + 0x14))();
+  }
+  p_Var3 = p_Stack_fc;
+  if (p_Stack_fc != (__shared_weak_count *)0x0) {
+    p_Var7 = p_Stack_fc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar5 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Stack_fc + 8))(p_Stack_fc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (afStack_a0 == local_90) {
+    pcVar9 = *(code **)(*(int *)local_90 + 0x10);
+LAB_009327a8:
+    (*pcVar9)();
+  }
+  else if (local_90 != (function *)0x0) {
+    pcVar9 = *(code **)(*(int *)local_90 + 0x14);
+    goto LAB_009327a8;
+  }
+  if (local_b8 == local_a8) {
+    pcVar9 = *(code **)((int)*local_a8 + 0x10);
+LAB_009327bc:
+    (*pcVar9)();
+  }
+  else if (local_a8 != (void **)0x0) {
+    pcVar9 = *(code **)((int)*local_a8 + 0x14);
+    goto LAB_009327bc;
+  }
+  p_Var3 = local_bc;
+  if (local_bc != (__shared_weak_count *)0x0) {
+    p_Var7 = local_bc + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar5 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_bc + 8))(local_bc);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (local_78 == local_68) {
+    pcVar9 = *(code **)(*local_68 + 0x10);
+LAB_009327fe:
+    (*pcVar9)();
+  }
+  else if (local_68 != (function **)0x0) {
+    pcVar9 = *(code **)(*local_68 + 0x14);
+    goto LAB_009327fe;
+  }
+  p_Var3 = p_Stack_84;
+  if (p_Stack_84 != (__shared_weak_count *)0x0) {
+    p_Var7 = p_Stack_84 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar5 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Stack_84 + 8))(p_Stack_84);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (&local_58 == local_48) {
+    pcVar9 = *(code **)((int)*local_48 + 0x10);
+LAB_00932840:
+    (*pcVar9)();
+  }
+  else if (local_48 != (void **)0x0) {
+    pcVar9 = *(code **)((int)*local_48 + 0x14);
+    goto LAB_00932840;
+  }
+  p_Var3 = p_Stack_5c;
+  if (p_Stack_5c != (__shared_weak_count *)0x0) {
+    p_Var7 = p_Stack_5c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar5 = *(int *)p_Var7;
+      bVar1 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar1);
+    *(int *)p_Var7 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Stack_5c + 8))(p_Stack_5c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+  }
+  if (&local_40 == local_30) {
+    pcVar9 = *(code **)((int)*local_30 + 0x10);
+LAB_00932882:
+    (*pcVar9)();
+  }
+  else if (local_30 != (void **)0x0) {
+    pcVar9 = *(code **)((int)*local_30 + 0x14);
+    goto LAB_00932882;
+  }
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(p_Var8);
+    iVar5 = *(int *)p_Var8;
+    bVar1 = (bool)hasExclusiveAccess(p_Var8);
+  } while (!bVar1);
+  *(int *)p_Var8 = iVar5 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar5 == 0) {
+    (**(code **)(*(int *)this_00 + 8))(this_00);
+    std::__ndk1::__shared_weak_count::__release_weak(this_00);
+  }
+  if (&local_118 == local_108) {
+    pcVar9 = *(code **)((int)*local_108 + 0x10);
+LAB_009328be:
+    (*pcVar9)();
+  }
+  else if (local_108 != (void **)0x0) {
+    pcVar9 = *(code **)((int)*local_108 + 0x14);
+    goto LAB_009328be;
+  }
+  this_01 = (CPVHTTPManager *)CPVHTTPManager::get();
+  PVHTTP::TASK_ARGC::operator_cast_to_function((TASK_ARGC *)&local_88);
+  CPVHTTPManager::Request
+            (this_01,auStack_1e4,(function *)&local_88,*(function **)(DAT_009329f8 + 0x9328d6));
+  if ((function *)&local_88 == local_78[0]) {
+    (**(code **)(*(int *)local_78[0] + 0x10))();
+  }
+  else if (local_78[0] != (function *)0x0) {
+    (**(code **)(*(int *)local_78[0] + 0x14))();
+  }
+  if (local_178 == local_168) {
+    pcVar9 = *(code **)(*(int *)local_168 + 0x10);
+LAB_00932914:
+    (*pcVar9)();
+  }
+  else if (local_168 !=
+           (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)0x0) {
+    pcVar9 = *(code **)(*(int *)local_168 + 0x14);
+    goto LAB_00932914;
+  }
+  if (local_190 == local_180) {
+    (**(code **)(*(int *)local_180 + 0x10))();
+  }
+  else if (local_180 !=
+           (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)0x0) {
+    (**(code **)(*(int *)local_180 + 0x14))();
+  }
+  if (&local_1c8 == local_1b8) {
+    pcVar9 = *(code **)((int)*local_1b8 + 0x10);
+LAB_00932944:
+    (*pcVar9)();
+  }
+  else if (local_1b8 != (void **)0x0) {
+    pcVar9 = *(code **)((int)*local_1b8 + 0x14);
+    goto LAB_00932944;
+  }
+  if (local_1e0 != (__shared_weak_count *)0x0) {
+    p_Var8 = local_1e0 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar5 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)local_1e0 + 8))(local_1e0);
+      std::__ndk1::__shared_weak_count::__release_weak(local_1e0);
+    }
+  }
+  if (aiStack_1a8 == local_198) {
+    pcVar9 = *(code **)(*local_198 + 0x10);
+  }
+  else {
+    pvVar12 = local_1dc[0];
+    puVar2 = local_1d4;
+    if (local_198 == (int *)0x0) goto joined_r0x00932988;
+    pcVar9 = *(code **)(*local_198 + 0x14);
+  }
+  (*pcVar9)();
+  pvVar12 = local_1dc[0];
+  puVar2 = local_1d4;
+joined_r0x00932988:
+  while (puVar2 != (void *)0x0) {
+    pvVar13 = (void *)*puVar2;
+    local_1dc[0] = pvVar12;
+    if ((*(byte *)(puVar2 + 5) & 1) != 0) {
+      operator_delete((void *)puVar2[7]);
+    }
+    if ((*(byte *)(puVar2 + 2) & 1) != 0) {
+      operator_delete((void *)puVar2[4]);
+    }
+    operator_delete(puVar2);
+    pvVar12 = local_1dc[0];
+    puVar2 = pvVar13;
+  }
+  local_1dc[0] = (void *)0x0;
+  if (pvVar12 != (void *)0x0) {
+    operator_delete(pvVar12);
+  }
+  if (*piVar4 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

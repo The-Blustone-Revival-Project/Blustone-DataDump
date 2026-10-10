@@ -1,0 +1,305 @@
+===== eb2580 SetHouseNPC @ 00eb2580 =====
+
+/* CSRSceneMgr::SetHouseNPC(CSRScene::TYPE, TU_TYPE, TU_TYPE, std::__ndk1::basic_string<char,
+   std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> > const&,
+   std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>, std::__ndk1::allocator<char> >
+   const&, std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall
+CSRSceneMgr::SetHouseNPC
+          (CSRSceneMgr *this,undefined4 param_2,undefined4 param_3,int param_4,
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *param_5,
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *param_6,
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *param_7)
+
+{
+  bool bVar1;
+  CSRDataMgr *this_00;
+  CSRPlayData *pCVar2;
+  int iVar3;
+  __shared_weak_count *p_Var4;
+  __shared_weak_count *p_Var5;
+  code *pcVar6;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar7;
+  uint uVar8;
+  int *piVar9;
+  undefined4 local_70;
+  uint local_6c [2];
+  void *local_64;
+  int *local_60;
+  __shared_weak_count *local_5c;
+  uint local_58;
+  __shared_weak_count *p_Stack_54;
+  void *local_50;
+  int aiStack_40 [4];
+  int *local_30;
+  int local_24;
+  
+  piVar9 = *(int **)(DAT_00eb291c + 0xeb2596);
+  local_24 = *piVar9;
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar2 = (CSRPlayData *)CSRDataMgr::GetPlayData(this_00);
+  iVar3 = CSRPlayData::GetStageAchieveCnt(pCVar2,param_3);
+  local_70 = param_2;
+  if (iVar3 == 0) {
+    std::__ndk1::shared_ptr<CSRSceneNPCDlg>::make_shared<>((shared_ptr<CSRSceneNPCDlg> *)&local_60);
+    if (local_5c != (__shared_weak_count *)0x0) {
+      p_Var5 = local_5c + 4;
+      do {
+        ExclusiveAccess(p_Var5);
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = *(int *)p_Var5 + 1;
+    }
+    *(int **)(this + 0x34) = local_60;
+    p_Var5 = *(__shared_weak_count **)(this + 0x38);
+    *(__shared_weak_count **)(this + 0x38) = local_5c;
+    if (p_Var5 != (__shared_weak_count *)0x0) {
+      p_Var4 = p_Var5 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar3 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar3 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar3 == 0) {
+        (**(code **)(*(int *)p_Var5 + 8))(p_Var5);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var5);
+      }
+    }
+    local_6c[1] = 0;
+    local_64 = (void *)0x0;
+    local_6c[0] = 0;
+    if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)local_6c
+        != param_7) {
+      uVar8 = *(uint *)(param_7 + 4);
+      pbVar7 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)
+                (param_7 + 8);
+      if (((byte)*param_7 & 1) == 0) {
+        pbVar7 = param_7 + 1;
+        uVar8 = (uint)((byte)*param_7 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             local_6c,(char *)pbVar7,uVar8);
+    }
+    CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00eb29dc + 0xeb26d4));
+    (**(code **)(*local_60 + 0x48))(local_60,&local_58);
+    if ((local_58 & 1) != 0) {
+      operator_delete(local_50);
+    }
+    (**(code **)(*local_60 + 8))(local_60,&local_70);
+    if ((local_6c[0] & 1) != 0) {
+      operator_delete(local_64);
+    }
+    if (local_5c == (__shared_weak_count *)0x0) goto LAB_00eb28d4;
+    p_Var5 = local_5c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar3 = *(int *)p_Var5;
+      bVar1 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar1);
+    *(int *)p_Var5 = iVar3 + -1;
+    p_Var5 = local_5c;
+  }
+  else {
+    CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+              ((CMSingleton *)&local_58);
+    p_Var5 = p_Stack_54;
+    uVar8 = local_58;
+    if (p_Stack_54 != (__shared_weak_count *)0x0) {
+      p_Var4 = p_Stack_54 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar3 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar3 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar3 == 0) {
+        (**(code **)(*(int *)p_Stack_54 + 8))(p_Stack_54);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var5);
+      }
+    }
+    iVar3 = CSRSyncTutorial::GetState(*(CSRSyncTutorial **)(uVar8 + 0x24),param_4,0);
+    if (iVar3 < 2) {
+      if (param_4 != 2) {
+        CMSingleton::get<CSRDataSyncMgr,CMSingleton::DefaultAlloc<CSRDataSyncMgr>,CMSpinLock>
+                  ((CMSingleton *)&local_58);
+        uVar8 = local_58;
+        if (p_Stack_54 != (__shared_weak_count *)0x0) {
+          p_Var5 = p_Stack_54 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar3 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar3 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar3 == 0) {
+            (**(code **)(*(int *)p_Stack_54 + 8))(p_Stack_54);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Stack_54);
+          }
+        }
+        local_30 = (int *)0x0;
+        CSRSyncTutorial::RequestClear(*(CSRSyncTutorial **)(uVar8 + 0x24),param_4,0,aiStack_40);
+        if (aiStack_40 == local_30) {
+          pcVar6 = *(code **)(*local_30 + 0x10);
+        }
+        else {
+          if (local_30 == (int *)0x0) goto LAB_00eb27f8;
+          pcVar6 = *(code **)(*local_30 + 0x14);
+        }
+        (*pcVar6)();
+      }
+LAB_00eb27f8:
+      std::__ndk1::shared_ptr<CSRSceneTutorialNPCDlg>::make_shared<>
+                ((shared_ptr<CSRSceneTutorialNPCDlg> *)&local_60);
+      if (local_5c != (__shared_weak_count *)0x0) {
+        p_Var5 = local_5c + 4;
+        do {
+          ExclusiveAccess(p_Var5);
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = *(int *)p_Var5 + 1;
+      }
+      *(int **)(this + 0x34) = local_60;
+      p_Var5 = *(__shared_weak_count **)(this + 0x38);
+      *(__shared_weak_count **)(this + 0x38) = local_5c;
+      if (p_Var5 != (__shared_weak_count *)0x0) {
+        p_Var4 = p_Var5 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var4);
+          iVar3 = *(int *)p_Var4;
+          bVar1 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar1);
+        *(int *)p_Var4 = iVar3 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar3 == 0) {
+          (**(code **)(*(int *)p_Var5 + 8))(p_Var5);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var5);
+        }
+      }
+      local_6c[1] = 0;
+      local_64 = (void *)0x0;
+      local_6c[0] = 0;
+      if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)local_6c
+          != param_5) {
+        uVar8 = *(uint *)(param_5 + 4);
+        pbVar7 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **
+                  )(param_5 + 8);
+        if (((byte)*param_5 & 1) == 0) {
+          pbVar7 = param_5 + 1;
+          uVar8 = (uint)((byte)*param_5 >> 1);
+        }
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 local_6c,(char *)pbVar7,uVar8);
+      }
+      CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00eb29e0 + 0xeb2874));
+      (**(code **)(*local_60 + 0x48))(local_60,&local_58);
+      if ((local_58 & 1) != 0) {
+        operator_delete(local_50);
+      }
+      (**(code **)(*local_60 + 8))(local_60,&local_70);
+      if ((local_6c[0] & 1) != 0) {
+        operator_delete(local_64);
+      }
+      if (local_5c == (__shared_weak_count *)0x0) goto LAB_00eb28d4;
+      p_Var5 = local_5c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar3 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar3 + -1;
+      p_Var5 = local_5c;
+    }
+    else {
+      std::__ndk1::shared_ptr<CSRSceneNPCDlg>::make_shared<>
+                ((shared_ptr<CSRSceneNPCDlg> *)&local_60);
+      if (local_5c != (__shared_weak_count *)0x0) {
+        p_Var5 = local_5c + 4;
+        do {
+          ExclusiveAccess(p_Var5);
+          bVar1 = (bool)hasExclusiveAccess(p_Var5);
+        } while (!bVar1);
+        *(int *)p_Var5 = *(int *)p_Var5 + 1;
+      }
+      *(int **)(this + 0x34) = local_60;
+      p_Var5 = *(__shared_weak_count **)(this + 0x38);
+      *(__shared_weak_count **)(this + 0x38) = local_5c;
+      if (p_Var5 != (__shared_weak_count *)0x0) {
+        p_Var4 = p_Var5 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var4);
+          iVar3 = *(int *)p_Var4;
+          bVar1 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar1);
+        *(int *)p_Var4 = iVar3 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar3 == 0) {
+          (**(code **)(*(int *)p_Var5 + 8))(p_Var5);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var5);
+        }
+      }
+      local_6c[1] = 0;
+      local_64 = (void *)0x0;
+      local_6c[0] = 0;
+      if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)local_6c
+          != param_6) {
+        uVar8 = *(uint *)(param_6 + 4);
+        pbVar7 = *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **
+                  )(param_6 + 8);
+        if (((byte)*param_6 & 1) == 0) {
+          pbVar7 = param_6 + 1;
+          uVar8 = (uint)((byte)*param_6 >> 1);
+        }
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 local_6c,(char *)pbVar7,uVar8);
+      }
+      CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00eb29e4 + 0xeb27a2));
+      (**(code **)(*local_60 + 0x48))(local_60,&local_58);
+      if ((local_58 & 1) != 0) {
+        operator_delete(local_50);
+      }
+      (**(code **)(*local_60 + 8))(local_60,&local_70);
+      if ((local_6c[0] & 1) != 0) {
+        operator_delete(local_64);
+      }
+      if (local_5c == (__shared_weak_count *)0x0) goto LAB_00eb28d4;
+      p_Var5 = local_5c + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar3 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar3 + -1;
+      p_Var5 = local_5c;
+    }
+  }
+  DataMemoryBarrier(0x1b);
+  if (iVar3 == 0) {
+    (**(code **)(*(int *)p_Var5 + 8))(p_Var5);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var5);
+  }
+LAB_00eb28d4:
+  if (*piVar9 == local_24) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+

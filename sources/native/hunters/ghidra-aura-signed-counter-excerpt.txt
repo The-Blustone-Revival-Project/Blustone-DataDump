@@ -1,0 +1,28 @@
+Curated original Ghidra read-only export excerpts; G=ELF+10000.
+Full export retained locally in ghidra-aura-signed-counter.txt.
+Apply G99c450: target_stat15 case; decompiler pointer types here represent signed 32-bit scalar.
+  case (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)0xf:
+    puVar54 = *(undefined8 **)(this + 0x30);
+    puVar46 = puVar54;
+    if (0.0 < in_r2) {
+      puVar46 = (undefined8 *)-(int)puVar54;
+    }
+    iVar42 = CSRGameActorBaseDraw::IsStun(*(CSRGameActorBaseDraw **)(this + 0x100));
+    puVar48 = (undefined8 *)-(int)puVar54;
+    if (0.0 < in_r2) {
+      puVar48 = puVar54;
+    }
+    if ((int)puVar54 < 1) {
+      puVar48 = puVar46;
+    }
+    CSRGameActorBaseDraw::AddBuffStun(*(CSRGameActorBaseDraw **)(this + 0x100),(int)puVar48);
+===== 0099b624 AddBuffStun @ 0099b624 =====
+
+/* CSRGameActorBaseDraw::AddBuffStun(int) */
+
+void __thiscall CSRGameActorBaseDraw::AddBuffStun(CSRGameActorBaseDraw *this,int param_1)
+
+{
+  *(int *)(*(int *)(this + 0x8bc) + 0x94) = param_1 + *(int *)(*(int *)(this + 0x8bc) + 0x94);
+  return;
+}

@@ -1,0 +1,23 @@
+===== 7d8c44 Holder @ 007d8c44 =====
+
+/* CMSingleton::Holder<CPVCDN2, CMSingleton::DefaultAlloc<CPVCDN2> >::Holder() */
+
+Holder<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>> * __thiscall
+CMSingleton::Holder<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>>::Holder
+          (Holder<CPVCDN2,CMSingleton::DefaultAlloc<CPVCDN2>> *this)
+
+{
+  CPVCDN2 *this_00;
+  int *piVar1;
+
+  this_00 = operator_new(0x40);
+  CPVCDN2::CPVCDN2(this_00);
+  *(CPVCDN2 **)this = this_00;
+  piVar1 = operator_new(0x10);
+  *piVar1 = *(int *)(DAT_007d8c90 + 0x7d8c66) + 8;
+  piVar1[1] = 0;
+  piVar1[2] = 0;
+  piVar1[3] = (int)this_00;
+  *(int **)(this + 4) = piVar1;
+  return this;
+}

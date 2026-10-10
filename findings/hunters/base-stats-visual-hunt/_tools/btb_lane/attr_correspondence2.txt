@@ -1,0 +1,49 @@
+### CONTROL: the join instrument, proven on a self-join
+   English roster against itself: 55/55 rows join
+   -> the instrument is PROVEN working; the 0-row Hangul join was a real
+      name-space mismatch, not an instrument failure.
+
+### MANUAL JOIN (declared, not inferred)
+en_name      kr_name                        kr_attr  en_elem    kr_g   en_g   grade?
+Lantern      최초의 헌터 랜턴                      화속       Fire       3      3      OK
+Nene         전설적인 말썽꾸러기 네네                  수속       Ice        3      3      OK
+Mowgli       사라진 숲의 모글리                     전속       Electric   2      2      OK
+Hermes       특급 전령사 헤르메스                    화속       Fire       3      3      OK
+Diana        천둥 화살 디아나                      전속       Electric   3      3      OK
+Dino         천재 기후학자 디노                     수속       Ice        3      3      OK
+Locke        로크 앤 캐쉬 CEO 로크                 수속       Ice        1      1      OK
+Beckhen      파이트클럽의 수호자 백헨                  수속       Ice        3      3      OK
+Sienna       화력덕후 시에나                       전속       Electric   1      1      OK
+Metis        오늘도 화끈한 메티스                    화속       Fire       1      1      OK
+Pansy        동물 애호가 팬지                      화속       Electric   3      3      OK
+Hecate       지키는자 헤카테                       화속       Fire       1      1      OK
+Athena       전장의 불꽃 아테나                     화속       Fire       3      3      OK
+Harley       정의로운 자 할리                      수속       Ice        4      4      OK
+Patrone      조용한 송곳니 파트로네                   수속       Ice        3      3      OK
+Gullveig     비행선 관리원 걸베이그                   전속       Electric   3      3      OK
+Sylvester    사라지지 않는 노병 실베스터                화속       Fire       1      1      OK
+Lapis        쾌속의 검술가 라피스                    수속       Ice        1      1      OK
+Acerola      식물학자 아세로라                      전속       Electric   2      2      OK
+Denali       청결의 요정 데날리                     화속       Fire       2      2      OK
+Akasha       신목의 무녀 아카샤                     전속       Electric   3      3      OK
+
+### UNJOINED (listed so a zero is never mistaken for agreement):
+   Robbin kr_present=False en_present=True
+   Kaliburn kr_present=False en_present=True
+   Bibi kr_present=True en_present=False
+   Krokus kr_present=False en_present=True
+   Joyce kr_present=False en_present=True
+   Leo kr_present=False en_present=True
+
+### derived correspondence
+   수속 -> Ice
+   전속 -> Electric
+   화속 -> Fire
+
+### CONFLICTS: 1 over 21 joined heroes
+   ('Pansy', '화속', 'Fire', 'Electric')
+
+### the cross-title heroes, element + grade agreement
+   Lantern  kr_attr=화속 en_elem=Fire       grade kr=3 en=3  AGREE=True
+   Nene     kr_attr=수속 en_elem=Ice        grade kr=3 en=3  AGREE=True
+   Mowgli   kr_attr=전속 en_elem=Electric   grade kr=2 en=2  AGREE=True

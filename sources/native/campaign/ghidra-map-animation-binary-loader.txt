@@ -1,0 +1,139 @@
+===== 10bae00 Load @ 010bae00 =====
+
+/* WARNING: Type propagation algorithm not settling */
+/* CRMAnim2::Load(unsigned char const*, unsigned long long, unsigned char) */
+
+void CRMAnim2::Load(uchar *param_1,ulonglong param_2,uchar param_3)
+
+{
+  int iVar1;
+  void *pvVar2;
+  int *piVar3;
+  char *pcVar4;
+  char *pcVar5;
+  CRMSprite2 *pCVar6;
+  char *__s;
+  size_t sVar7;
+  uchar *in_r1;
+  uchar *puVar8;
+  char *pcVar9;
+  int *piVar10;
+  int iVar11;
+  CRMResourceMgr4 *this;
+  int iVar12;
+  uint uVar13;
+  float extraout_s0;
+  undefined3 in_stack_00000001;
+  ushort uStack_aa;
+  uint local_a8 [2];
+  undefined8 uStack_a0;
+  int local_94;
+  undefined8 local_90;
+  undefined8 uStack_88;
+  undefined8 local_80;
+  undefined8 uStack_78;
+  undefined4 local_70;
+  undefined4 local_6c;
+  char local_68 [64];
+  int local_28;
+
+  piVar10 = *(int **)(DAT_010bb070 + 0x10bae16);
+  local_28 = *piVar10;
+  iVar1 = DAT_010bb074 + 0x10bae2a;
+  if (in_r1 == (uchar *)0x0 || param_2 == 0) {
+    _RMAssert('\0',(char *)(DAT_010bb078 + 0x10bae3e),(char *)(DAT_010bb07c + 0x10bae40),0x3c,iVar1)
+    ;
+  }
+  local_6c = 0x3f800000;
+  local_70 = 0;
+  local_94 = *(int *)(DAT_010bb080 + 0x10bae5c) + 8;
+  local_90 = DAT_010bb050;
+  uStack_88 = DAT_010bb058;
+  local_80 = DAT_010bb060;
+  uStack_78 = DAT_010bb068;
+  pvVar2 = (void *)CRMTransfQV::Load((CRMTransfQV *)&local_94,in_r1);
+  pvVar2 = (void *)RMmemcpy_movesrc(param_1 + 0x5dc,pvVar2,1);
+  CRMTransfQV::GetMtx44();
+  RMmemcpy(param_1 + 0x20,local_68,0x40);
+  local_68[0] = '\0';
+  local_68[1] = '\0';
+  local_68[2] = '\0';
+  local_68[3] = '\0';
+  uStack_a0._4_4_ = 0;
+  local_a8[1] = 0;
+  uStack_a0._0_4_ = 0;
+  local_68[9] = '\0';
+  local_68[10] = '\0';
+  local_68[0xb] = '\0';
+  local_68[0xc] = '\0';
+  local_68[4] = '\0';
+  local_68[5] = '\0';
+  local_68[6] = '\0';
+  local_68[7] = '\0';
+  local_68[8] = 0;
+  local_a8[0] = 0;
+  uStack_aa = 0;
+  pvVar2 = (void *)RMmemcpy_movesrc(local_a8,pvVar2,4);
+  if (local_a8[0] != 0) {
+    uVar13 = 0;
+    iVar12 = 8;
+    piVar3 = *(int **)(DAT_010bb084 + 0x10baee4);
+    pcVar4 = (char *)(DAT_010bb088 + 0x10baeec);
+    pcVar9 = (char *)(DAT_010bb08c + 0x10baef4);
+    pcVar5 = (char *)(DAT_010bb090 + 0x10baef6);
+    do {
+      pvVar2 = (void *)RMmemcpy_movesrc(&uStack_a0,pvVar2,8);
+      pvVar2 = (void *)RMmemcpy_movesrc(local_a8 + 1,pvVar2,4);
+      RM10to38(&uStack_a0,local_68);
+      iVar11 = *piVar3;
+      if (iVar11 == 0) {
+        _RMAssert('\0',pcVar4,pcVar9,0x4b,iVar1);
+      }
+      iVar11 = *(int *)(iVar11 + 4);
+      if (iVar11 == 0) {
+        _RMAssert('\0',pcVar4,pcVar9,0x4b,iVar1);
+      }
+      this = *(CRMResourceMgr4 **)(iVar11 + 4);
+      if (this == (CRMResourceMgr4 *)0x0) {
+        _RMAssert('\0',pcVar4,pcVar9,0x4b,iVar1);
+      }
+      pCVar6 = (CRMSprite2 *)CRMResourceMgr4::LoadSprite2(this,local_68);
+      if (pCVar6 == (CRMSprite2 *)0x0) {
+        if ((param_1[0x10] & 1) == 0) {
+          puVar8 = param_1 + 0x11;
+        }
+        else {
+          puVar8 = *(uchar **)(param_1 + 0x18);
+        }
+        RMTrace(2,DAT_010bb094 + 0x10bb00c,local_68,puVar8);
+        break;
+      }
+      Add((CRMAnim2 *)param_1,pCVar6,extraout_s0);
+      if (_param_3 == 1) {
+        pvVar2 = (void *)RMmemcpy_movesrc(&uStack_aa,pvVar2,2);
+        if (uStack_aa != 0) {
+          __s = (char *)_RMzalloc((ulonglong)(uStack_aa + 1),pcVar5,0x61);
+          pvVar2 = (void *)RMmemcpy_movesrc(__s,pvVar2,(ulonglong)uStack_aa);
+          iVar11 = *(int *)(param_1 + 0x60c);
+          sVar7 = strlen(__s);
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)(iVar11 + iVar12),__s,sVar7);
+          if (__s != (char *)0x0) {
+            _RMfree(__s);
+          }
+        }
+      }
+      uVar13 = uVar13 + 1;
+      iVar12 = iVar12 + 0x14;
+    } while (uVar13 < local_a8[0]);
+  }
+  CRMTransf::~CRMTransf((CRMTransf *)&local_94);
+  iVar1 = *piVar10 - local_28;
+  if (iVar1 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar1);
+}

@@ -1,0 +1,163 @@
+===== eb4440 ProcessCursorPress @ 00eb4440 =====
+
+/* CSRSceneMgr::ProcessCursorPress(unsigned int, float, CRMPoint const&, unsigned char) */
+
+void __thiscall
+CSRSceneMgr::ProcessCursorPress
+          (CSRSceneMgr *this,uint param_1,float param_2,CRMPoint *param_3,uchar param_4)
+
+{
+  int *piVar1;
+  int iVar2;
+  uint uVar3;
+  CSRUIModalHandler *this_00;
+  undefined4 uVar4;
+  undefined4 uVar5;
+  bool bVar6;
+  float extraout_s0;
+  float extraout_s0_00;
+  int in_stack_00000000;
+  undefined8 *local_5c;
+  undefined8 *local_58;
+  undefined8 *local_54;
+  int local_50;
+  CRMPoint *pCStack_4c;
+  undefined4 local_48;
+  undefined4 uStack_44;
+  undefined4 local_40;
+  undefined4 uStack_3c;
+  undefined4 uStack_38;
+  undefined4 local_34;
+  undefined4 local_30;
+  undefined4 uStack_2c;
+  int local_28;
+
+  piVar1 = *(int **)(DAT_00eb4550 + 0xeb445a);
+  local_28 = *piVar1;
+  uVar5 = *(undefined4 *)(uint)param_4;
+  uVar4 = ((undefined4 *)(uint)param_4)[1];
+  iVar2 = CMInputMgr::get();
+  local_34 = 0;
+  uStack_38 = 0;
+  local_48 = 0;
+  uStack_44 = 0;
+  local_50 = 1 << (param_1 & 0xff);
+  local_30 = 1;
+  if (in_stack_00000000 != 1) {
+    local_30 = 3;
+  }
+  pCStack_4c = param_3;
+  local_40 = uVar5;
+  uStack_3c = uVar4;
+  local_5c = operator_new(0x28);
+  local_58 = local_5c + 5;
+  local_5c[2] = CONCAT44(uStack_3c,local_40);
+  local_5c[3] = CONCAT44(local_34,uStack_38);
+  *local_5c = CONCAT44(pCStack_4c,local_50);
+  local_5c[1] = CONCAT44(uStack_44,local_48);
+  local_5c[4] = CONCAT44(uStack_2c,local_30);
+  local_54 = local_58;
+  CMInputMgr::CInputManagerImpl::AddInput((CInputManagerImpl *)(iVar2 + 0x20),(vector *)&local_5c);
+  if (local_5c != (undefined8 *)0x0) {
+    local_58 = local_5c;
+    operator_delete(local_5c);
+  }
+  uVar3 = CWIPSFader::IsEnd((CWIPSFader *)(this + 0x58));
+  bVar6 = uVar3 == 0;
+  if (bVar6) {
+    uVar3 = (uint)(byte)this[0x672];
+  }
+  if ((!bVar6 || uVar3 != 1) &&
+     ((*(CSRScene **)(this + 0x34) == (CSRScene *)0x0 ||
+      (iVar2 = CSRScene::IsEnd(*(CSRScene **)(this + 0x34)), iVar2 != 1)))) {
+    this_00 = (CSRUIModalHandler *)CSRUIModalHandler::get();
+    iVar2 = CSRUIModalHandler::ProcessCursorPress(this_00,param_1,extraout_s0,param_3,param_4);
+    if (iVar2 != 1) {
+      CRMSceneMgr::ProcessCursorPress((CRMSceneMgr *)this,param_1,extraout_s0_00,param_3,param_4);
+    }
+  }
+  if (*piVar1 != local_28) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 10ee03c ProcessCursorPress @ 010ee03c =====
+
+/* CRMSceneMgr::ProcessCursorPress(unsigned int, float, CRMPoint const&, unsigned char) */
+
+void __thiscall
+CRMSceneMgr::ProcessCursorPress
+          (CRMSceneMgr *this,uint param_1,float param_2,CRMPoint *param_3,uchar param_4)
+
+{
+  int iVar1;
+  int *piVar2;
+  int *piVar3;
+  int *piVar4;
+  uint uVar5;
+  int iVar6;
+  int iVar7;
+  uint uVar8;
+  int *piVar9;
+  undefined4 in_stack_00000000;
+  undefined4 local_40;
+  int iStack_3c;
+  int iStack_38;
+  undefined4 uStack_34;
+  uint local_30;
+  int local_2c;
+  int local_28;
+
+  iStack_3c = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  iStack_38 = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uStack_34 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  piVar3 = *(int **)(DAT_010ee154 + 0x10ee054);
+  local_28 = *piVar3;
+  local_40 = 0;
+  local_2c = 0;
+  local_30 = 0;
+  uVar5 = *(uint *)(this + 0x24);
+  iVar7 = *(int *)(this + 0x18);
+  piVar4 = (int *)(iVar7 + (uVar5 >> 10) * 4);
+  if (*(int *)(this + 0x1c) == iVar7) {
+    iVar6 = 0;
+    uVar8 = *(int *)(this + 0x28) + uVar5 >> 10;
+    iVar1 = 0;
+  }
+  else {
+    uVar8 = *(int *)(this + 0x28) + uVar5 >> 10;
+    iVar6 = *piVar4 + (uVar5 & 0x3ff) * 4;
+    iVar1 = *(int *)(iVar7 + uVar8 * 4) + (*(int *)(this + 0x28) + uVar5 & 0x3ff) * 4;
+  }
+  std::__ndk1::deque<RMSCENEINFO*,std::__ndk1::allocator<RMSCENEINFO*>>::
+  __append<std::__ndk1::__deque_iterator<RMSCENEINFO*,RMSCENEINFO*const*,RMSCENEINFO*const&,RMSCENEINFO*const*const*,int,1024>>
+            (&local_40,piVar4,iVar6,iVar7 + uVar8 * 4,iVar1,0);
+  if (iStack_38 != iStack_3c) {
+    piVar4 = (int *)(iStack_3c + (local_30 >> 10) * 4);
+    uVar5 = local_2c + local_30;
+    iVar7 = *(int *)(iStack_3c + (uVar5 >> 10) * 4);
+    piVar9 = (int *)(*piVar4 + (local_30 & 0x3ff) * 4);
+    while (((int *)(iVar7 + (uVar5 & 0x3ff) * 4) != piVar9 &&
+           (((*(char *)((undefined4 *)*piVar9 + 1) != '\x01' ||
+             (piVar2 = (int *)CRMScene::GetTimer(*(CRMScene **)*piVar9), *piVar2 == 2)) ||
+            (iVar1 = (**(code **)(**(int **)*piVar9 + 0x1c))
+                               (*(int **)*piVar9,param_1,param_3,param_4,in_stack_00000000),
+            iVar1 != 1))))) {
+      piVar9 = piVar9 + 1;
+      if ((int)piVar9 - *piVar4 == 0x1000) {
+        piVar4 = piVar4 + 1;
+        piVar9 = (int *)*piVar4;
+      }
+    }
+  }
+  std::__ndk1::__deque_base<RMSCENEINFO*,std::__ndk1::allocator<RMSCENEINFO*>>::~__deque_base
+            ((__deque_base<RMSCENEINFO*,std::__ndk1::allocator<RMSCENEINFO*>> *)&local_40);
+  if (*piVar3 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

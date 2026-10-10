@@ -1,0 +1,22 @@
+PROGRAM	libnative_core.so
+===== range 00c214c0 .. 00c214f0 =====
+00c214c0  dmb #0x1b
+00c214c4  cbnz r1,0x00c214d4
+00c214c6  ldr r0,[r4,#0x0]
+00c214c8  ldr r1,[r0,#0x8]
+00c214ca  mov r0,r4
+00c214cc  blx r1
+00c214ce  mov r0,r4
+00c214d0  bl 0x01bd1cfc
+00c214d4  ldr r4,[sp,#0x1c]
+00c214d6  ldr r1,[0x00c215ec]
+00c214d8  add r1,pc
+00c214da  add r0,sp,#0x98
+00c214dc  bl 0x006d5ff4
+00c214e0  ldrd r0,r1,[r10,#0x20]
+00c214e4  subs r2,r1,r0
+00c214e6  it ls
+00c214e8  sub.ls r2,r0,r1
+00c214ea  add r1,sp,#0x98
+00c214ec  mov r0,r4
+00c214ee  movs r3,#0x0

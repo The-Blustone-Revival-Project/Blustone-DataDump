@@ -1,0 +1,498 @@
+===== e75cdc SetAreaState @ 00e75cdc =====
+
+/* CSRSceneAreaSel::SetAreaState(CSRGameStage::AREA_INFO const&, unsigned int) */
+
+void __thiscall CSRSceneAreaSel::SetAreaState(CSRSceneAreaSel *this,AREA_INFO *param_1,uint param_2)
+
+{
+  bool bVar1;
+  CMUpdatable *pCVar2;
+  piecewise_construct_t *ppVar3;
+  __shared_weak_count *p_Var4;
+  CSRDataMgr *pCVar5;
+  CSRPlayData *pCVar6;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_00;
+  ulonglong *puVar7;
+  __shared_weak_count *p_Var8;
+  CSRGameStage *pCVar9;
+  undefined1 uVar10;
+  uint uVar11;
+  void *pvVar12;
+  int iVar13;
+  __shared_weak_count *this_01;
+  piecewise_construct_t *ppVar14;
+  CMHashID *pCVar15;
+  void *pvVar16;
+  void *pvVar17;
+  int *piVar18;
+  CSRSceneAreaSel *pCVar19;
+  CMHashID *pCVar20;
+  undefined4 local_78;
+  CMUpdatable *local_74;
+  __shared_weak_count *local_70;
+  piecewise_construct_t *local_6c;
+  piecewise_construct_t *local_68;
+  void *local_64;
+  piecewise_construct_t *local_5c;
+  undefined8 local_58;
+  void *local_50;
+  ulonglong local_40;
+  void *local_38;
+  CSRUITextbox *local_30;
+  __shared_weak_count *local_2c;
+  int local_28;
+  
+  piVar18 = *(int **)(DAT_00e75dc8 + 0xe75cf2);
+  local_28 = *piVar18;
+  uVar11 = *(uint *)(param_1 + 4);
+  if (((byte)*param_1 & 1) == 0) {
+    uVar11 = (uint)((byte)*param_1 >> 1);
+  }
+  if (uVar11 == 0) {
+    this_00 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              std::__ndk1::
+              basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+              basic_string<decltype(nullptr)>
+                        ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                          *)&local_6c,(char *)(DAT_00e75dd0 + 0xe75d6e));
+    puVar7 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (this_00,(char *)(DAT_00e75dd4 + 0xe75d76),0x21);
+    local_58 = *puVar7;
+    local_50 = *(void **)(puVar7 + 1);
+    *(undefined4 *)puVar7 = 0;
+    *(undefined4 *)((int)puVar7 + 4) = 0;
+    *(undefined4 *)(puVar7 + 1) = 0;
+    pvVar12 = local_50;
+    if ((local_58 & 1) == 0) {
+      pvVar12 = (void *)((int)&local_58 + 1);
+    }
+    RMTrace(2,pvVar12,DAT_00e75dd8 + 0xe75da2);
+    if ((local_58 & 1) != 0) {
+      operator_delete(local_50);
+    }
+    if (((uint)local_6c & 1) != 0) {
+      operator_delete(local_64);
+    }
+    goto LAB_00e762ea;
+  }
+  pCVar20 = *(CMHashID **)(*(int *)(this + 0x768) + *(int *)(param_1 + 0x3c) * 8);
+  this_01 = *(__shared_weak_count **)(*(int *)(this + 0x768) + *(int *)(param_1 + 0x3c) * 8 + 4);
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var4 = this_01 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  pCVar5 = (CSRDataMgr *)CSRDataMgr::get();
+  pCVar6 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar5);
+  uVar11 = CSRPlayData::GetUserLevel(pCVar6);
+  if (uVar11 < *(uint *)(param_1 + 0x40)) {
+    local_6c = (piecewise_construct_t *)&local_40;
+    local_40 = CONCAT44(local_40._4_4_,*(undefined4 *)(param_1 + 0x3c));
+    std::__ndk1::
+    __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+    ::
+    __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+              ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+                *)&local_58,(uint *)(this + 0x794),local_6c,(tuple *)(DAT_00e75dcc + 0xe75d4e),
+               (tuple *)&local_6c);
+    uVar10 = 0;
+LAB_00e75e0c:
+    *(undefined1 *)((int)(void *)local_58 + 0xc) = uVar10;
+  }
+  else {
+    if (param_2 < 2) {
+      local_6c = (piecewise_construct_t *)&local_40;
+      local_40 = CONCAT44(local_40._4_4_,*(undefined4 *)(param_1 + 0x3c));
+      std::__ndk1::
+      __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+      ::
+      __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+                ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+                  *)&local_58,(uint *)(this + 0x794),local_6c,(tuple *)(DAT_00e75e04 + 0xe75df0),
+                 (tuple *)&local_6c);
+      uVar10 = 1;
+      goto LAB_00e75e0c;
+    }
+    pCVar9 = (CSRGameStage *)CSRGameStage::get();
+    CSRGameStage::GetAreaData(pCVar9,*(undefined4 *)(this + 0x658),param_2 - 1);
+    CSRGameStage::get();
+    CSRGameStage::GetStageLinks((basic_string *)&local_58);
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_6c,(basic_string *)((int)local_58._4_4_ + -0xc));
+    pCVar5 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar6 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar5);
+    iVar13 = CSRPlayData::GetStageAchieveCnt(pCVar6,(basic_string *)&local_6c);
+    if (iVar13 == 0) {
+      local_74 = *(CMUpdatable **)(param_1 + 0x3c);
+      local_30 = (CSRUITextbox *)&local_74;
+      std::__ndk1::
+      __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+      ::
+      __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+                ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+                  *)&local_40,(uint *)(this + 0x794),(piecewise_construct_t *)local_30,
+                 (tuple *)(DAT_00e765f8 + 0xe76312),(tuple *)&local_30);
+    }
+    else {
+      local_74 = *(CMUpdatable **)(param_1 + 0x3c);
+      local_30 = (CSRUITextbox *)&local_74;
+      std::__ndk1::
+      __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+      ::
+      __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+                ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+                  *)&local_40,(uint *)(this + 0x794),(piecewise_construct_t *)local_30,
+                 (tuple *)(DAT_00e765b4 + 0xe762a0),(tuple *)&local_30);
+    }
+    *(bool *)((int)local_40 + 0xc) = iVar13 != 0;
+    if (((uint)local_6c & 1) != 0) {
+      operator_delete(local_64);
+    }
+    pvVar12 = (void *)local_58;
+    if ((void *)local_58 != (void *)0x0) {
+      pvVar17 = (void *)local_58;
+      pvVar16 = local_58._4_4_;
+      if (local_58._4_4_ != (void *)local_58) {
+        do {
+          if ((*(byte *)((int)pvVar16 + -0xc) & 1) != 0) {
+            operator_delete(*(void **)((int)pvVar16 + -4));
+          }
+          pvVar17 = (void *)((int)pvVar16 + -0x1c);
+          if ((*(byte *)((int)pvVar16 + -0x18) & 1) != 0) {
+            operator_delete(*(void **)((int)pvVar16 + -0x10));
+          }
+          pvVar16 = pvVar17;
+        } while (pvVar12 != pvVar17);
+        pvVar17 = (void *)local_58;
+      }
+      local_58 = CONCAT44(pvVar12,(void *)local_58);
+      operator_delete(pvVar17);
+    }
+  }
+  CSRGameStage::get();
+  CSRGameStage::GetStageLinks((basic_string *)&local_6c);
+  std::__ndk1::to_string((__ndk1 *)&local_58,*(int *)(param_1 + 0x40));
+  puVar7 = (ulonglong *)
+           std::__ndk1::
+           basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::insert
+                     ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                       *)&local_58,0,(char *)(DAT_00e75e38 + 0xe75e2c),3);
+  local_40 = *puVar7;
+  local_38 = *(void **)(puVar7 + 1);
+  *(undefined4 *)puVar7 = 0;
+  *(undefined4 *)((int)puVar7 + 4) = 0;
+  *(undefined4 *)(puVar7 + 1) = 0;
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e75e68 + 0xe75e62));
+  pCVar15 = pCVar20 + 4;
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_30,pCVar15,&local_58);
+  CSRUITextbox::SetText(local_30,(basic_string *)&local_40,'\0');
+  p_Var4 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var8 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar13 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e76228 + 0xe75ec4));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_30,pCVar15,&local_58);
+  CMUpdatable::SetVisible((CMUpdatable *)local_30,'\0');
+  p_Var4 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var8 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar13 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e7622c + 0xe75f1a));
+  CMNode<CMUpdatable>::
+  FindCast<CSRUITextbox,CMUpdatable::FindCastByName<CSRUITextbox>(CMHashID_const&)::_lambda(std::__ndk1::shared_ptr<CMUpdatable>const&)_1_>
+            (&local_30,pCVar15,&local_58);
+  CSRUITextbox::SetText(local_30,(basic_string *)(param_1 + 0xc),'\0');
+  p_Var4 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var8 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar13 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e76230 + 0xe75f74));
+  CMUpdatable::FindByName((CMUpdatable *)&local_74,pCVar20);
+  pCVar2 = local_74;
+  local_78 = *(undefined4 *)(param_1 + 0x3c);
+  pCVar19 = this + 0x794;
+  local_5c = (piecewise_construct_t *)&local_78;
+  std::__ndk1::
+  __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+  ::
+  __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+            ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+              *)&local_30,(uint *)pCVar19,(piecewise_construct_t *)&local_78,
+             (tuple *)(DAT_00e76234 + 0xe75f9a),(tuple *)&local_5c);
+  CMUpdatable::SetVisible(pCVar2,local_30[0xc] == (CSRUITextbox)0x0);
+  p_Var4 = local_70;
+  if (local_70 != (__shared_weak_count *)0x0) {
+    p_Var8 = local_70 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar13 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_70 + 8))(local_70);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e76238 + 0xe76002));
+  CMUpdatable::FindByName((CMUpdatable *)&local_74,pCVar20);
+  pCVar2 = local_74;
+  local_78 = *(undefined4 *)(param_1 + 0x3c);
+  local_5c = (piecewise_construct_t *)&local_78;
+  std::__ndk1::
+  __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+  ::
+  __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+            ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+              *)&local_30,(uint *)pCVar19,(piecewise_construct_t *)&local_78,
+             (tuple *)(DAT_00e7623c + 0xe7601e),(tuple *)&local_5c);
+  CMUpdatable::SetVisible(pCVar2,(uchar)local_30[0xc]);
+  if (local_70 != (__shared_weak_count *)0x0) {
+    p_Var4 = local_70 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_70 + 8))(local_70);
+      std::__ndk1::__shared_weak_count::__release_weak(local_70);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  ppVar3 = local_68;
+  uVar11 = 0;
+  for (ppVar14 = local_6c; ppVar14 != ppVar3; ppVar14 = ppVar14 + 0x1c) {
+    pCVar5 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar6 = (CSRPlayData *)CSRDataMgr::GetPlayData(pCVar5);
+    iVar13 = CSRPlayData::GetStageAchieveCnt(pCVar6,(basic_string *)(ppVar14 + 0x10));
+    uVar11 = uVar11 + iVar13;
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e76240 + 0xe7609e));
+  CMUpdatable::FindByName((CMUpdatable *)&local_30,pCVar20);
+  CMUpdatable::SetVisible((CMUpdatable *)local_30,9 < uVar11);
+  p_Var4 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var8 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar13 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e76244 + 0xe760fa));
+  CMUpdatable::FindByName((CMUpdatable *)&local_30,pCVar20);
+  CMUpdatable::SetVisible((CMUpdatable *)local_30,0x13 < uVar11);
+  p_Var4 = local_2c;
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var8 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar13 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_00e76248 + 0xe76156));
+  CMUpdatable::FindByName((CMUpdatable *)&local_30,pCVar20);
+  CMUpdatable::SetVisible((CMUpdatable *)local_30,0x1d < uVar11);
+  if (local_2c != (__shared_weak_count *)0x0) {
+    p_Var4 = local_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)local_2c + 8))(local_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(local_2c);
+    }
+  }
+  if ((local_58 & 1) != 0) {
+    operator_delete(local_50);
+  }
+  local_74 = *(CMUpdatable **)(param_1 + 0x3c);
+  local_30 = (CSRUITextbox *)&local_74;
+  std::__ndk1::
+  __hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+  ::
+  __emplace_unique_key_args<unsigned_int,std::__ndk1::piecewise_construct_t_const&,std::__ndk1::tuple<unsigned_int&&>,std::__ndk1::tuple<>>
+            ((__hash_table<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::__unordered_map_hasher<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::hash<unsigned_int>,true>,std::__ndk1::__unordered_map_equal<unsigned_int,std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>,std::__ndk1::equal_to<unsigned_int>,true>,std::__ndk1::allocator<std::__ndk1::__hash_value_type<unsigned_int,unsigned_char>>>
+              *)&local_58,(uint *)pCVar19,(piecewise_construct_t *)local_30,
+             (tuple *)(DAT_00e7624c + 0xe761bc),(tuple *)&local_30);
+  if (*(char *)((int)(void *)local_58 + 0xc) == '\x01') {
+    *(undefined4 *)(this + 0x660) = *(undefined4 *)(param_1 + 0x3c);
+  }
+  if ((local_40 & 1) != 0) {
+    operator_delete(local_38);
+  }
+  ppVar14 = local_6c;
+  if (local_6c != (piecewise_construct_t *)0x0) {
+    while (ppVar3 = local_68, ppVar3 != ppVar14) {
+      if (((byte)ppVar3[-0xc] & 1) != 0) {
+        operator_delete(*(void **)(ppVar3 + -4));
+      }
+      local_68 = ppVar3 + -0x1c;
+      if (((byte)ppVar3[-0x18] & 1) != 0) {
+        operator_delete(*(void **)(ppVar3 + -0x10));
+      }
+    }
+    local_68 = ppVar14;
+    operator_delete(local_6c);
+  }
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var4 = this_01 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar13 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar13 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar13 == 0) {
+      (**(code **)(*(int *)this_01 + 8))(this_01);
+      std::__ndk1::__shared_weak_count::__release_weak(this_01);
+    }
+  }
+LAB_00e762ea:
+  if (*piVar18 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== dc3568 FUN_00dc3568 @ 00dc3568 =====
+
+/* WARNING: Control flow encountered bad instruction data */
+
+void FUN_00dc3568(void)
+
+{
+  undefined4 in_r3;
+  undefined4 unaff_r4;
+  undefined4 *unaff_r5;
+  undefined4 *unaff_r6;
+  undefined4 unaff_r7;
+  undefined4 unaff_r10;
+  undefined4 in_r12;
+  undefined4 unaff_lr;
+  bool in_NG;
+  bool in_OV;
+  
+  if (in_NG == in_OV) {
+    software_interrupt(0x2b5b0);
+  }
+  if (in_NG) {
+    *unaff_r6 = &UNK_00dc3574;
+    unaff_r6[-1] = register0x00000054;
+    unaff_r6[-2] = in_r12;
+    unaff_r6[-3] = unaff_r7;
+    unaff_r6[-4] = in_r3;
+    unaff_r6 = unaff_r6 + -5;
+  }
+  if (in_OV) {
+    *unaff_r5 = unaff_lr;
+    unaff_r5[-1] = unaff_r10;
+    unaff_r5[-2] = unaff_r6;
+    unaff_r5[-3] = unaff_r5;
+    unaff_r5[-4] = unaff_r4;
+    unaff_r5[-5] = in_r3;
+  }
+                    /* WARNING: Bad instruction - Truncating control flow here */
+  halt_baddata();
+}
+
+

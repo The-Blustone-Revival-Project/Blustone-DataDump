@@ -1,0 +1,32 @@
+PROGRAM	libnative_core.so
+===== range 00e87c40 .. 00e87c90 =====
+00e87c42  movs r4,#0x0
+00e87c44  str r4,[sp,#0x48]
+00e87c46  movs r0,#0x10
+00e87c48  bl 0x01bd23c4
+00e87c4c  mov r6,r0
+00e87c4e  ldr r0,[0x00e87ebc]
+00e87c50  ldrb.w r1,[sp,#0x10]
+00e87c54  add r0,pc
+00e87c56  strd r4,r4,[r6,#0x8]
+00e87c5a  adds r0,#0x8
+00e87c5c  str r0,[r6,#0x0]
+00e87c5e  mov r0,r6
+00e87c60  lsls r1,r1,#0x1f
+00e87c62  str.w r4,[r0,#0x4]!
+00e87c66  bne 0x00e87c76
+00e87c68  vldr.64 d16,[sp,#0x10]
+00e87c6c  ldr r1,[sp,#0x18]
+00e87c6e  str r1,[r0,#0x8]
+00e87c70  vstr.64 d16,[r0]
+00e87c74  b 0x00e87d48
+00e87c76  ldr r5,[sp,#0x14]
+00e87c78  cmn r5,#0x10
+00e87c7c  bcs.w 0x00e87dba
+00e87c80  ldr.w r9,[sp,#0x18]
+00e87c84  cmp r5,#0xb
+00e87c86  bcs 0x00e87d1c
+00e87c88  adds r4,r6,#0x5
+00e87c8a  lsls r0,r5,#0x1
+00e87c8c  cmp r5,#0x0
+00e87c8e  strb r0,[r6,#0x4]

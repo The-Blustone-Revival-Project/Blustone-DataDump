@@ -1,0 +1,712 @@
+===== 007882a0 SetVisible @ 007882a0 =====
+
+/* CMUpdatable::SetVisible(unsigned char) */
+
+void __thiscall CMUpdatable::SetVisible(CMUpdatable *this,uchar param_1)
+
+{
+  if (this[0x271] == (CMUpdatable)(param_1 == '\0')) {
+    return;
+  }
+  SetFlagTransformDirtyHierarchy(this,0xb);
+  this[0x271] = (CMUpdatable)(param_1 == '\0');
+  FUN_007882dc(this,param_1);
+  return;
+}
+
+
+===== 0078891e InvalidateVisible @ 0078891e =====
+
+/* CMUpdatable::InvalidateVisible(std::__ndk1::shared_ptr<CMUpdatable>) */
+
+void __thiscall CMUpdatable::InvalidateVisible(CMUpdatable *this,int *param_2)
+
+{
+  CMUpdatable CVar1;
+  CMUpdatable CVar2;
+  CMUpdatable *pCVar3;
+
+  CVar1 = this[0x270];
+  if (*param_2 == 0) {
+    CVar2 = this[0x271];
+  }
+  else {
+    CVar2 = (CMUpdatable)(*(byte *)(*param_2 + 0x270) | (byte)this[0x271]);
+  }
+  this[0x270] = CVar2;
+  if (CVar1 != CVar2) {
+    (**(code **)(*(int *)this + 0x3c))(this,CVar2 == (CMUpdatable)0x0);
+    std::__ndk1::recursive_mutex::lock((recursive_mutex *)(this + 0x214));
+    for (pCVar3 = *(CMUpdatable **)(this + 0x20c); this + 0x208 != pCVar3;
+        pCVar3 = *(CMUpdatable **)(pCVar3 + 4)) {
+      (**(code **)(**(int **)(pCVar3 + 8) + 0x2c))
+                (*(int **)(pCVar3 + 8),this,this[0x270] == (CMUpdatable)0x0);
+    }
+    (*(code *)((int)&DAT_00a170dc + DAT_00a170dc))((recursive_mutex *)(this + 0x214));
+    return;
+  }
+  return;
+}
+
+
+===== 007861f8 DrawAll @ 007861f8 =====
+
+/* CMUpdatable::DrawAll(CRMRenderer4*, CMUpdatable::UPDATE_T) */
+
+void __thiscall CMUpdatable::DrawAll(CMUpdatable *this,undefined4 param_1,int param_3)
+
+{
+  bool bVar1;
+  int *piVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  CMUpdatable *pCVar5;
+  __shared_weak_count *this_00;
+
+  if (this[0x270] != (CMUpdatable)0x0) {
+    return;
+  }
+  (**(code **)(*(int *)this + 0x28))(this);
+  (**(code **)(*(int *)this + 0x2c))(this,param_1);
+  if (param_3 == 0) {
+    std::__ndk1::recursive_mutex::lock((recursive_mutex *)(this + 0x44));
+    for (pCVar5 = *(CMUpdatable **)(this + 0x4c); this + 0x48 != pCVar5;
+        pCVar5 = *(CMUpdatable **)(pCVar5 + 4)) {
+      piVar2 = *(int **)(pCVar5 + 8);
+      this_00 = *(__shared_weak_count **)(pCVar5 + 0xc);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var3 = this_00 + 4;
+        do {
+          ExclusiveAccess(p_Var3);
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = *(int *)p_Var3 + 1;
+      }
+      (**(code **)(*piVar2 + 0xc))(piVar2,param_1,0);
+      if (this_00 != (__shared_weak_count *)0x0) {
+        p_Var3 = this_00 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar4 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar4 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar4 == 0) {
+          (**(code **)(*(int *)this_00 + 8))(this_00);
+          std::__ndk1::__shared_weak_count::__release_weak(this_00);
+        }
+      }
+    }
+    std::__ndk1::recursive_mutex::unlock((recursive_mutex *)(this + 0x44));
+  }
+                    /* WARNING: Could not recover jumptable at 0x007862b0. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (**(code **)(*(int *)this + 0x30))(this,param_1);
+  return;
+}
+
+
+===== 0070b7f8 DrawAll @ 0070b7f8 =====
+
+/* CMDrawable::DrawAll(CRMRenderer4*, CMUpdatable::UPDATE_T) */
+
+void __thiscall CMDrawable::DrawAll(CMDrawable *this,CRMRenderer4 *param_1,int param_3)
+
+{
+  bool bVar1;
+  int iVar2;
+  int *piVar3;
+  CRMShader2 *pCVar4;
+  __shared_weak_count *p_Var5;
+  int iVar6;
+  CMDrawable *pCVar7;
+  int iVar8;
+  __shared_weak_count *this_00;
+  uint uVar9;
+  int *piVar10;
+  uint in_fpscr;
+  float fVar11;
+  float extraout_s1;
+  float extraout_s1_00;
+  float extraout_s1_01;
+  float extraout_s1_02;
+  float local_17e8;
+  float local_17e4;
+  int local_1288;
+  int local_1284;
+  int local_1280;
+  int local_127c;
+  int local_1278;
+  int local_1274 [3];
+  undefined4 local_1268;
+  undefined1 local_cb4;
+  int local_c70;
+  int local_c6c;
+  int local_c68;
+  int local_c64;
+  int local_c60;
+  int local_c5c [3];
+  undefined4 local_c50;
+  undefined1 local_69c;
+  int local_658;
+  int local_654;
+  int local_650;
+  int local_64c;
+  int local_648;
+  int local_644 [3];
+  undefined4 local_638;
+  undefined1 local_84;
+  int iStack_40;
+
+  piVar10 = *(int **)(DAT_0070b8fc + 0x70b818);
+  iStack_40 = *piVar10;
+  (**(code **)(*(int *)this + 0x94))(this);
+  if (this[0x270] == (CMDrawable)0x0) {
+    fVar11 = (float)VectorUnsignedToFloat((uint)(byte)this[0x1f8],(byte)(in_fpscr >> 0x16) & 3);
+    *(float *)(this + 0xb4) = fVar11 / DAT_0070b900;
+    CMUpdatable::InvalidateColor((CMUpdatable *)this);
+    (**(code **)(*(int *)this + 0x28))(this,param_1);
+    *(undefined4 *)(param_1 + 0xd8) = 0;
+    *(undefined4 *)(param_1 + 0xdc) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4)
+    ;
+    *(undefined4 *)(param_1 + 0xe0) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8)
+    ;
+    *(undefined4 *)(param_1 + 0xe4) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc)
+    ;
+    PushCropArea(this,param_1);
+    fVar11 = (float)CMUpdatable::GetOpacityf((CMUpdatable *)this);
+    if (0.0 < fVar11) {
+      (**(code **)(*(int *)this + 0x2c))(this,param_1);
+    }
+    if (param_3 == 0) {
+      for (pCVar7 = *(CMDrawable **)(this + 0x4c); this + 0x48 != pCVar7;
+          pCVar7 = *(CMDrawable **)(pCVar7 + 4)) {
+        piVar3 = *(int **)(pCVar7 + 8);
+        this_00 = *(__shared_weak_count **)(pCVar7 + 0xc);
+        if (this_00 != (__shared_weak_count *)0x0) {
+          p_Var5 = this_00 + 4;
+          do {
+            ExclusiveAccess(p_Var5);
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = *(int *)p_Var5 + 1;
+        }
+        (**(code **)(*piVar3 + 0xc))(piVar3,param_1,0);
+        if (this_00 != (__shared_weak_count *)0x0) {
+          p_Var5 = this_00 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var5);
+            iVar2 = *(int *)p_Var5;
+            bVar1 = (bool)hasExclusiveAccess(p_Var5);
+          } while (!bVar1);
+          *(int *)p_Var5 = iVar2 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar2 == 0) {
+            (**(code **)(*(int *)this_00 + 8))(this_00);
+            std::__ndk1::__shared_weak_count::__release_weak(this_00);
+          }
+        }
+      }
+    }
+    if (this[0x290] != (CMDrawable)0x0) {
+      CM::RendererPopCropArea(param_1);
+    }
+    fVar11 = (float)CRMVector4::GetLength((CRMVector4 *)(this + 0x814));
+    if (fVar11 != 0.0) {
+      CM::RendererPopCropArea(param_1);
+    }
+    if (this[0x27c] == (CMDrawable)0x1) {
+      CRMTransfStack::PushIdentity((CRMTransfStack *)(param_1 + 0xbc));
+      iVar8 = *(int *)(DAT_0070bd28 + 0x70b956) + 8;
+      local_658 = iVar8;
+      CRMRect::SetRect((CRMRect *)&local_658,0,0,0,0);
+      CRMPrimitive::CRMPrimitive((CRMPrimitive *)local_644,(char *)(DAT_0070bd2c + 0x70b976));
+      local_84 = 1;
+      local_638 = 5;
+      iVar6 = *(int *)(DAT_0070bd30 + 0x70b98a) + 0x20;
+      iVar2 = *(int *)(DAT_0070bd30 + 0x70b98a) + 8;
+      local_658 = iVar2;
+      local_644[0] = iVar6;
+      CMVec4Rect::ToRMRect();
+      local_654 = local_c6c;
+      CRMRect::~CRMRect((CRMRect *)&local_c70);
+      CMVec4Rect::ToRMRect();
+      local_64c = local_c64;
+      CRMRect::~CRMRect((CRMRect *)&local_c70);
+      CMVec4Rect::ToRMRect();
+      local_650 = local_c68;
+      CRMRect::~CRMRect((CRMRect *)&local_c70);
+      CMVec4Rect::ToRMRect();
+      local_648 = local_c60;
+      CRMRect::~CRMRect((CRMRect *)&local_c70);
+      piVar3 = *(int **)(DAT_0070bd34 + 0x70ba14);
+      pCVar4 = (CRMShader2 *)
+               (**(code **)(*(int *)**(undefined4 **)(*piVar3 + 4) + 0x44))
+                         ((int *)**(undefined4 **)(*piVar3 + 4),0xd);
+      CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_c70,pCVar4);
+      CRMRenderParam::SetValue((CRMRenderParam *)&local_c70,0xff0000ff);
+      CRMDrawable::SetRenderParam((CRMDrawable *)local_644,(CRMRenderParam *)&local_c70);
+      CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_c70);
+      CM::RendererDraw(param_1,(CRMResource *)local_644);
+      local_c70 = iVar8;
+      CRMRect::SetRect((CRMRect *)&local_c70,0,0,0,0);
+      CRMPrimitive::CRMPrimitive((CRMPrimitive *)local_c5c,(char *)(DAT_0070bdec + 0x70ba78));
+      local_69c = 1;
+      local_c50 = 5;
+      local_c70 = iVar2;
+      local_c5c[0] = iVar6;
+      CMVec4Rect::ToRMRect();
+      local_c6c = local_1284;
+      CRMRect::~CRMRect((CRMRect *)&local_1288);
+      CMVec4Rect::ToRMRect();
+      local_c64 = local_127c;
+      CRMRect::~CRMRect((CRMRect *)&local_1288);
+      CMVec4Rect::ToRMRect();
+      local_c68 = local_1280;
+      CRMRect::~CRMRect((CRMRect *)&local_1288);
+      CMVec4Rect::ToRMRect();
+      local_c60 = local_1278;
+      CRMRect::~CRMRect((CRMRect *)&local_1288);
+      uVar9 = *(uint *)(this + 0x288);
+      pCVar4 = (CRMShader2 *)
+               (**(code **)(*(int *)**(undefined4 **)(*piVar3 + 4) + 0x44))
+                         ((int *)**(undefined4 **)(*piVar3 + 4),0xd);
+      CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_1288,pCVar4);
+      CRMRenderParam::SetValue((CRMRenderParam *)&local_1288,uVar9);
+      CRMDrawable::SetRenderParam((CRMDrawable *)local_c5c,(CRMRenderParam *)&local_1288);
+      CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_1288);
+      CM::RendererDraw(param_1,(CRMResource *)local_c5c);
+      local_1288 = iVar8;
+      CRMRect::SetRect((CRMRect *)&local_1288,0,0,0,0);
+      CRMPrimitive::CRMPrimitive((CRMPrimitive *)local_1274,(char *)(DAT_0070bdf0 + 0x70bb64));
+      local_cb4 = 1;
+      local_1268 = 5;
+      local_1288 = iVar2;
+      local_1274[0] = iVar6;
+      CMPointF::CMPointF((CMPointF *)&local_17e8,*(float *)(this + 0x164) + *(float *)(this + 0x6c),
+                         extraout_s1);
+      local_1284 = (int)(local_17e8 + -1.0);
+      CMPointF::CMPointF((CMPointF *)&local_17e8,*(float *)(this + 0x164) + *(float *)(this + 0x6c),
+                         extraout_s1_00);
+      local_127c = (int)(local_17e8 + 1.0);
+      CMPointF::CMPointF((CMPointF *)&local_17e8,*(float *)(this + 0x164) + *(float *)(this + 0x6c),
+                         extraout_s1_01);
+      local_1280 = (int)(local_17e4 + -1.0);
+      CMPointF::CMPointF((CMPointF *)&local_17e8,*(float *)(this + 0x164) + *(float *)(this + 0x6c),
+                         extraout_s1_02);
+      local_1278 = (int)(local_17e4 + 1.0);
+      pCVar4 = (CRMShader2 *)
+               (**(code **)(*(int *)**(undefined4 **)(*piVar3 + 4) + 0x44))
+                         ((int *)**(undefined4 **)(*piVar3 + 4),0xd);
+      CRMRenderParam::CRMRenderParam((CRMRenderParam *)&local_17e8,pCVar4);
+      CRMRenderParam::SetValue((CRMRenderParam *)&local_17e8,0xffff00ff);
+      CRMDrawable::SetRenderParam((CRMDrawable *)local_1274,(CRMRenderParam *)&local_17e8);
+      CRMRenderParam::~CRMRenderParam((CRMRenderParam *)&local_17e8);
+      CRMRenderer4::Draw(param_1,(CRMDrawable *)local_1274);
+      CRMTransfStack::PopTransform((CRMTransfStack *)(param_1 + 0xbc));
+      CRMRectR::~CRMRectR((CRMRectR *)&local_1288);
+      CRMRectR::~CRMRectR((CRMRectR *)&local_c70);
+      CRMRectR::~CRMRectR((CRMRectR *)&local_658);
+    }
+    (**(code **)(*(int *)this + 0x30))(this,param_1);
+  }
+  if (*piVar10 == iStack_40) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== 0070b3d4 IsVisibleCamera @ 0070b3d4 =====
+
+/* CMDrawable::IsVisibleCamera(CRMRenderer4*) */
+
+uint __thiscall CMDrawable::IsVisibleCamera(CMDrawable *this,CRMRenderer4 *param_1)
+
+{
+  bool bVar1;
+  uint uVar2;
+  __shared_weak_count *p_Var3;
+  __shared_weak_count *p_Var4;
+  __shared_weak_count *p_Var5;
+  uint uVar6;
+  float fVar7;
+  float fVar8;
+  float fVar9;
+  float fVar10;
+  float fVar11;
+  int iVar12;
+  uint uVar13;
+  CMVec4Rect *this_00;
+  int *piVar14;
+  int iVar15;
+  undefined8 uVar16;
+  undefined8 uVar17;
+  undefined4 local_90;
+  undefined4 local_8c;
+  undefined4 local_88;
+  undefined4 uStack_84;
+  undefined4 local_80;
+  undefined4 uStack_7c;
+  float local_78;
+  float local_74;
+  float local_70;
+  float local_6c;
+  float local_68;
+  float local_64;
+  int local_60;
+  undefined8 local_5c;
+  undefined8 local_54;
+  int local_4c;
+
+  piVar14 = *(int **)(DAT_0070b760 + 0x70b3ec);
+  local_4c = *piVar14;
+  if (this[0x270] == (CMDrawable)0x0) {
+    if ((*(__shared_weak_count **)(this + 0x58) != (__shared_weak_count *)0x0) &&
+       (p_Var3 = (__shared_weak_count *)
+                 std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(this + 0x58)),
+       p_Var3 != (__shared_weak_count *)0x0)) {
+      iVar15 = *(int *)(this + 0x54);
+      this_00 = (CMVec4Rect *)(this + 0x804);
+      if (iVar15 == 0) {
+        p_Var4 = (__shared_weak_count *)0x0;
+      }
+      else {
+        p_Var4 = p_Var3 + 4;
+        do {
+          ExclusiveAccess(p_Var4);
+          bVar1 = (bool)hasExclusiveAccess(p_Var4);
+        } while (!bVar1);
+        *(int *)p_Var4 = *(int *)p_Var4 + 1;
+        p_Var4 = p_Var3;
+      }
+      p_Var5 = p_Var3 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar12 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar12 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar12 == 0) {
+        (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+      if (p_Var4 != (__shared_weak_count *)0x0) {
+        p_Var3 = p_Var4 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var3);
+          iVar12 = *(int *)p_Var3;
+          bVar1 = (bool)hasExclusiveAccess(p_Var3);
+        } while (!bVar1);
+        *(int *)p_Var3 = iVar12 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar12 == 0) {
+          (**(code **)(*(int *)p_Var4 + 8))(p_Var4);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+        }
+      }
+      if (iVar15 != 0) {
+        (**(code **)(*(int *)this + 0x94))(this);
+        if (param_1 == (CRMRenderer4 *)0x0) {
+          _RMAssert('\0',(char *)(DAT_0070b7e4 + 0x70b4b2),(char *)(DAT_0070b7e8 + 0x70b4b6),0x69,
+                    DAT_0070b7e0 + 0x70b4ae,DAT_0070b7ec + 0x70b4b8,DAT_0070b7f0 + 0x70b4ba);
+        }
+        iVar15 = CRMRenderer4::GetScreenCrop(param_1);
+        local_60 = *(int *)(DAT_0070b7f4 + 0x70b4d2) + 8;
+        uVar16 = *(undefined8 *)(iVar15 + 4);
+        uVar17 = *(undefined8 *)(iVar15 + 0xc);
+        local_5c._0_4_ = (int)uVar16;
+        local_54._0_4_ = (int)uVar17;
+        uVar6 = (int)local_54 - (int)local_5c;
+        if (uVar6 + ((int)uVar6 >> 0x1f) == (int)uVar6 >> 0x1f) {
+LAB_0070b530:
+          uVar16 = *(undefined8 *)(param_1 + 0x1c);
+          uVar17 = *(undefined8 *)(param_1 + 0x24);
+          local_5c._0_4_ = (int)uVar16;
+          local_5c._4_4_ = (int)((ulonglong)uVar16 >> 0x20);
+          local_54._0_4_ = (int)uVar17;
+          local_54._4_4_ = (int)((ulonglong)uVar17 >> 0x20);
+          uVar2 = local_54._4_4_ - local_5c._4_4_;
+          uVar6 = (int)local_54 - (int)local_5c;
+          iVar15 = local_5c._4_4_;
+          local_54 = uVar17;
+LAB_0070b54c:
+          local_5c = uVar16;
+          uVar13 = -uVar2;
+          if (-1 < (int)uVar2) {
+            uVar13 = uVar2;
+          }
+          uVar2 = -uVar6;
+          if (-1 < (int)uVar6) {
+            uVar2 = uVar6;
+          }
+          CMVec4Rect::CMVec4Rect((CMVec4Rect *)&local_70,(int)local_5c,iVar15,uVar2,uVar13);
+          uVar16 = local_5c;
+          uVar17 = local_54;
+          if (((local_64 <= *(float *)(this + 0x808)) || (*(float *)(this + 0x810) <= local_6c)) ||
+             ((local_68 <= *(float *)this_00 || (*(float *)(this + 0x80c) <= local_70))))
+          goto LAB_0070b7a6;
+          local_78 = *(float *)(this + 0x80c);
+          local_74 = *(float *)(this + 0x810);
+          iVar15 = CMTestIntersection((CRMVector2 *)&local_78,(CMVec4Rect *)&local_70);
+          if (iVar15 == 0) {
+            local_80 = *(undefined4 *)this_00;
+            uStack_7c = *(undefined4 *)(this + 0x808);
+            iVar15 = CMTestIntersection((CRMVector2 *)&local_80,(CMVec4Rect *)&local_70);
+            if (iVar15 == 0) {
+              uStack_84 = *(undefined4 *)(this + 0x808);
+              local_88 = *(undefined4 *)(this + 0x80c);
+              iVar15 = CMTestIntersection((CRMVector2 *)&local_88,(CMVec4Rect *)&local_70);
+              if (iVar15 == 0) {
+                local_90 = *(undefined4 *)this_00;
+                local_8c = *(undefined4 *)(this + 0x810);
+                iVar15 = CMTestIntersection((CRMVector2 *)&local_90,(CMVec4Rect *)&local_70);
+                if (iVar15 == 0) {
+                  fVar7 = (float)CMVec4Rect::GetWidth(this_00);
+                  fVar8 = (float)CMVec4Rect::GetWidth(this_00);
+                  fVar9 = (float)CMVec4Rect::GetWidth((CMVec4Rect *)&local_70);
+                  fVar10 = 1.0;
+                  if (1.0 < fVar7 / (fVar8 / fVar9 + 1.0)) {
+                    fVar10 = (float)CMVec4Rect::GetWidth(this_00);
+                    fVar7 = (float)CMVec4Rect::GetWidth(this_00);
+                    fVar8 = (float)CMVec4Rect::GetWidth((CMVec4Rect *)&local_70);
+                    fVar10 = fVar10 / (fVar7 / fVar8 + 1.0);
+                  }
+                  fVar7 = (float)CMVec4Rect::GetHeight(this_00);
+                  fVar8 = (float)CMVec4Rect::GetHeight(this_00);
+                  fVar9 = (float)CMVec4Rect::GetHeight((CMVec4Rect *)&local_70);
+                  fVar11 = 1.0;
+                  if (1.0 < fVar7 / (fVar8 / fVar9 + 1.0)) {
+                    fVar11 = (float)CMVec4Rect::GetHeight(this_00);
+                    fVar7 = (float)CMVec4Rect::GetHeight(this_00);
+                    fVar8 = (float)CMVec4Rect::GetHeight((CMVec4Rect *)&local_70);
+                    fVar11 = fVar11 / (fVar7 / fVar8 + 1.0);
+                  }
+                  fVar7 = *(float *)this_00;
+                  if (fVar7 < *(float *)(this + 0x80c)) {
+                    bVar1 = false;
+                    do {
+                      for (fVar8 = *(float *)(this + 0x808); local_74 = *(float *)(this + 0x810),
+                          fVar8 < local_74; fVar8 = fVar11 + fVar8) {
+                        local_78 = fVar7;
+                        local_74 = fVar8;
+                        iVar15 = CMTestIntersection((CRMVector2 *)&local_78,(CMVec4Rect *)&local_70)
+                        ;
+                        if (iVar15 == 1) {
+                          local_74 = *(float *)(this + 0x810);
+                          bVar1 = true;
+                          break;
+                        }
+                      }
+                      local_78 = fVar7;
+                      iVar15 = CMTestIntersection((CRMVector2 *)&local_78,(CMVec4Rect *)&local_70);
+                      if (iVar15 == 1) {
+                        bVar1 = true;
+                      }
+                      if (bVar1) goto LAB_0070b5fc;
+                      fVar7 = fVar10 + fVar7;
+                    } while (fVar7 < *(float *)(this + 0x80c));
+                  }
+                  CM::AddCullingObject();
+                  uVar16 = local_5c;
+                  uVar17 = local_54;
+                  goto LAB_0070b7a6;
+                }
+              }
+            }
+          }
+LAB_0070b5fc:
+          uVar6 = 0;
+        }
+        else {
+          local_5c._4_4_ = (int)((ulonglong)uVar16 >> 0x20);
+          local_54._4_4_ = (int)((ulonglong)uVar17 >> 0x20);
+          uVar2 = local_54._4_4_ - local_5c._4_4_;
+          if (uVar2 + ((int)uVar2 >> 0x1f) == (int)uVar2 >> 0x1f) goto LAB_0070b530;
+          if ((((*(int *)(param_1 + 0x20) < local_54._4_4_) &&
+               (local_5c._4_4_ < *(int *)(param_1 + 0x28))) &&
+              (*(int *)(param_1 + 0x1c) < (int)local_54)) &&
+             (iVar15 = local_5c._4_4_, local_54 = uVar17, (int)local_5c < *(int *)(param_1 + 0x24)))
+          goto LAB_0070b54c;
+LAB_0070b7a6:
+          local_54 = uVar17;
+          local_5c = uVar16;
+          uVar6 = 1;
+        }
+        CRMRect::~CRMRect((CRMRect *)&local_60);
+        uVar2 = *piVar14 - local_4c;
+        if (uVar2 == 0) {
+          return uVar6 ^ 1;
+        }
+        goto LAB_0070b7be;
+      }
+    }
+    uVar2 = 1;
+  }
+  else {
+    uVar2 = 0;
+  }
+  if (*piVar14 == local_4c) {
+    return uVar2;
+  }
+LAB_0070b7be:
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(uVar2);
+}
+
+
+===== 007aa9d4 OnDrawAll @ 007aa9d4 =====
+
+/* CSRUIScrollView::OnDrawAll(CRMRenderer4*) */
+
+void __thiscall CSRUIScrollView::OnDrawAll(CSRUIScrollView *this,CRMRenderer4 *param_1)
+
+{
+  float fVar1;
+  int iVar2;
+  float fVar3;
+  int *piVar4;
+  CRMShader2 *pCVar5;
+  int *piVar6;
+  uint uVar7;
+  uint unaff_r6;
+  int iVar8;
+  undefined4 *puVar9;
+  int *piVar10;
+  int iVar11;
+  CRMRenderParam *this_00;
+  uint in_fpscr;
+  float fVar12;
+  uint local_bc8;
+  CMVec4Rect aCStack_bc4 [16];
+  float local_bb4 [2];
+  void *pvStack_bac;
+  undefined8 uStack_ba8;
+  float local_654 [3];
+  undefined8 uStack_648;
+  int local_640 [3];
+  undefined4 local_634;
+  undefined1 local_80;
+  int iStack_3c;
+
+  piVar6 = *(int **)(DAT_007aad24 + 0x7aa9f0);
+  iStack_3c = *piVar6;
+  iVar2 = (**(code **)(*(int *)this + 0x6c))(this);
+  if (iVar2 != 0) {
+    unaff_r6 = *(uint *)(this + 0x904);
+  }
+  if (iVar2 != 0 && unaff_r6 >> 0x18 != 0) {
+    local_bb4[0] = 0.0;
+    local_654[0] = 0.0;
+    CMVec4Rect::CMVec4Rect
+              (aCStack_bc4,local_654,local_bb4,(float *)(this + 0x78),(float *)(this + 0x7c));
+    CMVec4Rect::ToRMRect();
+    uStack_648 = uStack_ba8;
+    local_654[0] = (float)(*(int *)(DAT_007aad28 + 0x7aaa4a) + 8);
+    CRMPrimitive::CRMPrimitive((CRMPrimitive *)local_640,(char *)(DAT_007aad2c + 0x7aaa52));
+    local_80 = 1;
+    local_634 = 5;
+    local_640[0] = *(int *)(DAT_007aad30 + 0x7aaa74) + 0x20;
+    local_654[0] = (float)(*(int *)(DAT_007aad30 + 0x7aaa74) + 8);
+    CRMRect::~CRMRect((CRMRect *)local_bb4);
+    local_bc8 = *(uint *)(this + 0x904);
+    fVar3 = (float)CMUpdatable::GetOpacityf((CMUpdatable *)this);
+    fVar1 = DAT_007aad20;
+    uVar7 = unaff_r6 >> 0x18;
+    if ((uint)(0.0 < fVar3 * DAT_007aad20) * (int)(fVar3 * DAT_007aad20) != 0xff) {
+      fVar3 = (float)CMUpdatable::GetOpacityf((CMUpdatable *)this);
+      fVar12 = (float)VectorSignedToFloat(uVar7,(byte)(in_fpscr >> 0x16) & 3);
+      fVar3 = (float)VectorUnsignedToFloat
+                               ((uint)(0.0 < fVar3 * fVar1) * (int)(fVar3 * fVar1),
+                                (byte)(in_fpscr >> 0x16) & 3);
+      uVar7 = (uint)((fVar12 / fVar1) * (fVar3 / fVar1) * fVar1);
+      local_bc8 = local_bc8 & 0xffffff | uVar7 << 0x18;
+    }
+    iVar11 = *(int *)(this + 0x294);
+    piVar4 = *(int **)(DAT_007aad34 + 0x7aaafe);
+    iVar8 = *piVar4;
+    iVar2 = DAT_007aad38 + 0x7aab08;
+    if (iVar8 == 0) {
+      _RMAssert('\0',(char *)(DAT_007aad3c + 0x7aab10),(char *)(DAT_007aad40 + 0x7aab12),0x4b,iVar2)
+      ;
+    }
+    puVar9 = *(undefined4 **)(iVar8 + 4);
+    if (puVar9 == (undefined4 *)0x0) {
+      _RMAssert('\0',(char *)(DAT_007aad44 + 0x7aab26),(char *)(DAT_007aad48 + 0x7aab28),0x4b,iVar2)
+      ;
+    }
+    piVar10 = (int *)*puVar9;
+    if (piVar10 == (int *)0x0) {
+      _RMAssert('\0',(char *)(DAT_007aad4c + 0x7aab3c),(char *)(DAT_007aad50 + 0x7aab3e),0x4b,iVar2)
+      ;
+    }
+    iVar8 = (**(code **)(*piVar10 + 0x44))(piVar10,6);
+    this_00 = (CRMRenderParam *)(this + 0x294);
+    if (iVar11 == iVar8) {
+      fVar12 = (float)VectorSignedToFloat(uVar7,(byte)(in_fpscr >> 0x16) & 3);
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      basic_string<decltype(nullptr)>
+                ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 local_bb4,(char *)(DAT_007aad54 + 0x7aabc0));
+      fVar3 = (float)CRMRenderParam::GetValueFloat(this_00,(basic_string *)local_bb4);
+      if (((uint)local_bb4[0] & 1) != 0) {
+        operator_delete(pvStack_bac);
+      }
+      local_bc8 = local_bc8 & 0xffffff | (int)((fVar12 / fVar1) * fVar3 * fVar1) << 0x18;
+    }
+    else {
+      iVar8 = *(int *)this_00;
+      iVar11 = *piVar4;
+      if (iVar11 == 0) {
+        _RMAssert('\0',(char *)(DAT_007aad58 + 0x7aab6a),(char *)(DAT_007aad5c + 0x7aab6c),0x4b,
+                  iVar2);
+      }
+      puVar9 = *(undefined4 **)(iVar11 + 4);
+      if (puVar9 == (undefined4 *)0x0) {
+        _RMAssert('\0',(char *)(DAT_007aad60 + 0x7aab80),(char *)(DAT_007aad64 + 0x7aab82),0x4b,
+                  iVar2);
+      }
+      piVar10 = (int *)*puVar9;
+      if (piVar10 == (int *)0x0) {
+        _RMAssert('\0',(char *)(DAT_007aad68 + 0x7aab96),(char *)(DAT_007aad6c + 0x7aab98),0x4b,
+                  iVar2);
+      }
+      iVar2 = (**(code **)(*piVar10 + 0x44))(piVar10,2);
+      if (iVar8 == iVar2) {
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::basic_string<decltype(nullptr)>
+                  ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *
+                   )local_bb4,(char *)(DAT_007aad70 + 0x7aac16));
+        fVar3 = (float)CRMRenderParam::GetValueFloat(this_00,(basic_string *)local_bb4);
+        uVar7 = (local_bc8 & 0xff) + (local_bc8 >> 8 & 0xff) + (local_bc8 & 0xffffff) / 0x30000;
+        local_bc8 = uVar7 | uVar7 * 0x10000 | uVar7 * 0x100 | (int)(fVar3 * fVar1) << 0x18;
+        if (((uint)local_bb4[0] & 1) != 0) {
+          operator_delete(pvStack_bac);
+        }
+      }
+    }
+    pCVar5 = (CRMShader2 *)
+             (**(code **)(*(int *)**(undefined4 **)(*piVar4 + 4) + 0x44))
+                       ((int *)**(undefined4 **)(*piVar4 + 4),0x10);
+    CRMRenderParam::CRMRenderParam((CRMRenderParam *)local_bb4,pCVar5);
+    CRMRenderParam::SetValue((CRMRenderParam *)local_bb4,local_bc8);
+    CRMDrawable::SetRenderParam((CRMDrawable *)local_640,(CRMRenderParam *)local_bb4);
+    CRMRenderParam::~CRMRenderParam((CRMRenderParam *)local_bb4);
+    (**(code **)(*(int *)this + 0xa8))(this,param_1);
+    CM::RendererDraw(param_1,(CRMResource *)local_640);
+    (**(code **)(*(int *)this + 0xac))(this,param_1);
+    CRMRectR::~CRMRectR((CRMRectR *)local_654);
+  }
+  if (*piVar6 != iStack_3c) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

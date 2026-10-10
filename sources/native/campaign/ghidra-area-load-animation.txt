@@ -1,0 +1,297 @@
+===== 7b071c LoadAnim @ 007b071c =====
+
+/* CSRUIImageNode::LoadAnim(CMHashID const&) */
+
+void __thiscall CSRUIImageNode::LoadAnim(CSRUIImageNode *this,CMHashID *param_1)
+
+{
+  basic_string *pbVar1;
+  basic_string bVar2;
+  bool bVar3;
+  byte bVar4;
+  __shared_weak_count *p_Var5;
+  CRMAnim2 *this_00;
+  int *piVar6;
+  vector<std::__ndk1::pair<float,CMHashID>,std::__ndk1::allocator<std::__ndk1::pair<float,CMHashID>>>
+  *this_01;
+  float fVar7;
+  int iVar8;
+  uint uVar9;
+  undefined4 *puVar10;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *this_02;
+  ulonglong *puVar11;
+  int iVar12;
+  CMHashID *pCVar13;
+  undefined4 uVar14;
+  void *pvVar15;
+  uint uVar16;
+  __shared_weak_count *p_Var17;
+  CRMResourceMgr4 *this_03;
+  int iVar18;
+  CMHashID *pCVar19;
+  CSRUIImageNode *pCVar20;
+  int *piVar21;
+  uint in_fpscr;
+  float fVar22;
+  float fVar23;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_6c [8];
+  void *local_64;
+  undefined8 local_60;
+  void *local_58;
+  undefined4 uStack_54;
+  void *local_50;
+  undefined4 local_48;
+  undefined4 uStack_44;
+  pair apStack_40 [4];
+  int local_3c;
+
+  piVar21 = *(int **)(DAT_007b0aac + 0x7b0736);
+  local_3c = *piVar21;
+  p_Var17 = *(__shared_weak_count **)(this + 0x88c);
+  *(undefined4 *)(this + 0x888) = 0;
+  *(undefined4 *)(this + 0x88c) = 0;
+  if (p_Var17 != (__shared_weak_count *)0x0) {
+    p_Var5 = p_Var17 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar12 = *(int *)p_Var5;
+      bVar3 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar3);
+    *(int *)p_Var5 = iVar12 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar12 == 0) {
+      (**(code **)(*(int *)p_Var17 + 8))(p_Var17);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var17);
+    }
+  }
+  iVar12 = *(int *)(this + 0x5c);
+  iVar18 = DAT_007b0ab0 + 0x7b0780;
+  if (iVar12 == 0) {
+    _RMAssert('\0',(char *)(DAT_007b0ab4 + 0x7b078c),(char *)(DAT_007b0ab8 + 0x7b0790),0x4b,iVar18);
+  }
+  this_03 = *(CRMResourceMgr4 **)(iVar12 + 4);
+  if (this_03 == (CRMResourceMgr4 *)0x0) {
+    _RMAssert('\0',(char *)(DAT_007b0abc + 0x7b07a2),(char *)(DAT_007b0ac0 + 0x7b07a6),0x4b,iVar18);
+  }
+  pCVar19 = param_1 + 1;
+  pCVar13 = *(CMHashID **)(param_1 + 8);
+  if (((byte)*param_1 & 1) == 0) {
+    pCVar13 = pCVar19;
+  }
+  this_00 = (CRMAnim2 *)CRMResourceMgr4::LoadAnim2(this_03,(char *)pCVar13);
+  if (this_00 == (CRMAnim2 *)0x0) {
+    this_02 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+              std::__ndk1::
+              basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+              basic_string<decltype(nullptr)>(local_6c,(char *)(DAT_007b0c10 + 0x7b0a3a));
+    puVar11 = (ulonglong *)
+              std::__ndk1::
+              basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                        (this_02,(char *)(DAT_007b0c14 + 0x7b0a42),0x1c);
+    local_60 = *puVar11;
+    local_58 = *(void **)(puVar11 + 1);
+    *(undefined4 *)puVar11 = 0;
+    *(undefined4 *)((int)puVar11 + 4) = 0;
+    *(undefined4 *)(puVar11 + 1) = 0;
+    pvVar15 = local_58;
+    if ((local_60 & 1) == 0) {
+      pvVar15 = (void *)((int)&local_60 + 1);
+    }
+    pCVar13 = *(CMHashID **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pCVar13 = pCVar19;
+    }
+    RMTrace(2,pvVar15,DAT_007b0c18 + 0x7b0a74,pCVar13);
+    if ((local_60 & 1) != 0) {
+      operator_delete(local_58);
+    }
+    if (((byte)local_6c[0] & 1) != 0) {
+      operator_delete(local_64);
+    }
+    local_60 = 0;
+    (**(code **)(*(int *)this + 0x78))(this,&local_60);
+  }
+  else {
+    piVar6 = operator_new(0x14);
+    *piVar6 = DAT_007b0ac4 + 0x7b07e0;
+    piVar6[1] = 0;
+    piVar6[2] = 0;
+    piVar6[3] = (int)this_00;
+    piVar6[4] = (int)this;
+    p_Var17 = *(__shared_weak_count **)(this + 0x88c);
+    *(CRMAnim2 **)(this + 0x888) = this_00;
+    *(int **)(this + 0x88c) = piVar6;
+    if (p_Var17 != (__shared_weak_count *)0x0) {
+      p_Var5 = p_Var17 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar12 = *(int *)p_Var5;
+        bVar3 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar3);
+      *(int *)p_Var5 = iVar12 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar12 == 0) {
+        (**(code **)(*(int *)p_Var17 + 8))(p_Var17);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var17);
+      }
+    }
+    if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+        (this + 0x858) !=
+        (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)param_1) {
+      uVar16 = *(uint *)(param_1 + 4);
+      pCVar13 = *(CMHashID **)(param_1 + 8);
+      if (((byte)*param_1 & 1) == 0) {
+        uVar16 = (uint)((byte)*param_1 >> 1);
+        pCVar13 = pCVar19;
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             (this + 0x858),(char *)pCVar13,uVar16);
+    }
+    uVar14 = *(undefined4 *)(param_1 + 0x14);
+    *(undefined4 *)(this + 0x868) = *(undefined4 *)(param_1 + 0x10);
+    *(undefined4 *)(this + 0x86c) = uVar14;
+    (**(code **)(*(int *)this_00 + 0x20))(this_00,this + 0x294);
+    iVar18 = CRMAnim2::GetCurFrame(this_00);
+    iVar12 = *(int *)(iVar18 + 0x5d0) - *(int *)(iVar18 + 0x5c8);
+    if (iVar12 < 0) {
+      iVar12 = -iVar12;
+    }
+    iVar18 = *(int *)(iVar18 + 0x5d4) - *(int *)(iVar18 + 0x5cc);
+    if (iVar18 < 0) {
+      iVar18 = -iVar18;
+    }
+    CMVec2Size::CMVec2Size((CMVec2Size *)&local_60,iVar12,iVar18);
+    *(undefined4 *)(this + 0x894) = (undefined4)local_60;
+    *(undefined4 *)(this + 0x898) = local_60._4_4_;
+    MakeAnimToMesh(this,this_00);
+    iVar12 = DAT_007b0c38;
+    *(undefined4 *)(this + 0x890) = 0;
+    local_60 = local_60 & 0xffffffff00000000;
+    CMHashID::CMHashID((CMHashID *)&local_58,(char *)(iVar12 + 0x7b088e));
+    this_01 = (vector<std::__ndk1::pair<float,CMHashID>,std::__ndk1::allocator<std::__ndk1::pair<float,CMHashID>>>
+               *)(this + 0x870);
+    std::__ndk1::
+    vector<std::__ndk1::pair<float,CMHashID>,std::__ndk1::allocator<std::__ndk1::pair<float,CMHashID>>>
+    ::assign<std::__ndk1::pair<float,CMHashID>const*>(this_01,(CMVec2Size *)&local_60,apStack_40);
+    pCVar20 = this + 0x894;
+    if (((uint)local_58 & 1) != 0) {
+      operator_delete(local_50);
+    }
+    iVar12 = *(int *)(this_00 + 0x60c);
+    if (*(int *)(this_00 + 0x610) != iVar12) {
+      iVar18 = 0;
+      uVar16 = 0;
+      do {
+        pbVar1 = (basic_string *)(iVar12 + iVar18 + 8);
+        bVar2 = *pbVar1;
+        if (((byte)bVar2 & 1) == 0) {
+          uVar9 = (uint)((byte)bVar2 >> 1);
+        }
+        else {
+          uVar9 = *(uint *)(iVar12 + iVar18 + 0xc);
+        }
+        if (uVar9 != 0) {
+          local_60 = CONCAT44(local_60._4_4_,*(undefined4 *)(this + 0x890));
+          local_58 = (void *)0x0;
+          uStack_54 = 0;
+          local_50 = (void *)0x0;
+          local_48 = 0;
+          uStack_44 = 0;
+          CMHashID::Set((CMHashID *)&local_58,pbVar1);
+          puVar10 = *(undefined4 **)(this + 0x874);
+          if (puVar10 < *(undefined4 **)(this + 0x878)) {
+            *puVar10 = (undefined4)local_60;
+            puVar10[4] = local_50;
+            *(ulonglong *)(puVar10 + 2) = CONCAT44(uStack_54,local_58);
+            local_58 = (void *)0x0;
+            uStack_54 = 0;
+            local_50 = (void *)0x0;
+            puVar10[6] = local_48;
+            puVar10[7] = uStack_44;
+            *(undefined4 **)(this + 0x874) = puVar10 + 8;
+          }
+          else {
+            std::__ndk1::
+            vector<std::__ndk1::pair<float,CMHashID>,std::__ndk1::allocator<std::__ndk1::pair<float,CMHashID>>>
+            ::__push_back_slow_path<std::__ndk1::pair<float,CMHashID>>(this_01,(pair *)&local_60);
+            if (((uint)local_58 & 1) != 0) {
+              operator_delete(local_50);
+            }
+          }
+        }
+        fVar7 = (float)CRMAnim2::GetDuration(this_00,uVar16);
+        *(float *)(this + 0x890) = fVar7 + *(float *)(this + 0x890);
+        iVar12 = CRMAnim2::GetFrame(this_00,uVar16);
+        iVar18 = iVar18 + 0x14;
+        uVar16 = uVar16 + 1;
+        iVar8 = *(int *)(iVar12 + 0x5d4) - *(int *)(iVar12 + 0x5cc);
+        iVar12 = *(int *)(iVar12 + 0x5d0) - *(int *)(iVar12 + 0x5c8);
+        if (iVar12 < 0) {
+          iVar12 = -iVar12;
+        }
+        fVar7 = (float)VectorUnsignedToFloat(iVar12,(byte)(in_fpscr >> 0x16) & 3);
+        if (iVar8 < 0) {
+          iVar8 = -iVar8;
+        }
+        fVar22 = (float)VectorUnsignedToFloat(iVar8,(byte)(in_fpscr >> 0x16) & 3);
+        fVar23 = *(float *)(this + 0x898);
+        if (fVar7 < *(float *)pCVar20) {
+          fVar7 = *(float *)pCVar20;
+        }
+        uVar9 = in_fpscr & 0xfffffff | (uint)(fVar23 < fVar22) << 0x1f |
+                (uint)(fVar23 == fVar22) << 0x1e;
+        in_fpscr = uVar9 | (uint)(NAN(fVar23) || NAN(fVar22)) << 0x1c;
+        bVar4 = (byte)(uVar9 >> 0x18);
+        if (!(bool)(bVar4 >> 6 & 1) && bVar4 >> 7 == ((byte)(in_fpscr >> 0x1c) & 1)) {
+          fVar22 = fVar23;
+        }
+        *(float *)pCVar20 = fVar7;
+        *(float *)(this + 0x898) = fVar22;
+        iVar12 = *(int *)(this_00 + 0x60c);
+      } while (uVar16 < (uint)((*(int *)(this_00 + 0x610) - iVar12 >> 2) * -0x33333333));
+    }
+    local_60 = CONCAT44(local_60._4_4_,*(undefined4 *)(this + 0x890));
+    CMHashID::CMHashID((CMHashID *)&local_58,(char *)(DAT_007b0c3c + 0x7b09f8));
+    puVar10 = *(undefined4 **)(this + 0x874);
+    if (puVar10 < *(undefined4 **)(this + 0x878)) {
+      *puVar10 = (undefined4)local_60;
+      puVar10[4] = local_50;
+      *(ulonglong *)(puVar10 + 2) = CONCAT44(uStack_54,local_58);
+      local_58 = (void *)0x0;
+      uStack_54 = 0;
+      local_50 = (void *)0x0;
+      puVar10[6] = local_48;
+      puVar10[7] = uStack_44;
+      *(undefined4 **)(this + 0x874) = puVar10 + 8;
+    }
+    else {
+      std::__ndk1::
+      vector<std::__ndk1::pair<float,CMHashID>,std::__ndk1::allocator<std::__ndk1::pair<float,CMHashID>>>
+      ::__push_back_slow_path<std::__ndk1::pair<float,CMHashID>>(this_01,(pair *)&local_60);
+      if (((uint)local_58 & 1) != 0) {
+        operator_delete(local_50);
+      }
+    }
+    local_60 = *(ulonglong *)(this + 0x894);
+    (**(code **)(*(int *)this + 0x78))(this,&local_60);
+    iVar12 = CRMAnim2::GetCurFrame(this_00);
+    fVar22 = *(float *)pCVar20;
+    fVar23 = (float)VectorSignedToFloat(*(undefined4 *)(iVar12 + 0x5c8),(byte)(in_fpscr >> 0x16) & 3
+                                       );
+    iVar12 = CRMAnim2::GetCurFrame(this_00);
+    fVar7 = (float)VectorSignedToFloat(*(undefined4 *)(iVar12 + 0x5cc),(byte)(in_fpscr >> 0x16) & 3)
+    ;
+    *(float *)(this + 0x7fc) = fVar23 / fVar22;
+    *(float *)(this + 0x800) = fVar7 / *(float *)(this + 0x898);
+    CMDrawable::SetAlignSize((CMDrawable *)this,1,1);
+  }
+  iVar12 = *piVar21 - local_3c;
+  if (iVar12 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar12);
+  }
+  return;
+}

@@ -1,0 +1,574 @@
+===== b26514 CSRMFishing @ 00b26514 =====
+
+/* CSRMFishing::CSRMFishing() */
+
+void __thiscall CSRMFishing::CSRMFishing(CSRMFishing *this)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int iVar4;
+  int *piVar5;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_34 [8];
+  void *local_2c;
+  int local_28;
+
+  uVar1 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  piVar5 = *(int **)(DAT_00b267e8 + 0xb2652c);
+  local_28 = *piVar5;
+  *(undefined4 *)(this + 0x3c) = 0;
+  *(undefined4 *)(this + 0x40) = uVar1;
+  *(undefined4 *)(this + 0x44) = uVar2;
+  *(undefined4 *)(this + 0x48) = uVar3;
+  *(undefined4 *)(this + 0x4c) = 0;
+  *(undefined4 *)(this + 0x50) = uVar1;
+  *(undefined4 *)(this + 0x54) = uVar2;
+  *(undefined4 *)(this + 0x58) = uVar3;
+  *(undefined4 *)(this + 0x5c) = 0;
+  *(undefined4 *)(this + 0x60) = uVar1;
+  *(undefined4 *)(this + 100) = uVar2;
+  *(undefined4 *)(this + 0x68) = uVar3;
+  *(undefined4 *)(this + 0xc) = 0;
+  *(undefined2 *)this = 0;
+  *(undefined4 *)(this + 0x18) = 0;
+  *(undefined4 *)(this + 0x38) = 0;
+  *(undefined4 *)(this + 0x24) = 0;
+  *(undefined4 *)(this + 0x28) = 0;
+  *(undefined4 *)(this + 0x2c) = 0;
+  *(undefined4 *)(this + 0x6c) = 0;
+  *(undefined4 *)(this + 0x70) = 0;
+  *(undefined4 *)(this + 8) = 0;
+  *(CSRMFishing **)(this + 4) = this + 8;
+  *(undefined4 *)(this + 0x14) = 0;
+  *(CSRMFishing **)(this + 0x10) = this + 0x14;
+  *(undefined4 *)(this + 0x34) = 0;
+  *(CSRMFishing **)(this + 0x30) = this + 0x34;
+  *(undefined4 *)(this + 0x20) = 0;
+  *(CSRMFishing **)(this + 0x1c) = this + 0x20;
+  *(undefined4 *)(this + 0x7c) = 0;
+  *(undefined4 *)(this + 0x80) = uVar1;
+  *(undefined4 *)(this + 0x84) = uVar2;
+  *(undefined4 *)(this + 0x88) = uVar3;
+  *(undefined4 *)(this + 0x88) = 0;
+  *(undefined4 *)(this + 0x8c) = uVar1;
+  *(undefined4 *)(this + 0x90) = uVar2;
+  *(undefined4 *)(this + 0x94) = uVar3;
+  *(undefined4 *)(this + 0xb0) = 0;
+  *(undefined4 *)(this + 0xb4) = uVar1;
+  *(undefined4 *)(this + 0xb8) = uVar2;
+  *(undefined4 *)(this + 0xbc) = uVar3;
+  *(undefined4 *)(this + 0x74) = 1;
+  *(undefined4 *)(this + 0x78) = 1;
+  *(undefined4 *)(this + 0xc0) = 0;
+  *(CSRMFishing **)(this + 0x98) = this + 0x98;
+  *(CSRMFishing **)(this + 0x9c) = this + 0x98;
+  *(undefined4 *)(this + 0xa0) = 0;
+  *(undefined4 *)(this + 0xa4) = uVar1;
+  *(undefined4 *)(this + 0xa8) = uVar2;
+  *(undefined4 *)(this + 0xac) = uVar3;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_34,(char *)(DAT_00b267ec + 0xb265ca));
+  ChangePlace(this,(basic_string *)local_34);
+  if (((byte)local_34[0] & 1) != 0) {
+    operator_delete(local_2c);
+  }
+  iVar4 = *piVar5 - local_28;
+  if (iVar4 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar4);
+  }
+  return;
+}
+
+
+===== b267f0 ChangePlace @ 00b267f0 =====
+
+/* CSRMFishing::ChangePlace(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRMFishing::ChangePlace(CSRMFishing *this,basic_string *param_1)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  CSRDataMgr *this_00;
+  CSRStaticData *this_01;
+  undefined4 uVar3;
+  int *piVar4;
+  int iVar5;
+  __shared_weak_count *p_Var6;
+
+  p_Var6 = *(__shared_weak_count **)(this + 0x40);
+  *(undefined4 *)(this + 0x3c) = 0;
+  *(undefined4 *)(this + 0x40) = 0;
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar5 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  this_01 = (CSRStaticData *)CSRDataMgr::GetStaticData(this_00);
+  uVar3 = CSRStaticData::GetLoadFishPlaceInfo(this_01,param_1);
+  piVar4 = operator_new(0x78);
+  *piVar4 = *(int *)(DAT_00b268ac + 0xb26850) + 8;
+  piVar4[1] = 0;
+  piVar4[2] = 0;
+  __aeabi_memcpy4(piVar4 + 3,uVar3,0x6c);
+  p_Var6 = *(__shared_weak_count **)(this + 0x40);
+  *(int **)(this + 0x3c) = piVar4 + 3;
+  *(int **)(this + 0x40) = piVar4;
+  if (p_Var6 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Var6 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar5 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)p_Var6 + 8))(p_Var6);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var6);
+    }
+  }
+  ResetFishing(this);
+  return;
+}
+
+
+===== b2f0fc GetCommonInfo @ 00b2f0fc =====
+
+/* CSRMFishing::GetCommonInfo() const */
+
+void CSRMFishing::GetCommonInfo(void)
+
+{
+  bool bVar1;
+  undefined4 *in_r0;
+  int *piVar2;
+  int in_r1;
+  undefined4 in_r2;
+  bool in_ZR;
+  bool in_CY;
+
+  if (in_CY && !in_ZR) {
+    in_r2 = *(undefined4 *)(in_r1 + 0x3c);
+    in_r1 = *(int *)(in_r1 + 0x40);
+  }
+  *in_r0 = in_r2;
+  in_r0[1] = in_r1;
+  if (in_r1 != 0) {
+    piVar2 = (int *)(in_r1 + 4);
+    do {
+      ExclusiveAccess(piVar2);
+      bVar1 = (bool)hasExclusiveAccess(piVar2);
+    } while (!bVar1);
+    *piVar2 = *piVar2 + 1;
+    return;
+  }
+  return;
+}
+
+
+===== b2f18c ReloadView @ 00b2f18c =====
+
+/* CSRMFishing::ReloadView() */
+
+void __thiscall CSRMFishing::ReloadView(CSRMFishing *this)
+
+{
+  bool bVar1;
+  CMUpdatable *pCVar2;
+  int *piVar3;
+  int *piVar4;
+  int iVar5;
+  __shared_weak_count *p_Var6;
+  CSRDataMgr *this_00;
+  CSRStaticData *this_01;
+  int iVar7;
+  char *pcVar8;
+  uint uVar9;
+  __shared_weak_count *p_Var10;
+  CSRMFishing *pCVar11;
+  basic_string *pbVar12;
+  int *piVar13;
+  CSRMFishing *pCVar14;
+  basic_string *pbVar15;
+  int *piVar16;
+  CSRMFishing *pCVar17;
+  undefined4 local_50;
+  uint local_4c;
+  char *local_48;
+  undefined4 local_40;
+  undefined4 uStack_3c;
+  undefined4 local_38;
+  __shared_weak_count *local_34;
+  CMUpdatable *local_30;
+  __shared_weak_count *local_2c;
+  int local_28;
+
+  piVar16 = *(int **)(DAT_00b2f4b8 + 0xb2f19e);
+  local_28 = *piVar16;
+  piVar13 = (int *)(DAT_00b2f4bc + 0xb2f1b4);
+  piVar3 = (int *)(DAT_00b2f4c0 + 0xb2f1b6);
+  if (*(int *)(this + 0xa4) == 0) {
+    piVar4 = operator_new(0x20);
+    iVar5 = *piVar13;
+    piVar4[3] = 0;
+    piVar4[4] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    piVar4[5] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    piVar4[6] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    piVar4[7] = 0;
+    *piVar4 = iVar5 + 8;
+    piVar4[1] = 0;
+    piVar4[2] = 0;
+    CRMBaseClass::CRMBaseClass((CRMBaseClass *)(piVar4 + 4));
+    piVar4[5] = 0;
+    piVar4[6] = 0;
+    iVar5 = *piVar3;
+    piVar4[7] = 0;
+    piVar4[3] = iVar5 + 8;
+    p_Var10 = *(__shared_weak_count **)(this + 0xa8);
+    *(int **)(this + 0xa4) = piVar4 + 3;
+    *(int **)(this + 0xa8) = piVar4;
+    if (p_Var10 != (__shared_weak_count *)0x0) {
+      p_Var6 = p_Var10 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+      }
+    }
+    CMUIView::Init(*(void **)(this + 0xa4));
+    CMUIView::LoadXML(*(CMUIView **)(this + 0xa4),(char *)(DAT_00b2f4c4 + 0xb2f23c));
+  }
+  if (*(int *)(this + 0xac) == 0) {
+    piVar4 = operator_new(0x20);
+    iVar5 = *piVar13;
+    piVar4[3] = 0;
+    piVar4[4] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    piVar4[5] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    piVar4[6] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    piVar4[7] = 0;
+    *piVar4 = iVar5 + 8;
+    piVar4[1] = 0;
+    piVar4[2] = 0;
+    CRMBaseClass::CRMBaseClass((CRMBaseClass *)(piVar4 + 4));
+    piVar4[5] = 0;
+    piVar4[6] = 0;
+    iVar5 = *piVar3;
+    piVar4[7] = 0;
+    piVar4[3] = iVar5 + 8;
+    p_Var10 = *(__shared_weak_count **)(this + 0xb0);
+    *(int **)(this + 0xac) = piVar4 + 3;
+    *(int **)(this + 0xb0) = piVar4;
+    if (p_Var10 != (__shared_weak_count *)0x0) {
+      p_Var6 = p_Var10 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+      }
+    }
+    CMUIView::Init(*(void **)(this + 0xac));
+    CMUIView::LoadXML(*(CMUIView **)(this + 0xac),(char *)(DAT_00b2f4c8 + 0xb2f2ca));
+  }
+  if (*(int *)(this + 0xb4) == 0) {
+    piVar4 = operator_new(0x20);
+    iVar5 = *piVar13;
+    piVar4[3] = 0;
+    piVar4[4] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    piVar4[5] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    piVar4[6] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    piVar4[7] = 0;
+    *piVar4 = iVar5 + 8;
+    piVar4[1] = 0;
+    piVar4[2] = 0;
+    CRMBaseClass::CRMBaseClass((CRMBaseClass *)(piVar4 + 4));
+    piVar4[5] = 0;
+    piVar4[6] = 0;
+    iVar5 = *piVar3;
+    piVar4[7] = 0;
+    piVar4[3] = iVar5 + 8;
+    p_Var10 = *(__shared_weak_count **)(this + 0xb8);
+    *(int **)(this + 0xb4) = piVar4 + 3;
+    *(int **)(this + 0xb8) = piVar4;
+    if (p_Var10 != (__shared_weak_count *)0x0) {
+      p_Var6 = p_Var10 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+      }
+    }
+    CMUIView::Init(*(void **)(this + 0xb4));
+    CMUIView::LoadXML(*(CMUIView **)(this + 0xb4),(char *)(DAT_00b2f6d4 + 0xb2f358));
+  }
+  if (*(int *)(this + 0xbc) == 0) {
+    piVar4 = operator_new(0x20);
+    iVar5 = *piVar13;
+    piVar4[7] = 0;
+    piVar4[3] = 0;
+    piVar4[4] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+    piVar4[5] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+    piVar4[6] = *(int *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+    *piVar4 = iVar5 + 8;
+    piVar4[1] = 0;
+    piVar4[2] = 0;
+    CRMBaseClass::CRMBaseClass((CRMBaseClass *)(piVar4 + 4));
+    iVar5 = *piVar3;
+    piVar4[5] = 0;
+    piVar4[6] = 0;
+    piVar4[7] = 0;
+    piVar4[3] = iVar5 + 8;
+    p_Var10 = *(__shared_weak_count **)(this + 0xc0);
+    *(int **)(this + 0xbc) = piVar4 + 3;
+    *(int **)(this + 0xc0) = piVar4;
+    if (p_Var10 != (__shared_weak_count *)0x0) {
+      p_Var6 = p_Var10 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+      }
+    }
+    CMUIView::Init(*(void **)(this + 0xbc));
+    CMUIView::LoadXML(*(CMUIView **)(this + 0xbc),(char *)(DAT_00b2f6d8 + 0xb2f3e0));
+  }
+  pCVar17 = this + 0x98;
+  for (pCVar11 = *(CSRMFishing **)(this + 0x9c); pCVar17 != pCVar11;
+      pCVar11 = *(CSRMFishing **)(pCVar11 + 4)) {
+    p_Var10 = *(__shared_weak_count **)(pCVar11 + 0xc);
+    *(undefined4 *)(pCVar11 + 8) = 0;
+    *(undefined4 *)(pCVar11 + 0xc) = 0;
+    if (p_Var10 != (__shared_weak_count *)0x0) {
+      p_Var6 = p_Var10 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var6);
+        iVar5 = *(int *)p_Var6;
+        bVar1 = (bool)hasExclusiveAccess(p_Var6);
+      } while (!bVar1);
+      *(int *)p_Var6 = iVar5 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar5 == 0) {
+        (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+      }
+    }
+  }
+  if (*(int *)(this + 0xa0) != 0) {
+    iVar5 = *(int *)(this + 0x98);
+    pCVar11 = *(CSRMFishing **)(this + 0x9c);
+    iVar7 = *(int *)pCVar11;
+    *(undefined4 *)(iVar7 + 4) = *(undefined4 *)(iVar5 + 4);
+    **(int **)(iVar5 + 4) = iVar7;
+    *(undefined4 *)(this + 0xa0) = 0;
+    while (pCVar11 != pCVar17) {
+      pCVar14 = *(CSRMFishing **)(pCVar11 + 4);
+      p_Var10 = *(__shared_weak_count **)(pCVar11 + 0xc);
+      if (p_Var10 != (__shared_weak_count *)0x0) {
+        p_Var6 = p_Var10 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var6);
+          iVar5 = *(int *)p_Var6;
+          bVar1 = (bool)hasExclusiveAccess(p_Var6);
+        } while (!bVar1);
+        *(int *)p_Var6 = iVar5 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar5 == 0) {
+          (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+        }
+      }
+      operator_delete(pCVar11);
+      pCVar11 = pCVar14;
+    }
+  }
+  this_00 = (CSRDataMgr *)CSRDataMgr::get();
+  this_01 = (CSRStaticData *)CSRDataMgr::GetStaticData(this_00);
+  piVar3 = (int *)CSRStaticData::GetLoadFishNPCInfo(this_01,(basic_string *)(this + 0x50));
+  pbVar12 = (basic_string *)*piVar3;
+  pbVar15 = (basic_string *)piVar3[1];
+  if (pbVar12 != pbVar15) {
+    do {
+      iVar5 = CMRand<int>(1,100);
+      if (iVar5 <= *(int *)(pbVar12 + 0x14)) {
+        std::__ndk1::shared_ptr<CSRUIImageNode>::make_shared<>
+                  ((shared_ptr<CSRUIImageNode> *)&local_30);
+        local_38 = 0;
+        local_34 = (__shared_weak_count *)0x0;
+        (**(code **)(*(int *)local_30 + 0xa0))(local_30,&local_38);
+        p_Var10 = local_34;
+        if (local_34 != (__shared_weak_count *)0x0) {
+          p_Var6 = local_34 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var6);
+            iVar5 = *(int *)p_Var6;
+            bVar1 = (bool)hasExclusiveAccess(p_Var6);
+          } while (!bVar1);
+          *(int *)p_Var6 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*(int *)local_34 + 8))(local_34);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+          }
+        }
+        CMUpdatable::SetAlign(local_30,2,2);
+        pCVar2 = local_30;
+        local_40 = 0;
+        uStack_3c = 0;
+        local_50 = 0;
+        local_4c = 0;
+        local_48 = (char *)0x0;
+        CMHashID::Set((CMHashID *)&local_50,pbVar12);
+        if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            (pCVar2 + 600) !=
+            (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+            &local_50) {
+          uVar9 = local_4c;
+          pcVar8 = local_48;
+          if ((local_50 & 1) == 0) {
+            pcVar8 = (char *)((int)&local_50 + 1);
+            uVar9 = local_50 >> 1 & 0x7f;
+          }
+          std::__ndk1::
+          basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::assign
+                    ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+                      *)(pCVar2 + 600),pcVar8,uVar9);
+        }
+        *(undefined4 *)(pCVar2 + 0x268) = local_40;
+        *(undefined4 *)(pCVar2 + 0x26c) = uStack_3c;
+        if ((local_50 & 1) != 0) {
+          operator_delete(local_48);
+        }
+        pCVar2 = local_30;
+        local_40 = 0;
+        uStack_3c = 0;
+        local_50 = 0;
+        local_4c = 0;
+        local_48 = (void *)0x0;
+        CMHashID::Set((CMHashID *)&local_50,pbVar12);
+        CSRUIImageNode::LoadAnim((CSRUIImageNode *)pCVar2,(CMHashID *)&local_50);
+        if ((local_50 & 1) != 0) {
+          operator_delete(local_48);
+        }
+        (**(code **)(*(int *)local_30 + 0x70))(local_30,pbVar12 + 0xc);
+        piVar3 = operator_new(0x10);
+        *piVar3 = 0;
+        piVar3[2] = (int)local_30;
+        piVar3[3] = (int)local_2c;
+        p_Var10 = (__shared_weak_count *)0x0;
+        if (local_2c != (__shared_weak_count *)0x0) {
+          p_Var10 = local_2c + 4;
+          do {
+            ExclusiveAccess(p_Var10);
+            bVar1 = (bool)hasExclusiveAccess(p_Var10);
+          } while (!bVar1);
+          *(int *)p_Var10 = *(int *)p_Var10 + 1;
+          p_Var10 = local_2c;
+        }
+        iVar5 = *(int *)(this + 0x98);
+        *piVar3 = iVar5;
+        piVar3[1] = (int)pCVar17;
+        *(int **)(iVar5 + 4) = piVar3;
+        *(int **)(this + 0x98) = piVar3;
+        *(int *)(this + 0xa0) = *(int *)(this + 0xa0) + 1;
+        if (p_Var10 != (__shared_weak_count *)0x0) {
+          p_Var6 = p_Var10 + 4;
+          DataMemoryBarrier(0x1b);
+          do {
+            ExclusiveAccess(p_Var6);
+            iVar5 = *(int *)p_Var6;
+            bVar1 = (bool)hasExclusiveAccess(p_Var6);
+          } while (!bVar1);
+          *(int *)p_Var6 = iVar5 + -1;
+          DataMemoryBarrier(0x1b);
+          if (iVar5 == 0) {
+            (**(code **)(*(int *)p_Var10 + 8))(p_Var10);
+            std::__ndk1::__shared_weak_count::__release_weak(p_Var10);
+          }
+        }
+      }
+      pbVar12 = pbVar12 + 0x18;
+    } while (pbVar12 != pbVar15);
+  }
+  if (*piVar16 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}
+
+
+===== b2ffac GetLoadFishInfo @ 00b2ffac =====
+
+/* CSRMFishing::GetLoadFishInfo() */
+
+void CSRMFishing::GetLoadFishInfo(void)
+
+{
+  bool bVar1;
+  undefined4 *in_r0;
+  int *piVar2;
+  int in_r1;
+  int iVar3;
+
+  iVar3 = *(int *)(in_r1 + 0x2c);
+  *in_r0 = *(undefined4 *)(in_r1 + 0x28);
+  in_r0[1] = iVar3;
+  if (iVar3 != 0) {
+    piVar2 = (int *)(iVar3 + 4);
+    do {
+      ExclusiveAccess(piVar2);
+      bVar1 = (bool)hasExclusiveAccess(piVar2);
+    } while (!bVar1);
+    *piVar2 = *piVar2 + 1;
+    return;
+  }
+  return;
+}

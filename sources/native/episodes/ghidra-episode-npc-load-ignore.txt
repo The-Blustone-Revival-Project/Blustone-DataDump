@@ -1,0 +1,250 @@
+===== ec6790 Load @ 00ec6790 =====
+
+/* CSRSceneNPCDlg::Load(std::__ndk1::basic_string<char, std::__ndk1::char_traits<char>,
+   std::__ndk1::allocator<char> > const&) */
+
+void __thiscall CSRSceneNPCDlg::Load(CSRSceneNPCDlg *this,basic_string *param_1)
+
+{
+  CSRSceneNPCDlg *this_00;
+  CSRDataMgr *pCVar1;
+  CSRUserDB *pCVar2;
+  uint uVar3;
+  basic_string *pbVar4;
+  char *pcVar5;
+  DIALOG *pDVar6;
+  CSRUITextbox *this_01;
+  int iVar7;
+  int *piVar8;
+  bool bVar9;
+  undefined4 local_60;
+  uint local_5c;
+  char *local_58;
+  basic_string abStack_54 [12];
+  DIALOG *local_48;
+  DIALOG *pDStack_44;
+  DIALOG *local_3c;
+  DIALOG *pDStack_38;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_30;
+  char acStack_2f [3];
+  uint local_2c;
+  char *local_28;
+  int local_24;
+  
+  piVar8 = *(int **)(DAT_00ec6b00 + 0xec67a4);
+  local_24 = *piVar8;
+  uVar3 = *(uint *)(param_1 + 4);
+  if (((byte)*param_1 & 1) == 0) {
+    uVar3 = (uint)((byte)*param_1 >> 1);
+  }
+  iVar7 = DAT_00ec6b04 + 0xec67bc;
+  if (uVar3 == 0) {
+    _RMAssert('\0',(char *)(DAT_00ec6b08 + 0xec67c8),(char *)(DAT_00ec6b0c + 0xec67cc),0xde,iVar7);
+  }
+  this_01 = (CSRUITextbox *)(this + 0x668);
+  CSRDlgContainer::Load((CSRDlgContainer *)this_01,param_1);
+  CSRDlgContainer::GetConversation(abStack_54);
+  bVar9 = local_48 != pDStack_44;
+  if (bVar9) {
+    local_48 = local_3c;
+    pDStack_44 = pDStack_38;
+  }
+  if (!bVar9 || local_48 == pDStack_44) {
+    _RMAssert('\0',(char *)(DAT_00ec6b48 + 0xec6800),(char *)(DAT_00ec6b4c + 0xec6802),0xe3,iVar7);
+  }
+  (**(code **)(**(int **)(this + 0x6d8) + 0x24))();
+  CSRDlgPlayer::SetData(*(CSRDlgPlayer **)(this + 0x6d8),(vector *)&local_48,local_3c);
+  this_00 = (CSRSceneNPCDlg *)CSRDlgPlayer::Play(*(CSRDlgPlayer **)(this + 0x6d8));
+  iVar7 = IsDefaultDialog(this_00,param_1);
+  if (iVar7 == 1) {
+    pCVar1 = (CSRDataMgr *)CSRDataMgr::get();
+    pCVar2 = (CSRUserDB *)CSRDataMgr::GetUserLocalDB(pCVar1);
+    iVar7 = CSRUserDB::GetBridgeDialogCheck(pCVar2,*(undefined4 *)(this + 0x658));
+    if (iVar7 == 1) {
+      CSRDlgPlayer::SkipDialog(*(CSRDlgPlayer **)(this + 0x6d8),'\x01');
+    }
+    else {
+      pCVar1 = (CSRDataMgr *)CSRDataMgr::get();
+      pCVar2 = (CSRUserDB *)CSRDataMgr::GetUserLocalDB(pCVar1);
+      CSRUserDB::PutBridgeDialogCheck(pCVar2,*(undefined4 *)(this + 0x658));
+    }
+  }
+  CSRDlgPlayer::SetRestore((uchar)*(undefined4 *)(this + 0x6d8));
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (this + 0x6f8) !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)param_1) {
+    uVar3 = *(uint *)(param_1 + 4);
+    pbVar4 = *(basic_string **)(param_1 + 8);
+    if (((byte)*param_1 & 1) == 0) {
+      pbVar4 = param_1 + 1;
+      uVar3 = (uint)((byte)*param_1 >> 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 0x6f8),(char *)pbVar4,uVar3);
+  }
+  local_60 = 0;
+  local_5c = 0;
+  local_58 = (char *)0x0;
+  iVar7 = *(int *)(this + 0x658);
+  if (iVar7 < 0x94) {
+    if (iVar7 == 0x57) {
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+    }
+    else if (iVar7 == 0x66) {
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+    }
+    else {
+      if (iVar7 != 0x83) goto switchD_00ec68a4_caseD_95;
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+    }
+  }
+  else {
+    switch(iVar7) {
+    case 0x94:
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+      break;
+    default:
+switchD_00ec68a4_caseD_95:
+      if ((DIALOG *)&local_60 != local_3c + 4) {
+        uVar3 = *(uint *)(local_3c + 8);
+        pDVar6 = *(DIALOG **)(local_3c + 0xc);
+        if (((byte)local_3c[4] & 1) == 0) {
+          pDVar6 = local_3c + 5;
+          uVar3 = (uint)((byte)local_3c[4] >> 1);
+        }
+        std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>
+        ::assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+                 &local_60,(char *)pDVar6,uVar3);
+      }
+      goto LAB_00ec6a42;
+    case 0x9c:
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+      break;
+    case 0xa8:
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+      break;
+    case 0xb9:
+      CGMDataMgr::get();
+      CGMDataMgr::GetLocalizedText((char *)&local_30);
+      pcVar5 = local_28;
+      if (((byte)local_30 & 1) == 0) {
+        pcVar5 = acStack_2f;
+        local_2c = (uint)((byte)local_30 >> 1);
+      }
+      std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+      assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+             &local_60,pcVar5,local_2c);
+    }
+  }
+  if (((byte)local_30 & 1) != 0) {
+    operator_delete(local_28);
+  }
+LAB_00ec6a42:
+  if ((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+      (this + 0xb4) !=
+      (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)&local_60) {
+    uVar3 = local_5c;
+    pcVar5 = local_58;
+    if ((local_60 & 1) == 0) {
+      pcVar5 = (char *)((int)&local_60 + 1);
+      uVar3 = local_60 >> 1 & 0x7f;
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    assign((basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *)
+           (this + 0xb4),pcVar5,uVar3);
+  }
+  iVar7 = *(int *)(this + 0xa0);
+  if (iVar7 != 0) {
+    this_01 = *(CSRUITextbox **)(iVar7 + 0x864);
+  }
+  if (iVar7 != 0 && this_01 != (CSRUITextbox *)0x0) {
+    pcVar5 = local_58;
+    if ((local_60 & 1) == 0) {
+      pcVar5 = (char *)((int)&local_60 + 1);
+    }
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(&local_30,pcVar5);
+    CSRUITextbox::SetText(this_01,(basic_string *)&local_30,'\0');
+    if (((byte)local_30 & 1) != 0) {
+      operator_delete(local_28);
+    }
+  }
+  if ((local_60 & 1) != 0) {
+    operator_delete(local_58);
+  }
+  CSRDlgContainer::CONVERSATION::~CONVERSATION((CONVERSATION *)abStack_54);
+  if (*piVar8 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+
+===== 8c7e40 SetIgnoreGoTo @ 008c7e40 =====
+
+/* CSRDlgParser::SetIgnoreGoTo(unsigned char) */
+
+void __thiscall CSRDlgParser::SetIgnoreGoTo(CSRDlgParser *this,uchar param_1)
+
+{
+  this[0xd] = (CSRDlgParser)param_1;
+  return;
+}
+
+

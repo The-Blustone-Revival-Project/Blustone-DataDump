@@ -1,0 +1,217 @@
+===== 00ebffa4 shared_ptr<CSRSceneStageConfirm> @ 00ebffa4 =====
+
+/* std::__ndk1::shared_ptr<CSRScene>::shared_ptr<CSRSceneStageConfirm>(CSRSceneStageConfirm*,
+   std::__ndk1::enable_if<is_convertible<CSRSceneStageConfirm*, CSRScene*>::value,
+   std::__ndk1::shared_ptr<CSRScene>::__nat>::type) */
+
+int * std::__ndk1::shared_ptr<CSRScene>::shared_ptr<CSRSceneStageConfirm>(int *param_1,int param_2)
+
+{
+  bool bVar1;
+  __shared_weak_count *this;
+  __shared_weak_count *this_00;
+  int extraout_r2;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  __shared_weak_count *p_Var4;
+
+  *param_1 = param_2;
+  this = operator_new(0x10);
+  *(int *)this = *(int *)(DAT_00ec0060 + 0xebffc6) + 8;
+  *(undefined4 *)(this + 4) = 0;
+  *(undefined4 *)(this + 8) = 0;
+  *(int *)(this + 0xc) = param_2;
+  param_1[1] = (int)this;
+  if (param_2 != 0) {
+    this_00 = *(__shared_weak_count **)(param_2 + 0x28);
+    iVar2 = extraout_r2;
+    if (this_00 != (__shared_weak_count *)0x0) {
+      iVar2 = *(int *)(this_00 + 4);
+    }
+    if (this_00 == (__shared_weak_count *)0x0 || iVar2 == -1) {
+      p_Var4 = this + 4;
+      do {
+        ExclusiveAccess(p_Var4);
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = *(int *)p_Var4 + 1;
+      p_Var3 = this + 8;
+      do {
+        ExclusiveAccess(p_Var3);
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = *(int *)p_Var3 + 1;
+      *(int *)(param_2 + 0x24) = param_2;
+      *(__shared_weak_count **)(param_2 + 0x28) = this;
+      if (this_00 != (__shared_weak_count *)0x0) {
+        __shared_weak_count::__release_weak(this_00);
+      }
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var4);
+        iVar2 = *(int *)p_Var4;
+        bVar1 = (bool)hasExclusiveAccess(p_Var4);
+      } while (!bVar1);
+      *(int *)p_Var4 = iVar2 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar2 == 0) {
+        (**(code **)(*(int *)this + 8))(this);
+        __shared_weak_count::__release_weak(this);
+      }
+    }
+  }
+  return param_1;
+}
+
+
+===== 00ec0074 __on_zero_shared @ 00ec0074 =====
+
+/* std::__ndk1::__shared_ptr_pointer<CSRSceneStageConfirm*,
+   std::__ndk1::default_delete<CSRSceneStageConfirm>, std::__ndk1::allocator<CSRSceneStageConfirm>
+   >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::
+__shared_ptr_pointer<CSRSceneStageConfirm*,std::__ndk1::default_delete<CSRSceneStageConfirm>,std::__ndk1::allocator<CSRSceneStageConfirm>>
+::__on_zero_shared(__shared_ptr_pointer<CSRSceneStageConfirm*,std::__ndk1::default_delete<CSRSceneStageConfirm>,std::__ndk1::allocator<CSRSceneStageConfirm>>
+                   *this)
+
+{
+  if (*(int **)(this + 0xc) == (int *)0x0) {
+    return;
+  }
+                    /* WARNING: Could not recover jumptable at 0x00ec0080. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (**(code **)(**(int **)(this + 0xc) + 4))();
+  return;
+}
+
+
+===== 00a29e98 get<CSRGameStage,CMSingleton::DefaultAlloc<CSRGameStage>,CMSpinLock> @ 00a29e98 =====
+
+/* std::__ndk1::shared_ptr<CSRGameStage> CMSingleton::get<CSRGameStage,
+   CMSingleton::DefaultAlloc<CSRGameStage>, CMSpinLock>() */
+
+void __thiscall
+CMSingleton::get<CSRGameStage,CMSingleton::DefaultAlloc<CSRGameStage>,CMSpinLock>(CMSingleton *this)
+
+{
+  bool bVar1;
+  int iVar2;
+  __shared_weak_count *p_Var3;
+  int iVar4;
+  __shared_weak_count *p_Var5;
+  undefined4 *puVar6;
+  int iVar7;
+  undefined4 *extraout_r1;
+  int *piVar8;
+  byte *pbVar9;
+  undefined4 *puVar10;
+  int *piVar11;
+  int *piVar12;
+  undefined8 uVar13;
+  int *local_2c;
+  __shared_weak_count *local_28;
+
+  puVar6 = (undefined4 *)(DAT_00a29ff8 + 0xa29eae);
+  piVar12 = *(int **)(DAT_00a29ff4 + 0xa29eac);
+  pbVar9 = (byte *)*puVar6;
+  iVar2 = *piVar12;
+  DataMemoryBarrier(0x1b);
+  puVar10 = (undefined4 *)(DAT_00a29ffc + 0xa29ec4);
+  if ((*pbVar9 & 1) == 0) {
+    uVar13 = __cxa_guard_acquire(pbVar9);
+    puVar6 = (undefined4 *)((ulonglong)uVar13 >> 0x20);
+    if ((int)uVar13 != 0) {
+      __cxa_atexit(*(undefined4 *)(DAT_00a2a000 + 0xa29fe4),*puVar10,DAT_00a2a004 + 0xa29fe8);
+      __cxa_guard_release(pbVar9);
+      puVar6 = extraout_r1;
+    }
+  }
+  piVar11 = (int *)*puVar10;
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  if (p_Var3 != (__shared_weak_count *)0x0) {
+    puVar6 = *(undefined4 **)(p_Var3 + 4);
+  }
+  if (p_Var3 != (__shared_weak_count *)0x0 && puVar6 != (undefined4 *)0xffffffff) {
+LAB_00a29f3c:
+    p_Var3 = (__shared_weak_count *)std::__ndk1::__shared_weak_count::lock(p_Var3);
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      iVar4 = *piVar11;
+      p_Var5 = p_Var3 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var5);
+        iVar7 = *(int *)p_Var5;
+        bVar1 = (bool)hasExclusiveAccess(p_Var5);
+      } while (!bVar1);
+      *(int *)p_Var5 = iVar7 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar7 == 0) {
+        (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+        std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+      }
+      if (iVar4 != 0) goto LAB_00a29f88;
+    }
+  }
+  else {
+    CMPoolMgr::
+    get<CMSingleton::Holder<CSRGameStage,CMSingleton::DefaultAlloc<CSRGameStage>>,CMSpinLock>();
+    CMPool<CMSingleton::Holder<CSRGameStage,CMSingleton::DefaultAlloc<CSRGameStage>>,CMSpinLock>::
+    Alloc();
+    iVar4 = *local_2c;
+    iVar7 = local_2c[1];
+    if (iVar7 != 0) {
+      piVar8 = (int *)(iVar7 + 8);
+      do {
+        ExclusiveAccess(piVar8);
+        bVar1 = (bool)hasExclusiveAccess(piVar8);
+      } while (!bVar1);
+      *piVar8 = *piVar8 + 1;
+    }
+    *piVar11 = iVar4;
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    piVar11[1] = iVar7;
+    if (p_Var3 != (__shared_weak_count *)0x0) {
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+    if (local_28 != (__shared_weak_count *)0x0) {
+      p_Var3 = local_28 + 4;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var3);
+        iVar4 = *(int *)p_Var3;
+        bVar1 = (bool)hasExclusiveAccess(p_Var3);
+      } while (!bVar1);
+      *(int *)p_Var3 = iVar4 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar4 == 0) {
+        (**(code **)(*(int *)local_28 + 8))(local_28);
+        std::__ndk1::__shared_weak_count::__release_weak(local_28);
+      }
+    }
+    p_Var3 = (__shared_weak_count *)piVar11[1];
+    if (p_Var3 != (__shared_weak_count *)0x0) goto LAB_00a29f3c;
+  }
+  _RMAssert('\0',(char *)(DAT_00a2a00c + 0xa29f76),(char *)(DAT_00a2a010 + 0xa29f7a),0xf4,
+            DAT_00a2a008 + 0xa29f72,DAT_00a2a014 + 0xa29f7c,DAT_00a2a018 + 0xa29f7e);
+LAB_00a29f88:
+  p_Var3 = (__shared_weak_count *)piVar11[1];
+  *(undefined4 *)this = 0;
+  *(undefined4 *)(this + 4) = 0;
+  if (p_Var3 == (__shared_weak_count *)0x0) {
+    *(undefined4 *)(this + 4) = 0;
+  }
+  else {
+    iVar4 = std::__ndk1::__shared_weak_count::lock(p_Var3);
+    *(int *)(this + 4) = iVar4;
+    if (iVar4 != 0) {
+      *(int *)this = *piVar11;
+    }
+  }
+  if (*piVar12 != iVar2) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

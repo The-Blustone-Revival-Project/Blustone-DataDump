@@ -1,0 +1,51 @@
+===== 7e7856 GetProgSize @ 007e7856 =====
+
+/* CPVHTTPManager::GetProgSize() const */
+
+undefined4 __thiscall CPVHTTPManager::GetProgSize(CPVHTTPManager *this)
+
+{
+  return *(undefined4 *)(this + 0x70);
+}
+
+
+===== 7e81d0 get @ 007e81d0 =====
+
+/* CPVHTTPManager::get() */
+
+void CPVHTTPManager::get(void)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  int *piVar4;
+  CMSingleton local_24 [4];
+  __shared_weak_count *p_Stack_20;
+  int local_1c;
+
+  piVar4 = *(int **)(DAT_007e8230 + 0x7e81e0);
+  local_1c = *piVar4;
+  CMSingleton::get<CPVHTTPManager,CMSingleton::DefaultAlloc<CPVHTTPManager>,CMSpinLock>(local_24);
+  if (p_Stack_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Stack_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar3 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Stack_20 + 8))(p_Stack_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_20);
+    }
+  }
+  iVar3 = *piVar4 - local_1c;
+  if (iVar3 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar3);
+}

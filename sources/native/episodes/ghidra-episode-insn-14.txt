@@ -1,0 +1,30 @@
+PROGRAM	libnative_core.so
+===== range 0xeb2304 .. 0xeb2304 =====
+00eb22b8  push {r4,r5,r7,lr}
+00eb22ba  add r7,sp,#0x8
+00eb22bc  sub sp,#0x10
+00eb22be  mov r4,r0
+00eb22c0  ldr r0,[0x00eb2300]
+00eb22c2  add r0,pc
+00eb22c4  ldr r5,[r0,#0x0]
+00eb22c6  ldr r0,[r5,#0x0]
+00eb22c8  str r2,[sp,#0x8]
+00eb22ca  str r0,[sp,#0xc]
+00eb22cc  bl 0x007a2838
+00eb22d0  movs r1,#0x1
+00eb22d2  bl 0x007a1fc4
+00eb22d6  bl 0x007a2838
+00eb22da  movs r1,#0x2
+00eb22dc  bl 0x007a1fc4
+00eb22e0  add r1,sp,#0x8
+00eb22e2  mov r0,sp
+00eb22e4  bl 0x00eb7394
+00eb22e8  ldrd r0,r1,[sp,#0x0]
+00eb22ec  strd r0,r1,[r4,#0x0]
+00eb22f0  ldr r0,[sp,#0xc]
+00eb22f2  ldr r1,[r5,#0x0]
+00eb22f4  subs r0,r1,r0
+00eb22f6  itt eq
+00eb22f8  add.eq sp,#0x10
+00eb22fa  pop.eq {r4,r5,r7,pc}
+00eb22fc  blx 0x00621adc

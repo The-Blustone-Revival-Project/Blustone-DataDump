@@ -1,0 +1,85 @@
+===== 0098da98 make_shared<> @ 0098da98 =====
+
+/* std::__ndk1::shared_ptr<CSRGameUIIconSkill>
+   std::__ndk1::shared_ptr<CSRGameUIIconSkill>::make_shared<>() */
+
+void __thiscall
+std::__ndk1::shared_ptr<CSRGameUIIconSkill>::make_shared<>(shared_ptr<CSRGameUIIconSkill> *this)
+
+{
+  __shared_weak_count *p_Var1;
+  __shared_weak_count *p_Var2;
+  bool bVar3;
+  __shared_weak_count *this_00;
+  int *piVar4;
+  int iVar5;
+  undefined4 uVar6;
+  __shared_weak_count *this_01;
+  int extraout_r2;
+
+  this_00 = operator_new(0x80);
+  piVar4 = (int *)(DAT_0098db4c + 0x98dab4);
+  p_Var1 = this_00 + 8;
+  *(undefined4 *)p_Var1 = 0;
+  iVar5 = *piVar4;
+  p_Var2 = this_00 + 4;
+  *(undefined4 *)p_Var2 = 0;
+  *(int *)this_00 = iVar5 + 8;
+  uVar6 = CSRGameUIIconSkill::CSRGameUIIconSkill((CSRGameUIIconSkill *)(this_00 + 0x10));
+  this_01 = *(__shared_weak_count **)(this_00 + 0x18);
+  *(undefined4 *)this = uVar6;
+  *(__shared_weak_count **)(this + 4) = this_00;
+  iVar5 = extraout_r2;
+  if (this_01 != (__shared_weak_count *)0x0) {
+    iVar5 = *(int *)(this_01 + 4);
+  }
+  if (this_01 == (__shared_weak_count *)0x0 || iVar5 == -1) {
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar3 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar3);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    *(undefined4 *)(this_00 + 0x14) = uVar6;
+    *(__shared_weak_count **)(this_00 + 0x18) = this_00;
+    if (this_01 != (__shared_weak_count *)0x0) {
+      __shared_weak_count::__release_weak(this_01);
+    }
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar5 = *(int *)p_Var2;
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      __shared_weak_count::__release_weak(this_00);
+      return;
+    }
+  }
+  return;
+}
+
+
+===== 0098dc84 __on_zero_shared @ 0098dc84 =====
+
+/* std::__ndk1::__shared_ptr_emplace<CSRGameUIIconSkill, std::__ndk1::allocator<CSRGameUIIconSkill>
+   >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::__shared_ptr_emplace<CSRGameUIIconSkill,std::__ndk1::allocator<CSRGameUIIconSkill>>::
+__on_zero_shared(__shared_ptr_emplace<CSRGameUIIconSkill,std::__ndk1::allocator<CSRGameUIIconSkill>>
+                 *this)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x0098dc8a. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (*(code *)**(undefined4 **)(this + 0x10))(this + 0x10);
+  return;
+}

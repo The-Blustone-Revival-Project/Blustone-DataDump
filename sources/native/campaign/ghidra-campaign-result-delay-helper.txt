@@ -1,0 +1,116 @@
+===== 76bfc8 OnceImpl @ 0076bfc8 =====
+
+/* CMTaskStream::OnceImpl(std::__ndk1::function<void ()>&&, float) */
+
+void __thiscall CMTaskStream::OnceImpl(CMTaskStream *this,function *param_1,float param_2)
+
+{
+  CMTaskStream CVar1;
+  bool bVar2;
+  CMTimerMgr *this_00;
+  int *piVar3;
+  function *pfVar4;
+  __shared_weak_count *p_Var5;
+  code *pcVar6;
+  int iVar7;
+  int iVar8;
+  float in_r2;
+  uint uVar9;
+  uint uVar10;
+  int *piVar11;
+  int *piVar12;
+  float fVar13;
+  int local_2c;
+  __shared_weak_count *local_28;
+  int local_24;
+
+  piVar12 = *(int **)(DAT_0076c154 + 0x76bfde);
+  local_24 = *piVar12;
+  CMPoolMgr::get<CMTaskStream::TASK,CMSpinLock>();
+  CMPool<CMTaskStream::TASK,CMSpinLock>::Alloc();
+  if (**(int **)(DAT_0076c158 + 0x76bff8) == 0) {
+    this_00 = (CMTimerMgr *)CMTimerMgr::get();
+    fVar13 = (float)CMTimerMgr::GetLifeTime(this_00);
+  }
+  else {
+    fVar13 = *(float *)(*(int *)(this + 0x1c) + 4);
+  }
+  iVar7 = local_2c;
+  piVar11 = (int *)(local_2c + 0x10);
+  piVar3 = *(int **)(local_2c + 0x20);
+  *(undefined4 *)(local_2c + 0x20) = 0;
+  *(float *)(local_2c + 0xc) = fVar13 + in_r2;
+  if (piVar11 == piVar3) {
+    pcVar6 = *(code **)(*piVar3 + 0x10);
+  }
+  else {
+    if (piVar3 == (int *)0x0) goto LAB_0076c03a;
+    pcVar6 = *(code **)(*piVar3 + 0x14);
+  }
+  (*pcVar6)();
+LAB_0076c03a:
+  pfVar4 = *(function **)(param_1 + 0x10);
+  if (pfVar4 == (function *)0x0) {
+    *(undefined4 *)(iVar7 + 0x20) = 0;
+  }
+  else if (param_1 == pfVar4) {
+    *(int **)(iVar7 + 0x20) = piVar11;
+    (**(code **)(**(int **)(param_1 + 0x10) + 0xc))(*(int **)(param_1 + 0x10),piVar11);
+  }
+  else {
+    *(function **)(iVar7 + 0x20) = pfVar4;
+    *(undefined4 *)(param_1 + 0x10) = 0;
+  }
+  do {
+    do {
+      ExclusiveAccess(this);
+      CVar1 = *this;
+      bVar2 = (bool)hasExclusiveAccess(this);
+    } while (!bVar2);
+    *this = (CMTaskStream)0x1;
+    DataMemoryBarrier(0x1b);
+  } while (((byte)CVar1 & 1) != 0);
+  iVar7 = *(int *)(this + 4);
+  if (*(int *)(this + 8) - iVar7 != 0) {
+    uVar9 = *(int *)(this + 8) - iVar7 >> 3;
+    do {
+      while (uVar10 = uVar9 >> 1,
+            *(float *)(*(int *)(iVar7 + uVar10 * 8) + 0xc) <= *(float *)(local_2c + 0xc)) {
+        uVar9 = uVar9 + ~uVar10;
+        iVar7 = iVar7 + uVar10 * 8 + 8;
+        if (uVar9 == 0) goto LAB_0076c0b4;
+      }
+      uVar9 = uVar10;
+    } while (uVar10 != 0);
+  }
+LAB_0076c0b4:
+  std::__ndk1::
+  vector<std::__ndk1::shared_ptr<CMTaskStream::TASK>,std::__ndk1::allocator<std::__ndk1::shared_ptr<CMTaskStream::TASK>>>
+  ::emplace<std::__ndk1::shared_ptr<CMTaskStream::TASK>const&>
+            ((vector<std::__ndk1::shared_ptr<CMTaskStream::TASK>,std::__ndk1::allocator<std::__ndk1::shared_ptr<CMTaskStream::TASK>>>
+              *)(this + 4),iVar7,&local_2c);
+  DataMemoryBarrier(0x1b);
+  *this = (CMTaskStream)0x0;
+  if (local_28 != (__shared_weak_count *)0x0) {
+    p_Var5 = local_28 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var5);
+      iVar7 = *(int *)p_Var5;
+      bVar2 = (bool)hasExclusiveAccess(p_Var5);
+    } while (!bVar2);
+    *(int *)p_Var5 = iVar7 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar7 == 0) {
+      (**(code **)(*(int *)local_28 + 8))(local_28);
+      std::__ndk1::__shared_weak_count::__release_weak(local_28);
+    }
+  }
+  iVar8 = *piVar12;
+  iVar7 = iVar8 - local_24;
+  if (iVar7 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar7,iVar8);
+  }
+  return;
+}

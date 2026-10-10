@@ -1,0 +1,22 @@
+PROGRAM	libnative_core.so
+===== range dcd650 .. dcd650 =====
+00dcd5a0  push {r4,r5,r7,lr}
+00dcd5a2  add r7,sp,#0x8
+00dcd5a4  sub sp,#0x10
+00dcd5a6  ldr r1,[0x00dcd664]
+00dcd5a8  add r1,pc
+00dcd5aa  ldr r5,[r1,#0x0]
+00dcd5ac  ldr r1,[r5,#0x0]
+00dcd5ae  str r1,[sp,#0xc]
+00dcd5b0  ldr.w r0,[r0,#0x65c]
+00dcd5b4  subs r0,#0x1
+00dcd5b6  cmp r0,#0x4
+00dcd5b8  bhi 0x00dcd63c
+00dcd5ba  tbb [pc,r0]
+00dcd63c  ldr r0,[sp,#0xc]
+00dcd63e  ldr r1,[r5,#0x0]
+00dcd640  subs r0,r1,r0
+00dcd642  itt eq
+00dcd644  add.eq sp,#0x10
+00dcd646  pop.eq {r4,r5,r7,pc}
+00dcd648  blx 0x00621adc

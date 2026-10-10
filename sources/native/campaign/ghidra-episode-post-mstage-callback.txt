@@ -1,0 +1,55 @@
+===== proven Thumb 00b38de0 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00b38de0(void)
+
+{
+  int iVar1;
+  CMSoundMgr *this;
+  int *piVar2;
+  int iVar3;
+  int *piVar4;
+  float fVar5;
+  CMHashID aCStack_40 [8];
+  void *pvStack_38;
+  int iStack_24;
+  
+  piVar4 = *(int **)(_DAT_00b38e08 + 0xb38dec);
+  CSRSceneMgr::SceneGoTo(*(CSRSceneMgr **)(*piVar4 + 8),0x83);
+  iVar1 = *(int *)(*piVar4 + 8);
+  piVar4 = *(int **)(DAT_00eb4128 + 0xeb4062);
+  iStack_24 = *piVar4;
+  this = (CMSoundMgr *)CMSoundMgr::get();
+  fVar5 = (float)CMHashID::CMHashID(aCStack_40,(char *)(DAT_00eb412c + 0xeb407a));
+  CMSoundMgr::PlaySFX(this,aCStack_40,fVar5,'\0');
+  if (((byte)aCStack_40[0] & 1) != 0) {
+    operator_delete(pvStack_38);
+  }
+  *(undefined4 *)(iVar1 + 0x69c) = 3;
+  CWIPSFader::Reset((CWIPSFader *)(iVar1 + 0x58));
+  *(undefined4 *)(iVar1 + 0x67c) = 0x3dcccccd;
+  CWIPSFader::SetColor((CWIPSFader *)(iVar1 + 0x58),0xff000000);
+  *(undefined1 *)(iVar1 + 0x673) = 0;
+  *(undefined2 *)(iVar1 + 0x671) = 0x100;
+  *(undefined4 *)(iVar1 + 0x680) = 0;
+  *(undefined1 *)(iVar1 + 0x674) = 0;
+  *(undefined4 *)(iVar1 + 0x50) = *(undefined4 *)(iVar1 + 0x54);
+  *(undefined4 *)(iVar1 + 0x54) = 0x3a;
+  piVar2 = operator_new(0xc);
+  iVar3 = *(int *)(iVar1 + 0x44);
+  *piVar2 = iVar3;
+  piVar2[1] = iVar1 + 0x44;
+  piVar2[2] = 0x3a;
+  *(int **)(iVar3 + 4) = piVar2;
+  *(undefined1 *)(iVar1 + 0x33) = 1;
+  *(int **)(iVar1 + 0x44) = piVar2;
+  *(int *)(iVar1 + 0x4c) = *(int *)(iVar1 + 0x4c) + 1;
+  if (*piVar4 != iStack_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}
+
+

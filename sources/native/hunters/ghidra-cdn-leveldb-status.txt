@@ -1,0 +1,119 @@
+===== 1b83310 CopyState @ 01b83310 =====
+
+/* leveldb::Status::CopyState(char const*) */
+
+void * leveldb::Status::CopyState(char *param_1)
+
+{
+  int iVar1;
+  void *pvVar2;
+
+  iVar1 = *(int *)param_1;
+  pvVar2 = operator_new__(iVar1 + 5U);
+  __aeabi_memcpy(pvVar2,param_1,iVar1 + 5U);
+  return pvVar2;
+}
+
+
+===== 1b83336 Status @ 01b83336 =====
+
+/* leveldb::Status::Status(leveldb::Status::Code, leveldb::Slice const&, leveldb::Slice const&) */
+
+Status * __thiscall
+leveldb::Status::Status(Status *this,undefined1 param_2,undefined4 *param_3,undefined4 *param_4)
+
+{
+  int *piVar1;
+  int iVar2;
+  int iVar3;
+  int iVar4;
+
+  iVar4 = param_3[1];
+  iVar3 = param_4[1];
+  iVar2 = iVar4;
+  if (iVar3 != 0) {
+    iVar2 = iVar4 + iVar3 + 2;
+  }
+  piVar1 = operator_new__(iVar2 + 5);
+  *piVar1 = iVar2;
+  *(undefined1 *)(piVar1 + 1) = param_2;
+  __aeabi_memcpy((int)piVar1 + 5,*param_3,iVar4);
+  if (iVar3 != 0) {
+    *(undefined2 *)((int)piVar1 + iVar4 + 5) = 0x203a;
+    __aeabi_memcpy((int)piVar1 + iVar4 + 7,*param_4,iVar3);
+  }
+  *(int **)this = piVar1;
+  return this;
+}
+
+
+===== 1b8339c ToString @ 01b8339c =====
+
+/* leveldb::Status::ToString() const */
+
+void leveldb::Status::ToString(void)
+
+{
+  byte bVar1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *in_r0;
+  size_t sVar2;
+  int *in_r1;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> *pbVar3;
+  char *__s;
+  uint uVar4;
+  int *piVar5;
+  char acStack_46 [30];
+  int local_28;
+
+  piVar5 = *(int **)(DAT_01b83468 + 0x1b833ae);
+  local_28 = *piVar5;
+  if (*in_r1 == 0) {
+    *(undefined4 *)(in_r0 + 4) = 0;
+    *(undefined4 *)(in_r0 + 8) = 0;
+    *in_r0 = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>)0x4;
+    *(undefined2 *)(in_r0 + 1) = 0x4b4f;
+    in_r0[3] = (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>)0x0;
+    goto LAB_01b8344e;
+  }
+  bVar1 = *(byte *)(*in_r1 + 4);
+  if (bVar1 < 6) {
+    __s = *(char **)(DAT_01b83470 + 0x1b833ca + (char)bVar1 * 4);
+  }
+  else {
+    __s = acStack_46;
+    snprintf(__s,0x1e,(char *)(DAT_01b8346c + 0x1b833f0));
+  }
+  *(undefined4 *)in_r0 = 0;
+  *(undefined4 *)(in_r0 + 4) = 0;
+  *(undefined4 *)(in_r0 + 8) = 0;
+  sVar2 = strlen(__s);
+  if (0xffffffef < sVar2) {
+                    /* WARNING: Subroutine does not return */
+    abort();
+  }
+  if (sVar2 < 0xb) {
+    pbVar3 = in_r0 + 1;
+    *in_r0 = SUB41(sVar2 << 1,0);
+    if (sVar2 != 0) goto LAB_01b83432;
+  }
+  else {
+    uVar4 = sVar2 + 0x10 & 0xfffffff0;
+    pbVar3 = operator_new(uVar4);
+    *(uint *)in_r0 = uVar4 + 1;
+    *(size_t *)(in_r0 + 4) = sVar2;
+    *(basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> **)(in_r0 + 8)
+         = pbVar3;
+LAB_01b83432:
+    __aeabi_memcpy(pbVar3,__s,sVar2);
+  }
+  pbVar3[sVar2] =
+       (basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>)0x0;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  append(in_r0,(char *)(*in_r1 + 5),*(uint *)*in_r1);
+LAB_01b8344e:
+  if (*piVar5 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+}

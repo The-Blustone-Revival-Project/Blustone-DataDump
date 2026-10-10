@@ -1,0 +1,117 @@
+===== e71b28 RequestEvent @ 00e71a14 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+/* CSRSceneMFishingWait::RequestEvent() */
+
+void __thiscall CSRSceneMFishingWait::RequestEvent(CSRSceneMFishingWait *this)
+
+{
+  bool bVar1;
+  bool bVar2;
+  __shared_weak_count *p_Var3;
+  __shared_weak_count *p_Var4;
+  CSRMFishing *pCVar5;
+  __shared_weak_count *p_Var6;
+  int iVar7;
+  code *pcVar8;
+  int iVar9;
+  int *piVar10;
+  int local_40;
+  int local_3c;
+  __shared_weak_count *p_Stack_38;
+  int *local_30;
+  int local_24;
+
+  piVar10 = *(int **)(_LAB_00e71b94 + 0xe71a28);
+  local_24 = *piVar10;
+  iVar9 = *(int *)(this + 0x24);
+  this[0x6d0] = (CSRSceneMFishingWait)0x1;
+  if ((*(__shared_weak_count **)(this + 0x28) == (__shared_weak_count *)0x0) ||
+     (p_Var3 = (__shared_weak_count *)
+               std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(this + 0x28)),
+     p_Var3 == (__shared_weak_count *)0x0)) {
+                    /* WARNING: Subroutine does not return */
+    FUN_006e9a4c();
+  }
+  if ((iVar9 == 0) ||
+     (iVar9 = __dynamic_cast(iVar9,*(undefined4 *)(_LAB_00e71b98 + 0xe71a5a),
+                             *(undefined4 *)(_LAB_00e71b9c + 0xe71a5c),0), iVar9 == 0)) {
+    iVar9 = 0;
+    bVar1 = true;
+    p_Var4 = (__shared_weak_count *)0x0;
+  }
+  else {
+    p_Var4 = p_Var3 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+    p_Var6 = p_Var3 + 8;
+    do {
+      ExclusiveAccess(p_Var6);
+      bVar1 = (bool)hasExclusiveAccess(p_Var6);
+    } while (!bVar1);
+    *(int *)p_Var6 = *(int *)p_Var6 + 1;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar7 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar7 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar7 == 0) {
+      (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+    }
+    bVar1 = false;
+    p_Var4 = p_Var3;
+  }
+  p_Var6 = p_Var3 + 4;
+  DataMemoryBarrier(0x1b);
+  do {
+    ExclusiveAccess(p_Var6);
+    iVar7 = *(int *)p_Var6;
+    bVar2 = (bool)hasExclusiveAccess(p_Var6);
+  } while (!bVar2);
+  *(int *)p_Var6 = iVar7 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar7 == 0) {
+    (**(code **)(*(int *)p_Var3 + 8))(p_Var3);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var3);
+  }
+  pCVar5 = (CSRMFishing *)CSRMFishing::get();
+  CSRMFishing::ResetFishing(pCVar5);
+  pCVar5 = (CSRMFishing *)CSRMFishing::get();
+  if (!bVar1) {
+    p_Var3 = p_Var4 + 8;
+    do {
+      ExclusiveAccess(p_Var3);
+      bVar2 = (bool)hasExclusiveAccess(p_Var3);
+    } while (!bVar2);
+    *(int *)p_Var3 = *(int *)p_Var3 + 1;
+  }
+  local_40 = _LAB_00e71ba0 + 0xe71b28;
+  local_3c = iVar9;
+  p_Stack_38 = p_Var4;
+  local_30 = &local_40;
+  CSRMFishing::RequestBegin(pCVar5,(function *)&local_40);
+  if (&local_40 == local_30) {
+    pcVar8 = *(code **)(*local_30 + 0x10);
+  }
+  else {
+    if (local_30 == (int *)0x0) goto LAB_00e71b40;
+    pcVar8 = *(code **)(*local_30 + 0x14);
+  }
+  (*pcVar8)();
+LAB_00e71b40:
+  if (!bVar1) {
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var4);
+  }
+  if (*piVar10 != local_24) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail();
+  }
+  return;
+}

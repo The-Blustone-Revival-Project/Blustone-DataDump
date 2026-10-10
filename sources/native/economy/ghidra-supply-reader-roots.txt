@@ -1,0 +1,80 @@
+===== 8b3390 get @ 008b3390 =====
+
+/* CSRDataMgr::get() */
+
+void CSRDataMgr::get(void)
+
+{
+  bool bVar1;
+  __shared_weak_count *p_Var2;
+  int iVar3;
+  int *piVar4;
+  CMSingleton local_24 [4];
+  __shared_weak_count *p_Stack_20;
+  int local_1c;
+  
+  piVar4 = *(int **)(DAT_008b33f0 + 0x8b33a0);
+  local_1c = *piVar4;
+  CMSingleton::get<CSRDataMgr,CMSingleton::DefaultAlloc<CSRDataMgr>,CMSpinLock>(local_24);
+  if (p_Stack_20 != (__shared_weak_count *)0x0) {
+    p_Var2 = p_Stack_20 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar3 = *(int *)p_Var2;
+      bVar1 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar1);
+    *(int *)p_Var2 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Stack_20 + 8))(p_Stack_20);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_20);
+    }
+  }
+  iVar3 = *piVar4 - local_1c;
+  if (iVar3 == 0) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(iVar3);
+}
+
+
+===== 8b26b4 GetReferenceData @ 008b26b4 =====
+
+/* CSRDataMgr::GetReferenceData() */
+
+undefined4 __thiscall CSRDataMgr::GetReferenceData(CSRDataMgr *this)
+
+{
+  undefined4 uVar1;
+  
+  if (*(undefined4 **)(this + 0xa858) == (undefined4 *)0x0) {
+    uVar1 = 0;
+  }
+  else {
+    uVar1 = **(undefined4 **)(this + 0xa858);
+  }
+  return uVar1;
+}
+
+
+===== 8b26c4 GetPlayData @ 008b26c4 =====
+
+/* CSRDataMgr::GetPlayData() */
+
+undefined4 __thiscall CSRDataMgr::GetPlayData(CSRDataMgr *this)
+
+{
+  undefined4 uVar1;
+  
+  if (*(int *)(this + 0xa858) == 0) {
+    uVar1 = 0;
+  }
+  else {
+    uVar1 = *(undefined4 *)(*(int *)(this + 0xa858) + 8);
+  }
+  return uVar1;
+}
+
+

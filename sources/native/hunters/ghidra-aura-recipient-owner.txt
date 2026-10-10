@@ -1,0 +1,616 @@
+===== 0098241c AddAuraEffect @ 0098241c =====
+
+/* CSRGameActor::AddAuraEffect(AURA const&, CSRGameActor const*, CSRGameActor const*) */
+
+void __thiscall
+CSRGameActor::AddAuraEffect
+          (CSRGameActor *this,AURA *param_1,CSRGameActor *param_2,CSRGameActor *param_3)
+
+{
+  byte bVar1;
+  byte bVar2;
+  bool bVar3;
+  int iVar4;
+  ulonglong *puVar5;
+  int iVar6;
+  __shared_weak_count *p_Var7;
+  __shared_weak_count *p_Var8;
+  CSRGameActorBuff *pCVar9;
+  CSRGameActorBaseDraw *this_00;
+  byte *pbVar10;
+  uint uVar11;
+  CSRGameActor *pCVar12;
+  CSRGameActor *pCVar13;
+  int *piVar14;
+  void *pvVar15;
+  byte *__s2;
+  undefined4 extraout_r1;
+  size_t __n;
+  int iVar16;
+  __shared_weak_count *this_01;
+  CSRGameActorBuffInfo *pCVar17;
+  size_t sVar18;
+  undefined4 uVar19;
+  int iVar20;
+  ulonglong uVar21;
+  longlong lVar22;
+  CSRGameActorBuffInfo *local_54;
+  __shared_weak_count *local_50;
+  undefined4 local_4c;
+  __shared_weak_count *local_48;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_44 [8];
+  void *local_3c;
+  undefined8 local_38;
+  void *local_30;
+  int local_28;
+
+  piVar14 = *(int **)(DAT_00982798 + 0x982434);
+  local_28 = *piVar14;
+  iVar4 = *(int *)(this + 0x9b0);
+  iVar20 = *(int *)(iVar4 + 0x9c);
+joined_r0x00982448:
+  if (iVar4 + 0x98 == iVar20) {
+    this_01 = (__shared_weak_count *)0x0;
+  }
+  else {
+    pCVar17 = *(CSRGameActorBuffInfo **)(iVar20 + 8);
+    this_01 = *(__shared_weak_count **)(iVar20 + 0xc);
+    if (this_01 != (__shared_weak_count *)0x0) {
+      p_Var7 = this_01 + 4;
+      do {
+        ExclusiveAccess(p_Var7);
+        bVar3 = (bool)hasExclusiveAccess(p_Var7);
+      } while (!bVar3);
+      *(int *)p_Var7 = *(int *)p_Var7 + 1;
+    }
+    lVar22 = CSRGameActorBuffInfo::GetSerial(pCVar17);
+    if (lVar22 != *(longlong *)(param_1 + 0xe0)) goto code_r0x0098247e;
+    if (this_01 != (__shared_weak_count *)0x0) {
+      p_Var7 = this_01 + 4;
+      do {
+        ExclusiveAccess(p_Var7);
+        bVar3 = (bool)hasExclusiveAccess(p_Var7);
+      } while (!bVar3);
+      *(int *)p_Var7 = *(int *)p_Var7 + 1;
+      DataMemoryBarrier(0x1b);
+      do {
+        ExclusiveAccess(p_Var7);
+        iVar20 = *(int *)p_Var7;
+        bVar3 = (bool)hasExclusiveAccess(p_Var7);
+      } while (!bVar3);
+      *(int *)p_Var7 = iVar20 + -1;
+      DataMemoryBarrier(0x1b);
+      if (iVar20 == 0) {
+        (**(code **)(*(int *)this_01 + 8))(this_01);
+        std::__ndk1::__shared_weak_count::__release_weak(this_01);
+      }
+    }
+    if (pCVar17 != (CSRGameActorBuffInfo *)0x0) {
+      CSRGameActorBuffInfo::Recharge(pCVar17);
+      if ((param_3 == (CSRGameActor *)0x0) || (*(int *)(pCVar17 + 0x10) != 3))
+      goto joined_r0x00982928;
+      this_00 = (CSRGameActorBaseDraw *)CSRGameActorBuffInfo::GetStatusEnemy(pCVar17);
+      pbVar10 = (byte *)CSRGameActorBaseDraw::GetRef(this_00);
+      iVar20 = CSRGameActorBaseDraw::GetStatDefault((CSRGameActorBaseDraw *)param_3);
+      bVar1 = *pbVar10;
+      bVar2 = *(byte *)(iVar20 + 4);
+      __n = *(size_t *)(pbVar10 + 4);
+      sVar18 = *(size_t *)(iVar20 + 8);
+      if ((bVar1 & 1) == 0) {
+        __n = (size_t)(bVar1 >> 1);
+      }
+      if ((bVar2 & 1) == 0) {
+        sVar18 = (size_t)(bVar2 >> 1);
+      }
+      if (__n == sVar18) {
+        __s2 = *(byte **)(iVar20 + 0xc);
+        if ((bVar2 & 1) == 0) {
+          __s2 = (byte *)(iVar20 + 5);
+        }
+        if ((bVar1 & 1) == 0) {
+          if (__n == 0) goto joined_r0x00982928;
+          uVar11 = (uint)(bVar1 >> 1);
+          while (pbVar10 = pbVar10 + 1, *pbVar10 == *__s2) {
+            __s2 = __s2 + 1;
+            uVar11 = uVar11 - 1;
+            if (uVar11 == 0) goto joined_r0x00982928;
+          }
+        }
+        else if ((__n == 0) || (iVar20 = memcmp(*(void **)(pbVar10 + 8),__s2,__n), iVar20 == 0))
+        goto joined_r0x00982928;
+      }
+      uVar19 = *(undefined4 *)(this + 0x9b0);
+      CSRGameActorBuffInfo::GetSerial(pCVar17);
+      CSRGameActorBuff::DeleteBuffBySerial(CONCAT44(extraout_r1,uVar19));
+      pCVar12 = (CSRGameActor *)CSRGameActorBuffInfo::GetStatusSrc(pCVar17);
+      pCVar13 = (CSRGameActor *)CSRGameActorBuffInfo::GetStatusDst(pCVar17);
+      CSRGameActorBuffInfo::Bind(pCVar17,pCVar12,pCVar13,param_3);
+      pCVar9 = *(CSRGameActorBuff **)(this + 0x9b0);
+      if (this_01 != (__shared_weak_count *)0x0) {
+        p_Var7 = this_01 + 4;
+        do {
+          ExclusiveAccess(p_Var7);
+          bVar3 = (bool)hasExclusiveAccess(p_Var7);
+        } while (!bVar3);
+        *(int *)p_Var7 = *(int *)p_Var7 + 1;
+      }
+      local_54 = pCVar17;
+      local_50 = this_01;
+      CSRGameActorBuff::AddBuff(pCVar9,&local_54);
+      p_Var7 = local_50;
+      if (local_50 != (__shared_weak_count *)0x0) {
+        p_Var8 = local_50 + 4;
+        DataMemoryBarrier(0x1b);
+        do {
+          ExclusiveAccess(p_Var8);
+          iVar20 = *(int *)p_Var8;
+          bVar3 = (bool)hasExclusiveAccess(p_Var8);
+        } while (!bVar3);
+        *(int *)p_Var8 = iVar20 + -1;
+        DataMemoryBarrier(0x1b);
+        if (iVar20 == 0) {
+          (**(code **)(*(int *)local_50 + 8))(local_50);
+          std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+        }
+      }
+      UpdateStat(this);
+      goto joined_r0x00982928;
+    }
+  }
+  iVar20 = DAT_0098279c;
+  iVar4 = DAT_0098279c + 0x9824c0;
+  if (*(int *)(param_1 + 0x14) == 0) {
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(local_44,(char *)(DAT_009827a0 + 0x9824c8));
+    puVar5 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (local_44,(char *)(DAT_009827a4 + 0x9824d2),0x2f);
+    uVar21 = *puVar5;
+    pvVar15 = *(void **)(puVar5 + 1);
+    *(undefined4 *)puVar5 = 0;
+    *(undefined4 *)((int)puVar5 + 4) = 0;
+    *(undefined4 *)(puVar5 + 1) = 0;
+    local_38 = uVar21;
+    local_30 = pvVar15;
+    iVar6 = CSRGameActorBaseDraw::GetStatDefault((CSRGameActorBaseDraw *)this);
+    iVar16 = *(int *)(iVar6 + 0xc);
+    if ((*(byte *)(iVar6 + 4) & 1) == 0) {
+      iVar16 = iVar6 + 5;
+    }
+    if ((uVar21 & 1) == 0) {
+      pvVar15 = (void *)((int)&local_38 + 1);
+    }
+    _RMAssert('\0',(char *)(DAT_009827ac + 0x982516),(char *)(DAT_009827b0 + 0x982518),0x332,
+              DAT_009827a8 + 0x98250a,pvVar15,iVar4,iVar16);
+    if ((local_38 & 1) != 0) {
+      operator_delete(local_30);
+    }
+    if (((byte)local_44[0] & 1) != 0) {
+      operator_delete(local_3c);
+    }
+  }
+  if (*(int *)(param_1 + 4) == 0) {
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(local_44,(char *)(DAT_009827b4 + 0x982564));
+    puVar5 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (local_44,(char *)(DAT_009827b8 + 0x98256e),0x29);
+    uVar21 = *puVar5;
+    pvVar15 = *(void **)(puVar5 + 1);
+    *(undefined4 *)puVar5 = 0;
+    *(undefined4 *)((int)puVar5 + 4) = 0;
+    *(undefined4 *)(puVar5 + 1) = 0;
+    local_38 = uVar21;
+    local_30 = pvVar15;
+    iVar4 = CSRGameActorBaseDraw::GetStatDefault((CSRGameActorBaseDraw *)this);
+    iVar6 = *(int *)(iVar4 + 0xc);
+    if ((*(byte *)(iVar4 + 4) & 1) == 0) {
+      iVar6 = iVar4 + 5;
+    }
+    if ((uVar21 & 1) == 0) {
+      pvVar15 = (void *)((int)&local_38 + 1);
+    }
+    _RMAssert('\0',(char *)(DAT_009827c0 + 0x9825b2),(char *)(DAT_009827c4 + 0x9825b4),0x333,
+              DAT_009827bc + 0x9825a6,pvVar15,iVar20 + 0x9824c0,iVar6);
+    if ((local_38 & 1) != 0) {
+      operator_delete(local_30);
+    }
+    if (((byte)local_44[0] & 1) != 0) {
+      operator_delete(local_3c);
+    }
+  }
+  iVar4 = *(int *)(param_1 + 8);
+  if (iVar4 == 3 || iVar4 == 0) {
+    std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+    basic_string<decltype(nullptr)>(local_44,(char *)(DAT_009827c8 + 0x982612));
+    puVar5 = (ulonglong *)
+             std::__ndk1::
+             basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::append
+                       (local_44,(char *)(DAT_009827cc + 0x98261c),0x2e);
+    uVar21 = *puVar5;
+    pvVar15 = *(void **)(puVar5 + 1);
+    *(undefined4 *)puVar5 = 0;
+    *(undefined4 *)((int)puVar5 + 4) = 0;
+    *(undefined4 *)(puVar5 + 1) = 0;
+    local_38 = uVar21;
+    local_30 = pvVar15;
+    iVar6 = CSRGameActorBaseDraw::GetStatDefault((CSRGameActorBaseDraw *)this);
+    iVar16 = *(int *)(iVar6 + 0xc);
+    if ((*(byte *)(iVar6 + 4) & 1) == 0) {
+      iVar16 = iVar6 + 5;
+    }
+    if ((uVar21 & 1) == 0) {
+      pvVar15 = (void *)((int)&local_38 + 1);
+    }
+    _RMAssert(iVar4 != 0 && iVar4 != 3,(char *)(DAT_009827d4 + 0x982656),
+              (char *)(DAT_009827d8 + 0x982660),0x335,DAT_009827d0 + 0x982654,pvVar15,
+              iVar20 + 0x9824c0,iVar16);
+    if ((local_38 & 1) != 0) {
+      operator_delete(local_30);
+    }
+    if (((byte)local_44[0] & 1) != 0) {
+      operator_delete(local_3c);
+    }
+  }
+  if ((*(__shared_weak_count **)(this + 8) == (__shared_weak_count *)0x0) ||
+     (p_Var7 = (__shared_weak_count *)
+               std::__ndk1::__shared_weak_count::lock(*(__shared_weak_count **)(this + 8)),
+     p_Var7 == (__shared_weak_count *)0x0)) {
+                    /* WARNING: Subroutine does not return */
+    FUN_006e9a4c();
+  }
+  DataMemoryBarrier(0x1b);
+  p_Var8 = p_Var7 + 4;
+  do {
+    ExclusiveAccess(p_Var8);
+    iVar20 = *(int *)p_Var8;
+    bVar3 = (bool)hasExclusiveAccess(p_Var8);
+  } while (!bVar3);
+  *(int *)p_Var8 = iVar20 + -1;
+  DataMemoryBarrier(0x1b);
+  if (iVar20 == 0) {
+    (**(code **)(*(int *)p_Var7 + 8))(p_Var7);
+    std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+  }
+  CMPoolMgr::get<CSRGameActorBuffInfo,CMNoLock>();
+  CMPool<CSRGameActorBuffInfo,CMNoLock>::Alloc();
+  CSRGameActorBuffInfo::Bind((CSRGameActorBuffInfo *)local_38,param_2,this,param_3);
+  pCVar17 = (CSRGameActorBuffInfo *)local_38;
+  uVar21 = CSRGameActorBaseDraw::GetSerial((CSRGameActorBaseDraw *)param_2);
+  CSRGameActorBuffInfo::Load(pCVar17,param_1,uVar21);
+  pCVar9 = *(CSRGameActorBuff **)(this + 0x9b0);
+  local_4c = (CSRGameActorBuffInfo *)local_38;
+  local_48 = local_38._4_4_;
+  if (local_38._4_4_ != (__shared_weak_count *)0x0) {
+    p_Var7 = local_38._4_4_ + 4;
+    do {
+      ExclusiveAccess(p_Var7);
+      bVar3 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar3);
+    *(int *)p_Var7 = *(int *)p_Var7 + 1;
+  }
+  CSRGameActorBuff::AddBuff(pCVar9,&local_4c);
+  p_Var7 = local_48;
+  if (local_48 != (__shared_weak_count *)0x0) {
+    p_Var8 = local_48 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar20 = *(int *)p_Var8;
+      bVar3 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar3);
+    *(int *)p_Var8 = iVar20 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar20 == 0) {
+      (**(code **)(*(int *)local_48 + 8))(local_48);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+  UpdateStat(this);
+  p_Var7 = local_38._4_4_;
+  if (local_38._4_4_ != (__shared_weak_count *)0x0) {
+    p_Var8 = local_38._4_4_ + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar20 = *(int *)p_Var8;
+      bVar3 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar3);
+    *(int *)p_Var8 = iVar20 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar20 == 0) {
+      (**(code **)(*(int *)local_38._4_4_ + 8))(local_38._4_4_);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var7);
+    }
+  }
+joined_r0x00982928:
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var7 = this_01 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar20 = *(int *)p_Var7;
+      bVar3 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar3);
+    *(int *)p_Var7 = iVar20 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar20 == 0) {
+      (**(code **)(*(int *)this_01 + 8))(this_01);
+      std::__ndk1::__shared_weak_count::__release_weak(this_01);
+    }
+  }
+  if (*piVar14 == local_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail();
+code_r0x0098247e:
+  if (this_01 != (__shared_weak_count *)0x0) {
+    p_Var7 = this_01 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var7);
+      iVar6 = *(int *)p_Var7;
+      bVar3 = (bool)hasExclusiveAccess(p_Var7);
+    } while (!bVar3);
+    *(int *)p_Var7 = iVar6 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar6 == 0) {
+      (**(code **)(*(int *)this_01 + 8))(this_01);
+      std::__ndk1::__shared_weak_count::__release_weak(this_01);
+    }
+  }
+  iVar20 = *(int *)(iVar20 + 4);
+  goto joined_r0x00982448;
+}
+
+
+===== 00989b88 make_shared<> @ 00989b88 =====
+
+/* std::__ndk1::shared_ptr<CSRGameActorBuff>
+   std::__ndk1::shared_ptr<CSRGameActorBuff>::make_shared<>() */
+
+void __thiscall
+std::__ndk1::shared_ptr<CSRGameActorBuff>::make_shared<>(shared_ptr<CSRGameActorBuff> *this)
+
+{
+  __shared_weak_count *p_Var1;
+  __shared_weak_count *p_Var2;
+  bool bVar3;
+  __shared_weak_count *this_00;
+  int *piVar4;
+  int iVar5;
+  undefined4 uVar6;
+  __shared_weak_count *this_01;
+  int extraout_r2;
+
+  this_00 = operator_new(0xb8);
+  piVar4 = (int *)(DAT_00989c3c + 0x989ba4);
+  p_Var1 = this_00 + 8;
+  *(undefined4 *)p_Var1 = 0;
+  iVar5 = *piVar4;
+  p_Var2 = this_00 + 4;
+  *(undefined4 *)p_Var2 = 0;
+  *(int *)this_00 = iVar5 + 8;
+  uVar6 = CSRGameActorBuff::CSRGameActorBuff((CSRGameActorBuff *)(this_00 + 0x10));
+  this_01 = *(__shared_weak_count **)(this_00 + 0x18);
+  *(undefined4 *)this = uVar6;
+  *(__shared_weak_count **)(this + 4) = this_00;
+  iVar5 = extraout_r2;
+  if (this_01 != (__shared_weak_count *)0x0) {
+    iVar5 = *(int *)(this_01 + 4);
+  }
+  if (this_01 == (__shared_weak_count *)0x0 || iVar5 == -1) {
+    do {
+      ExclusiveAccess(p_Var2);
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = *(int *)p_Var2 + 1;
+    do {
+      ExclusiveAccess(p_Var1);
+      bVar3 = (bool)hasExclusiveAccess(p_Var1);
+    } while (!bVar3);
+    *(int *)p_Var1 = *(int *)p_Var1 + 1;
+    *(undefined4 *)(this_00 + 0x14) = uVar6;
+    *(__shared_weak_count **)(this_00 + 0x18) = this_00;
+    if (this_01 != (__shared_weak_count *)0x0) {
+      __shared_weak_count::__release_weak(this_01);
+    }
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var2);
+      iVar5 = *(int *)p_Var2;
+      bVar3 = (bool)hasExclusiveAccess(p_Var2);
+    } while (!bVar3);
+    *(int *)p_Var2 = iVar5 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar5 == 0) {
+      (**(code **)(*(int *)this_00 + 8))(this_00);
+      __shared_weak_count::__release_weak(this_00);
+      return;
+    }
+  }
+  return;
+}
+
+
+===== 00989c94 __on_zero_shared @ 00989c94 =====
+
+/* std::__ndk1::__shared_ptr_emplace<CSRGameActorBuff, std::__ndk1::allocator<CSRGameActorBuff>
+   >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::__shared_ptr_emplace<CSRGameActorBuff,std::__ndk1::allocator<CSRGameActorBuff>>::
+__on_zero_shared(__shared_ptr_emplace<CSRGameActorBuff,std::__ndk1::allocator<CSRGameActorBuff>>
+                 *this)
+
+{
+                    /* WARNING: Could not recover jumptable at 0x00989c9a. Too many branches */
+                    /* WARNING: Treating indirect jump as call */
+  (*(code *)**(undefined4 **)(this + 0x10))(this + 0x10);
+  return;
+}
+
+
+===== 0099f0b4 CSRGameActorBuff @ 0099f0b4 =====
+
+/* CSRGameActorBuff::CSRGameActorBuff() */
+
+void __thiscall CSRGameActorBuff::CSRGameActorBuff(CSRGameActorBuff *this)
+
+{
+  undefined4 uVar1;
+  undefined4 uVar2;
+  undefined4 uVar3;
+  int *piVar4;
+  int iVar5;
+  CSRGameActorBuff *pCVar6;
+  int *piVar7;
+  basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>> local_30 [8];
+  void *local_28;
+  int local_24;
+
+  piVar7 = *(int **)(DAT_0099f1d0 + 0x99f0c8);
+  local_24 = *piVar7;
+  std::__ndk1::basic_string<char,std::__ndk1::char_traits<char>,std::__ndk1::allocator<char>>::
+  basic_string<decltype(nullptr)>(local_30,(char *)(DAT_0099f1d4 + 0x99f0d8));
+  piVar4 = (int *)(DAT_0099f1d8 + 0x99f0ea);
+  *(undefined4 *)(this + 0x20) = 0;
+  *(undefined4 *)(this + 0x24) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  *(undefined4 *)(this + 0x28) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  *(undefined4 *)(this + 0x2c) = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  iVar5 = *piVar4;
+  *(undefined4 *)(this + 0x38) = 0;
+  *(undefined4 *)(this + 0x3c) = 0;
+  *(int *)this = iVar5 + 8;
+  *(undefined4 *)(this + 4) = 0;
+  *(undefined4 *)(this + 8) = 0;
+  *(undefined4 *)(this + 0x14) = 0;
+  *(undefined4 *)(this + 0x18) = 0;
+  *(undefined4 *)(this + 0x30) = 0;
+  *(undefined4 *)(this + 0x10) = 0;
+  CMHashID::Set((CMHashID *)(this + 0x28),(basic_string *)local_30);
+  iVar5 = DAT_0099f1dc;
+  this[0x40] = (CSRGameActorBuff)0x1;
+  *(int *)this = *(int *)(iVar5 + 0x99f11e) + 8;
+  if (((byte)local_30[0] & 1) != 0) {
+    operator_delete(local_28);
+  }
+  iVar5 = DAT_0099f1e0;
+  uVar1 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x4);
+  uVar2 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0x8);
+  uVar3 = *(undefined4 *)((undefined1  [16])0x0 + (undefined1  [16])0xc);
+  *(undefined4 *)(this + 0x6c) = 0;
+  *(CSRGameActorBuff **)(this + 0x70) = this + 0x70;
+  *(CSRGameActorBuff **)(this + 0x74) = this + 0x70;
+  *(undefined4 *)(this + 0x5c) = 0;
+  *(undefined4 *)(this + 0x60) = uVar1;
+  *(undefined4 *)(this + 100) = uVar2;
+  *(undefined4 *)(this + 0x68) = uVar3;
+  *(undefined4 *)(this + 0x78) = 0;
+  *(undefined4 *)(this + 0x7c) = uVar1;
+  *(undefined4 *)(this + 0x80) = uVar2;
+  *(undefined4 *)(this + 0x84) = uVar3;
+  *(undefined4 *)(this + 0x88) = 0;
+  *(CSRGameActorBuff **)(this + 0x8c) = this + 0x8c;
+  *(CSRGameActorBuff **)(this + 0x90) = this + 0x8c;
+  *(undefined4 *)(this + 0x94) = 0;
+  *(CSRGameActorBuff **)(this + 0x98) = this + 0x98;
+  *(CSRGameActorBuff **)(this + 0x9c) = this + 0x98;
+  *(undefined4 *)(this + 0xa0) = 0;
+  *(undefined4 *)(this + 0xa4) = 0;
+  iVar5 = *(int *)(iVar5 + 0x99f14c);
+  *(undefined4 *)(this + 0x44) = 0;
+  *(undefined4 *)(this + 0x48) = uVar1;
+  *(undefined4 *)(this + 0x4c) = uVar2;
+  *(undefined4 *)(this + 0x50) = uVar3;
+  pCVar6 = this + 0x54;
+  *(CSRGameActorBuff **)(this + 0x58) = pCVar6;
+  *(int *)this = iVar5 + 8;
+  *(CSRGameActorBuff **)pCVar6 = pCVar6;
+  iVar5 = *piVar7 - local_24;
+  if (iVar5 != 0) {
+                    /* WARNING: Subroutine does not return */
+    __stack_chk_fail(iVar5);
+  }
+  return;
+}
+
+
+===== 0099ee94 Recharge @ 0099ee94 =====
+
+/* CSRGameActorBuffInfo::Recharge() */
+
+void __thiscall CSRGameActorBuffInfo::Recharge(CSRGameActorBuffInfo *this)
+
+{
+  *(undefined4 *)(this + 0xf4) = *(undefined4 *)(this + 0x24);
+  return;
+}
+
+
+===== 0099ee9c Load @ 0099ee9c =====
+
+/* CSRGameActorBuffInfo::Load(AURA const&, unsigned long long) */
+
+void __thiscall
+CSRGameActorBuffInfo::Load(CSRGameActorBuffInfo *this,AURA *param_1,ulonglong param_2)
+
+{
+  Load(CONCAT44(param_1,this),*(ulonglong *)(param_1 + 0xe0),(BUF_DATA *)param_2);
+  return;
+}
+
+
+===== 0099e5ce Bind @ 0099e5ce =====
+
+/* CSRGameActorBuffInfo::Bind(CSRGameActor const*, CSRGameActor const*, CSRGameActor const*) */
+
+CSRGameActorBuffInfo * __thiscall
+CSRGameActorBuffInfo::Bind
+          (CSRGameActorBuffInfo *this,CSRGameActor *param_1,CSRGameActor *param_2,
+          CSRGameActor *param_3)
+
+{
+  *(CSRGameActor **)(this + 0x108) = param_1;
+  *(CSRGameActor **)(this + 0x10c) = param_2;
+  *(CSRGameActor **)(this + 0x110) = param_3;
+  return this + 0x114;
+}
+
+
+===== 0099f04c GetSerial @ 0099f04c =====
+
+/* CSRGameActorBuffInfo::GetSerial() const */
+
+undefined8 __thiscall CSRGameActorBuffInfo::GetSerial(CSRGameActorBuffInfo *this)
+
+{
+  return *(undefined8 *)(this + 0xe0);
+}
+
+
+===== 0098ccb0 __on_zero_shared @ 0098ccb0 =====
+
+/* std::__ndk1::__shared_ptr_pointer<CSRGameActorBuffInfo*, CMPool<CSRGameActorBuffInfo,
+   CMNoLock>::Alloc()::{lambda(CSRGameActorBuffInfo*)#1},
+   std::__ndk1::allocator<CSRGameActorBuffInfo> >::__on_zero_shared() */
+
+void __thiscall
+std::__ndk1::
+__shared_ptr_pointer<CSRGameActorBuffInfo*,CMPool<CSRGameActorBuffInfo,CMNoLock>::Alloc()::{lambda(CSRGameActorBuffInfo*)#1},std::__ndk1::allocator<CSRGameActorBuffInfo>>
+::__on_zero_shared(__shared_ptr_pointer<CSRGameActorBuffInfo*,CMPool<CSRGameActorBuffInfo,CMNoLock>::Alloc()::_lambda(CSRGameActorBuffInfo*)_1_,std::__ndk1::allocator<CSRGameActorBuffInfo>>
+                   *this)
+
+{
+  CMPool<CSRGameActorBuffInfo,CMNoLock>::Alloc()::{lambda(CSRGameActorBuffInfo*)#1}::operator()
+            ((_lambda_CSRGameActorBuffInfo___1_ *)(this + 0x10),
+             *(CSRGameActorBuffInfo **)(this + 0xc));
+  if (*(int *)(this + 0x14) == 0) {
+    return;
+  }
+  (*(code *)((int)&DAT_00a16624 + DAT_00a16624))();
+  return;
+}

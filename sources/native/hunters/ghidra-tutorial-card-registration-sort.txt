@@ -1,0 +1,136 @@
+===== proven Thumb 00eedbc8 =====
+
+/* WARNING: Globals starting with '_' overlap smaller symbols at the same address */
+
+void FUN_00eedbc8(void)
+
+{
+  bool bVar1;
+  CSRDataMgr *pCVar2;
+  int iVar3;
+  __shared_weak_count *p_Var4;
+  undefined4 uVar5;
+  uint uVar6;
+  uint uVar7;
+  __shared_weak_count *p_Var8;
+  uint uVar9;
+  int *piVar10;
+  uint uVar11;
+  int iStack_38;
+  __shared_weak_count *p_Stack_34;
+  int iStack_30;
+  __shared_weak_count *p_Stack_2c;
+  int iStack_28;
+  
+  piVar10 = *(int **)(_DAT_00eeddb8 + 0xeedbde);
+  iStack_28 = *piVar10;
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  iVar3 = CSRDataMgr::GetPlayData(pCVar2);
+  uVar5 = *(undefined4 *)(iVar3 + 0x11c);
+  p_Var8 = *(__shared_weak_count **)(iVar3 + 0x120);
+  if (p_Var8 != (__shared_weak_count *)0x0) {
+    p_Var4 = p_Var8 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  CSRInventory::FindCard(CONCAT44(uVar5,&iStack_30));
+  if (p_Var8 != (__shared_weak_count *)0x0) {
+    p_Var4 = p_Var8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar3 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Var8 + 8))(p_Var8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var8);
+    }
+  }
+  if (iStack_30 == 0) {
+    uVar6 = 0;
+    uVar11 = 0;
+  }
+  else {
+    uVar6 = *(uint *)(iStack_30 + 0x18);
+    uVar11 = *(uint *)(iStack_30 + 0x1c);
+  }
+  pCVar2 = (CSRDataMgr *)CSRDataMgr::get();
+  iVar3 = CSRDataMgr::GetPlayData(pCVar2);
+  uVar5 = *(undefined4 *)(iVar3 + 0x11c);
+  p_Var8 = *(__shared_weak_count **)(iVar3 + 0x120);
+  if (p_Var8 != (__shared_weak_count *)0x0) {
+    p_Var4 = p_Var8 + 4;
+    do {
+      ExclusiveAccess(p_Var4);
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = *(int *)p_Var4 + 1;
+  }
+  CSRInventory::FindCard(CONCAT44(uVar5,&iStack_38));
+  if (p_Var8 != (__shared_weak_count *)0x0) {
+    p_Var4 = p_Var8 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var4);
+      iVar3 = *(int *)p_Var4;
+      bVar1 = (bool)hasExclusiveAccess(p_Var4);
+    } while (!bVar1);
+    *(int *)p_Var4 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Var8 + 8))(p_Var8);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Var8);
+    }
+  }
+  if (iStack_38 == 0) {
+    uVar9 = 0;
+    uVar7 = 0;
+  }
+  else {
+    uVar9 = *(uint *)(iStack_38 + 0x18);
+    uVar7 = *(uint *)(iStack_38 + 0x1c);
+  }
+  if (p_Stack_34 != (__shared_weak_count *)0x0) {
+    p_Var8 = p_Stack_34 + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar3 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Stack_34 + 8))(p_Stack_34);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_34);
+    }
+  }
+  if (p_Stack_2c != (__shared_weak_count *)0x0) {
+    p_Var8 = p_Stack_2c + 4;
+    DataMemoryBarrier(0x1b);
+    do {
+      ExclusiveAccess(p_Var8);
+      iVar3 = *(int *)p_Var8;
+      bVar1 = (bool)hasExclusiveAccess(p_Var8);
+    } while (!bVar1);
+    *(int *)p_Var8 = iVar3 + -1;
+    DataMemoryBarrier(0x1b);
+    if (iVar3 == 0) {
+      (**(code **)(*(int *)p_Stack_2c + 8))(p_Stack_2c);
+      std::__ndk1::__shared_weak_count::__release_weak(p_Stack_2c);
+    }
+  }
+  if (*piVar10 == iStack_28) {
+    return;
+  }
+                    /* WARNING: Subroutine does not return */
+  __stack_chk_fail(uVar11 <= uVar7 && (uint)(uVar9 <= uVar6) <= uVar11 - uVar7);
+}
+
+
