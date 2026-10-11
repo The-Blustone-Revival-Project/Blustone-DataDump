@@ -61,3 +61,30 @@ The recovered local leveling artifacts do not resolve the profile pages' missing
 - Beckhen (`051`) has an independently verified Lv.30, 5★, no-equipment row in [`catalogue/stats/051.md`](../../../datasets/hunters/observed-stats/051.md). The archived profile says 3★ at draw, so comparing the rows mixes rank and level changes. The near-common HP/ATK/DEF ratios do not isolate either factor or establish baseline context for the other archived rows.
 
 Do not normalize the archived profiles to Lv.1 or subtract gear using these shared tables. They remain useful static basic-ability estimates, with rank-at-draw visible and level/equipped state unresolved.
+
+---
+
+## 2026-10-11 ADDENDUM — level and gear state resolved by derivation
+
+A derivation lane (`archive-level-derivation-2026-10-11.md`) has since closed both
+open fields for these rows:
+
+- **Gear state: PROVEN nude.** All nine sub-stats of the Beckhen archive row are
+  byte-identical to the independently verified Lv.30 *nude* row, while his gear
+  delta moves seven of those nine sub-stats. The database applies one uniform
+  schema (proven by an exact within-role linear fit of the composite to the three
+  core stats, residuals ≤ 0.4 % across mixed rarities), so the argument
+  generalizes to all 62 rows.
+- **Level: the site's own labels frame the profiles as at-draw.** The fetched page
+  labels the stat block 基本能力値 ("basic ability values") and the rarity field
+  排出時の★ ("★ at draw"), and prints no level field. The DB composite carries no
+  level term (exact stat-linear fit) while the trained on-screen 戦闘力 sits
+  ~5,043 above the same fit — the DB state is below any training. The level is
+  bounded **L ≤ 17** (positive-base bound under the native linear growth model)
+  and every structural indicator points to the floor, L=1.
+- **Naming trap:** the DB's 戦闘力 and the on-screen 戦闘力 share the Japanese label
+  but are different quantities (Beckhen 8,709 vs 24,068). Do not join them on the
+  label alone.
+- The adjudication (whether derivation-grade documentation satisfies the
+  `coverage.md` "level documented" rule) was referred to the ledger owner; no
+  counter was moved by the derivation itself.
