@@ -1,0 +1,714 @@
+# BLUSTONE Stats — 2026-10-14
+
+Research snapshot as of **2026-10-14 (Asia/Jerusalem)**. This date is a publication cutoff; each observation retains its own historical capture date and context.
+
+## What this snapshot establishes
+
+121 catalogue rows (113 playable identities), 22 monster identities, 806 historical numeric claims across 62 archived profiles with numeric HP. Symbolic formulas and original identifiers are preserved. Derived estimates (113 hero at-draw rows, 100 accessory rows, 22 monster rows, 565 skill rows, fixture rows excluded) are listed below with per-row class and confidence; unestimated values remain unknown.
+
+## Changes since the previous snapshot
+
+Compared with **2026-10-11.2**. A changed record includes changed context or provenance, not necessarily a new numerical value.
+
+| Dataset | Added records | Changed records | Removed records |
+|---|---|---|---|
+| hunter_identities | 0 | 0 | 0 |
+| hunter_stat_observations | 0 | 0 | 0 |
+| hunter_skill_reference | 0 | 0 | 0 |
+| monster_identities | 0 | 0 | 0 |
+| campaign_identifiers | 0 | 0 | 0 |
+| episode_story_graph | 0 | 0 | 0 |
+| episode_rewards | 0 | 0 | 0 |
+| hunter_gear_identities | 0 | 0 | 0 |
+| hero_at_draw_estimates | 0 | 0 | 0 |
+| accessory_stat_estimates | 0 | 0 | 0 |
+| monster_stat_estimates | 0 | 0 | 0 |
+| skill_magnitude_estimates | 0 | 0 | 0 |
+| curated_source_tables | 0 | 0 | 0 |
+
+## Historical hunter profile readings
+
+These are display readings from the archived 2019 database. Level, rank and equipment are not established. None of these archive claims counts as recovered base-stat evidence. Attack speed uses source display units; native conversion is not established.
+
+| ID | Name | hp | atk | def | speed | crit | crit_damage | penetration | block | block_damage_reduction | element_enhance | element_resistance | hp_regen | Capture | Level / gear |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 063 | Erise | 2019 | 933 | 1070 | 7 | 14 | 180 | 0 | 33 | 52 | 0 | 10 | 48 | 20191015065805 | not shown / not established |
+| 052 | Windblade | 1955 | 992 | 835 | 8 | 33 | 205 | 0 | 14 | 45 | 5 | 5 | 49 | 20191015065805 | not shown / not established |
+| 056 | Genovia | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | Unknown | 20191015065805 | not shown / not established |
+| 046 | Harley | 2033 | 755 | 1036 | 7 | 20 | 180 | 0 | 33 | 50 | 5 | 5 | 51 | 20191015065805 | not shown / not established |
+| 047 | Lily & Lyla | 1923 | 996 | 755 | 8 | 33 | 200 | 0 | 14 | 40 | 5 | 5 | 48 | 20191015065805 | not shown / not established |
+| 010 | Vincent | 1923 | 1032 | 718 | 8 | 30 | 200 | 1 | 30 | 42 | 0 | 0 | 48 | 20191015065805 | not shown / not established |
+| 062 | Juno | 1968 | 743 | 1125 | 7 | 14 | 180 | 0 | 33 | 52 | 0 | 10 | 46 | 20191015065805 | not shown / not established |
+| 061 | Chichi | 1821 | 937 | 798 | 8 | 33 | 200 | 0 | 14 | 40 | 5 | 5 | 51 | 20191211120858 | not shown / not established |
+| 053 | Calibur | 1750 | 846 | 1284 | 7 | 0 | 50 | 0 | 0 | 50 | 5 | 5 | 48 | 20191208233023 | not shown / not established |
+| 054 | Dino | 1560 | 1029 | 744 | 7 | 14 | 180 | 0 | 14 | 42 | 5 | 5 | 39 | 20191015065805 | not shown / not established |
+| 055 | Apollon | 1560 | 1054 | 708 | 7 | 14 | 180 | 0 | 14 | 40 | 5 | 5 | 43 | 20191209002849 | not shown / not established |
+| 057 | Pansy | 1742 | 762 | 806 | 7 | 14 | 185 | 0 | 14 | 40 | 5 | 5 | 44 | 20191209134532 | not shown / not established |
+| 058 | Crocus | 1710 | 806 | 806 | 7 | 14 | 180 | 0 | 14 | 40 | 5 | 5 | 47 | 20191115010135 | not shown / not established |
+| 059 | Lantern (Halloween) | 1521 | 1058 | 653 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 38 | 20191216043248 | not shown / not established |
+| 060 | Denali (Halloween) | 1710 | 828 | 726 | 7 | 14 | 180 | 0 | 14 | 40 | 0 | 0 | 43 | 20191208235843 | not shown / not established |
+| 037 | Natalia | 1750 | 883 | 755 | 8 | 33 | 205 | 0 | 20 | 40 | 5 | 5 | 44 | 20191015065805 | not shown / not established |
+| 038 | Rebecca (Christmas) | 1790 | 992 | 668 | 8 | 33 | 200 | 0 | 14 | 40 | 5 | 5 | 48 | 20191211104447 | not shown / not established |
+| 039 | Gullveig | 1521 | 1021 | 689 | 7 | 14 | 180 | 0 | 14 | 42 | 5 | 5 | 38 | 20191015065805 | not shown / not established |
+| 040 | Bibi | 1750 | 883 | 755 | 8 | 33 | 200 | 0 | 20 | 42 | 5 | 5 | 44 | 20191211120956 | not shown / not established |
+| 041 | Edward | 1821 | 718 | 901 | 7 | 14 | 180 | 0 | 30 | 45 | 5 | 5 | 46 | 20191015065805 | not shown / not established |
+| 042 | Santa Clauster | 1821 | 937 | 689 | 8 | 33 | 200 | 0 | 14 | 42 | 5 | 5 | 44 | 20191216053205 | not shown / not established |
+| 043 | Papillon | 1606 | 726 | 792 | 7 | 14 | 185 | 0 | 33 | 30 | 5 | 5 | 44 | 20191015065805 | not shown / not established |
+| 044 | Heidi | 1750 | 952 | 689 | 8 | 33 | 200 | 0 | 20 | 40 | 5 | 5 | 44 | 20191211112706 | not shown / not established |
+| 045 | Yuri | 1750 | 937 | 718 | 8 | 33 | 200 | 0 | 14 | 40 | 5 | 5 | 44 | 20191015065805 | not shown / not established |
+| 048 | Dumble | 1750 | 689 | 901 | 6 | 14 | 180 | 1 | 33 | 50 | 5 | 5 | 44 | 20191216043150 | not shown / not established |
+| 049 | Bright | 1710 | 828 | 755 | 7 | 14 | 180 | 0 | 14 | 42 | 5 | 5 | 43 | 20191015065805 | not shown / not established |
+| 050 | Therapy | 1710 | 825 | 762 | 7 | 14 | 180 | 0 | 14 | 42 | 5 | 5 | 43 | 20191015065805 | not shown / not established |
+| 051 | Beckhen | 1678 | 864 | 660 | 8 | 33 | 200 | 0 | 14 | 42 | 5 | 5 | 42 | 20191216060610 | not shown / not established |
+| 023 | Hermes | 1750 | 937 | 653 | 8 | 33 | 200 | 0 | 14 | 40 | 2 | 2 | 44 | 20191210182657 | not shown / not established |
+| 027 | Athena | 1750 | 689 | 901 | 7 | 14 | 180 | 0 | 33 | 50 | 5 | 5 | 48 | 20191209132905 | not shown / not established |
+| 028 | Octavia | 1750 | 901 | 689 | 8 | 33 | 205 | 0 | 14 | 40 | 5 | 5 | 44 | 20191015065805 | not shown / not established |
+| 031 | Diana | 1521 | 1021 | 689 | 7 | 14 | 180 | 0 | 14 | 40 | 5 | 5 | 38 | 20191209130259 | not shown / not established |
+| 033 | Patrone | 1521 | 1003 | 726 | 7 | 14 | 185 | 0 | 14 | 40 | 5 | 5 | 38 | 20191208233034 | not shown / not established |
+| 035 | Joy | 1710 | 828 | 726 | 7 | 14 | 180 | 0 | 14 | 42 | 5 | 5 | 43 | 20191115010318 | not shown / not established |
+| 036 | Bear | 1923 | 755 | 864 | 7 | 14 | 180 | 0 | 33 | 50 | 5 | 5 | 32 | 20191015065805 | not shown / not established |
+| 008 | Akasha | 1710 | 762 | 762 | 7 | 14 | 185 | 0 | 14 | 40 | 0 | 0 | 43 | 20191015065805 | not shown / not established |
+| 012 | Karl Steiner | 1750 | 1007 | 689 | 7 | 33 | 205 | 0 | 14 | 40 | 0 | 0 | 44 | 20191015065805 | not shown / not established |
+| 003 | Nene | 1750 | 726 | 864 | 7 | 14 | 180 | 0 | 33 | 50 | 0 | 0 | 48 | 20191210193048 | not shown / not established |
+| 001 | Lantern | 1521 | 1058 | 653 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 38 | 20191209130238 | not shown / not established |
+| 029 | Kain | 1790 | 689 | 1007 | 7 | 14 | 185 | 0 | 36 | 55 | 5 | 5 | 45 | 20191015065805 | not shown / not established |
+| 021 | Rebecca | 1624 | 893 | 580 | 8 | 33 | 200 | 0 | 14 | 40 | 0 | 0 | 45 | 20191015065805 | not shown / not established |
+| 022 | Sunny | 1584 | 718 | 718 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 40 | 20191015065805 | not shown / not established |
+| 024 | Riko | 1624 | 682 | 821 | 7 | 14 | 185 | 0 | 33 | 50 | 0 | 0 | 41 | 20191015065805 | not shown / not established |
+| 025 | Teddy Bomber | 1395 | 978 | 646 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 35 | 20191211110354 | not shown / not established |
+| 030 | Acerola | 1584 | 718 | 718 | 7 | 14 | 185 | 0 | 14 | 40 | 0 | 0 | 40 | 20191208231437 | not shown / not established |
+| 032 | Scar | 1624 | 839 | 682 | 8 | 33 | 200 | 0 | 14 | 40 | 0 | 0 | 45 | 20191216045551 | not shown / not established |
+| 034 | Unknown | 1624 | 682 | 821 | 7 | 14 | 185 | 0 | 33 | 50 | 0 | 0 | 41 | 20191015065805 | not shown / not established |
+| 013 | Denali | 1584 | 755 | 682 | 7 | 14 | 180 | 0 | 14 | 40 | 2 | 2 | 40 | 20191211112530 | not shown / not established |
+| 015 | Levi | 1395 | 1014 | 580 | 7 | 14 | 185 | 0 | 14 | 40 | 0 | 0 | 35 | 20191208231430 | not shown / not established |
+| 002 | Mowgli | 1624 | 839 | 682 | 8 | 33 | 200 | 0 | 14 | 42 | 0 | 0 | 41 | 20191208231408 | not shown / not established |
+| 005 | Gerard | 1624 | 628 | 893 | 7 | 14 | 180 | 0 | 33 | 52 | 0 | 0 | 41 | 20191210181801 | not shown / not established |
+| 026 | Unknown | 1467 | 679 | 679 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 37 | 20191210181815 | not shown / not established |
+| 007 | Metis | 1277 | 908 | 576 | 7 | 14 | 180 | 0 | 14 | 40 | 0 | 0 | 36 | 20191015065805 | not shown / not established |
+| 009 | Captain | 1624 | 628 | 893 | 7 | 14 | 180 | 1 | 33 | 52 | 0 | 0 | 41 | 20191015065805 | not shown / not established |
+| 011 | Hecate | 1537 | 576 | 817 | 7 | 14 | 180 | 0 | 33 | 52 | 0 | 0 | 38 | 20191015065805 | not shown / not established |
+| 014 | Locke | 1277 | 908 | 576 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 32 | 20191015065805 | not shown / not established |
+| 016 | Bruce Bang | 1467 | 660 | 715 | 7 | 14 | 180 | 0 | 14 | 40 | 2 | 2 | 37 | 20191216052227 | not shown / not established |
+| 017 | Lapis | 1537 | 854 | 540 | 8 | 33 | 205 | 0 | 14 | 40 | 0 | 0 | 38 | 20191015065805 | not shown / not established |
+| 018 | Robin | 1537 | 642 | 751 | 7 | 14 | 180 | 0 | 33 | 52 | 0 | 0 | 38 | 20191211104417 | not shown / not established |
+| 019 | Balian | 1537 | 817 | 576 | 8 | 33 | 205 | 0 | 14 | 40 | 0 | 0 | 38 | 20191015065805 | not shown / not established |
+| 020 | Sienna | 1277 | 944 | 540 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 32 | 20191208235641 | not shown / not established |
+| 004 | Tyltyl | 1467 | 679 | 679 | 7 | 14 | 180 | 0 | 14 | 42 | 0 | 0 | 37 | 20191209002103 | not shown / not established |
+| 006 | Sylvester | 1537 | 817 | 576 | 8 | 33 | 200 | 0 | 14 | 42 | 0 | 0 | 38 | 20191015065805 | not shown / not established |
+
+## Curated screenshot and equipment observations
+
+The following tables retain their source section and context. Beckhen 051 has a visually checked unequipped Lv.30 column; it is not a Lv.1 growth curve. Vincent 010_1 has unknown gear and cannot establish unequipped base values. Gear/jewel tables describe observed samples, not full distributions.
+
+The historical GEAR table contains unresolved wording. Later evidence corroborates flat +23 Element/Resistance set values, while the old 1.4.4.1 Super Block differs by locale (KO 9%; EN/JP/ZH/ZT 5%). The included 2.8.0.1 help comparison records the renamed Reduction effect at 10% for KO/EN/JA/TC, while SC preserves a distinct older wording/value. Help-copy values are not native runtime proof. The ATK subtotal discrepancy remains unresolved. Read the evidence document before using these numbers.
+
+### 051: Measured at: **Lv.30, no equipment**
+
+| check | arithmetic | result |
+|---|---|---|
+| Strength | nude `24068` + gear `+6291` | `= 30359` |
+| card page (fully geared) | Strength `30359` | **exact match** |
+
+Source: [datasets/hunters/observed-stats/051.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/hunters/observed-stats/051.md#L24); SHA-256 `08891ac93cd14720519c4fbe8494db53008c1bdab18c3fd65ff4c6c6c81c4858`.
+
+### 051: Base stat line — [OCR-CONFIDENT] (all values visually confirmed at 2–5x zoom)
+
+| stat | value |
+|---|---|
+| Strength (Combined Power) | **24068** |
+| HP | **2879** |
+| ATK | **1471** |
+| DEF | **1149** |
+| Attacking Speed | **8.00** |
+| Critical Attack Chance | **33.00** |
+| Critical Attack Damage | **200.00** |
+| Armor Penetration | **0.00** |
+| Block Chance | **14.00** |
+| Damage Reduction Block | **42.00** |
+| Elemental Enhancement | **5.00** |
+| Elemental Resistance | **5.00** |
+| Regeneration | **42.00** |
+
+Source: [datasets/hunters/observed-stats/051.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/hunters/observed-stats/051.md#L44); SHA-256 `08891ac93cd14720519c4fbe8494db53008c1bdab18c3fd65ff4c6c6c81c4858`.
+
+### 010_1: Measured at: **Lv.30/30, skills 50/50, gear state UNKNOWN**
+
+| stat | value |
+|---|---|
+| Strength (Combined Power) | **61815** |
+| HP | **4980** |
+| ATK | **2634** |
+| DEF | **1992** |
+
+Source: [datasets/hunters/observed-stats/010_1.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/hunters/observed-stats/010_1.md#L19); SHA-256 `6962b2c7b53b7bcadcc1b837343dd89e871fc4d41f93a3f1d3cfd2a746bca44e`.
+
+### 010_1: Comparison with card 051 — the one structural finding of this round
+
+| | Beckhen `051` 3★ | Vincent `010_1` 5★ awakened | ratio |
+|---|---|---|---|
+| HP | 2879 | 4980 | **1.730** |
+| ATK | 1471 | 2634 | **1.791** |
+| DEF | 1149 | 1992 | **1.734** |
+| Strength | 24068 | 61815 | **2.568** |
+
+Source: [datasets/hunters/observed-stats/010_1.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/hunters/observed-stats/010_1.md#L43); SHA-256 `6962b2c7b53b7bcadcc1b837343dd89e871fc4d41f93a3f1d3cfd2a746bca44e`.
+
+### 010: Measured at: **Lv.49 armour on a fully-equipped card, gear state of the card UNKNOWN**
+
+| quantity | value | tag |
+|---|---|---|
+| Strength, current | **33038** | [OCR-CONFIDENT] |
+| Strength, after upgrading the armour to Lv.50 | **33057** (**+19**) | [OCR-CONFIDENT] |
+| Armour main stat at Lv.49 | **DEF 101** | [OCR-CONFIDENT] |
+| Armour main stat at Lv.50 | **DEF 102** (**+1**) | [OCR-CONFIDENT] |
+| Weapon level / Accessory level | 50 / 40 | [OCR-CONFIDENT] |
+
+Source: [datasets/hunters/observed-stats/010.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/hunters/observed-stats/010.md#L15); SHA-256 `e928d2866778a3c17ec5a33b9f2418556ae155d7af2b49bfb3315f9843f713c3`.
+
+### 010: An unidentified second card — recorded, not claimed
+
+| quantity | value |
+|---|---|
+| 전투력 Strength | **23847** (+4047 from gear) |
+| 생명력 HP | **2866** (+221) |
+| 공격력 ATK | **1522** (+126) |
+| 방어력 DEF | **1103** (+110) |
+| 공격 속도 Attack Speed | **8.00** (+1.72) |
+
+Source: [datasets/hunters/observed-stats/010.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/hunters/observed-stats/010.md#L34); SHA-256 `e928d2866778a3c17ec5a33b9f2418556ae155d7af2b49bfb3315f9843f713c3`.
+
+### GEAR: 1. Main stat by slot, at level cap — [OCR-CONFIDENT]
+
+| slot | item (Beckhen's) | level | main stat |
+|---|---|---|---|
+| Weapon | Chicken Feet | 50/50 | **ATK 134** |
+| Armor | Chicken Wings | 50/50 | **DEF 102** |
+| Accessory | Jack | 50/50 | **Max HP 260** |
+
+Source: [datasets/equipment/GEAR.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/equipment/GEAR.md#L17); SHA-256 `8467819aa46a185ec5c10ff79af2b216902545270d1aabff579cc77294e293e9`.
+
+### GEAR: 1. Main stat by slot, at level cap — [OCR-CONFIDENT]
+
+| slot | item | level | main stat |
+|---|---|---|---|
+| Armor | Purple Combat Coat | 49/50 | **DEF 101** |
+
+Source: [datasets/equipment/GEAR.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/equipment/GEAR.md#L26); SHA-256 `8467819aa46a185ec5c10ff79af2b216902545270d1aabff579cc77294e293e9`.
+
+### GEAR: 2. Jewel sub-stats at Lv.15/15 — [OCR-CONFIDENT]
+
+| panel | mount | main | sub-stats |
+|---|---|---|---|
+| image22 | Weapon #1 | **ATK +29** | Crit Damage +3.13 · Block Chance +0.72 · Elem Resist +1.44 · Dmg Red Blk +0.50 |
+| image23 | Weapon #2 | **ATK +29** | DEF +11 · Dmg Red Blk +0.38 · Elem Enh +1.65 · ATK +11 |
+| image24 | Accessory #1 | **Max HP +58** | ATK +12 · Max HP +21 · Elem Resist +1.69 · Block Chance +0.56 |
+| image25 | Accessory #2 | **Max HP +58** | Max HP +18 · Crit Damage +3.87 · Block Chance +0.56 · ATK +13 |
+| image26 | Armor #1 | **Block Chance +2.30** | Block Chance +0.56 · Max HP +21 · Dmg Red Blk +0.50 · DEF +11 |
+| image27 | Armor #2 | **DEF +29** | Crit Chance +0.67 · Dmg Red Blk +0.38 · ATK +11 · Crit Damage +3.86 |
+
+Source: [datasets/equipment/GEAR.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/equipment/GEAR.md#L44); SHA-256 `8467819aa46a185ec5c10ff79af2b216902545270d1aabff579cc77294e293e9`.
+
+### GEAR: 3. Jewel set bonuses — 12 families [TRANSCRIBED; two values have unresolved decimal placement]
+
+| set | bonus |
+|---|---|
+| HP Jewel | Mount 2 → Increase HP **5%** |
+| Offensive Jewel | Mount 2 → Increase AP **5%** [literal source wording; abbreviation not expanded here] |
+| Defensive Jewel | Mount 2 → Increase DP **5%** |
+| Critical Jewel | Mount 2 → Increase Critical Attack Chance **4.5%** |
+| Block Jewel | Mount 2 → Increase Block Chance **4.5%** |
+| Fatal Jewel | Mount 4 → Increase Critical Attack Damage **50%** |
+| Super Block Jewel | Mount 4 → Damage Reduction Rate **5%** |
+| Element Jewel | Mount 4 → Increase Elemental Enhancement **2** (a wrapped `3` follows) [decimal/punctuation unresolved] |
+| Resistance Jewel | Mount 4 → Increase Elemental Resistance **23** [decimal placement unresolved] |
+| Speed Jewel | Mount 4 → Increase Attack Speed **1.72** |
+| Regeneration Jewel | Mount 4 → Increase HP Regeneration **30** [literal image digits; unit not printed] |
+| Penetration Jewel | Mount 4 → Increase Armor Penetration **12** [literal image digits; unit not printed] |
+
+Source: [datasets/equipment/GEAR.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/datasets/equipment/GEAR.md#L64); SHA-256 `8467819aa46a185ec5c10ff79af2b216902545270d1aabff579cc77294e293e9`.
+
+### vsfan-extracted-assets: Jewel set-bonus table (exact historical help text)
+
+| Archived English name | Required count | Bonus as stated in EN | Notes |
+|---|---:|---|---|
+| HP Jewel | 2 | HP +5% | |
+| Offensive Jewel | 2 | AP +5% | Source uses “AP”; likely its attack-power label, but preserve the raw abbreviation. |
+| Defensive Jewel | 2 | DP +5% | Source uses “DP”; preserve the raw abbreviation. |
+| Critical Jewel | 2 | Critical Attack Chance +4.5% | |
+| Block Jewel | 2 | Block Chance +4.5% | |
+| Fatal Jewel | 4 | Critical Attack Damage +50% | |
+| Super Block Jewel | 4 | Damage Reduction Rate +5% | **Translation conflict:** Korean `막기 피해량 9% 증가` says 9%; Japanese and both Chinese strings say 5%. Do not collapse this to one global value without resolving localization/version semantics. |
+| Element Jewel | 4 | Elemental Enhancement +23 | |
+| Resistance Jewel | 4 | Elemental Resistance +23 | |
+| Speed Jewel | 4 | Attack Speed +1.72 | |
+| Regeneration Jewel | 4 | HP Regeneration +30 | |
+| Penetration Jewel | 4 | Armor Penetration +12 | |
+
+Source: [findings/resources/vsfan-extracted-assets.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/resources/vsfan-extracted-assets.md#L59); SHA-256 `9b88dd41ef5633b29931cf5f1ae726a9270989a7b5485b124a06d9040d6550b8`.
+
+### jewel-help-locales-2026-10-05: 1.4 The core matrix — all ten locale strings, bonus values only
+
+| # | 1.4.4.1 `ko` | 1.4.4.1 `en` | 1.4.4.1 `jp` | 1.4.4.1 `zh` | 1.4.4.1 `zt` | 2.8.0.1 `KO` | 2.8.0.1 `EN` | 2.8.0.1 `JA` | 2.8.0.1 `SC` | 2.8.0.1 `TC` |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | 5% | 5% | 5% | 5% | 5% | 6% | 6% | 6% | 5% | 6% |
+| 2 | 5% | 5% | 5% | 5% | 5% | 6% | 6% | 6% | 5% | 6% |
+| 3 | 5% | 5% | 5% | 5% | 5% | 6% | 6% | 6% | 5% | 6% |
+| 4 | 4.5% | 4.5% | 4.5% | 4.5% | 4.5% | 1.72 | 1.72 | 1.72 | 4.5% | 1.72 |
+| 5 | 4.5% | 4.5% | 4.5% | 4.5% | 4.5% | 6% | 6% | 6% | 4.5% | 6% |
+| 6 | 50% | 50% | 50% | 50% | 50% | 60% | 60% | 60% | 50% | 60% |
+| 7 | **9%** | 5% | 5% | 5% | 5% | 35 | 35 | 35 | **9%** | 35 |
+| 8 | 23 | 23 | 23 | 23 | 23 | 16 | 16 | 16 | 23 | 16 |
+| 9 | 23 | 23 | 23 | 23 | 23 | 5% | 5% | 5% | 23 | 5% |
+| 10 | 1.72 | 1.72 | 1.72 | 1.72 | 1.72 | 10% | 10% | 10% | 23 | 10% |
+| 11 | 30 | 30 | 30 | 30 | 30 | 35 | 35 | 35 | 1.72 | 35 |
+| 12 | 12 | 12 | 12 | 12 | 12 | 30 | 30 | 30 | 30 | 30 |
+
+Source: [findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md#L282); SHA-256 `74ca4f5a245a67fd298b0dfca7e46b4dd5583b8908b20830b5d92fe2782def3f`.
+
+### jewel-help-locales-2026-10-05: 1.4 The core matrix — all ten locale strings, bonus values only
+
+| pair | old `desc2` SHA-256 | new `desc2` SHA-256 | byte-identical |
+|---|---|---|---|
+| `ko`→`KO` | `a18dae56…` | `4396ca92…` | no |
+| `en`→`EN` | `6e3b58a2…` | `51364974…` | no |
+| `jp`→`JA` | `a5b94ed2…` | `a50a59f7…` | no |
+| `zh`→`SC` | `6aad9f99…` | `462f0cea…` | no |
+| `zt`→`TC` | `9ba0ab79…` | `017cbf53…` | no |
+
+Source: [findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md#L303); SHA-256 `74ca4f5a245a67fd298b0dfca7e46b4dd5583b8908b20830b5d92fe2782def3f`.
+
+### jewel-help-locales-2026-10-05: 1.5 Row-order map (pure reordering, no value implication)
+
+| Family | old row | new row |
+|---|---|---|
+| HP | 1 | 1 |
+| Offensive / AP | 2 | 2 |
+| Defensive / DP | 3 | 3 |
+| Speed / Attack Speed | **10** | **4** |
+| Critical / Crit chance | 4 | 5 |
+| Fatal / Crit damage | 6 | 6 |
+| Element / Enhancement | 8 | 7 |
+| Penetration | **12** | **8** |
+| Block / Block chance | 5 | 9 |
+| Super Block → **Reduction** | 7 | 10 |
+| Resistance | 9 | 11 |
+| Regeneration | 11 | 12 |
+
+Source: [findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md#L315); SHA-256 `74ca4f5a245a67fd298b0dfca7e46b4dd5583b8908b20830b5d92fe2782def3f`.
+
+### jewel-help-locales-2026-10-05: 2.2 Per-family delta, 1.4.4.1 → 2.8.0.1 (EN reference; §1.4 shows locales)
+
+| Family | Mount | old | new | absolute Δ | relative | announcement's qualitative bucket |
+|---|---|---|---|---|---|---|
+| HP | 2 | 5% | 6% | +1 pp | ×1.20 | "HP … strengthened" |
+| Offensive / AP | 2 | 5% | 6% | +1 pp | ×1.20 | "attack … strengthened" |
+| Defensive / DP | 2 | 5% | 6% | +1 pp | ×1.20 | "defense … strengthened" |
+| Critical / crit chance | 2 | 4.5% | 6% | +1.5 pp | ×1.333 | "crit chance … smaller boost" |
+| Fatal / crit damage | 4 | 50% | 60% | +10 pp | ×1.20 | "crit damage … smaller boost" |
+| Block / block chance | 2 | 4.5% | **5%** | +0.5 pp | ×1.111 | "block chance … smaller boost" |
+| Super Block → Reduction | 4 | 5% (EN) / **9%** (KO) | 10% | +5 pp (EN) / +1 pp (KO) | ×2.00 / ×1.111 | "block-damage reduction … smaller boost" |
+| Element / enhancement | 4 | 23 | 35 | +12 | ×1.5217 | "elemental enhancement/resistance … strengthened" |
+| Resistance | 4 | 23 | 35 | +12 | ×1.5217 | "elemental enhancement/resistance … strengthened" |
+| Penetration | 4 | 12 | 16 | +4 | ×1.333 | "penetration … strengthened" |
+| Speed / attack speed | 4 | 1.72 | 1.72 | **0** | **×1.00** | not mentioned |
+| Regeneration / HP regen | 4 | 30 | 30 | **0** | **×1.00** | not mentioned |
+
+Source: [findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md#L392); SHA-256 `74ca4f5a245a67fd298b0dfca7e46b4dd5583b8908b20830b5d92fe2782def3f`.
+
+## Derived at-draw and balance estimates
+
+Under the 2026-10-11 derivation-counts policy, derivation from recovered mechanics plus source-backed anchors counts as documentation, with per-row class and confidence; `[INFERRED-FIXTURE]` never counts. All values below are 2019-era balance and must be era-tagged. Tier-B/C hero point estimates are band centres (exact-tuple confidence is much lower than band confidence); monster rows are per-encounter tuples, not permanent base stats; skill fixture rows are excluded from the JSON.
+
+| ID | Name | Role | Rar | HP | ATK | DEF | Tier | Confidence |
+|---|---|---|---|---|---|---|---|---|
+| 001 | 世界初のハンター「ランターン」 | Bomber | 3 | 1521 | 1058 | 653 | A | ~100% |
+| 002 | 消えた森の「モーグリ」 | Offense | 2 | 1624 | 839 | 682 | A | ~100% |
+| 003 | 伝説の厄介者「ネネ」 | Defense | 3 | 1750 | 726 | 864 | A | ~100% |
+| 004 | 最高のシェフ「チルチル」 | Support | 1 | 1467 | 679 | 679 | A | ~100% |
+| 004_1 | Tyltyl (Awakened) | Support | 5 | 2830 | 1392 | 1224 | D | ~70-75% band / ~2-10% exact-tuple |
+| 005 | 不屈の「ジェラード」 | Defense | 2 | 1624 | 628 | 893 | A | ~100% |
+| 005_1 | Gerard (Awakened) | Defense | 5 | 3092 | 1295 | 1588 | D | ~70-75% band / ~2-10% exact-tuple |
+| 006 | 消えぬ老兵「シルベスター」 | Offense | 1 | 1537 | 817 | 576 | A | ~100% |
+| 007 | 今日もホットな「メティス」 | Bomber | 1 | 1277 | 908 | 576 | A | ~100% |
+| 008 | 神木の巫女「アーカーシャ」 | Support | 3 | 1710 | 762 | 762 | A | ~100% |
+| 009 | キャプテン「主人公」 | Defense | 1 | 1624 | 628 | 893 | A | ~100% |
+| 009_1 | Captain (Awakened) | Defense | 5 | 3092 | 1295 | 1588 | D | ~70-75% band / ~2-10% exact-tuple |
+| 010 | 裏切り者「ビンセント」 | Offense | 4 | 1923 | 1032 | 718 | A | ~100% |
+| 010_1 | Vincent (Awakened) | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 011 | 守護神「ヘカテ」 | Defense | 1 | 1537 | 576 | 817 | A | ~100% |
+| 011_1 | Hecate (Awakened) | Defense | 5 | 3092 | 1295 | 1588 | D | ~70-75% band / ~2-10% exact-tuple |
+| 012 | 不滅の「カルシュタイナー」 | Offense | 3 | 1750 | 1007 | 689 | A | ~100% |
+| 013 | 清潔フェアリー「テナリ」 | Support | 2 | 1584 | 755 | 682 | A | ~100% |
+| 014 | ロック＆キャッシュCEO「ロック」 | Bomber | 1 | 1277 | 908 | 576 | A | ~100% |
+| 015 | 中尉「レヴィ」 | Bomber | 2 | 1395 | 1014 | 580 | A | ~100% |
+| 016 | デスメタルの伝道師「ブルース・バン」 | Support | 1 | 1467 | 660 | 715 | A | ~100% |
+| 017 | 快速の剣術士「ラピス」 | Offense | 1 | 1537 | 854 | 540 | A | ~100% |
+| 017_1 | Lapis (Awakened) | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 018 | 生存術の覇者「ロビン」 | Defense | 1 | 1537 | 642 | 751 | A | ~100% |
+| 019 | さすらいの剣客「バリアン」 | Offense | 1 | 1537 | 817 | 576 | A | ~100% |
+| 019_1 | Balian (Awakened) | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 020 | 火力オタク「シエナ」 | Bomber | 1 | 1277 | 944 | 540 | A | ~100% |
+| 020_1 | Sienna (Awakened) | Bomber | 5 | 2557 | 1681 | 1153 | D | ~70-75% band / ~2-10% exact-tuple |
+| 021 | 黄昏のバット団「レベッカ」 | Offense | 2 | 1624 | 893 | 580 | A | ~100% |
+| 021_1 | Rebecca (Awakened) | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 022 | 実験体 2号「ヘソン」 | Support | 2 | 1584 | 718 | 718 | A | ~100% |
+| 023 | 特級伝令使「ヘルメス」 | Offense | 3 | 1750 | 937 | 653 | A | ~100% |
+| 024 | 波乱万丈「リコ」 | Defense | 2 | 1624 | 682 | 821 | A | ~100% |
+| 024_1 | Riko (Awakened) | Defense | 5 | 3092 | 1295 | 1588 | D | ~70-75% band / ~2-10% exact-tuple |
+| 025 | テディベアテロリスト「テディボマー」 | Bomber | 2 | 1395 | 978 | 646 | A | ~100% |
+| 026 | 不思議の国の「チルチル」 | Support | 1 | 1467 | 679 | 679 | A | ~100% |
+| 026_1 | In Wonderland | Support | 5 | 2830 | 1392 | 1224 | D | ~70-75% band / ~2-10% exact-tuple |
+| 027 | 戦場の火花「アテナ」 | Defense | 3 | 1750 | 689 | 901 | A | ~100% |
+| 028 | 極寒の魔女「オクタピア」 | Offense | 3 | 1750 | 901 | 689 | A | ~100% |
+| 029 | 鋼のボディガード「カイン」 | Defense | 3 | 1790 | 689 | 1007 | A | ~100% |
+| 030 | 植物学者「アセロラ」 | Support | 2 | 1584 | 718 | 718 | A | ~100% |
+| 031 | 雷矢少女「ディアナ」 | Bomber | 3 | 1521 | 1021 | 689 | A | ~100% |
+| 032 | 放浪の格闘家「スカー」 | Offense | 2 | 1624 | 839 | 682 | A | ~100% |
+| 033 | 静寂な牙「パトローネ」 | Bomber | 3 | 1521 | 1003 | 726 | A | ~100% |
+| 034 | ハロウィン魔女「ハロウィンリコ」 | Defense | 2 | 1624 | 682 | 821 | A | ~100% |
+| 034_1 | Halloween Witch | Defense | 5 | 3092 | 1295 | 1588 | D | ~70-75% band / ~2-10% exact-tuple |
+| 035 | 往診治療室「ジョイ」 | Support | 3 | 1710 | 828 | 726 | A | ~100% |
+| 036 | 大自然の贈り物「クマ」 | Defense | 3 | 1923 | 755 | 864 | A | ~100% |
+| 037 | 高貴な槍「ナタリア」 | Offense | 3 | 1750 | 883 | 755 | A | ~100% |
+| 038 | サンタガール「サンタギャルレベッカ」 | Offense | 3 | 1790 | 992 | 668 | A | ~100% |
+| 038_1 | Twilight Santa Girl | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 039 | 飛行場管理人「グルヴェイグ」 | Bomber | 3 | 1521 | 1021 | 689 | A | ~100% |
+| 040 | オオカミ少女「ビビ」 | Offense | 3 | 1750 | 883 | 755 | A | ~100% |
+| 041 | ロボット工学者「エドワード」 | Defense | 3 | 1821 | 718 | 901 | A | ~100% |
+| 042 | 悪ガキ狩り「サンタクロースター」 | Offense | 3 | 1821 | 937 | 689 | A | ~100% |
+| 043 | 稀少な脱獄囚「パピヨン」 | Defense | 3 | 1606 | 726 | 792 | A | ~100% |
+| 044 | 2つの顔を持つ少女「ハイディ」 | Offense | 3 | 1750 | 952 | 689 | A | ~100% |
+| 045 | 銀盤の妖精「ユリ」 | Offense | 3 | 1750 | 937 | 718 | A | ~100% |
+| 046 | 正義のヒーロー「ハリー」 | Defense | 4 | 2033 | 755 | 1036 | A | ~100% |
+| 047 | 正体不明のツインズ「リリー＆ララー」 | Offense | 4 | 1923 | 996 | 755 | A | ~100% |
+| 048 | 奇妙な老人「ダンブル」 | Defense | 3 | 1750 | 689 | 901 | A | ~100% |
+| 049 | マッチ売りの少年「ブライト」 | Support | 3 | 1710 | 828 | 755 | A | ~100% |
+| 050 | 魔性の理学療法士「テラピー」 | Support | 3 | 1710 | 825 | 762 | A | ~100% |
+| 051 | ファイトクラブの守護者「ベッケン」 | Offense | 3 | 1678 | 864 | 660 | A | ~100% |
+| 052 | 風のような魂「ストーム」 | Offense | 4 | 1955 | 992 | 835 | A | ~100% |
+| 053 | 鋼鉄のレヴェナント「カリバー」 | Defense | 3 | 1750 | 846 | 1284 | A | ~100% |
+| 054 | 天才気象学者「ディノ」 | Bomber | 3 | 1560 | 1029 | 744 | A | ~100% |
+| 055 | 吟遊詩人兼音楽家「アポロン」 | Bomber | 3 | 1560 | 1054 | 708 | A | ~100% |
+| 056 | Genovia | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 056_1 | Genovia (Awakened) | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 057 | 動物愛好家「パンジー」 | Support | 3 | 1742 | 762 | 806 | A | ~100% |
+| 058 | ネクロマンサー「クロッカス」 | Support | 3 | 1710 | 806 | 806 | A | ~100% |
+| 059 | ジャック・オ・ランタン「ハロウィンランターン」 | Bomber | 3 | 1521 | 1058 | 653 | A | ~100% |
+| 060 | ほうき魔女「ハロウィンテナリ」 | Support | 3 | 1710 | 828 | 726 | A | ~100% |
+| 061 | 怪力の少女「チチ」 | Offense | 3 | 1821 | 937 | 798 | A | ~100% |
+| 062 | 航空整備士「ジュノ」 | Defense | 3 | 1968 | 743 | 1125 | A | ~100% |
+| 063 | 一流仕立て屋「エリーズ」 | Defense | 4 | 2019 | 933 | 1070 | A | ~100% |
+| 064 | Geranium | Bomber | 4 | 1742 | 1143 | 744 | B | ~85-90% band / ~10-25% exact-tuple (two methods agree) |
+| 065 | Teresa | Support | 4 | 1847 | 870 | 821 | C | ~75-85% band / ~3-15% exact-tuple |
+| 066 | Mary | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 067 | Judith | Bomber | 4 | 1641 | 1113 | 734 | C | ~75-85% band / ~3-15% exact-tuple |
+| 068 | Selene | Bomber | 4 | 1692 | 1126 | 652 | C | ~75-85% band / ~3-15% exact-tuple |
+| 069 | Celine | Support | 4 | 1872 | 836 | 848 | B | ~85-90% band / ~10-25% exact-tuple (two methods agree) |
+| 070 | Alia | Support | 4 | 1653 | 800 | 739 | C | ~75-85% band / ~3-15% exact-tuple |
+| 071 | Anemone | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 072 | Audrey | Bomber | 4 | 1508 | 958 | 652 | C | ~75-85% band / ~3-15% exact-tuple |
+| 073 | Sofia | Support | 4 | 1847 | 870 | 821 | C | ~75-85% band / ~3-15% exact-tuple |
+| 074 | Leon | Support | 4 | 1847 | 870 | 821 | C | ~75-85% band / ~3-15% exact-tuple |
+| 075 | Bella | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 076 | Junia | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 077 | Blondie | Bomber | 4 | 1641 | 1113 | 734 | C | ~75-85% band / ~3-15% exact-tuple |
+| 078 | Teresa (Halloween) | Support | 4 | 1726 | 800 | 776 | C | ~75-85% band / ~3-15% exact-tuple |
+| 079 | Lawrence | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 080 | Westfield | Support | 4 | 1762 | 800 | 848 | C | ~75-85% band / ~3-15% exact-tuple |
+| 081 | Monica | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 082 | Mary (Christmas) | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 083 | Kamala | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 084 | Lottery Mouse | Bomber | 4 | 1641 | 1113 | 734 | C | ~75-85% band / ~3-15% exact-tuple |
+| 085 | Lunar New Year | Support | 4 | 1726 | 800 | 776 | C | ~75-85% band / ~3-15% exact-tuple |
+| 086 | Genovia (Valentine) | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 086_1 | Valentine Condemner | Offense | 5 | 2943 | 1531 | 1177 | D | ~70-75% band / ~2-10% exact-tuple |
+| 087 | Florist Lady | Bomber | 4 | 1641 | 1113 | 734 | C | ~75-85% band / ~3-15% exact-tuple |
+| 088 | Florist | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 089 | Clara | Support | 4 | 1847 | 870 | 821 | C | ~75-85% band / ~3-15% exact-tuple |
+| 090 | Katrina | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 091 | Anemone (Kid) | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 092 | Themis | Bomber | 4 | 1641 | 1113 | 734 | C | ~75-85% band / ~3-15% exact-tuple |
+| 093 | Bella (Summer) | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 094 | Leon (Summer) | Support | 4 | 1847 | 870 | 821 | C | ~75-85% band / ~3-15% exact-tuple |
+| 095 | Knight of Swimming Pool | Defense | 4 | 2026 | 844 | 1053 | B | ~85-90% band / ~5-25% exact-tuple |
+| 096 | Estelle | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 097 | Lily & Lyla (Christmas) | Offense | 4 | 1923 | 996 | 755 | B | ~85-90% band / ~5-25% exact-tuple |
+| 098 | Selene (Valentine) | Bomber | 4 | 1641 | 1113 | 734 | C | ~75-85% band / ~3-15% exact-tuple |
+
+| Accessory | Slot | MaxHP@50 | Tier | Point/Band |
+|---|---|---|---|---|
+| Ancient Necklace | Accessory | 260 | T2 | 85 / ±20 |
+| Anemometer Backpack | Accessory | 260 | T2 | 85 / ±20 |
+| Angel Wings | Accessory | 260 | T2 | 85 / ±20 |
+| Bat Wings Cape | Accessory | 260 | T2 | 85 / ±20 |
+| Battery Pack | Accessory | 260 | T2 | 85 / ±20 |
+| Bead Hairband | Accessory | 260 | T2 | 85 / ±20 |
+| Bear Hairpin | Accessory | 260 | T2 | 85 / ±20 |
+| Bear's Feet | Accessory | 260 | T2 | 85 / ±20 |
+| Black Headband | Accessory | 260 | T2 | 85 / ±20 |
+| Black Veil | Accessory | 260 | T2 | 85 / ±20 |
+| Blue Checkered Shemagh | Accessory | 260 | T2 | 85 / ±20 |
+| Blue Ribbon | Accessory | 260 | T2 | 85 / ±20 |
+| Blue Skirt | Accessory | 260 | T2 | 85 / ±20 |
+| Bridal Veil | Accessory | 260 | T2 | 85 / ±20 |
+| Case | Accessory | 260 | T2 | 85 / ±20 |
+| Cerberus' Helmet | Accessory | 260 | T2 | 85 / ±20 |
+| Chocolate Bar | Accessory | 260 | T2 | 85 / ±20 |
+| Chocolate Syrup | Accessory | 260 | T2 | 85 / ±20 |
+| Coffee Rabbit Tribe's Bandana | Accessory | 260 | T2 | 85 / ±20 |
+| Dagger Holster | Accessory | 260 | T2 | 85 / ±20 |
+| Damaged Union Epaulet | Accessory | 260 | T3 | 80 / ±25 |
+| Deflection Armor | Accessory | 260 | T2 | 85 / ±20 |
+| Destiny Knot | Accessory | 260 | T2 | 85 / ±20 |
+| Emergency Belt Bag | Accessory | 260 | T2 | 85 / ±20 |
+| Eye of Truth | Accessory | 260 | T2 | 85 / ±20 |
+| Fedora | Accessory | 260 | T2 | 85 / ±20 |
+| First Aid Kit Bag | Accessory | 260 | T2 | 85 / ±20 |
+| Flower Basket | Accessory | 260 | T2 | 85 / ±20 |
+| Flower Hair Clip | Accessory | 260 | T2 | 85 / ±20 |
+| Flower Hairband | Accessory | 260 | T2 | 85 / ±20 |
+| Forbidden Suitcase | Accessory | 260 | T2 | 85 / ±20 |
+| Gambling Dice | Accessory | 260 | T2 | 85 / ±20 |
+| Ghost Bride’s Veil | Accessory | 260 | T2 | 85 / ±20 |
+| Glory of the Past | Accessory | 260 | T2 | 85 / ±20 |
+| Great General’s Fur Robe | Accessory | 260 | T2 | 85 / ±20 |
+| Grenade | Accessory | 260 | T2 | 85 / ±20 |
+| Guitar Strap | Accessory | 260 | T2 | 85 / ±20 |
+| Hair Ornament | Accessory | 260 | T2 | 85 / ±20 |
+| Halloween Pumpkin | Accessory | 260 | T2 | 85 / ±20 |
+| Heat Resistant Railgun Gloves | Accessory | 260 | T3 | 80 / ±25 |
+| Heatproof Cannon Gloves | Accessory | 260 | T2 | 85 / ±20 |
+| Hero's Mark | Accessory | 260 | T2 | 85 / ±20 |
+| Hibiscus | Accessory | 260 | T2 | 85 / ±20 |
+| Hybrid Gloves | Accessory | 260 | T2 | 85 / ±20 |
+| Ice Cube Character Bracelet | Accessory | 260 | T2 | 85 / ±20 |
+| Insulating Gauntlet | Accessory | 260 | T2 | 85 / ±20 |
+| Iron Bag | Accessory | 260 | T2 | 85 / ±20 |
+| Jack | Accessory | 260 | T1 | 100 / ±0 |
+| Judecca's Gift | Accessory | 260 | T2 | 85 / ±20 |
+| Large-Caliber Special Bullet | Accessory | 260 | T2 | 85 / ±20 |
+| Last Gift | Accessory | 260 | T2 | 85 / ±20 |
+| Last Goodbye | Accessory | 260 | T2 | 85 / ±20 |
+| Leather Crossbody Bag | Accessory | 260 | T2 | 85 / ±20 |
+| Lifeguard's Whistle | Accessory | 260 | T2 | 85 / ±20 |
+| Lucky Coin | Accessory | 260 | T2 | 85 / ±20 |
+| Lyla's Cheer Pom Poms | Accessory | 260 | T2 | 85 / ±20 |
+| Magnifying Glass | Accessory | 260 | T2 | 85 / ±20 |
+| Mandarin Scarf | Accessory | 260 | T2 | 85 / ±20 |
+| Matchboy Hood | Accessory | 260 | T2 | 85 / ±20 |
+| Messenger's Bag | Accessory | 260 | T2 | 85 / ±20 |
+| Mia | Accessory | 260 | T2 | 85 / ±20 |
+| Operation Bag | Accessory | 260 | T2 | 85 / ±20 |
+| Pink Fedora | Accessory | 260 | T2 | 85 / ±20 |
+| Pink Heart Towel | Accessory | 260 | T2 | 85 / ±20 |
+| Pompom Headband | Accessory | 260 | T2 | 85 / ±20 |
+| Pressure Hair Tie | Accessory | 260 | T2 | 85 / ±20 |
+| Prisoner Choker | Accessory | 260 | T2 | 85 / ±20 |
+| Prisoner Number | Accessory | 260 | T2 | 85 / ±20 |
+| Protection Pendant | Accessory | 260 | T2 | 85 / ±20 |
+| Pure Gold Chain Necklace | Accessory | 260 | T2 | 85 / ±20 |
+| Pure White Fur Shawl | Accessory | 260 | T2 | 85 / ±20 |
+| Red Glasses | Accessory | 260 | T2 | 85 / ±20 |
+| Red Veil | Accessory | 260 | T2 | 85 / ±20 |
+| Ribbon Brooch | Accessory | 260 | T2 | 85 / ±20 |
+| Ribbon Hair Tie | Accessory | 260 | T2 | 85 / ±20 |
+| Romantic Fanny Pack | Accessory | 260 | T2 | 85 / ±20 |
+| Santa Fedora | Accessory | 260 | T2 | 85 / ±20 |
+| Santa Lyla's Cheer Pom Poms | Accessory | 260 | T2 | 85 / ±20 |
+| Santa Sunglasses | Accessory | 260 | T2 | 85 / ±20 |
+| Saw Blade Sneakers | Accessory | 260 | T2 | 85 / ±20 |
+| Scratched Epaulet | Accessory | 260 | T2 | 85 / ±20 |
+| Signboard | Accessory | 260 | T2 | 85 / ±20 |
+| Skull Eye Patch | Accessory | 260 | T2 | 85 / ±20 |
+| Skull Necklace | Accessory | 260 | T2 | 85 / ±20 |
+| Spirit Bracelet | Accessory | 260 | T2 | 85 / ±20 |
+| Starry Hat | Accessory | 260 | T2 | 85 / ±20 |
+| Steel Bracelets | Accessory | 260 | T2 | 85 / ±20 |
+| Straw Doll | Accessory | 260 | T2 | 85 / ±20 |
+| The Great General’s Fur Robe | Accessory | 260 | T2 | 85 / ±20 |
+| Tool Kit | Accessory | 260 | T2 | 85 / ±20 |
+| Treat Basket | Accessory | 260 | T2 | 85 / ±20 |
+| Tribe's Token | Accessory | 260 | T2 | 85 / ±20 |
+| Trowel | Accessory | 260 | T2 | 85 / ±20 |
+| Uknown Shemagh | Accessory | 260 | T2 | 85 / ±20 |
+| Union Epaulet | Accessory | 260 | T3 | 80 / ±25 |
+| Unknown Epaulet | Accessory | 260 | T2 | 85 / ±20 |
+| Warrior's Necklace | Accessory | 260 | T2 | 85 / ±20 |
+| Windbreaker | Accessory | 260 | T2 | 85 / ±20 |
+| Wolf Ear Decorations | Accessory | 260 | T2 | 85 / ±20 |
+| Wooden Crown | Accessory | 260 | T2 | 85 / ±20 |
+
+| Pack | Rank | HP | ATK | DEF | Tier | Point conf |
+|---|---|---|---|---|---|---|
+| M001 | 1 | 150 | 130 | 100 | [RECOVERED] | 95 |
+| M002 | unknown | 700 | 430 | 160 | [DERIVED-ESTIMATE] | 45 |
+| M003 | unknown | 700 | 430 | 160 | [DERIVED-ESTIMATE] | 45 |
+| M004 | unknown | 700 | 430 | 160 | [DERIVED-ESTIMATE] | 45 |
+| M005 | unknown | 700 | 430 | 160 | [DERIVED-ESTIMATE] | 45 |
+| M006 | unknown | 700 | 430 | 160 | [DERIVED-ESTIMATE] | 45 |
+| M007 | unknown | 700 | 430 | 160 | [DERIVED-ESTIMATE] | 45 |
+| M008 | 4 | 2500 | 1800 | 200 | [RECOVERED] | 95 |
+| M009 | unknown | 5500 | 4500 | 280 | [DERIVED-ESTIMATE] | 15 |
+| M010 | unknown | 5500 | 4500 | 280 | [DERIVED-ESTIMATE] | 15 |
+| M011 | unknown | 5500 | 4500 | 280 | [DERIVED-ESTIMATE] | 15 |
+| M012 | 5 | 16000 | 7000 | 300 | [RECOVERED] | 95 |
+| M013 | unknown | 6500 | 6000 | 280 | [DERIVED-ESTIMATE] | 15 |
+| M014 | 5 | 6500 | 6000 | 300 | [RECOVERED] | 95 |
+| M015 | 5 | 5000 | 4000 | 250 | [RECOVERED] | 95 |
+| M016 | 3 | 1000 | 1200 | 180 | [RECOVERED] | 95 |
+| M017 | 2 | 800 | 680 | 160 | [RECOVERED] | 95 |
+| M018 | 3 | 1000 | 1200 | 180 | [RECOVERED] | 95 |
+| M019 | 5 | 4000 | 4500 | 200 | [RECOVERED] | 95 |
+| M020 | 4 | 2400 | 2600 | 200 | [RECOVERED] | 95 |
+| M021 | 4 | 2000 | 1500 | 210 | [RECOVERED] | 95 |
+| M100 | 5 | 20000 | 8000 | 280 | [RECOVERED] | 95 |
+
+| Skill archetype | Class | Rows |
+|---|---|---|
+| active-direct | [DERIVED-ESTIMATE] | 62 |
+| active-pen | [DERIVED-ESTIMATE] | 47 |
+| buff-self-atk | [DERIVED-ESTIMATE] | 42 |
+| active-bleed4 | [DERIVED-ESTIMATE] | 33 |
+| buff-self-def | [DERIVED-ESTIMATE] | 32 |
+| buff-team-hp | [DERIVED-ESTIMATE] | 26 |
+| buff-team-atk | [DERIVED-ESTIMATE] | 25 |
+| heal-instant | [INFERRED-FIXTURE] | 25 |
+| buff-crit | [INFERRED-FIXTURE] | 21 |
+| heal-dot4 | [INFERRED-FIXTURE] | 21 |
+| debuff-def | [DERIVED-ESTIMATE] | 19 |
+| buff-block | [INFERRED-FIXTURE] | 18 |
+| active-dot-maint | [DERIVED-ESTIMATE] | 15 |
+| buff-dr | [INFERRED-FIXTURE] | 15 |
+| buff-elem | [INFERRED-FIXTURE] | 14 |
+| stun-timed | [INFERRED-FIXTURE] | 14 |
+| buff-hp-misc | [INFERRED-FIXTURE] | 13 |
+| buff-critdmg | [INFERRED-FIXTURE] | 11 |
+| buff-perm | [INFERRED-FIXTURE] | 11 |
+| buff-self-aspd | [DERIVED-ESTIMATE] | 11 |
+| control-misc | [INFERRED-FIXTURE] | 9 |
+| invuln-timed | [DERIVED-ESTIMATE] | 9 |
+| buff-mate-atkdef | [DERIVED-ESTIMATE] | 8 |
+| buff-mate-aspd | [DERIVED-ESTIMATE] | 7 |
+| debuff-stack | [DERIVED-ESTIMATE] | 7 |
+| buff-regen4s | [INFERRED-FIXTURE] | 5 |
+| debuff-block | [DERIVED-ESTIMATE] | 5 |
+| debuff-misc | [DERIVED-ESTIMATE] | 5 |
+| active-bleed4-all | [DERIVED-ESTIMATE] | 4 |
+| active-fixed2000 | [DERIVED-ESTIMATE] | 4 |
+| buff-healpct | [INFERRED-FIXTURE] | 4 |
+| debuff-atk | [DERIVED-ESTIMATE] | 4 |
+| rage-delta | [DERIVED-ESTIMATE] | 4 |
+| active-reverse | [INFERRED-FIXTURE] | 3 |
+| control-perm | [DERIVED-ESTIMATE] | 3 |
+| debuff-perm | [DERIVED-ESTIMATE] | 3 |
+| invuln-repeat | [DERIVED-ESTIMATE] | 3 |
+| buff-tick3s | [INFERRED-FIXTURE] | 2 |
+| buff-team-aspd | [DERIVED-ESTIMATE] | 1 |
+
+## Monster stats and remaining gaps
+
+22 art identities are catalogued; episode-table monster tuples for 22 monster res_ids are listed under Derived estimates above (12 packs anchored, 10 estimated). Expedition monster stats remain server-side and unshipped; campaign entries enumerate 50 IDs from analytics data, not recovered difficulty or AP cost.
+
+Detailed coverage and unresolved claims: [coverage ledger](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/coverage.md).
+
+## Research findings since 2026-10-11.2 (findings, not normalized records)
+
+No normalized dataset record changed in this snapshot (all change counts are zero). Everything below lives in dated finding files and is counted only under the ledger's 2026-10-11 derivation-counts policy. Nothing here promotes an observation into a normalized base-stat record, and no hero tier was changed: promotion evidence is presented, decisions are pending.
+
+### Manual scrapes: 3,626 phone screenshots transcribed (73/73 batches)
+
+Lane: [findings/hunters/base-stats-visual-hunt/manual-scrapes-2026-10-14/](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/manual-scrapes-2026-10-14/). A full manual transcription pass over 3,626 English-client phone screenshots (mostly 2017-era, Play Store 1.0.2.1/27 May 2017 through 1.4.1.0/120 MB/Jun-28-2018 and VER strings to 1.381/2070-style test regs), split into 73 batches of 50 (batch-73: 26-image tail). Every image was viewed directly with OCR as cross-check only (Tesseract, zoom crops win all digit disputes); every row carries filename provenance and confidence. Outputs: 73 `batch-NN.tsv` files (15 cols each), 73 `batch-NN-hits.md` files, `manifest.tsv` (idx 1-3626 contiguous, zero gaps/dupes), [scrape-hits-consolidated.tsv](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/manual-scrapes-2026-10-14/scrape-hits-consolidated.tsv) (119 hit rows + batch column), and [scrape-consolidation-2026-10-14.md](https://github.com/The-Blustone-Revival-Project/Blustone-DataDump/blob/2026-10-14/findings/hunters/base-stats-visual-hunt/manual-scrapes-2026-10-14/scrape-consolidation-2026-10-14.md) (census, deviation table, evidence, conflicts, gaps). Hit crops (121 PNGs) and zoom/OCR working files stay local per the no-binary precedent; two batch-63 crops found at repo root were moved into the lane `hits/` folder.
+
+Result: **119 stat-panel hits across 37 batches** (36 batches hit-free, including tail 70-73 which structurally contain no stat panels); **22 hits carry full HP/ATK/DEF triples at stated levels**. 13 hits have blank catalog IDs at scrape time (resolved by name in consolidation: batch-66 crew to 067/068/069/077/083/033/039, costume Riko/Tyltyl, nickname Whiteheart_ to 009_1). All other hits are Strength-only or recruit-splash class (name+title+level+stars, no HP/ATK/DEF) — census value only.
+
+Data correction applied at source in this release: 91 rows in batches 03 (3), 05 (43) and 18 (45) omitted the `stars` field (14 cols, shifting catalog/numbers/gear/hit/confidence one slot left). All 91 are non-panel screens, none is a hit; the empty `stars` slot was re-inserted and every row re-validated at 15 cols. The consolidated TSV already reflected the corrected alignment.
+
+### Back-calculation table: scrape panels vs tier estimates
+
+`obs` = panel HP/ATK/DEF; `impl` = obs deflated by the level model (stat(L) = at-draw x 1.0188^(L-1)); `est` = current hero-at-draw-estimates value; `dev` = deviation %. `*` = third stat label cut, provisional DEF. `J` = jewel/gear decomposition available. Confirm bar: all three within +/-15% (tiers B/C/D). Conflict bar: any stat beyond +/-30%. 15-30% is borderline, never confirmation.
+
+| panel | cat/tier | L | obs HP/ATK/DEF | impl HP/ATK/DEF | est HP/ATK/DEF | dev HP/ATK/DEF |
+|---|---|---|---|---|---|---|
+| Sienna-123 | 020_1 D | 30 | 3772/2914/1687 | 2198/1711/969 | 2557/1681/1153 | -14.0/+1.8/-16.0 |
+| Karl-506 | 012 A | 30 | 2645/1477/1027 | 1542/867/590 | 1750/1007/689 | -11.9/-13.9/-14.4 |
+| Hermes-507 | 023 A | 30 | 2610/1418/968 | 1521/833/556 | 1750/937/653 | -13.1/-11.1/-14.8 |
+| Sunny-556 | 022 A | 30 | 3047/1379/1577 | 1776/810/906 | 1584/718/718 | +12.1/+12.8/+26.2 |
+| Chichi-621 | 061 A | 30 | 2463/1258/1008 | 1436/739/579 | 1821/937/798 | -21.2/-21.1/-27.4 |
+| Hermes-642 | 023 A | 30 | 2949/1664/1133 | 1719/977/651 | 1750/937/653 | -1.8/+4.3/-0.3 |
+| Teresa-713 | 065 C | 30 | 3719/1641/1902 | 2168/964/1093 | 1847/870/821 | +17.4/+10.8/+33.1 |
+| Octavia-880 | 028 A | 30 | 2382/1216/960 | 1388/714/551 | 1750/901/689 | -20.7/-20.7/-20.0 |
+| Anemone-996 | 071 B | 30 | 3619/1570/2372 | 2109/922/1363 | 2026/844/1053 | +4.1/+9.3/+29.4 |
+| Clara-1601 | 089 C | 30 | 4197/1931/2149 | 2446/1134/1234 | 1847/870/821 | +32.4/+30.4/+50.4 |
+| Lapis-1603 | 017_1 D | 30 | 4501/2382/1849 | 2623/1399/1062 | 2943/1531/1177 | -10.9/-8.6/-9.8 |
+| Hermes-3008 | 023 A | 1 | 637/507/358 | 637/507/358 | 1750/937/653 | -63.6/-45.9/-45.2 |
+| Hermes-3031 | 023 A | 30 | 3187/1977/1227 | 1857/1161/705 | 1750/937/653 | +6.1/+23.9/+7.9 |
+| Hermes-3031J naked | 023 A | 30 | 3104/1657/1198 | 1809/973/687 | 1750/937/653 | +3.4/+3.9/+5.2 |
+| Kamala-3151 | 083 B | 1 | 1323/613/892 | 1323/613/892 | 2026/844/1053 | -34.7/-27.4/-15.3 |
+| Karl-3158 | 012 A | 30 | 3574/2083/1439 | 2083/1223/827 | 1750/1007/689 | +19.0/+21.5/+20.0 |
+| Heidi-3163 | 044 A | 30 | 2864/1679/1296 | 1669/986/744 | 1750/952/689 | -4.6/+3.6/+8.1 |
+| Selene-3280 | 068 C | 24 | 1204/1031/607 | 785/676/391 | 1692/1126/652 | -53.6/-40.0/-40.0 |
+| Celine-3281 | 069 B | 30 | 2734/1257/1210 | 1593/738/695 | 1872/836/848 | -14.9/-11.7/-18.0 |
+| Judith-3289 | 067 C | 1 | 994/811/532 | 994/811/532 | 1641/1113/734 | -39.4/-27.1/-27.5 |
+| Kamala-3290 | 083 B | 1 | 1173/548/764 | 1173/548/764 | 2026/844/1053 | -42.1/-35.1/-27.4 |
+| Patrone-3298 | 033 A | 1 | 1132/887/657 | 1132/887/657 | 1521/1003/726 | -25.6/-11.6/-9.5 |
+| Lawrence-3302 | 095 B | 18 | 2994/1341/1716 | 2182/982/1240 | 2026/844/1053 | +7.7/+16.3/+17.7 |
+| Pansy-3385* | 057 A | 1 | 561/369/374 | 561/369/374 | 1742/762/806 | -67.8/-51.6/-53.6 |
+| Gerard-831 | 005_1 D | 8 | 3632/1463/2275 | 3188/1287/1990 | 3092/1295/1588 | +3.1/-0.6/+25.3 |
+| Gerard-3415* | 005_1 D | 26 | 3910/1575/2392 | 2455/996/1483 | 3092/1295/1588 | -20.6/-23.1/-6.6 |
+| Whiteheart-3417* | 009_1 D | 28 | 4266/1792/2375 | 2581/1092/1417 | 3092/1295/1588 | -16.5/-15.7/-10.7 |
+| Vincent-3436 | 010_1 D | 30 | 4833/2626/2077 | 2817/1542/1193 | 2943/1531/1177 | -4.3/+0.7/+1.4 |
+
+Excluded from back-calc (no usable triple): Teresa-3122 (HP 6.0% Hunter Bonus toast, not a stat); Celine-3286 (HP 12.0% toast, digit cut); Gerard-3416 (same-session duplicate of 3415, counted once).
+
+### Tier-promotion evidence (presented, not applied)
+
+- Vincent-3436 (010_1, D): -4.3/+0.7/+1.4 — STRONG. Clean Lv.30 5-star triple, skills 50/50 x5. Supports tier-D awakened x1.45 construction for 010_1.
+- Lapis-1603 (017_1, D): -10.9/-8.6/-9.8 — CONFIRM. Lv.30 5-star triple, skills 50/50 x5. Retires the top of the old polluted band (awakened factor ~1.29-1.33 against its base).
+- Sienna-123 (020_1, D): -14.0/+1.8/-16.0 — BORDERLINE. Panel shows equipped gear, so naked truth is lower and DEF would move further out. D-pending; needs naked-base decomposition.
+- Anemone-996 (071, B): HP +4.1 / ATK +9.3 confirm; DEF +29.4 borderline-high. Tier-B median triple can stand, with a DEF-method flag (shared B-ladder DEF leg 1053 looks ~25-30% light).
+- Celine-3281 (069, B): -14.9/-11.7/-18.0 — BORDERLINE. First direct Celine triple (recruit->trained pair, +2 days). HP/ATK confirm the dual-method B point; DEF 3 points outside.
+- Lawrence-3302 (095, B): +7.7/+16.3/+17.7 — BORDERLINE (mid-curve L18, skills 50/50 x5). Consistent with B, not promotion-grade alone.
+- Gerard-831 (005_1, D): HP +3.1 / ATK -0.6 confirm; DEF +25.3 borderline-high (fate materials partial, panel may carry material bonuses). Supports D on two legs; DEF unresolved.
+- Whiteheart-3417 (009_1, D): -16.5/-15.7/-10.7 (provisional DEF) — just outside on HP/ATK, inside on DEF. Title-matched to 009_1 (nickname display). Weak support, provisional only.
+
+### Conflicts (explicit, no overwrites)
+
+- Clara-1601 (089, C): +32/+30/+50% on ALL THREE legs — genuine conflict with the tier-C point, pending gear decomposition (reconciling +50% DEF needs ~35% gear inflation, above every measured quantum of +2-19%).
+- Teresa-713 (065, C): DEF +33.1 CONFLICT; HP/ATK confirm-ish. Same gear caveat (skills 50/50 x5).
+- Selene-3280 (068, C): -54/-40/-40% — NUMERICAL conflict only; panel is 4-star at Lv.24 with partial skills, NOT the 5-star state the C point assumes. Star-state effect, not refutation. Needs a 5-star Selene panel.
+- Kamala-3151/3290 (083, B): two independent Lv.1 4-star draws agree with each other (12-17% apart) but sit ~-35% under the B point. Lv.1-caveat applies (Lv.1 draw panels proven NOT in at-draw units); the pair caps any B-point revision (mean 1248/580/828 = draw-state floor).
+- Judith-3289 (067, C): -39/-27/-28% at Lv.1 4-star draw state. Same Lv.1 caveat; first direct Judith triple regardless.
+
+### Gear and star-state calibration
+
+Same-hero same-level spreads (gear/skill/client noise) reach 35-40%, so the 15% confirm bar sits INSIDE demonstrated gear noise: Hermes-023 Lv.30 5-star x3 (+13/+17/+17% and +3/+4/+5% naked across three builds); Karl-012 Lv.30 5-star x2 (+35/+41/+40%); Bibi re-train pair 9444->10127 (+7.2% Strength noise floor, no advancement). Measured gear quanta: +222 HP / +157 ATK / +69 DEF equipment screen (+8/+11/+5%); Hermes jewel decomposition (+3/+19/+2%); transcendence strips +12%. Gold standard: Hermes-3031 jewel-screen naked base 3104/1657/1198 implies +3.4/+3.9/+5.2% on the ~100%-confidence archive row — validating the archive row AND the 1.88%-class growth model together. All future promotions should aim for this decomposition standard. Lv.1 panels are NOT in at-draw units (Hermes-3008 -64/-46/-45%; Pansy-3385 -68/-52/-54%): Lv.1-implied values must NOT promote without a star-state correction.
+
+### Growth-shape findings
+
+- Gerard-005_1 is the ONLY within-star-state level pair (L8 vs L26): implies ~0.4%/level if gear-equal, far under the 1.88% model — but gear-equal is likely false (different sessions/clients), so the pair bounds combined model+gear uncertainty at ~25-30% over 18 levels. Needs gear decomposition, not a model rewrite.
+- Mid-curve anchors are Strength-only except Selene-L24 and Lawrence-L18 triples: Diana L7, Windblade L10, Lily & Lyla L16, Tyltyl L17, Octavia L15, Dino L28, Geranium L28, Whiteheart L28 (triple, prov-DEF), Gerard L26 (triple, prov-DEF).
+- L1<->L30 spans star states (3-star 3008 vs 5-star 3031: 4.9x HP over 29 levels = 5.6%/level effective) — transcendence/star multipliers dominate raw level growth. The 1.88% model is valid WITHIN a fixed star/transcendence state only.
+- Re-train pair Bibi 9444->10127 (+7.2%); recruit->trained chains Anemone, Celine (+2 days, only draw-to-maxed-5-star chain), Judith (+85 min).
+
+### Awakened forms, Tier-C firsts, pairs
+
+- Awakened: Sienna-020_1 (borderline-confirm), Gerard-005_1 (HP/ATK-confirm pair), Lapis-017_1 (confirm), Vincent-010_1 (strong confirm), Whiteheart->009_1 (weak-support, provisional DEF). No Anemone-095 panel exists — 095 is swim Lawrence (tier B), not an awakened form.
+- Tier-C first direct panels: Teresa-065 (L30 triple, DEF-conflict + HP/ATK-ok), Judith-067 (L1 triple, first ever), Selene-068 (L24 triple 4-star + L1 recruit), Clara-089 (L30 triple, full conflict). Monica-081 (L1 recruits, no triple), Blondie-077 (L1 splash only), Erise-063 (L30 Strength-only + L1 recruits, no triple). Katrina-090 has ZERO hits across all 3626 rows — the top remaining gap.
+- Tier-B/C/D heroes with hits but NO triple: 056 Genovia, 064 Geranium (L28 Strength-only), 066 Mary, 079 Lawrence (base), 081 Monica, 084 Lottery Mouse, 096 Estelle, 077 Blondie, 063 Erise, plus 095-swim needs an L30 mate.
+- 13 blank-catalog hits need catalog-side resolution (costume variants Tyltyl-In-Wonderland, Riko-Halloween-Witch; nickname Whiteheart_; batch-66 crew to 039/067/068/069/077/083/033).
+
+### Client-vs-catalog wording drifts (recorded across the 73 batches)
+
+Systematic client "Electricity" vs catalog "Lightning" (dozens of panels, plus third spelling "Electric" in a tier list and "Electric Abyss" frames). Title article variants both directions, predominantly catalog-side article-dropping ("The Frost Witch", "Flame of the Battlefield", "The Little Match Boy", "The Revenant") with the reverse also seen ("Flame of Battlefield" without article). Name spellings: "Mowgli"/"Mowgli", "Rico"/"Riko" (co-occurring DOUBLE drift with Electricity on one panel), "Akasha"/"Akasha" (two independent client contradictions of catalog "Maiden of Gods"), "Teddy Bommer" (intermittent sic), "Mowgli"/"Mowgli", "Tyltyl"/"Tyltyl", "Lantern"/"Lantern", "Patrone"/"Patrone" (later-frame OCR anchoring), "Beckhen", "Bibi", "hiny Egg", "Whiteheart_". Title swaps on two panels (client "Experiment #2 Denali" and "In Wonderland Sunny" swap heroes 013/022 titles); outfit/display titles ("Novice Hunter", "Teddy Bear Terrorist" dual text, "The Girl We Love" for Lily & Lyla, "Aurora Soul Celine" held blank). All recorded verbatim per batch; reconciliation is pending and none of it changes a tier.
+
+### Economy and mechanics highlights from the scrapes
+
+Transcendence price tiers 9000+1/1 / 30000+0/2 / 80000+3/3 (+25000 fourth tier, 60000 4->5-star fee shown red/blocked as separate-currency signal); 3rd transcendence needs 6 copies; fodder floor above-3-star-only; 4->5-star results +37.6% to +56.6%; advancement fees 0/1000/12000/15000/60000 with level-reset cost measured (5-star Lv.1 BELOW 4-star base: 32740->23552); Advancement Hell chart (120 Bronzes->5-star; 8x 3-star dupes->4-star); skill-training cost ladders per level with material stacks; gacha rates 3-star 4.76% / 2-star 19.05% / 1-star 76.19% (sums 100%; Elite-request), rate-up math verified (0.07% = 1/3 of 0.21%; Chichi 1000% UP; Selene 300% +1 transcendence); recruit price boards; trace economy with 2-day deltas and over-threshold convertible surplus (Sylvester 142/20, Denali 689/40); team-strength additive sums verified repeatedly (incl. 5-member teams and off-by-one flags never rounded); fight-club PvP loss model confirmed second-source (-7/-7/-8/-9; win +14/+15; defense -5~-6); event ladders (Cumulative Victory 10-tier, Metron rank rewards, Jack's Treat tiers, 28-day attendance with 1002-day streak); version anchors 1.0.2.1/27 May 2017 through 1.4.1.0/Jun-28-2018 plus VER strings and engine provenance (Peppermint builds, ONEPLUS A3000, Moto G (4)); developer statements (new-region drop-rate decrease + rupee increase; Fever-gauge; limited-trace areas; No.5 skill penetration 0.2>0.15); balance notices (helpers +~7% combat points; element rebalance 20/15%->25/20%; role rework naming Bibi/Natalia; Dumble/Gullveig; Geranium bleed-until-disabled + armor pen 10->15).
+
+### Remaining gaps and method upgrades
+
+- Katrina-090 (tier B): zero hits — highest-priority gap.
+- 36 zero-hit batches; tail 70-73 structurally hit-free; 13 blank-catalog resolutions pending.
+- Promotion-grade evidence standard: naked-base (jewel/gear-off) decompositions a la Hermes-3031 for every promotion/conflict hero; a 5-star Selene panel; an L30 mate for Lawrence-095-L18; a same-state level pair with documented equal gear.
+- VSFan attach census: 55 image rows examined, 0 stat-panel hits; lane still running in the background at cutoff, files excluded from this snapshot.
+- Archive-missing-heroes recheck (already published in 2026-10-11.2): 0/19 rows recovered, closed-set negative stands.
