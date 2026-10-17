@@ -84,6 +84,32 @@ rejected as encounter tuning (`071` Anemone is the recorded example).
 - A level/rank/gear-adjusted value may be counted as a stat observation only if the goal ledger calls it adjusted and there is enough exact evidence to derive the base value. Never label it a base value by assumption.
 - Do not use current replica fixture data as original-game evidence.
 
+### Adjudication 2026-10-17 — manual-scrape stat panels (owner decision)
+
+The 2026-10-14 manual transcription lane
+([`manual-scrapes-2026-10-14/scrape-consolidation-2026-10-14.md`](manual-scrapes-2026-10-14/scrape-consolidation-2026-10-14.md);
+3,626 screenshots, 119 stat-panel hits, 22 full HP/ATK/DEF triples) was recorded
+evidence-only with promotion decisions deferred. On 2026-10-17 the owner
+adjudicated those deferred decisions:
+[`panel-adjudication-2026-10-17.md`](panel-adjudication-2026-10-17.md).
+
+- **No numeric at-draw estimate changed.** Panels either confirm existing
+  estimates (Hermes 023 archive row via the Hermes-3031 naked-base decomposition;
+  awakened forms 010_1, 017_1, 005_1, 009_1) or conflict without enough evidence
+  to compute a replacement (089 Clara all-legs conflict; 065 Teresa DEF leg).
+  Every affected row carries a dated annotation in the superseding table
+  [`hero-at-draw-estimates-2026-10-17.tsv`](hero-at-draw-estimates-2026-10-17.tsv)
+  (the 2026-10-11 file is retained as history).
+- **Promotion standard adopted:** a naked-base triple (jewel/gear-off) + stated
+  level + 5-star, as in Hermes-3031/idx-3033. The ±15% confirm bar sits inside
+  demonstrated gear noise (same-hero spreads reach 35–40%); L1 draw-state panels
+  are not at-draw units and never promote without a star-state correction.
+- **Coverage reading unchanged:** 113/113 estimated, 62 anchored; band-documented
+  81/113 and exact-tuple ≈66/113 stand. The confirms raise confidence in the
+  existing D/B rows but no row changes tier or value.
+- **Top remaining gap:** Katrina-090 (tier B) has zero hits across all 3,626
+  screenshots.
+
 ## Supplementary track: polluted hero observations (no completion credit)
 
 Per the user's 2026-10-05 clarification, preserve readable hero Strength/rating

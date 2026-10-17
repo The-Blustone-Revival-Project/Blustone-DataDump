@@ -15,8 +15,11 @@ class Snapshots(unittest.TestCase):
    subprocess.run([sys.executable,str(Path(__file__).with_name('build-snapshot.py')),'--date','2026-10-10','--revision','2','--previous-json',str(previous),'--out',str(out)],check=True,capture_output=True)
    data=json.loads((out/'BLUSTONE-Stats.json').read_text(encoding='utf-8'))
    self.assertEqual(data['version'],'2026-10-10.2');self.assertEqual(data['previous_version'],'2026-10-10')
-   for name in ('hunter_identities','hunter_stat_observations','hunter_skill_reference','monster_identities','campaign_identifiers','episode_story_graph','episode_rewards','hunter_gear_identities','curated_source_tables'):
+   for name in ('hunter_identities','hunter_stat_observations','hunter_skill_reference','monster_identities','campaign_identifiers','episode_story_graph','episode_rewards','hunter_gear_identities'):
     self.assertEqual((data['changes'][name]['added'],data['changes'][name]['changed'],data['changes'][name]['removed']),(0,0,0))
+   curated=data['changes']['curated_source_tables']
+   self.assertEqual((curated['changed'],curated['removed']),(0,0))
+   self.assertEqual(curated['added'],len([t for t in data['curated_source_tables'] if t['source'].endswith(('scrape-consolidation-2026-10-14.md','panel-adjudication-2026-10-17.md'))]))
    self.assertEqual({k:(data['changes'][k]['added'],data['changes'][k]['changed'],data['changes'][k]['removed']) for k in
      ('hero_at_draw_estimates','accessory_stat_estimates','monster_stat_estimates','skill_magnitude_estimates')},
     {'hero_at_draw_estimates':(113,0,0),'accessory_stat_estimates':(100,0,0),'monster_stat_estimates':(22,0,0),'skill_magnitude_estimates':(565,0,0)})

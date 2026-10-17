@@ -17,7 +17,7 @@ DATASETS={
 }
 REPO='https://github.com/The-Blustone-Revival-Project/Blustone-DataDump'
 DERIVATIONS={
- 'hero_at_draw_estimates':('findings/hunters/base-stats-visual-hunt/hero-at-draw-estimates-2026-10-11.tsv','catalog_id'),
+ 'hero_at_draw_estimates':('findings/hunters/base-stats-visual-hunt/hero-at-draw-estimates-2026-10-17.tsv','catalog_id'),
  'accessory_stat_estimates':('findings/hunters/base-stats-visual-hunt/accessory-stat-estimates-2026-10-11/accessory-stat-estimates-2026-10-11.tsv','item_name_en'),
  'monster_stat_estimates':('findings/hunters/base-stats-visual-hunt/monster-stat-estimates-2026-10-11/monster-stat-estimates-2026-10-11.tsv','catalog_monster_id'),
  'skill_magnitude_estimates':('findings/hunters/base-stats-visual-hunt/skill-magnitude-estimates-2026-10-11/skill-magnitude-estimates-2026-10-11.tsv',('card_id','slot')),
@@ -87,6 +87,9 @@ def main():
  if (ROOT/extra).exists():curated += [t for t in tables(extra) if 'jewel set' in t['section'].lower()]
  latest='findings/hunters/base-stats-visual-hunt/jewel-help-locales-2026-10-05.md'
  curated += [t for t in tables(latest) if t['section'].startswith(('1.4 ','1.5 ','2.2 '))]
+ lane='findings/hunters/base-stats-visual-hunt/manual-scrapes-2026-10-14/scrape-consolidation-2026-10-14.md'
+ curated += [t for t in tables(lane) if t['section'].startswith(('2. Hit census','3. Back-calculation'))]
+ curated += tables('findings/hunters/base-stats-visual-hunt/panel-adjudication-2026-10-17.md')
  def indexed_tables(rows):
   result=[];seen={}
   for row in rows:
