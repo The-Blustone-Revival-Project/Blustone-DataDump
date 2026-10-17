@@ -1,5 +1,10 @@
 # Stat-panel hunt — 2026-10-11
 
+> **2026-10-17:** the raw media (`frames/`, `dl/`, `bahamut/`, `hits/` —
+> ~3.9 GB) moved to private preservation storage `local/findings-media/`; only
+> text findings (this REPORT, frame results, search log, OCR table, tools)
+> remain in the repository.
+
 Lane: `stat-panel-hunt-2026-10-11`. Goal: in-game STAT PANELS (card-detail
 HP/ATK/DEF/Strength, equipment screens, hunter lists, monster panels) usable as
 ledger anchors, especially for 4-star heroes. Positive control first; every hit

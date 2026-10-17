@@ -1,5 +1,9 @@
 # Manual scrapes consolidation — 2026-10-14
 
+> **2026-10-17:** the screenshot crops (`hits/`, `z*.png` — ~370 MB) moved to
+> private preservation storage `local/findings-media/`; the text lane (batch
+> TSVs, hits summaries, manifest, this consolidation) remains in the repository.
+
 Lane: `findings/hunters/base-stats-visual-hunt/manual-scrapes-2026-10-14/`
 Outputs (this consolidation only): `scrape-hits-consolidated.tsv` (119 hit rows,
 15 source cols + `batch`), this file. No other file was modified: promotion
