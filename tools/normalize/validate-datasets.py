@@ -28,6 +28,14 @@ for file in datasets:
 observations=json.loads((ROOT/'datasets/hunters/stat-observations.json').read_text(encoding='utf-8'))
 assert all(r['counts_as_base_stat'] is False for r in observations)
 assert all(r['value'] is None or isinstance(r['value'],(int,float)) and math.isfinite(r['value']) for r in observations)
+quotes=json.loads((ROOT/'datasets/economy/market-quotes.json').read_text(encoding='utf-8'))
+for row in quotes:
+    assert row['lot_price'] > 0 and (row['quantity'] is None or row['quantity'] > 0),row['id']
+    assert re.fullmatch(r'[0-9a-f]{64}',row['image_sha256']),row['id']
+    transcript=row['transcription']['provenance']
+    assert transcript['path']==row['transcript_path'] and transcript['locator']==f"line:{row['transcript_line']}"
+    lines=(ROOT/transcript['path']).read_text(encoding='utf-8-sig').splitlines()
+    assert lines[row['transcript_line']-1].split('\t')[0]==str(row['image_id']),row['id']
 manifest=json.loads((ROOT/'exports/server/manifest.json').read_text(encoding='utf-8'))
 for row in manifest['files']:
     assert hashlib.sha256((ROOT/row['destination']).read_bytes()).hexdigest()==row['provenance']['sha256']

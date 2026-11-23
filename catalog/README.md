@@ -11,6 +11,10 @@ Primary keys use character-reference IDs, never owned-instance IDs.
 - [Episode rewards](../datasets/economy/episode-rewards.json): original reward IDs/quantities; server settlement mappings are separate policy.
 - [Hunter gear identities](../datasets/equipment/hunter-gear-identities.json): named weapon/armor/accessory associations.
 - [Equipment observations](../datasets/equipment/GEAR.md): preserved numeric evidence and methodology.
+- [Snowfields gameplay](../datasets/campaign/snowfields-gameplay.json) records three early clears, battle HP, Fuel and Rupees.
+- [Level-one Hunter panels](../datasets/hunters/level-one-panels.json) preserve era, upload month and timestamped footage.
+- [Historical Market quotes](../datasets/economy/market-quotes.json) record dated lot prices by shop and currency.
+- [November balance evidence and open research](../findings/balance-research-2026-11-23.md) explains the archive correction and remaining gaps.
 - [Coverage](coverage.json): generated counts; consult historical field-coverage findings for stricter base-stat completeness.
 
 The legacy catalogue under legacy-catalogue-data/ and per-entity Markdown retains richer commentary and citations. New JSON does not override conflicting claims in that commentary.

@@ -9,6 +9,29 @@ class Snapshots(unittest.TestCase):
   before={'datasets':{'stats':[{'id':'a','value':7,'gear':'unknown'},{'id':'b','value':8},{'id':'c','value':9}]}}
   after={'stats':[{'id':'a','value':7,'gear':'unequipped'},{'id':'b','value':8},{'id':'d','value':10}]}
   self.assertEqual(builder.compare(after,before)['stats'],{'added':1,'removed':1,'changed':1,'unchanged':1})
+ def test_november_evidence_against_october_publication(self):
+  previous=ROOT/'releases/2026-10-17/BLUSTONE-Stats.json'
+  with tempfile.TemporaryDirectory() as folder:
+   out=Path(folder)/'november'
+   subprocess.run([sys.executable,builder.__file__,'--date','2026-11-23','--previous-json',str(previous),'--out',str(out)],check=True,capture_output=True)
+   data=builder.load(out/'BLUSTONE-Stats.json')
+  heroes=data['derivations']['hero_at_draw_estimates']
+  old={r['id']:r for r in builder.load(previous)['derivations']['hero_at_draw_estimates']}
+  self.assertEqual(data['changes']['hero_at_draw_estimates']['changed'],62)
+  for row in heroes:
+   before=old[row['id']]
+   if row['tier']=='A':
+    self.assertEqual(row['class'],'[DERIVED-ESTIMATE]')
+    self.assertEqual({k for k in row if row[k]!=before[k]},{'class','confidence','method'})
+   else:
+    self.assertEqual(row,before)
+  turns=data['datasets']['snowfields_gameplay']
+  self.assertEqual([(r['protagonist_hp'],r['tyltyl_hp'],r['collected_rupees']) for r in turns],[(173,156,56),(175,157,54),(177,158,54)])
+  quotes=data['datasets']['historical_market_quotes']
+  akasha=[(r['era'],r['quantity'],r['lot_price']) for r in quotes if r['item']=='Akasha Trace']
+  self.assertEqual(akasha,[('Blustone 1',2,150),('Blustone 1',4,300),('Blustone 1',5,375),('Blustone 2',5,375)])
+  self.assertEqual(len(quotes),55)
+  self.assertIsNone(next(r for r in quotes if r['item']=='1-star Trainer')['quantity'])
  def test_same_day_revision_preserves_data_and_pins_documents(self):
   with tempfile.TemporaryDirectory() as folder:
    out=Path(folder)/'second';previous=ROOT/'releases/2026-10-10/BLUSTONE-Stats.json'

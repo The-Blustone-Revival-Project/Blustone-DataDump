@@ -4,16 +4,45 @@ import csv, hashlib, json
 
 ROOT = Path(__file__).resolve().parents[2]
 def load(name): return json.loads((ROOT/name).read_text(encoding='utf-8-sig'))
-def save(name,value):
+def save(name,value, *, newline='\r\n'):
+    # The published legacy JSON files use CRLF and are pinned by byte hash.
     dest=ROOT/name;dest.parent.mkdir(parents=True,exist_ok=True)
-    dest.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    with dest.open('w', encoding='utf-8', newline=newline) as stream:
+        stream.write(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
 def provenance(source,locator,label,**context):
     file=ROOT/source
     return {'source_id':'src-'+hashlib.sha256(source.encode()).hexdigest()[:16],
             'path':source,'sha256':hashlib.sha256(file.read_bytes()).hexdigest(),
             'locator':locator,'label':label,**context}
 
+def build_balance_observations():
+    inputs = [
+        ('findings/campaign/snowfields-gameplay-2026-11-23.tsv', 'datasets/campaign/snowfields-gameplay.json',
+         'area entry_level protagonist_hp tyltyl_hp fuel hunter_levels_gained collected_rupees'),
+        ('findings/hunters/level-one-panels-2026-11-23.tsv', 'datasets/hunters/level-one-panels.json',
+         'level stars hp atk def attack_speed strength'),
+        ('findings/economy/market-quotes-2026-11-23.tsv', 'datasets/economy/market-quotes.json',
+         'quantity lot_price image_id transcript_line'),
+    ]
+    for source, destination, numeric_columns in inputs:
+        records = []
+        with (ROOT/source).open(encoding='utf-8', newline='') as stream:
+            for line, raw in enumerate(csv.DictReader(stream, delimiter='\t'), 2):
+                row = {key: value or None for key, value in raw.items()}
+                for key in numeric_columns.split():
+                    if row[key] is not None:
+                        row[key] = int(row[key])
+                row['provenance'] = provenance(source, f'line:{line}', 'COMMUNITY-SOURCED')
+                if 'transcript_path' in row:
+                    row['transcription'] = {'provenance': provenance(
+                        row['transcript_path'], f"line:{row['transcript_line']}", 'COMMUNITY-SOURCED')}
+                else:
+                    row.update(counts_as_base_stat=False, gear_state=None, client_build=None)
+                records.append(row)
+        save(destination, records, newline='\n')
+
 def main():
+    build_balance_observations()
     source='catalog/legacy-catalogue-data/cards.json';cards=load(source)
     char_source='sources/client-tables/reference/CHAR_STR.json';char=load(char_source)
     hunters=[];gear=[]
