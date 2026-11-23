@@ -14,6 +14,7 @@ Primary keys use character-reference IDs, never owned-instance IDs.
 - [Snowfields gameplay](../datasets/campaign/snowfields-gameplay.json) records three early clears, battle HP, Fuel and Rupees.
 - [Level-one Hunter panels](../datasets/hunters/level-one-panels.json) preserve era, upload month and timestamped footage.
 - [Historical Market quotes](../datasets/economy/market-quotes.json) record dated lot prices by shop and currency.
+- [Follow-up observations](../datasets/gameplay/balance-observations.json) cover Hunter growth, repeated expeditions, Market stock and combat timing.
 - [November balance evidence and open research](../findings/balance-research-2026-11-23.md) explains the archive correction and remaining gaps.
 - [Coverage](coverage.json): generated counts; consult historical field-coverage findings for stricter base-stat completeness.
 

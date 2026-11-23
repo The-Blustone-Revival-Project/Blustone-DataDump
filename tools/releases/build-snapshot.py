@@ -6,6 +6,7 @@ import argparse,csv,hashlib,json,re,subprocess
 
 ROOT=Path(__file__).resolve().parents[2]
 DATASETS={
+ 'balance_followup':'datasets/gameplay/balance-observations.json',
  'snowfields_gameplay':'datasets/campaign/snowfields-gameplay.json',
  'hunter_level_one_panels':'datasets/hunters/level-one-panels.json',
  'historical_market_quotes':'datasets/economy/market-quotes.json',
@@ -106,6 +107,9 @@ def main():
  sources=[{'path':path,'sha256':digest((ROOT/path).read_bytes()),'records':len(datasets[name])} for name,path in DATASETS.items()]
  observation_sources={row['provenance']['path'] for name in ('snowfields_gameplay','hunter_level_one_panels','historical_market_quotes') for row in datasets[name]}
  observation_sources.update(row['transcript_path'] for row in datasets['historical_market_quotes'])
+ followup=datasets['balance_followup']
+ observation_sources.update(row['provenance']['path'] for row in followup)
+ observation_sources.update(ref['provenance']['path'] for row in followup for ref in row['sources'] if 'provenance' in ref)
  for path in sorted({t['source'] for t in curated} | observation_sources | {RESEARCH}):
   sources.append({'path':path,'sha256':digest((ROOT/path).read_bytes())})
  for rel in [rel for rel,_ in DERIVATIONS.values()]:
@@ -119,12 +123,24 @@ def main():
              'Battle HP includes party effects. Each Snowfields payout was observed once. Shop quotes apply to the pictured lot.',
              'Missing values remain unknown; conflicting and contaminated observations are retained separately.']}
  link=lambda path:f'{REPO}/blob/{version}/{path}'
+ def reference_links(row):
+  links=[]
+  for ref in row['sources']:
+   if 'url' in ref:
+    links.append(f"[Footage {len(links)+1}]({ref['url']})")
+   elif 'image_id' in ref:
+    links.append(f"[Image {ref['image_id']}]({link(ref['transcript_path'])}#L{ref['transcript_line']})")
+   else:
+    links.append(f"[Original record]({link(ref['document'])})")
+  return ' · '.join(links)
  stats=[f'# BLUSTONE Stats — {version}',f'\nResearch snapshot as of **{as_of} (Asia/Jerusalem)**. This date is a publication cutoff; each observation retains its own historical capture date and context.\n',
  '## What this snapshot establishes\n',
  f"{coverage['character_rows']} catalogue rows ({coverage['playable_character_rows']} playable identities), {coverage['monster_identities']} monster identities, {coverage['numeric_historical_stat_claims']} historical numeric claims across {coverage['historical_rows_with_numeric_hp']} archived profiles with numeric HP. Symbolic formulas and original identifiers are preserved. Derived estimates (113 hero at-draw rows, 100 accessory rows, 22 monster rows, 565 skill rows, fixture rows excluded) are listed below with per-row class and confidence; unestimated values remain unknown.\n",
  '## Changes since the previous snapshot\n',
  'Initial published baseline; all included dataset records are introduced here.\n' if not previous else f"Compared with **{previous['version']}**. A changed record includes changed context or provenance, not necessarily a new numerical value.\n",
  table(['Dataset','Added records','Changed records','Removed records'],[(k,v['added'],v['changed'],v['removed']) for k,v in changes.items()]),
+ '## Hunter growth, repeat expeditions, market stock and combat timing\n',
+ table(['Subject','Era','Observation','Sources'],[[r['subject'],r['era'],r['summary'],reference_links(r)] for r in followup]),
  '## Original gameplay and shop observations\n',
  'Full battle HP and settled Rupees for the same party. Each area has one observed clear.\n',
  table(['Snowfields area','Entry level','Protagonist HP','Tyltyl HP','Fuel','Hunter levels gained','Collected Rupees','Footage'],
@@ -172,13 +188,13 @@ def main():
  '## Dataset coverage\n',table(['Dataset','Records','Pinned source'],[(name,len(datasets[name]),path) for name,path in DATASETS.items()]+[(name,len(derivations[name]),dict(DERIVATIONS)[name][0]) for name in DERIVATIONS]),
  '## Reading the stats document\n','Archive claims retain original URL, capture timestamp, raw text, units, identity match and unknown state fields in BLUSTONE-Stats.json. Screenshot tables carry a pinned document hash and source-line locator. Do not merge measurements at different levels, ranks or equipment states. White/green display separation is evidence for one observed build, not proof of final-version balance.\n',
  '## November observations and open research\n',
- (ROOT/RESEARCH).read_text(encoding='utf-8').replace('](hunters/', f']({link("findings/hunters/")}').replace('](economy/', f']({link("findings/economy/")}').split('\n',1)[1],
+ (ROOT/RESEARCH).read_text(encoding='utf-8').replace('](hunters/', f']({link("findings/hunters/")}').replace('](gameplay/', f']({link("findings/gameplay/")}').replace('](economy/', f']({link("findings/economy/")}').split('\n',1)[1],
  '## Conflicts and known limits\n','- The 62 archive tuples are historical display readings. Their at-draw level and equipment remain unverified. The November classification supersedes the October interpretation.\n- Beckhen 051 Lv.30 equipment ATK has a 78-point unreconciled subtotal.\n- Vincent 010_1 equipment state is unknown.\n- The 1.4.4.1 Super Block locale conflict and the distinct 2.8.0.1 Reduction wording/reordered help table are preserved; do not collapse eras or locales.\n- Monster episode rows are per-encounter tuples; monster display names stay unknown.\n- Tier-B/C hero point estimates are band centres; exact-tuple confidence is 2–25%.\n- Original reward IDs are separate from server settlement mappings.\n- No native battle, phone operation or new stat measurement is implied by publishing this snapshot.\n',
  '## Derivation sources and methods\n','Per-row class (`[RECOVERED]` / `[DERIVED-ESTIMATE]`), confidence and method live in BLUSTONE-Stats.json under `derivations`. `[INFERRED-FIXTURE]` rows are excluded from the snapshot payload. Methods: hero archive-level derivation (`findings/hunters/base-stats-visual-hunt/archive-level-derivation-2026-10-11.md`), hero archetype model (`findings/hunters/base-stats-visual-hunt/hero-archetype-guesstimate-2026-10-11.md`), accessory model (`findings/hunters/base-stats-visual-hunt/accessory-stat-estimates-2026-10-11/REPORT.md`), monster model (`findings/hunters/base-stats-visual-hunt/monster-stat-estimates-2026-10-11/REPORT.md`), skill model (`findings/hunters/base-stats-visual-hunt/skill-magnitude-estimates-2026-10-11/REPORT.md`). The four estimate TSVs are fingerprinted in the sources table above.\n',
  '## Source fingerprints\n',table(['Source path','SHA-256'],[(r['path'],r['sha256']) for r in sources]),
  '## Reproduce this release\n',f'Check out tag `{version}`, run `python tools/normalize/validate-datasets.py`, then `python tools/releases/build-snapshot.py --date {as_of} --revision {args.revision} --out local/reproduced/{version}`. Use the previous release\'s BLUSTONE-Stats.json with `--previous-json` when applicable.\n',
  '## Integrity\n','SHA256SUMS.txt pins the two documents, the JSON snapshot and the release manifest. The release manifest pins every dataset source used to construct this snapshot. Private captures, cookies, saves, signing keys and raw account telemetry are excluded.\n']
- notes=f'''# Blustone DataDump {version}\n\nStats and evidence snapshot as of {as_of} (Asia/Jerusalem).\n\n## Included\n\n- **BLUSTONE-Stats.md:** historical hunter values, curated screenshot/equipment tables, original IDs and explicit unknowns.\n- **BLUSTONE-Evidence.md:** source classes, coverage, conflicts, source hashes and reproduction instructions.\n- **BLUSTONE-Stats.json:** all {len(datasets)} normalized datasets, derived estimate tables (113 hero at-draw rows, 100 accessory rows, 22 monster rows, 565 skill rows), curated source tables and machine-readable changes from the previous release.\n- **RELEASE-MANIFEST.json** and **SHA256SUMS.txt:** reproducibility and integrity.\n\n## Changes\n\n- Three original Snowfields clears establish early effective HP and settled Rupee amounts. Three level-one Hunter panels carry upload-era context.\n- The market ledger records {len(datasets['historical_market_quotes'])} priced offers across ten dated screens, including eight ordinary Market rotations and two separate purchase screens.\n- Reclassified 62 Japanese archive tuples as uncalibrated at-draw estimates. Their recorded numeric values are preserved.\n\n{'Initial research baseline.' if not previous else 'Compared with '+previous['version']+'.'}\n\n{table(['Dataset','Added','Changed','Removed'],[(k,v['added'],v['changed'],v['removed']) for k,v in changes.items()])}\n\n## Coverage and limits\n\n121 catalogue rows /113 playable identities;22 monster identities;806 numeric historical claims;50 campaign IDs;147 Episode nodes;1070 symbolic skill records. Derived estimates carry per-row class and historical confidence; fixture rows are excluded from the payload. Conflicting jewel values and incomplete monster/base-stat evidence remain visible.\n'''
+ notes=f'''# Blustone DataDump {version}\n\nStats and evidence snapshot as of {as_of} (Asia/Jerusalem).\n\n## Included\n\n- **BLUSTONE-Stats.md:** repeat expedition payouts, observed combat timing, historical Hunter values, curated screenshot/equipment tables, original IDs and explicit unknowns.\n- **BLUSTONE-Evidence.md:** source classes, coverage, conflicts, source hashes and reproduction instructions.\n- **BLUSTONE-Stats.json:** all {len(datasets)} normalized datasets, derived estimate tables (113 hero at-draw rows, 100 accessory rows, 22 monster rows, 565 skill rows), curated source tables and machine-readable changes from the previous release.\n- **RELEASE-MANIFEST.json** and **SHA256SUMS.txt:** reproducibility and integrity.\n\n## Changes\n\n- The first seven observed Snowfields victories pay 378 Rupees in total. Full battle HP readings now extend to starter level 26. Three level-one Hunter panels carry upload-era context.\n- The market ledger records {len(datasets['historical_market_quotes'])} priced offers across {len({r['image_id'] for r in datasets['historical_market_quotes']})} dated screens, including ordinary Market lots and separate purchase screens.\n- Added {len(followup)} observations on Hunter progression, repeat expeditions, combat and Market stock. Midgard Snowfields Area 4 paid 54 Rupees on first clear and 1,098 across 20 guided dispatches. The starting Captain reached Strength 586 at one star, level 30 and 799 after advancement to two stars, level 1. Episode 13 and 15 replays show the combat clock pausing during skill animations.\n- Reclassified 62 Japanese archive tuples as uncalibrated at-draw estimates. Their recorded numeric values are preserved.\n\n{'Initial research baseline.' if not previous else 'Compared with '+previous['version']+'.'}\n\n{table(['Dataset','Added','Changed','Removed'],[(k,v['added'],v['changed'],v['removed']) for k,v in changes.items()])}\n\n## Coverage and limits\n\n121 catalogue rows /113 playable identities;22 monster identities;806 numeric historical claims;50 campaign IDs;147 Episode nodes;1070 symbolic skill records. Derived estimates carry per-row class and historical confidence; fixture rows are excluded from the payload. Conflicting jewel values and incomplete monster/base-stat evidence remain visible.\n'''
  out.mkdir(parents=True)
  (out/'BLUSTONE-Stats.md').write_text('\n'.join(stats),encoding='utf-8',newline='\n')
  (out/'BLUSTONE-Evidence.md').write_text('\n'.join(evidence),encoding='utf-8',newline='\n')

@@ -30,7 +30,15 @@ class Snapshots(unittest.TestCase):
   quotes=data['datasets']['historical_market_quotes']
   akasha=[(r['era'],r['quantity'],r['lot_price']) for r in quotes if r['item']=='Akasha Trace']
   self.assertEqual(akasha,[('Blustone 1',2,150),('Blustone 1',4,300),('Blustone 1',5,375),('Blustone 2',5,375)])
-  self.assertEqual(len(quotes),55)
+  self.assertEqual({r['item'] for r in quotes if r['image_id']==3020},{'Beckhen Trace','Natalia Trace','Juno Trace'})
+  self.assertEqual(len(quotes),58)
+  repeat=next(r for r in data['datasets']['balance_followup'] if r['id']=='snowfields-area4-tutorial-dispatch')['values']
+  self.assertEqual(repeat['total_rupees'],1098)
+  self.assertEqual(repeat['total_rupees']/repeat['runs'],repeat['mean_rupees_per_dispatch'])
+  self.assertIsNone(repeat['individual_rupees'])
+  followup={r['id']:r['values'] for r in data['datasets']['balance_followup']}
+  self.assertEqual(followup['snowfields-area5-battle-hp']['full_battle_hp'],[222,180,331])
+  self.assertEqual([followup[f'snowfields-area{n}-first-clear']['settled_rupees'] for n in range(4,8)],[54,56,52,52])
   self.assertIsNone(next(r for r in quotes if r['item']=='1-star Trainer')['quantity'])
  def test_same_day_revision_preserves_data_and_pins_documents(self):
   with tempfile.TemporaryDirectory() as folder:

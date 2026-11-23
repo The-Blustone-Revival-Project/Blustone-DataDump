@@ -41,7 +41,20 @@ def build_balance_observations():
                 records.append(row)
         save(destination, records, newline='\n')
 
+def build_followup_observations():
+    source = 'findings/gameplay/balance-observations-2026-11-23.json'
+    records = load(source)
+    for index, row in enumerate(records):
+        row['provenance'] = provenance(source, f'/{index}', 'COMMUNITY-SOURCED')
+        for ref in row['sources']:
+            if 'transcript_path' in ref:
+                ref['provenance'] = provenance(ref['transcript_path'], f"line:{ref['transcript_line']}", 'COMMUNITY-SOURCED')
+            elif 'document' in ref:
+                ref['provenance'] = provenance(ref['document'], ref['locator'], 'RECOVERED')
+    save('datasets/gameplay/balance-observations.json', records, newline='\n')
+
 def main():
+    build_followup_observations()
     build_balance_observations()
     source='catalog/legacy-catalogue-data/cards.json';cards=load(source)
     char_source='sources/client-tables/reference/CHAR_STR.json';char=load(char_source)
